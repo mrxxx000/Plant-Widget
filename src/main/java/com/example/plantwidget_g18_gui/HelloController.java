@@ -1,7 +1,11 @@
 package com.example.plantwidget_g18_gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -9,14 +13,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import com.example.plantwidget_g18_gui.*;
+import javafx.stage.Stage;
 
 public class HelloController implements Initializable {
     @FXML
     private Button addNewPLantButton;
     @FXML
     private Button waterThePlantOne;
+    @FXML
+    private Button skipHourButton;
     @FXML
     private TextField levelPlantOne;
     @FXML
@@ -35,12 +44,38 @@ public class HelloController implements Initializable {
     private ImageView imagePlantFive;
     @FXML
     private ImageView imagePlantSix;
+    private Stage stage;
+    private Scene scene;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Button selectPlantButton;
 
     double healthPlantOne = 0.5;
     double waterPlantOne = 0.7;
     int levelOfPlantOne = 99;
 
+    public void selectPlant(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
+            scene = new Scene(fxmlLoader.load());
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Plant Widget Library!");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void goBackToLibrary(ActionEvent event){
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        System.out.println(System.getProperty("javafx.runtime.version"));
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Plant Widget Library!");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
     public void updatePlantHealthBarOne(double healthPlantOne) {
@@ -62,6 +97,17 @@ public class HelloController implements Initializable {
         waterPlantOne = 1.0;
         updatePlantHealthBarOne(healthPlantOne);
         updatePlantWaterBarOne(waterPlantOne);
+    }
+    public void skipHour(){
+        if(waterPlantOne>0.0){
+        waterPlantOne = waterPlantOne-0.5;
+        updatePlantHealthBarOne(healthPlantOne);
+        updatePlantWaterBarOne(waterPlantOne);}
+        else{
+            healthPlantOne-=0.3;
+            updatePlantHealthBarOne(healthPlantOne);
+
+        }
     }
     @FXML
     public void addNewPlant(){

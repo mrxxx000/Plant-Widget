@@ -1,4 +1,4 @@
-package src.main.java.com.example.plantwidget_g18_gui;
+package com.example.plantwidget_g18_gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 720, 480);
         stage.setTitle("Plant Widget Library!");
         stage.setScene(scene);
         stage.show();

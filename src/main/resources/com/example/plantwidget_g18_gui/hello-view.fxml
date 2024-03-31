@@ -37,7 +37,7 @@
             <Font size="6.0" />
          </font>
       </Button>
-      <Button layoutX="74.0" layoutY="141.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="55.0" text="Turn to Widget">
+      <Button fx:id="selectPlantButton" layoutX="74.0" layoutY="141.0" mnemonicParsing="false" onAction="#selectPlant" prefHeight="14.0" prefWidth="55.0" text="Select Plant">
          <font>
             <Font size="6.0" />
          </font>
