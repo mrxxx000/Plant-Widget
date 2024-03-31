@@ -1,4 +1,4 @@
-package com.example.plantwidget_g18_gui;
+package src.main.java.com.example.plantwidget_g18_gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
