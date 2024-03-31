@@ -65,7 +65,7 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void addNewPlant(){
-        Image image = new Image("C:\\Users\\emrem\\IdeaProjects\\PlantWidget_G18_GUI\\images\\34a878b5ee65d73.png");
+        Image image = new Image("C:\\Users\\petvi\\IdeaProjects\\Plant-Widget\\images\\34a878b5ee65d73.png");
         imagePlantTwo.setImage(image);
     }
 }

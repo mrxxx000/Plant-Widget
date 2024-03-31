@@ -22,7 +22,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="313.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="135.0" layoutX="31.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../SYS/pngtree-cactus-pixel-art-png-image_6581983.png" />
+            <Image url="@../../../../../../../../../../Users/petvi/IdeaProjects/Plant-Widget/images/pngtree-cactus-pixel-art-png-image_6581983.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="169.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
