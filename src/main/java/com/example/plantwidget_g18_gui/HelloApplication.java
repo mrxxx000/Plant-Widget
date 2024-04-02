@@ -12,9 +12,11 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
-        Scene scene = new Scene(fxmlLoader.load(), 720, 480);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Plant Widget Library!");
         stage.setScene(scene);
+        stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+        stage.setResizable(false);
         stage.show();
     }
 

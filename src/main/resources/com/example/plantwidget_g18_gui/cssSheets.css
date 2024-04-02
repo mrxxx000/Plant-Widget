@@ -1,0 +1,93 @@
+.buttonLegendary
+{
+-fx-background-color : #eaed26;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonLegendary:hover
+{
+-fx-background-color : #909019;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonLegendary:pressed
+{
+-fx-background-color : #eaed26;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1
+{
+-fx-background-color : #25ee58;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1:pressed
+{
+-fx-background-color : #25ee58;
+-fx-background-radius : 30 0 0 30;
+}
+.buttonSelect
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSelect:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSelect:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 30 0 0 30;
+}
+.buttonWater
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonWater:hover
+{
+-fx-background-color : #3373da;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonWater:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonExit
+{
+-fx-background-color : #da2929;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonExit:hover
+{
+-fx-background-color : #612424;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonExit:pressed
+{
+-fx-background-color : #da2929;
+-fx-background-radius : 30 0 0 30;
+}
+
+.anchor-paneBorder {
+    -fx-border-color:  #61523a;
+    -fx-border-width: 7px;
+
+}

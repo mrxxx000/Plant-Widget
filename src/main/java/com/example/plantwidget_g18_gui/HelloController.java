@@ -23,6 +23,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button addNewPLantButton;
     @FXML
+    private Button exitButton;
+    @FXML
     private Button waterThePlantOne;
     @FXML
     private Button skipHourButton;
@@ -50,7 +52,8 @@ public class HelloController implements Initializable {
     private Button backButton;
     @FXML
     private Button selectPlantButton;
-
+    private double xOffset = 0;
+    private double yOffset = 0;
     double healthPlantOne = 0.5;
     double waterPlantOne = 0.7;
     int levelOfPlantOne = 99;
@@ -61,11 +64,27 @@ public class HelloController implements Initializable {
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
+            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setScene(scene);
+            mouseMoveable(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void mouseMoveable(Scene scene){
+        scene.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+        scene.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - xOffset);
+            stage.setY(event.getScreenY() - yOffset);
+        });
+    }
+    public void closeProgram(ActionEvent event){
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     public void goBackToLibrary(ActionEvent event){
@@ -81,6 +100,8 @@ public class HelloController implements Initializable {
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
             stage.setScene(scene);
+            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
