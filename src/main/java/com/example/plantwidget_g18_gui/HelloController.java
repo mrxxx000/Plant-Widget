@@ -69,12 +69,22 @@ public class HelloController implements Initializable {
     }
 
     public void goBackToLibrary(ActionEvent event){
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Plant Widget Library!");
         stage.setScene(scene);
-        stage.show();
+        stage.show();*/
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            scene = new Scene(fxmlLoader.load());
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Plant Widget Library!");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
