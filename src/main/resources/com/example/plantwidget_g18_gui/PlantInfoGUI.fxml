@@ -5,30 +5,43 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="721.0" style="-fx-background-color: #4e835b;" styleClass="anchor-paneBorder" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Button fx:id="backButton" layoutX="87.0" layoutY="406.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="38.0" prefWidth="137.0" text="Back to library" />
-      <Button fx:id="waterThePlantOne" layoutX="224.0" layoutY="406.0" mnemonicParsing="false" onAction="#waterPlantOne" prefHeight="38.0" prefWidth="137.0" text="Water the plant" />
-      <Button layoutX="361.0" layoutY="406.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" text="Place on desktop" />
-      <Button fx:id="skipHourButton" layoutX="498.0" layoutY="406.0" mnemonicParsing="false" onAction="#skipHour" prefHeight="38.0" prefWidth="137.0" text="Skip hour" />
+      <Pane layoutY="-169.0" prefHeight="385.0" prefWidth="360.0" rotate="38.7" style="-fx-background-color: #61523a; -fx-background-radius: 60;" />
+      <Pane layoutX="467.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" />
+      <Button fx:id="backButton" layoutX="87.0" layoutY="406.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="38.0" prefWidth="137.0" styleClass="button1" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" text="Back to library" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="waterThePlantOne" layoutX="224.0" layoutY="406.0" mnemonicParsing="false" onAction="#waterPlantOne" prefHeight="38.0" prefWidth="137.0" styleClass="buttonWaterMiddle" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" text="Water the plant" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="361.0" layoutY="406.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSelectMiddle" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" text="Place on desktop" textFill="WHITE" />
+      <Button fx:id="skipHourButton" layoutX="498.0" layoutY="406.0" mnemonicParsing="false" onAction="#skipHour" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSkipDay" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" text="Skip day" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <TextArea layoutX="56.0" layoutY="36.0" prefHeight="38.0" prefWidth="266.0" promptText="Plant-name, species, age" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="200.0" layoutX="467.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <ProgressBar fx:id="plantWaterBarOne" layoutX="480.0" layoutY="222.0" prefHeight="23.0" prefWidth="175.0" progress="0.78" />
-      <ProgressBar fx:id="plantHealthBarOne" layoutX="479.0" layoutY="284.0" prefHeight="23.0" prefWidth="175.0" progress="0.53" />
-      <Text layoutX="499.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Level" wrappingWidth="137.0" />
-      <Text layoutX="498.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Level" wrappingWidth="137.0" />
+      <ProgressBar fx:id="plantWaterBarOne" layoutX="480.0" layoutY="212.0" prefHeight="23.0" prefWidth="175.0" progress="0.78" style="-fx-background-color: #3373da;" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" />
+      <ProgressBar fx:id="plantHealthBarOne" layoutX="479.0" layoutY="274.0" prefHeight="23.0" prefWidth="175.0" progress="0.53" />
+      <Text layoutX="499.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Level" wrappingWidth="137.0" />
+      <Text layoutX="498.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Level" wrappingWidth="137.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="239.0" layoutX="56.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
       <TextField fx:id="levelPlantOne" layoutX="56.0" layoutY="36.0" prefHeight="38.0" prefWidth="266.0" />
       <ImageView fitHeight="239.0" fitWidth="266.0" layoutX="70.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+            <Image url="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/images/pngtree-cactus-pixel-art-png-image_6581983.png" />
          </image>
       </ImageView>
       <AmbientLight layoutX="383.0" layoutY="234.0" lightOn="true">
@@ -36,15 +49,28 @@
             <Color red="0.501960813999176" green="1.0" />
          </color>
       </AmbientLight>
-      <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="605.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="605.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/water.png" />
+            <Image url="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/images/water.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="38.0" layoutX="615.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="38.0" layoutX="615.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/health.png" />
+            <Image url="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/images/health.png" />
          </image>
       </ImageView>
+      <Button fx:id="exitButton1" layoutX="688.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@../../../../../../../../../IdeaProjects/Plant-Widget/src/main/resources/com/example/plantwidget_g18_gui/cssSheets.css" text="X" textOverrun="CLIP">
+         <effect>
+            <DropShadow blurType="GAUSSIAN">
+               <color>
+                  <Color red="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+
    </children>
 </AnchorPane>

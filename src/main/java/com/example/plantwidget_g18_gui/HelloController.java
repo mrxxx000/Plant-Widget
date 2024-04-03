@@ -64,7 +64,7 @@ public class HelloController implements Initializable {
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
-            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setScene(scene);
             mouseMoveable(scene);
             stage.show();
@@ -100,7 +100,7 @@ public class HelloController implements Initializable {
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
             stage.setScene(scene);
-            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
