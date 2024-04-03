@@ -50,7 +50,6 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></TextField>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#61523a" height="113.0" layoutX="449.0" layoutY="289.0" stroke="#544530" strokeType="INSIDE" width="152.0" />
       <Button layoutX="489.0" layoutY="300.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" text="+ New Seed" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">

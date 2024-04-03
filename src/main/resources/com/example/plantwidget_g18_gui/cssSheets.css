@@ -91,3 +91,56 @@
     -fx-border-width: 7px;
 
 }
+
+.buttonSkipDay
+{
+-fx-background-color : #61523a;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonSkipDay:hover
+{
+-fx-background-color : #4d4030;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonSkipDay:pressed
+{
+-fx-background-color : #61523a;
+-fx-background-radius : 0 30 30 0;
+}
+.buttonSelectMiddle
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonSelectMiddle:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonSelectMiddle:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle
+{
+-fx-background-color : #34a8d9;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle:hover
+{
+-fx-background-color : #3373da;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle:pressed
+{
+-fx-background-color : #34a8d9;
+-fx-background-radius : 0 0 0 0;
+}

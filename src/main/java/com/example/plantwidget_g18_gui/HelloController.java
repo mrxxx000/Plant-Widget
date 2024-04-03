@@ -118,8 +118,8 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        plantHealthBarOne.setStyle("-fx-accent: red;");
-        plantWaterBarOne.setStyle("-fx-accent: blue;");
+        plantHealthBarOne.setStyle("-fx-accent: #da2929;");
+        plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         levelPlantOne.setStyle("-fx-accent: #92eaa9;");
         levelPlantOne.setText("Level : " + String.valueOf(levelOfPlantOne));
     }
