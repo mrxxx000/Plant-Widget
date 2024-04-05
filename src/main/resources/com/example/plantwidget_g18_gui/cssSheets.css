@@ -144,3 +144,15 @@
 -fx-background-color : #34a8d9;
 -fx-background-radius : 0 0 0 0;
 }
+
+.backgroundColor{
+    -fx-background-color: #92eaa9;
+}
+
+.backgroundColor:hover{
+    -fx-background-color: #82cf95;
+}
+
+.backgroundColor:pressed{
+    -fx-background-color: #92eaa9;
+}
