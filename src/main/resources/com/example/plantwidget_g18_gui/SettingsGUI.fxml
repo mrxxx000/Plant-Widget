@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
       <Pane layoutX="159.0" layoutY="-167.0" prefHeight="424.0" prefWidth="100.0" rotate="90.0" stylesheets="@cssSheets.css">
          <styleClass>
