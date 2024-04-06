@@ -3,6 +3,7 @@ package com.example.plantwidget_g18_gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
         stage.setResizable(false);
+        Image icon = new Image("C:\\Users\\petvi\\IdeaProjects\\Plant-Widget\\src\\main\\resources\\images\\pngtree-cactus-pixel-art-png-image_6581983.png");
+        stage.getIcons().add(icon);
         stage.show();
     }
 

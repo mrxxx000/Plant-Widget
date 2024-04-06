@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+   <children>
+      <Pane layoutX="159.0" layoutY="-167.0" prefHeight="424.0" prefWidth="100.0" rotate="90.0" stylesheets="@cssSheets.css">
+         <styleClass>
+            <String fx:value="buttonWater" />
+            <String fx:value="backgroundColorSettings" />
+         </styleClass>
+         <effect>
+            <Glow />
+         </effect>
+      </Pane>
+      <ProgressBar fx:id="plantHealthBarOne" layoutX="580.0" layoutY="220.0" />
+      <Label layoutX="154.0" layoutY="26.0" text="Settings" textFill="WHITE">
+         <font>
+            <Font name="Neo Sans" size="32.0" />
+         </font>
+      </Label>
+      <TextField fx:id="levelPlantOne" layoutX="505.0" layoutY="138.0" />
+      <VBox layoutX="45.0" layoutY="95.0" prefHeight="245.0" prefWidth="332.0">
+         <children>
+            <JFXToggleButton text="Light/Dark Theme" toggleColor="#393b3c" toggleLineColor="#101011" unToggleColor="#2185ff" unToggleLineColor="#569ff2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <Line endX="120.29289245605469" endY="-0.7073240280151367" startX="450.5857849121094" startY="-0.7076148986816406" stroke="#61523a" />
+            <Label />
+            <JFXToggleButton text="PLACEHOLDER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXToggleButton>
+            <Line endX="120.29289245605469" endY="-0.7073240280151367" startX="450.5857849121094" startY="-0.7076148986816406" stroke="#61523a" />
+            <Label prefHeight="27.0" prefWidth="345.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="27.0" prefWidth="345.0" text="                    Difficulty Mode">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXSlider />
+         </children>
+      </VBox>
+      <MFXButton fx:id="backButton" buttonType="RAISED" depthLevel="LEVEL5" layoutX="152.0" layoutY="360.0" onAction="#goBackToLibrary" prefHeight="40.0" prefWidth="119.0" rippleColor="#a18c6b" style="-fx-background-color: #61523a;" text="Back to Library" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </MFXButton>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

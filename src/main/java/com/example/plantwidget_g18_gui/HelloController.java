@@ -34,6 +34,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button chooseSeedButton3;
     @FXML
+    private Button settingsButton;
+    @FXML
     private Button chooseSeedButtonExtended1;
     @FXML
     private Button chooseSeedButtonExtended2;
@@ -130,6 +132,20 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void goToSettings(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
+            scene = new Scene(fxmlLoader.load());
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Plant Widget Library!");
+            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            mouseMoveable(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void mouseMoveable(Scene scene){
         scene.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
@@ -194,7 +210,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        plantHealthBarOne.setStyle("-fx-accent: #da2929;");
+        plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);

@@ -145,6 +145,10 @@
 -fx-background-radius : 0 0 0 0;
 }
 
+.progressBarHealth .bar{
+-fx-background-color: linear-gradient(to right, red, green);
+    }
+
 .backgroundColor{
     -fx-background-color: #92eaa9;
 }
@@ -155,4 +159,34 @@
 
 .backgroundColor:pressed{
     -fx-background-color: #92eaa9;
+}
+
+.backgroundColorSettings{
+    -fx-background-color:   #4e835b;
+}
+
+.backgroundColorSettings:hover{
+    -fx-background-color:  #4e835b;
+}
+
+.backgroundColorSettings:pressed{
+    -fx-background-color:  #4e835b;
+}
+
+.buttonSettings
+{
+-fx-background-color :#636864;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSettings:hover
+{
+-fx-background-color : #505451;
+-fx-background-radius :30 0 0 30;
+}
+
+.buttonSettings:pressed
+{
+-fx-background-color : #636864;
+-fx-background-radius : 30 0 0 30;
 }

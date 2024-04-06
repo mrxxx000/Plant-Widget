@@ -35,7 +35,7 @@
       <ImageView fx:id="imagePlantFive" fitHeight="88.0" fitWidth="111.0" layoutX="170.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantSix" fitHeight="88.0" fitWidth="111.0" layoutX="318.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ProgressBar fx:id="plantWaterBarOne" layoutX="19.0" layoutY="125.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" />
-      <ProgressBar fx:id="plantHealthBarOne" layoutX="19.0" layoutY="139.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" />
+      <ProgressBar fx:id="plantHealthBarOne" layoutX="19.0" layoutY="139.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" />
       <Button fx:id="waterThePlantOne" layoutX="15.0" layoutY="159.0" mnemonicParsing="false" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonWater" stylesheets="@cssSheets.css" text="Water Plant">
          <font>
             <Font size="11.0" />
@@ -50,7 +50,7 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></TextField>
-      <Button fx:id="plantNewSeedButton" layoutX="489.0" layoutY="300.0" mnemonicParsing="false" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" text="+ New Seed" textOverrun="CLIP">
+      <Button fx:id="plantNewSeedButton" layoutX="489.0" layoutY="268.0" mnemonicParsing="false" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" text="+ New Seed" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
                <color>
@@ -58,15 +58,21 @@
                </color>
             </DropShadow>
          </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
       </Button>
-      <Button layoutX="489.0" layoutY="334.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" styleClass="buttonLegendary" stylesheets="@cssSheets.css" text="Legendary Plants" textOverrun="CLIP">
+      <Button layoutX="489.0" layoutY="301.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" styleClass="buttonLegendary" stylesheets="@cssSheets.css" text="Legendary Plants" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
                <color>
-                  <Color red="0.4020467698574066" green="0.7236841917037964" blue="0.46101364493370056" />
+                  <Color red="0.3307017683982849" green="0.3552631437778473" blue="0.14473684132099152" />
                </color>
             </DropShadow>
          </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
       </Button>
       <Button fx:id="exitButton" layoutX="489.0" layoutY="367.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="25.0" prefWidth="111.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="Exit Application" textOverrun="CLIP">
          <effect>
@@ -85,6 +91,18 @@
             <DropShadow blurType="GAUSSIAN">
                <color>
                   <Color red="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="settingsButton" layoutX="489.0" layoutY="334.0" mnemonicParsing="false" onAction="#goToSettings" prefHeight="25.0" prefWidth="111.0" styleClass="buttonSettings" stylesheets="@cssSheets.css" text="Settings" textOverrun="CLIP">
+         <effect>
+            <DropShadow blurType="GAUSSIAN">
+               <color>
+                  <Color red="0.16374269127845764" green="0.18421052396297455" blue="0.16749513149261475" />
                </color>
             </DropShadow>
          </effect>
