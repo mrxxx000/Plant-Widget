@@ -28,7 +28,10 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="361.0" layoutY="406.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSelectMiddle" stylesheets="@cssSheets.css" text="Place on desktop" textFill="WHITE" />
+      <Button fx:id="placeOnDesk1" layoutX="361.0" layoutY="406.0" mnemonicParsing="false" onAction="#placeOnDesk1" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSelectMiddle" stylesheets="@cssSheets.css" text="Place on desktop" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Button fx:id="skipHourButton" layoutX="498.0" layoutY="406.0" mnemonicParsing="false" onAction="#skipHour" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSkipDay" stylesheets="@cssSheets.css" text="Skip day" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />

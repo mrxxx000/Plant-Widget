@@ -77,6 +77,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button addNewPLantButton;
     @FXML
+    private Button placeOnDesk1;
+    @FXML
     private Button exitButton;
     @FXML
     private Button waterThePlantOne;
@@ -132,6 +134,20 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void placeOnDesk1(ActionEvent event){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
+            scene = new Scene(fxmlLoader.load());
+            stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Plant Widget Library!");
+            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
+            stage.setScene(scene);
+            mouseMoveable(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void goToSettings(ActionEvent event){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
@@ -176,6 +192,7 @@ public class HelloController implements Initializable {
             stage.setScene(scene);
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
+            stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

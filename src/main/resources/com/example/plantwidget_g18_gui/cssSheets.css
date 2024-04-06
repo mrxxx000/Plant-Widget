@@ -190,3 +190,6 @@
 -fx-background-color : #636864;
 -fx-background-radius : 30 0 0 30;
 }
+.textFieldGreen {
+    -fx-background-color: #92eaa9;
+}
