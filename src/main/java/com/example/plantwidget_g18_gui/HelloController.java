@@ -73,7 +73,11 @@ public class HelloController implements Initializable {
     private ProgressBar seedDifficultyBar3;
 
     @FXML
-    private Button plantNewSeedButton;
+    private Button plantNewSeedButton1;
+    @FXML
+    private Button plantNewSeedButton2;
+    @FXML
+    private Button plantNewSeedButton3;
     @FXML
     private Button addNewPLantButton;
     @FXML
@@ -269,6 +273,7 @@ public class HelloController implements Initializable {
         seedSpeciesDifficualty1.setVisible(true);
         seedDifficualty1.setVisible(true);
         seedDifficultyBar1.setVisible(true);
+        plantNewSeedButton1.setVisible(true);
     }
     public void showExtendedSeedMenu2(ActionEvent e){
         chooseSeedButtonExtended2.setVisible(true);
@@ -277,6 +282,7 @@ public class HelloController implements Initializable {
         seedSpeciesDifficualty2.setVisible(true);
         seedDifficualty2.setVisible(true);
         seedDifficultyBar2.setVisible(true);
+        plantNewSeedButton2.setVisible(true);
 
 
     }
@@ -287,6 +293,37 @@ public class HelloController implements Initializable {
         seedSpeciesDifficualty3.setVisible(true);
         seedDifficualty3.setVisible(true);
         seedDifficultyBar3.setVisible(true);
+        plantNewSeedButton3.setVisible(true);
+    }
+
+    public void hideExtendedSeedMenu1(ActionEvent e){
+        chooseSeedButtonExtended1.setVisible(false);
+        seedSpecies1.setVisible(false);
+        seedSpeciesLabel1.setVisible(false);
+        seedSpeciesDifficualty1.setVisible(false);
+        seedDifficualty1.setVisible(false);
+        seedDifficultyBar1.setVisible(false);
+        plantNewSeedButton1.setVisible(false);
+    }
+
+    public void hideExtendedSeedMenu2(ActionEvent e){
+        chooseSeedButtonExtended2.setVisible(false);
+        seedSpecies2.setVisible(false);
+        seedSpeciesLabel2.setVisible(false);
+        seedSpeciesDifficualty2.setVisible(false);
+        seedDifficualty2.setVisible(false);
+        seedDifficultyBar2.setVisible(false);
+        plantNewSeedButton2.setVisible(false);
+    }
+
+    public void hideExtendedSeedMenu3(ActionEvent e){
+        chooseSeedButtonExtended3.setVisible(false);
+        seedSpecies3.setVisible(false);
+        seedSpeciesLabel3.setVisible(false);
+        seedSpeciesDifficualty3.setVisible(false);
+        seedDifficualty3.setVisible(false);
+        seedDifficultyBar3.setVisible(false);
+        plantNewSeedButton3.setVisible(false);
     }
 
 

@@ -19,8 +19,9 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
         stage.setResizable(false);
-        Image icon = new Image("C:\\Users\\petvi\\IdeaProjects\\Plant-Widget\\src\\main\\resources\\images\\pngtree-cactus-pixel-art-png-image_6581983.png");
-        stage.getIcons().add(icon);
+            Image image = new Image(getClass().getResource("/images/34a878b5ee65d73.png").toString());
+        //Image icon = new Image("src/main/resources/images/pngtree-cactus-pixel-art-png-image_6581983.png");
+        stage.getIcons().add(image);
         stage.show();
     }
 

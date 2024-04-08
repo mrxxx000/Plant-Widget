@@ -155,10 +155,14 @@
 
 .backgroundColor:hover{
     -fx-background-color: #82cf95;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
 }
 
 .backgroundColor:pressed{
     -fx-background-color: #92eaa9;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
 }
 
 .backgroundColorSettings{
@@ -193,3 +197,13 @@
 .textFieldGreen {
     -fx-background-color: #92eaa9;
 }
+@font-face {
+    src: url("fonts/retro_computer_personal_use.ttf");
+}
+.text {
+    -fx-font-family:"Retro Computer";
+}
+.label {
+    -fx-font-family:"Retro Computer";
+}
+
