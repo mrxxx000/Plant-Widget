@@ -1,0 +1,209 @@
+.buttonLegendary
+{
+-fx-background-color : #eaed26;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonLegendary:hover
+{
+-fx-background-color : #909019;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonLegendary:pressed
+{
+-fx-background-color : #eaed26;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1
+{
+-fx-background-color : #25ee58;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 30 0 0 30;
+}
+
+.button1:pressed
+{
+-fx-background-color : #25ee58;
+-fx-background-radius : 30 0 0 30;
+}
+.buttonSelect
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSelect:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSelect:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 30 0 0 30;
+}
+.buttonWater
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonWater:hover
+{
+-fx-background-color : #3373da;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonWater:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonExit
+{
+-fx-background-color : #da2929;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonExit:hover
+{
+-fx-background-color : #612424;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonExit:pressed
+{
+-fx-background-color : #da2929;
+-fx-background-radius : 30 0 0 30;
+}
+
+.anchor-paneBorder {
+    -fx-border-color:  #61523a;
+    -fx-border-width: 7px;
+
+}
+
+.buttonSkipDay
+{
+-fx-background-color : #61523a;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonSkipDay:hover
+{
+-fx-background-color : #4d4030;
+-fx-background-radius : 0 30 30 0;
+}
+
+.buttonSkipDay:pressed
+{
+-fx-background-color : #61523a;
+-fx-background-radius : 0 30 30 0;
+}
+.buttonSelectMiddle
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonSelectMiddle:hover
+{
+-fx-background-color : #166b2c;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonSelectMiddle:pressed
+{
+-fx-background-color : #80cd93;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle
+{
+-fx-background-color : #34a8d9;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle:hover
+{
+-fx-background-color : #3373da;
+-fx-background-radius : 0 0 0 0;
+}
+
+.buttonWaterMiddle:pressed
+{
+-fx-background-color : #34a8d9;
+-fx-background-radius : 0 0 0 0;
+}
+
+.progressBarHealth .bar{
+-fx-background-color: linear-gradient(to right, red, green);
+    }
+
+.backgroundColor{
+    -fx-background-color: #92eaa9;
+}
+
+.backgroundColor:hover{
+    -fx-background-color: #82cf95;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+
+.backgroundColor:pressed{
+    -fx-background-color: #92eaa9;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+}
+
+.backgroundColorSettings{
+    -fx-background-color:   #4e835b;
+}
+
+.backgroundColorSettings:hover{
+    -fx-background-color:  #4e835b;
+}
+
+.backgroundColorSettings:pressed{
+    -fx-background-color:  #4e835b;
+}
+
+.buttonSettings
+{
+-fx-background-color :#636864;
+-fx-background-radius : 30 0 0 30;
+}
+
+.buttonSettings:hover
+{
+-fx-background-color : #505451;
+-fx-background-radius :30 0 0 30;
+}
+
+.buttonSettings:pressed
+{
+-fx-background-color : #636864;
+-fx-background-radius : 30 0 0 30;
+}
+.textFieldGreen {
+    -fx-background-color: #92eaa9;
+}
+@font-face {
+    src: url("fonts/retro_computer_personal_use.ttf");
+}
+.text {
+    -fx-font-family:"Retro Computer";
+}
+.label {
+    -fx-font-family:"Retro Computer";
+}
+
