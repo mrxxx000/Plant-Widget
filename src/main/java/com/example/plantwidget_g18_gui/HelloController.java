@@ -1,5 +1,10 @@
 package com.example.plantwidget_g18_gui;
 
+import Controller.PlantController;
+import Model.Plant;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +28,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 
 public class HelloController implements Initializable {
 
@@ -123,6 +130,8 @@ public class HelloController implements Initializable {
     double healthPlantOne = 0.5;
     double waterPlantOne = 0.7;
     int levelOfPlantOne = 99;
+
+
 
     public void selectPlant(ActionEvent event){
         try {
@@ -237,6 +246,7 @@ public class HelloController implements Initializable {
         plantWaterBarOne.setBackground(Background.EMPTY);
         levelPlantOne.setStyle("-fx-accent: #92eaa9;");
         levelPlantOne.setText("Level : " + String.valueOf(levelOfPlantOne));
+
     }
     public void waterPlantOne(){
         healthPlantOne+=0.1;
