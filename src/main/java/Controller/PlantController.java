@@ -18,10 +18,10 @@ public class PlantController {
     }
 
     private void startTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), actionEvent ->{
-                plant.decreaseWaterOverTime(1);
-        waterLevelProperty.set(plant.getWaterLevel());
-    }));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), actionEvent -> {
+            plant.decreaseWaterOverTime(1);
+            waterLevelProperty.set(plant.getWaterLevel());
+        }));
 
 
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -29,12 +29,11 @@ public class PlantController {
         timeline.play();
     }
 
-    public double getCurrentWaterLevel() {
-        return plant.getWaterLevel();
 
+    public DoubleProperty waterLevelProperty() {
+        return waterLevelProperty;
     }
+}
 
-    public DoubleProperty waterLevelProperty(){
-    return waterLevelProperty;
-}
-}
+
+
