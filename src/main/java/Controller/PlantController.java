@@ -203,6 +203,9 @@ public class PlantController {
     public void skipDay(Plant plant){
 
     }
+    public void setPlantName(String name, int index) {
+        growingPlants[index].setName(name);
+    }
 }
 
 
