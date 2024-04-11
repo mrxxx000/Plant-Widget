@@ -12,9 +12,10 @@ public class Plant {
 
 
     public Plant(PlantTypes type) {
-        this.waterLevel = 100.0;
-        this.healthLevel = 100.0;
-        this.level = 0;
+        setWaterLevel(100.0);
+        setHealthLevel(100.0);
+        setLevel(0);
+        //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
     public void decreaseWaterOverTime(int minutesElapsed) { // I think maybe this should be done in the controller
