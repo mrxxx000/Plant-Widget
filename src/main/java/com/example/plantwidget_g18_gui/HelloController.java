@@ -33,7 +33,6 @@ import javafx.util.Duration;
 
 public class HelloController implements Initializable {
 
-
     @FXML
     private Button chooseSeedButton1;
     @FXML
@@ -127,10 +126,13 @@ public class HelloController implements Initializable {
     private Button selectPlantButton;
     private double xOffset = 0;
     private double yOffset = 0;
-    double healthPlantOne = 0.5;
-    double waterPlantOne = 0.7;
-    int levelOfPlantOne = 99;
-
+    //double healthPlantOne = 0.5;
+    //double waterPlantOne = 0.7;
+    //int levelOfPlantOne = 99;
+    private PlantController plantController;
+    private Plant plant1;
+    private Plant plant2;
+    private Plant plant3;
 
 
     public void selectPlant(ActionEvent event){
@@ -231,15 +233,17 @@ public class HelloController implements Initializable {
     }
 
 
-    public void updatePlantHealthBarOne(double healthPlantOne) {
-        plantHealthBarOne.setProgress(healthPlantOne);
+    public void updatePlantHealthBarOne() {
+        plantHealthBarOne.setProgress(plantController.updateHealthBarGUI(plant1));
     }
     public void updatePlantWaterBarOne(double waterPlantOne) {
-        plantWaterBarOne.setProgress(waterPlantOne);
+        plantHealthBarOne.setProgress(plantController.updateWaterBarGUI(plant1));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.plantController = new PlantController();
+        this.plant1 = plantController.getPlant1();
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
@@ -249,21 +253,16 @@ public class HelloController implements Initializable {
 
     }
     public void waterPlantOne(){
-        healthPlantOne+=0.1;
-        waterPlantOne = 1.0;
-        updatePlantHealthBarOne(healthPlantOne);
-        updatePlantWaterBarOne(waterPlantOne);
+        //water plant in controller, that takes in the plant
     }
-    public void skipHour(){
-        if(waterPlantOne>0.0){
-        waterPlantOne = waterPlantOne-0.5;
-        updatePlantHealthBarOne(healthPlantOne);
-        updatePlantWaterBarOne(waterPlantOne);}
-        else{
-            healthPlantOne-=0.3;
-            updatePlantHealthBarOne(healthPlantOne);
-
-        }
+    public void skipDay1(){
+        plantController.skipDay(plant1);
+    }
+    public void skipDay3(){
+        plantController.skipDay(plant3);
+    }
+    public void skipDay2(){
+        plantController.skipDay(plant2);
     }
     @FXML
     public void addNewPlant(){

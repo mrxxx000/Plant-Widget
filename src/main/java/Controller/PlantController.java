@@ -157,6 +157,21 @@ public class PlantController {
         If no, create one.
          */
     }
+    public double plantGetWaterLevel(){
+        return plant.getWaterLevel();
+    }
+    public Plant getPlant1(){
+        return growingPlants[0];
+    }
+    public Plant getPlant2(){
+        return growingPlants[1];
+    }
+    public Plant getPlant3(){
+        return growingPlants[2];
+    }
+    public void skipDay(Plant plant){
+
+    }
 }
 
 
