@@ -18,9 +18,13 @@ public class PlantController {
     private Plant plant;
     private DoubleProperty waterLevelProperty;
     private MainBoundary boundary; //This is what we use to communicate with the GUI
+    private int growingPlantsCounter = 0; //This is a counter to keep track of how many plants are currently growing
 
     public PlantController() {
+        growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
         plant = new Plant(PlantTypes.CACTUS); //we can't have this in the controller constructor, a new plant is only created ONCE the user has selected a seed.
+        growingPlants[growingPlantsCounter] = plant; //This is where we store the growing Plants. MAX 3, see constructor
+        growingPlantsCounter++;
         waterLevelProperty = new SimpleDoubleProperty(plant.getWaterLevel());
         startTimer();
     }

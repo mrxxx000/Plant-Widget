@@ -93,7 +93,7 @@ public class HelloController implements Initializable {
     @FXML
     private Button waterThePlantOne;
     @FXML
-    private Button skipHourButton;
+    private Button skipDayButton1;
     @FXML
     private TextField levelPlantOne;
     @FXML
@@ -128,7 +128,7 @@ public class HelloController implements Initializable {
     private double yOffset = 0;
     //double healthPlantOne = 0.5;
     //double waterPlantOne = 0.7;
-    //int levelOfPlantOne = 99;
+    int levelOfPlantOne = 99; // dont forget to implement it
     private PlantController plantController;
     private Plant plant1;
     private Plant plant2;
@@ -256,13 +256,13 @@ public class HelloController implements Initializable {
         //water plant in controller, that takes in the plant
     }
     public void skipDay1(){
-        plantController.skipDay(plant1);
+        plantController.skipDay(plant1);   // implement skipping 1 day, this is plant spot specific.
     }
     public void skipDay3(){
-        plantController.skipDay(plant3);
+        plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
     }
     public void skipDay2(){
-        plantController.skipDay(plant2);
+        plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
     }
     @FXML
     public void addNewPlant(){
