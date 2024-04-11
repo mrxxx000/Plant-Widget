@@ -75,11 +75,38 @@ public class PlantController {
      */
     public void levelUp(int plantIndex) { // TODO maybe sending in the plant object is easier?
         growingPlants[plantIndex].incrementLevel();
-        if (growingPlants[plantIndex].getLevel() == 3) {
+        Plant plantCopy = growingPlants[plantIndex];
+        PlantTypes typeCopy = plantCopy.getType();
+        if(plantCopy.getLevel() == 30) {
+            if (typeCopy == PlantTypes.CACTUS) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the CACTUS sprout
+            } else if (typeCopy == PlantTypes.PUMPKIN) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the PUMPKIN sprout
+            } else if (typeCopy == PlantTypes.MONSTERA) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the MONSTER sprout
+            } else if (typeCopy == PlantTypes.SUNFLOWER) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SUNFLOWER sprout
+            } else if (typeCopy == PlantTypes.SNAKEPLANT) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SNAKEPLANT sprout
+            }
+        } else if (plantCopy.getLevel() == 60) {
+            if (typeCopy == PlantTypes.CACTUS) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the CACTUS plant
+            } else if (typeCopy == PlantTypes.PUMPKIN) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the PUMPKIN plant
+            } else if (typeCopy == PlantTypes.MONSTERA) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the MONSTER plant
+            } else if (typeCopy == PlantTypes.SUNFLOWER) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SUNFLOWER plant
+            } else if (typeCopy == PlantTypes.SNAKEPLANT) {
+                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SNAKEPLANT plant
+            }
+        } else if (plantCopy.getLevel() == 100) {
             //call method to create a legendary plant from this plant
             createLegendary(growingPlants[plantIndex]);
         }
     }
+
     /*
     This method creates a new LegendaryPlant based on the plant sent through the parameters.
     It checks what type the plant is, so it can add the correct Legendary image.
