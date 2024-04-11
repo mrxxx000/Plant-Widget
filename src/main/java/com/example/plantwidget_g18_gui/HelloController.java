@@ -134,7 +134,9 @@ public class HelloController implements Initializable {
     private Plant plant2;
     private Plant plant3;
 
-
+    /*
+         switches gui to the plant info scene, currently only works for plant number 1.
+     */
     public void selectPlant(ActionEvent event){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
@@ -149,6 +151,9 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    /*
+     this turns the first plant in to a widget, specific to plant number 1.
+     */
     public void placeOnDesk1(ActionEvent event){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
@@ -163,6 +168,9 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    /*
+         switches gui settings scene
+     */
     public void goToSettings(ActionEvent event){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
@@ -177,6 +185,9 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    /*
+        makes the scene moveable
+    */
     public void mouseMoveable(Scene scene){
         scene.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
@@ -187,11 +198,16 @@ public class HelloController implements Initializable {
             stage.setY(event.getScreenY() - yOffset);
         });
     }
+    /*
+        CLOSES THE PROGRAM
+    */
     public void closeProgram(ActionEvent event){
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
-
+    /*
+        GOES BACK TO THE PLANT LIBRARY GUI SCENE
+    */
     public void goBackToLibrary(ActionEvent event){
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
@@ -213,7 +229,9 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    /*
+            GOES TO THE PLANT NEW SEED SCENE, OR THE FIRST GUI WHEN OPENING PROGRAM FOR THE FIRST TIME
+        */
     public void goTochooseSeedScene(ActionEvent event){
         try {
 
@@ -232,16 +250,23 @@ public class HelloController implements Initializable {
         }
     }
 
-
+    /*
+            UPDATES THE HEALTH BAR OF THE FIRST PLANT
+        */
     public void updatePlantHealthBarOne() {
-        plantHealthBarOne.setProgress(plantController.updateHealthBarGUI(plant1));
+        plantHealthBarOne.setProgress(plantController.updateHealthBarGUI(plant1)); // implement health level
     }
+    /*
+        UPDATES TEH WATER BAR OF THE FIRST PLANT
+    */
     public void updatePlantWaterBarOne(double waterPlantOne) {
-        plantHealthBarOne.setProgress(plantController.updateWaterBarGUI(plant1));
+        plantHealthBarOne.setProgress(plantController.updateWaterBarGUI(plant1)); // implement water level
     }
-
+    /*
+        THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
+    */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
         this.plantController = new PlantController();
         this.plant1 = plantController.getPlant1();
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
@@ -263,11 +288,6 @@ public class HelloController implements Initializable {
     }
     public void skipDay2(){
         plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
-    }
-    @FXML
-    public void addNewPlant(){
-        Image image = new Image("C:\\Users\\petvi\\IdeaProjects\\Plant-Widget\\images\\34a878b5ee65d73.png");
-        imagePlantTwo.setImage(image);
     }
 
     public void plantSeed(ActionEvent e){
