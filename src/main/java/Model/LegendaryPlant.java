@@ -2,6 +2,9 @@ package Model;
 
 import javafx.scene.image.Image;
 
+/**
+ * This is pretty much a static object. It should never be changed after it is created unless it is being removed.
+ */
 public class LegendaryPlant {
     private String name;
     private PlantTypes type;

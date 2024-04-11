@@ -1,5 +1,6 @@
 
 package Controller;
+
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
@@ -9,31 +10,24 @@ import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.util.Duration;
-
 import java.util.ArrayList;
 
 public class PlantController {
-    private Plant[] growingPlants; //This is where we store the growing Plants. MAX 3, see constructor
-    private ArrayList<LegendaryPlant> legendaryPlants; //This is where we store the Legendary Plants
+    private Plant[] growingPlants;
+    private ArrayList<LegendaryPlant> legendaryPlants;
     private Plant plant;
     private DoubleProperty waterLevelProperty;
-    private MainBoundary boundary; //This is what we use to communicate with the GUI
-    private int growingPlantsCounter = 0; //This is a counter to keep track of how many plants are currently growing
 
     public PlantController() {
-        growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
-        plant = new Plant(PlantTypes.CACTUS); //we can't have this in the controller constructor, a new plant is only created ONCE the user has selected a seed.
-        growingPlants[growingPlantsCounter] = plant; //This is where we store the growing Plants. MAX 3, see constructor
-        growingPlantsCounter++;
-        waterLevelProperty = new SimpleDoubleProperty(plant.getWaterLevel());
-        startTimer();
-    }
-
-    //My suggestion of a constructor
-    public PlantController(MainBoundary boundary) {
-        this.boundary = boundary;
         growingPlants = new Plant[2]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
+        /* waterLevelProperty = new SimpleDoubleProperty(plant.getWaterLevel());
+        startTimer();
+        TODO @akmal
+        This is not gonna work in the constructor. The user needs to create a plant first.
+        Also This needs to be specific to EACH individual plant, so it either needs to be in the Plant model,
+        or you need to make it go through all the plants in growingPlants array and do this.
+         */
     }
 
     private void startTimer() {
@@ -41,39 +35,49 @@ public class PlantController {
             plant.decreaseWaterOverTime(1);
             waterLevelProperty.set(plant.getWaterLevel());
         }));
-
-
         timeline.setCycleCount(Timeline.INDEFINITE);
-
         timeline.play();
     }
 
     public DoubleProperty waterLevelProperty() {
         return waterLevelProperty;
     }
-    /*
-    This method checks if there is space for a new plant.
-    If there is, it creates a new one using the PlantTypes enum, adds it to the list and returns true.
-    If there isn't it returns false, logic/error message for that should be handled in the GUI.
+
+    /**
+     * This method checks if the growingPlants array is full.
+     * Returns true if there is space, false if it is full.
+     * @return returns true if there is an empty spot, false if array is full.
      */
-    public boolean plantSeed(PlantTypes type) {
+    public boolean checkForSpace() {
+        for (int i = 0; i < growingPlants.length; i++) {
+            if (growingPlants[i] ==null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * This method goes through the list to find the first empty spot.
+     * Once found, it creates a new plant and adds it to the spot.
+     * @param type used to create the right type of plant
+     */
+    public void plantSeed(PlantTypes type) {
         // TODO Get user input from GUI to know what enum type we need here
-        boolean spaceForNewPlant = false;
         for(int i = 0; i < growingPlants.length; i++) {
             if(growingPlants[i] == null) {
                 growingPlants[i] = new Plant(type);
-                spaceForNewPlant = true;
-                return spaceForNewPlant;
             }
         }
-        return spaceForNewPlant;
     }
-    /*
-    This method increments the plants level by one.
-    It then checks to see if the plants level is equal to three, which means it has reached Legendary stage.
-    If it has, it calls the method to create a LegendaryPlant and sends the Plant object as parameters.
+
+    /**
+     * This method increments the plants level by one.
+     * It then checks to see if the plants level is equal to three, which means it has reached Legendary stage.
+     * If it has, it calls the method to create a LegendaryPlant and sends the Plant object as parameters.
+     * @param plantIndex used to find the relevant plant object
      */
-    public void levelUp(int plantIndex) { // TODO maybe sending in the plant object is easier?
+    public void levelUp(int plantIndex) {
         growingPlants[plantIndex].incrementLevel();
         Plant plantCopy = growingPlants[plantIndex];
         PlantTypes typeCopy = plantCopy.getType();
@@ -102,17 +106,17 @@ public class PlantController {
                 //growingPlants[plantIndex].setImage(); //TODO set the image to be the SNAKEPLANT plant
             }
         } else if (plantCopy.getLevel() == 100) {
-            //call method to create a legendary plant from this plant
             createLegendary(growingPlants[plantIndex]);
         }
     }
 
-    /*
-    This method creates a new LegendaryPlant based on the plant sent through the parameters.
-    It checks what type the plant is, so it can add the correct Legendary image.
-    It adds it to the legendaryPlants arrayList.
+    /**
+     * This method creates a new LegendaryPlant based on the plant sent through the parameters.
+     * It checks what type the plant is, so it can add the correct Legendary image.
+     * It adds it to the legendaryPlants arrayList.
+     * @param plant Plant object used to create a Legendary Plant
      */
-    public void createLegendary(Plant plant) {
+    private void createLegendary(Plant plant) {
         LegendaryPlant legendaryPlant = new LegendaryPlant();
         legendaryPlant.setName(plant.getName());
         PlantTypes type = plant.getType();
@@ -130,46 +134,63 @@ public class PlantController {
         }
         legendaryPlants.add(legendaryPlant);
     }
-    /*
-    This method attempts to delete a plant from the growingPlants list.
-    If it is successful it returns true, otherwise it returns false.
+
+    /**
+     * This method attempts to delete a plant from the growingPlants list.
+     * @param plantIndex index to find the relevant plant
      */
-    public boolean deleteGrowingPlant(int plantIndex) { // TODO maybe sending in the plant object is easier?
+    public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex < 3) {
             growingPlants[plantIndex] = null;
-            return true;
         }
-        else {
-            return false;
-        }
-    }
-    /*
-    This method attempts to delete a plant from the LegendaryPlants list.
-    If it is successful it returns true, otherwise it returns false.
-     */
-    public boolean deleteLegendaryPlant(int plantIndex) { // TODO maybe sending in the plant object is easier?
-        if (plantIndex >= 0 && plantIndex < legendaryPlants.size()) {
-            legendaryPlants.remove(plantIndex);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    /*
-    This method fetches the plant's water level and sends the double to the GUI.
-     */
-    public double updateWaterBarGUI(Plant plant) {
-        return plant.getWaterLevel();
-    }
-    /*
-    This method fetches the plant's health level and sends the double to the GUI.
-     */
-    public double updateHealthBarGUI(Plant plant) {
-        return plant.getHealthLevel();
     }
 
-    /*
+    /**
+     * This method attempts to delete a plant from the LegendaryPlants list.
+     * @param plantIndex index to find the relevant plant
+     */
+    public void deleteLegendaryPlant(int plantIndex) {
+        if (plantIndex >= 0 && plantIndex < legendaryPlants.size()) {
+            legendaryPlants.remove(plantIndex);
+        }
+    }
+
+    /**
+     * This method attempts to water the plant.
+     * It checks if the water is already full, and decreases the health if it is.
+     * If the water is not full, it calls waterThePlant() and check the health.
+     * If the health is not full, it calls increaseHealth().
+     * @param index index to find the relevant plant.
+     */
+    public void waterPlant(int index) {
+        if(growingPlants[index].getWaterLevel() == 1.0) {
+            //if the water is full already, lower health
+            growingPlants[index].decreaseHealth();
+        } else {
+            //fill the water level by x amount
+            growingPlants[index].waterThePlant();
+            if(growingPlants[index].getHealthLevel() != 1.0) {
+                //fill the health bar as well
+                growingPlants[index].increaseHealth();
+            }
+        }
+    }
+
+    /**
+    This method fetches the plant's water level and sends the double to the GUI.
+     */
+    public double updateWaterBarGUI(int index) {
+        return growingPlants[index].getWaterLevel();
+    }
+
+    /**
+    This method fetches the plant's health level and sends the double to the GUI.
+     */
+    public double updateHealthBarGUI(int index) {
+        return growingPlants[index].getHealthLevel();
+    }
+
+    /**
     This method will save all progress to a file and return true if it succeeds.
      */
     public boolean saveProgress() {
@@ -177,7 +198,7 @@ public class PlantController {
         return true;
     }
 
-    /*
+    /**
     This method will load all progress from a file, or create a new one if there is none.
      */
     public void loadProgress() {
@@ -188,6 +209,7 @@ public class PlantController {
         If no, create one.
          */
     }
+
     public double plantGetWaterLevel(){
         return plant.getWaterLevel();
     }
@@ -200,8 +222,8 @@ public class PlantController {
     public Plant getPlant3(){
         return growingPlants[2];
     }
-    public void skipDay(Plant plant){
-
+    public void skipDay(int index){
+        growingPlants[index].skipDayWater();
     }
     public void setPlantName(String name, int index) {
         growingPlants[index].setName(name);
