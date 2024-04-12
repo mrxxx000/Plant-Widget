@@ -4,13 +4,11 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
-import View.MainBoundary;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.util.Duration;
-import org.w3c.dom.ls.LSOutput;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -27,23 +25,37 @@ public class PlantController implements Serializable {
     public PlantController() {
         growingPlants = new Plant[2]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
-        /* waterLevelProperty = new SimpleDoubleProperty(plant.getWaterLevel());
-        startTimer();
-        TODO @akmal
-        This is not gonna work in the constructor. The user needs to create a plant first.
-        Also This needs to be specific to EACH individual plant, so it either needs to be in the Plant model,
-        or you need to make it go through all the plants in growingPlants array and do this.
-         */
+        initializeWaterLevelProperty();
     }
+
+    /**  Method to initialize water level property
+     * // Creates a new SimpleDoubleProperty object
+     * Starts the timer for updating water levels
+     */
+    private void initializeWaterLevelProperty(){
+        waterLevelProperty = new SimpleDoubleProperty();
+        startTimer();
+    }
+
+    /** Method to start the timer for updating water levels
+     * Loops through each element of the growingPlants array
+     * to update water level property for each plant
+     * Checks if the element is not null
+     * Decreasing water level for the plant
+     */
 
     private void startTimer() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), actionEvent -> {
-            plant.decreaseWaterOverTime(1);
-            waterLevelProperty.set(plant.getWaterLevel());
+            for (Plant growinPlant : growingPlants)
+                if (growinPlant != null) {
+                    growinPlant.decreaseWaterOverTime(1);
+                    waterLevelProperty.set(growinPlant.getWaterLevel());
+                }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
+
 
     public DoubleProperty waterLevelProperty() {
         return waterLevelProperty;
