@@ -1,8 +1,9 @@
 package Model;
 
 import javafx.scene.image.Image;
+import java.io.Serializable;
 
-public class Plant {
+public class Plant implements Serializable {
     private String name;
     private int level;
     private double healthLevel; //Max 1.0

@@ -10,9 +10,15 @@ import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.util.Duration;
+import org.w3c.dom.ls.LSOutput;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
-public class PlantController {
+public class PlantController implements Serializable {
     private Plant[] growingPlants;
     private ArrayList<LegendaryPlant> legendaryPlants;
     private Plant plant;
@@ -191,36 +197,49 @@ public class PlantController {
     }
 
     /**
-    This method will save all progress to a file and return true if it succeeds.
+    This method will save the current state of the PlantController object to a file.
      */
-    public boolean saveProgress() {
-        // TODO implement a save to file method
-        return true;
+    public void saveProgress(String filename) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(this);
+            System.out.println("Progress saved to file: " + filename);
+        } catch (IOException e) {
+            System.out.println("Failed to save progress to file. " + e);
+        }
     }
 
     /**
-    This method will load all progress from a file, or create a new one if there is none.
+     * This method will load the PlantController object from a save file.
+     * @param fileName
+     * @return
      */
-    public void loadProgress() {
-        /*
-        TODO
-        Check if there is a save file in the program.
-        If yes, load it.
-        If no, create one.
-         */
+    public static PlantController loadProgress(String fileName) {
+        Path path = Paths.get(fileName);
+        if (!Files.exists(path)) {
+            try {
+                Files.createFile(path);
+                return new PlantController();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        PlantController plantController = null;
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
+            plantController = (PlantController) in.readObject();
+            System.out.println("Progress loaded successfully.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return plantController;
     }
 
     public double plantGetWaterLevel(){
         return plant.getWaterLevel();
     }
-    public Plant getPlant1(){
-        return growingPlants[0];
-    }
-    public Plant getPlant2(){
-        return growingPlants[1];
-    }
-    public Plant getPlant3(){
-        return growingPlants[2];
+    public Plant getPlant(int index){
+        return growingPlants[index];
     }
     public void skipDay(int index){
         growingPlants[index].skipDayWater();
