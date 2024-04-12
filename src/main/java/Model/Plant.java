@@ -10,6 +10,7 @@ public class Plant implements Serializable {
     private double waterLevel; //Max 1.0
     private Image image; //ImageIcon not available?
     private PlantTypes type;
+    private int levelUpCountdown = 3; // once counter hits 0, plant levels up
 
 
     public Plant(PlantTypes type) {
@@ -33,8 +34,9 @@ public class Plant implements Serializable {
 
     public void waterThePlant() {
         waterLevel = waterLevel + 0.2;
-        if (waterLevel > 1.0) {
-            waterLevel = 1.0;
+        // if we have filled the water bar, decrement the countdown
+        if (waterLevel == 1.0) {
+            levelUpCountdown();
         }
     }
 
@@ -56,6 +58,14 @@ public class Plant implements Serializable {
         healthLevel = healthLevel + 0.2;
         if(healthLevel > 1.0) {
             healthLevel = 1.0;
+        }
+    }
+
+    public void levelUpCountdown() {
+        levelUpCountdown--;
+        if(levelUpCountdown == 0) {
+            levelUpCountdown = 3;
+            incrementLevel();
         }
     }
 
@@ -97,5 +107,7 @@ public class Plant implements Serializable {
     }
     public void incrementLevel() {
         this.level = level++;
+        setHealthLevel(1.0);
+        setWaterLevel(1.0);
     }
 }

@@ -176,7 +176,7 @@ public class PlantController implements Serializable {
             //fill the water level by x amount
             growingPlants[index].waterThePlant();
             if(growingPlants[index].getHealthLevel() != 1.0) {
-                //fill the health bar as well
+                //increase the health bar as well
                 growingPlants[index].increaseHealth();
             }
         }
