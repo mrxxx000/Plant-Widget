@@ -3,6 +3,7 @@ package View;
 import Controller.PlantController;
 
 public class MainBoundary {
+    private static MainBoundary instance;
     private PlantController plantController;
     private String saveFile;
 
@@ -15,6 +16,12 @@ public class MainBoundary {
         plantController.setPlantName(name,index);
     }
 
+    public static MainBoundary getInstance() {
+        if(instance == null) {
+            instance = new MainBoundary();
+        }
+        return instance;
+    }
 
     public PlantController getPlantController() {
         return plantController;

@@ -159,6 +159,8 @@ public class HelloController implements Initializable {
      */
     public void placeOnDesk1(ActionEvent event){
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -176,8 +178,11 @@ public class HelloController implements Initializable {
      */
     public void goToSettings(ActionEvent event){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
-            scene = new Scene(fxmlLoader.load());
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
+            //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
+            scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
@@ -239,7 +244,6 @@ public class HelloController implements Initializable {
         */
     public void goTochooseSeedScene(ActionEvent event){
         try {
-
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(root);
@@ -256,6 +260,7 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+
 
     /*
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
@@ -274,16 +279,19 @@ public class HelloController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-        this.mainBoundary = new MainBoundary();
-        this.plant1 = mainBoundary.getPlantController().getPlant(0);
+
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);
         updatePlantHealthBarOne();
         updatePlantWaterBarOne();
-        levelPlantOne.setStyle("-fx-accent: #92eaa9;");
+        //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
+    }
+    public HelloController() {
+        this.mainBoundary = MainBoundary.getInstance();
+        this.plant1 = mainBoundary.getPlantController().getPlant(0);
     }
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
