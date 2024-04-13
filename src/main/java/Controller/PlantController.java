@@ -26,6 +26,11 @@ public class PlantController implements Serializable {
         growingPlants = new Plant[2]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
+        Plant cactusPlant = new Plant(PlantTypes.CACTUS);
+        cactusPlant.setName("My Cactus");
+        cactusPlant.setHealthLevel(0.2);
+        cactusPlant.setWaterLevel(0.9);
+        growingPlants[0] = cactusPlant;
     }
 
     /**  Method to initialize water level property
@@ -181,7 +186,7 @@ public class PlantController implements Serializable {
      * @param index index to find the relevant plant.
      */
     public void waterPlant(int index) {
-        if(growingPlants[index].getWaterLevel() == 1.0) {
+        if(growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
             growingPlants[index].decreaseHealth();
         } else {

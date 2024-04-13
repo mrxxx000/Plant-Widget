@@ -2,6 +2,7 @@ package com.example.plantwidget_g18_gui;
 
 import Controller.PlantController;
 import Model.Plant;
+import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -129,7 +130,7 @@ public class HelloController implements Initializable {
     //double healthPlantOne = 0.5;
     //double waterPlantOne = 0.7;
     int levelOfPlantOne = 99; // dont forget to implement it
-    private PlantController plantController;
+    private MainBoundary mainBoundary;
     private Plant plant1;
     private Plant plant2;
     private Plant plant3;
@@ -254,41 +255,48 @@ public class HelloController implements Initializable {
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
         */
     public void updatePlantHealthBarOne() {
-        plantHealthBarOne.setProgress(plantController.updateHealthBarGUI(plant1)); // implement health level
+        plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
     }
     /*
         UPDATES TEH WATER BAR OF THE FIRST PLANT
     */
-    public void updatePlantWaterBarOne(double waterPlantOne) {
-        plantHealthBarOne.setProgress(plantController.updateWaterBarGUI(plant1)); // implement water level
+    public void updatePlantWaterBarOne() {
+        plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
     }
     /*
         THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-        this.plantController = new PlantController();
-        this.plant1 = plantController.getPlant1();
+        this.mainBoundary = new MainBoundary();
+        this.plant1 = mainBoundary.getPlantController().getPlant(0);
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);
+        updatePlantHealthBarOne();
+        updatePlantWaterBarOne();
         levelPlantOne.setStyle("-fx-accent: #92eaa9;");
         levelPlantOne.setText("Level : " + String.valueOf(levelOfPlantOne));
 
     }
     public void waterPlantOne(){
+        mainBoundary.getPlantController().waterPlant(0);
+        updatePlantWaterBarOne();
+        updatePlantHealthBarOne();
         //water plant in controller, that takes in the plant
     }
     public void skipDay1(){
-        plantController.skipDay(plant1);   // implement skipping 1 day, this is plant spot specific.
+        mainBoundary.getPlantController().skipDay(0);
+        updatePlantWaterBarOne();
+        updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
     }
-    public void skipDay3(){
-        plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
-    }
-    public void skipDay2(){
-        plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
-    }
+    //public void skipDay3(){
+    //    plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
+    //}
+   // public void skipDay2(){
+     //   plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
+    //}
 
     public void plantSeed(ActionEvent e){
         System.out.println("planted seed");

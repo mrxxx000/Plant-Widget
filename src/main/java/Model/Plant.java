@@ -48,7 +48,7 @@ public class Plant implements Serializable {
     }
 
     public void skipDayWater() {
-        waterLevel = waterLevel - 0.2;
+        this.waterLevel = waterLevel - 0.2;
         if (waterLevel <= 0.0) {
             decreaseHealth();
         }

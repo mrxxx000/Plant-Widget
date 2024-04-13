@@ -7,7 +7,8 @@ public class MainBoundary {
     private String saveFile;
 
     public MainBoundary() {
-        plantController = PlantController.loadProgress(saveFile);
+        plantController = new PlantController();
+        //plantController = PlantController.loadProgress(saveFile);
     }
 
     public void setPlantName(String name, int index) {
@@ -15,4 +16,7 @@ public class MainBoundary {
     }
 
 
+    public PlantController getPlantController() {
+        return plantController;
+    }
 }
