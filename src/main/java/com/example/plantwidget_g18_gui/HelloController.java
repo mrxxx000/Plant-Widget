@@ -140,6 +140,8 @@ public class HelloController implements Initializable {
      */
     public void selectPlant(ActionEvent event){
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -217,6 +219,8 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();*/
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -245,6 +249,8 @@ public class HelloController implements Initializable {
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
             stage.show();
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
         } catch (IOException e) {
             System.out.println("fel i gotochooseseedscene");
             e.printStackTrace();
@@ -277,7 +283,6 @@ public class HelloController implements Initializable {
         updatePlantHealthBarOne();
         updatePlantWaterBarOne();
         levelPlantOne.setStyle("-fx-accent: #92eaa9;");
-        levelPlantOne.setText("Level : " + String.valueOf(levelOfPlantOne));
 
     }
     public void waterPlantOne(){
