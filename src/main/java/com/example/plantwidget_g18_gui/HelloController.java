@@ -162,9 +162,7 @@ public class HelloController implements Initializable {
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
-
         try {
-
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -284,11 +282,11 @@ public class HelloController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-
-        //plantHealthBarOne.getStyleClass().add("progressBarHealth");
-        //ProgressBar plantWaterBarOne = new ProgressBar();
-        //plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
-        //plantWaterBarOne.setBackground(Background.EMPTY);
+        timelineUpdateHealth.playFromStart();
+        plantHealthBarOne.getStyleClass().add("progressBarHealth");
+        ProgressBar plantWaterBarOne = new ProgressBar();
+        plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
+        plantWaterBarOne.setBackground(Background.EMPTY);
 
 
 
@@ -299,7 +297,7 @@ public class HelloController implements Initializable {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         timelineUpdateHealth = new Timeline();
-        KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(1000), event -> {
+        KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(3), event -> {
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
             updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
             //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)

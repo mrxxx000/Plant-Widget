@@ -17,7 +17,32 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Pane layoutX="495.0" layoutY="-61.0" prefHeight="385.0" prefWidth="360.0" rotate="38.9" style="-fx-background-color: #61523a; -fx-background-radius: 23;" />
+      <Pane layoutX="495.0" layoutY="-61.0" prefHeight="385.0" prefWidth="360.0" rotate="38.9" style="-fx-background-color: #61523a; -fx-background-radius: 23;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="181.0" layoutX="176.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+            <ImageView fx:id="imagePlantOne2" disable="true" fitHeight="88.0" fitWidth="128.0" layoutX="205.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+               </image>
+            </ImageView>
+            <ProgressBar fx:id="plantWaterBarOne" disable="true" layoutX="181.0" layoutY="127.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" />
+            <ProgressBar fx:id="plantHealthBarOne" disable="true" layoutX="181.0" layoutY="141.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" />
+            <Button fx:id="waterThePlantOne" disable="true" layoutX="177.0" layoutY="161.0" mnemonicParsing="false" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonWater" stylesheets="@cssSheets.css" text="Water Plant">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="selectPlantButton" disable="true" layoutX="253.0" layoutY="161.0" mnemonicParsing="false" onAction="#selectPlant" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" stylesheets="@cssSheets.css" text="Select Plant">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <TextField fx:id="levelPlantOne1" disable="true" editable="false" layoutX="205.0" layoutY="15.0" prefHeight="2.0" prefWidth="88.0" promptText="Level" style="-fx-background-color: #80cd93;" styleClass="textFieldGreen" text="Level X">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+         </children></Pane>
       <Pane layoutX="-114.0" layoutY="331.0" prefHeight="385.0" prefWidth="360.0" rotate="38.6" style="-fx-background-color: #61523a; -fx-background-radius: 23;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#61523a" height="49.0" layoutX="172.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="247.0" />
       <Label layoutX="187.0" layoutY="28.0" prefHeight="39.0" prefWidth="226.0" style="-fx-background-radius: 23;" stylesheets="@cssSheets.css" text="asdasdasd" textAlignment="CENTER" underline="true">
