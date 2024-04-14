@@ -284,11 +284,10 @@ public class HelloController implements Initializable {
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);
-        updatePlantHealthBarOne();
-        updatePlantWaterBarOne();
+
         Timeline timeline = new Timeline();
 
-        KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(5), event -> {
+        KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(100), event -> {
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
             updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
             //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)

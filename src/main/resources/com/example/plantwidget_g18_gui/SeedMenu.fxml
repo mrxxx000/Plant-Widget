@@ -32,7 +32,6 @@
       </ImageView>
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="245.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-      <ProgressBar fx:id="plantHealthBarOne" layoutX="19.0" layoutY="236.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" />
       <TextField fx:id="levelPlantOne" editable="false" layoutX="47.0" layoutY="123.0" prefHeight="2.0" prefWidth="88.0" promptText="Level" style="-fx-background-color: #80cd93;" text="Level X">
          <opaqueInsets>
             <Insets />
