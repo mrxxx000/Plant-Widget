@@ -28,12 +28,17 @@ import com.example.plantwidget_g18_gui.*;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
 
+    private Font pixelFont;
+    @FXML
+    private Label seedName1;
     @FXML
     private Button chooseSeedButton1;
     @FXML
@@ -253,8 +258,6 @@ public class HelloController implements Initializable {
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
             stage.show();
-            updatePlantWaterBarOne();
-            updatePlantHealthBarOne();
         } catch (IOException e) {
             System.out.println("fel i gotochooseseedscene");
             e.printStackTrace();
@@ -279,13 +282,13 @@ public class HelloController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-
+        pixelFont = new Font("fonts/PixemonTrialRegular-p7nLK.ttf", 24);
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);
         updatePlantHealthBarOne();
-        updatePlantWaterBarOne();
+        //updatePlantWaterBarOne();  OBS @emre denna stoppa mig o loada seed menu men bort kommenterad de funka
         Timeline timeline = new Timeline();
 
         KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(5), event -> {

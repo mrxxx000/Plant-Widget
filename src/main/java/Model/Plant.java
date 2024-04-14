@@ -17,6 +17,7 @@ public class Plant implements Serializable {
         setWaterLevel(1.0);
         setHealthLevel(1.0);
         setLevel(0);
+        this.type = type;
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
