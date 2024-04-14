@@ -50,10 +50,10 @@ public class PlantController implements Serializable {
      */
 
     private void startTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10), actionEvent -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
             for (Plant growinPlant : growingPlants)
                 if (growinPlant != null) {
-                    growinPlant.decreaseWaterOverTime(1);
+                    growinPlant.decreaseWaterOverTime(1, growinPlant);
                     waterLevelProperty.set(growinPlant.getWaterLevel());
                 }
         }));
