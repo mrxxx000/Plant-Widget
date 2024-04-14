@@ -14,6 +14,7 @@ public class Plant implements Serializable {
 
 
     public Plant(PlantTypes type) {
+        this.type = type;
         setWaterLevel(1.0);
         setHealthLevel(1.0);
         setLevel(0);
