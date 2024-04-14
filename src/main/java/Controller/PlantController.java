@@ -21,6 +21,7 @@ public class PlantController implements Serializable {
     private ArrayList<LegendaryPlant> legendaryPlants;
     private Plant plant;
     private DoubleProperty waterLevelProperty;
+    private Timeline timeline;
 
     public PlantController() {
         growingPlants = new Plant[2]; // allows the user to have MAX 3 growing plants at a time
@@ -37,9 +38,23 @@ public class PlantController implements Serializable {
      * // Creates a new SimpleDoubleProperty object
      * Starts the timer for updating water levels
      */
-    private void initializeWaterLevelProperty(){
+    public void initializeWaterLevelProperty(){
         waterLevelProperty = new SimpleDoubleProperty();
-        startTimer();
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+            for (Plant growinPlant : growingPlants)
+                if (growinPlant != null) {
+                    growinPlant.decreaseWaterOverTime(1, growinPlant);
+                    waterLevelProperty.set(growinPlant.getWaterLevel());
+                }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        //startTimer();
+    }
+    public void startTheTimer(){
+        timeline.play();
+    }
+    public void stopTheTimer(){
+        timeline.stop();
     }
 
     /** Method to start the timer for updating water levels
@@ -49,15 +64,8 @@ public class PlantController implements Serializable {
      * Decreasing water level for the plant
      */
 
-    private void startTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
-            for (Plant growinPlant : growingPlants)
-                if (growinPlant != null) {
-                    growinPlant.decreaseWaterOverTime(1, growinPlant);
-                    waterLevelProperty.set(growinPlant.getWaterLevel());
-                }
-        }));
-        timeline.setCycleCount(Timeline.INDEFINITE);
+    public void startTimer() {
+
         timeline.play();
     }
 
