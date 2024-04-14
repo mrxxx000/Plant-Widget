@@ -20,16 +20,57 @@ public class Plant implements Serializable {
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
-    public void decreaseWaterOverTime(int minutesElapsed) {
-        double waterLossPerMinutes = 10.0 / 100.0;
+    /**
+     * Method decreases the water level of the plant over time based on its specific watering needs.
+     * The method calculates the decrease in water level per hour depending on the plant.
+     * Method then decreases the water level based on the elapsed hours and watering needs.
+     * It ensures that the water level doesn't go below 0.0 and
+     * decreases the health if the water level becomes critical.
+     * @param hoursElapsed
+     * @param plant
+     */
 
-        double waterLoss = waterLossPerMinutes * minutesElapsed;
+    public void decreaseWaterOverTime(int hoursElapsed, Plant plant) {
+        // Calculate the water loss rate based on the plant type
+        double waterLossPerHours = 0.0;
 
-        waterLevel -= waterLoss;
-
-        if (waterLevel < 0) {
-            waterLevel = 0;
+        switch (type){
+            case CACTUS:
+                //Water bar goes from full to empty after 5 days (5 * 24 = 120 hours
+                waterLossPerHours = 1.0/120.0;
+                break;
+            // Water bar goes from full to empty after 3 days (3 * 24 = 72 hours)
+            case PUMPKIN:
+                waterLossPerHours = 1.0/72.0;
+                break;
+            // Water bar goes from full to empty after 4 days (4 * 24 = 96 hours)
+            case SNAKEPLANT:
+                waterLossPerHours = 1.0/96.0;
+                break;
+            // Water bar goes from full to empty after 1 day (1 * 24 = 24 hours)
+            case MONSTERA:
+                waterLossPerHours = 1.0/24.0;
+                break;
+            // Water bar goes from full to empty after 2 days (2 * 24 = 48 hours)
+            case SUNFLOWER:
+                waterLossPerHours = 1.0/48.0;
+                break;
         }
+
+        // Decrease water level based on elapsed hours and watering needs
+        waterLevel -= waterLossPerHours * hoursElapsed;
+
+        // Ensure water level doesn't go below 0
+        if (waterLevel < 0.0) {
+            waterLevel = 0.0;
+        }
+
+        // Check if the plant's water level has reached critical level
+        if (waterLevel<= 0.0){
+            decreaseHealth(); // Decrease health if water level is critical
+        }
+
+
     }
 
     public void waterThePlant() {
