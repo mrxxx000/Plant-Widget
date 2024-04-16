@@ -304,7 +304,6 @@ public class HelloController implements Initializable {
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         timelineUpdateHealth = new Timeline();
         KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(1), event -> {
-            System.out.println("started timeline Update health");
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
             updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
             //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)
