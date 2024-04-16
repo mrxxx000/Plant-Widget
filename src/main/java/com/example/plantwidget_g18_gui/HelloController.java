@@ -2,6 +2,7 @@ package com.example.plantwidget_g18_gui;
 
 import Controller.PlantController;
 import Model.Plant;
+import Model.PlantTypes;
 import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -28,13 +29,27 @@ import com.example.plantwidget_g18_gui.*;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
-
-    private Timeline timelineUpdateHealth;
+    @FXML
+    private Button enterNameButton;
+    @FXML
+    private Button closeNamePlantButton;
+    @FXML
+    private Label nameYourPlantLabel;
+    @FXML
+    private Rectangle namePlantPrompt;
+    @FXML
+    private TextField namePlantField;
+    @FXML
+    private Font pixelFont;
+    @FXML
+    private Label seedName1;
     @FXML
     private Button chooseSeedButton1;
     @FXML
@@ -140,10 +155,9 @@ public class HelloController implements Initializable {
          switches gui to the plant info scene, currently only works for plant number 1.
      */
     public void selectPlant(ActionEvent event){
-        mainBoundary.getPlantController().startTheTimer();
-        timelineUpdateHealth.playFromStart();
-
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -160,9 +174,9 @@ public class HelloController implements Initializable {
      this turns the first plant in to a widget, specific to plant number 1.
      */
     public void placeOnDesk1(ActionEvent event){
-        mainBoundary.getPlantController().startTheTimer();
-        timelineUpdateHealth.playFromStart();
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -179,9 +193,9 @@ public class HelloController implements Initializable {
          switches gui settings scene
      */
     public void goToSettings(ActionEvent event){
-        mainBoundary.getPlantController().stopTheTimer();
-        timelineUpdateHealth.stop();
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
             scene = new Scene(root);
@@ -225,10 +239,9 @@ public class HelloController implements Initializable {
         stage.setTitle("Plant Widget Library!");
         stage.setScene(scene);
         stage.show();*/
-        mainBoundary.getPlantController().startTimer();
-        timelineUpdateHealth.playFromStart();
-
         try {
+            updatePlantWaterBarOne();
+            updatePlantHealthBarOne();
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -246,8 +259,6 @@ public class HelloController implements Initializable {
             GOES TO THE PLANT NEW SEED SCENE, OR THE FIRST GUI WHEN OPENING PROGRAM FOR THE FIRST TIME
         */
     public void goTochooseSeedScene(ActionEvent event){
-        mainBoundary.getPlantController().stopTheTimer();
-        timelineUpdateHealth.stop();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
@@ -282,13 +293,23 @@ public class HelloController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-        timelineUpdateHealth.playFromStart();
+        pixelFont = new Font("fonts/PixemonTrialRegular-p7nLK.ttf", 24);
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
         plantWaterBarOne.setBackground(Background.EMPTY);
+        updatePlantHealthBarOne();
+        //updatePlantWaterBarOne();  OBS @emre denna stoppa mig o loada seed menu men bort kommenterad de funka
+        Timeline timeline = new Timeline();
 
-
+        KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(5), event -> {
+            updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
+            updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
+            //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)
+        });
+        timeline.getKeyFrames().add(updateGUIFrame);
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
 
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
@@ -296,15 +317,6 @@ public class HelloController implements Initializable {
     public HelloController() {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
-        timelineUpdateHealth = new Timeline();
-        KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(3), event -> {
-            updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
-            updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
-            //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)
-        });
-        timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
-        timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
-
     }
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
@@ -387,6 +399,30 @@ public class HelloController implements Initializable {
         seedDifficualty3.setVisible(false);
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
+    }
+
+    public void namePlantPrompt(ActionEvent e){
+            if (namePlantField.getText().length() > 0) {
+                String name = namePlantField.getText();
+                System.out.println(name);
+                if(name != null){
+                    mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                    goBackToLibrary(e);
+                }
+            }
+    }
+
+    public void plantSeedOne(ActionEvent e){
+        namePlantPrompt.setVisible(true);
+        namePlantPrompt.setVisible(true);
+        namePlantField.setVisible(true);
+    }
+
+    public void hideNamePrompt(ActionEvent e){
+        namePlantPrompt.setVisible(false);
+        namePlantField.setVisible(false);
+        nameYourPlantLabel.setVisible(false);
+        closeNamePlantButton.setVisible(false);
     }
 
 
