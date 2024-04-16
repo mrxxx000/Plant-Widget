@@ -2,6 +2,7 @@ package com.example.plantwidget_g18_gui;
 
 import Controller.PlantController;
 import Model.Plant;
+import Model.PlantTypes;
 import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -35,7 +36,17 @@ import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
-
+    @FXML
+    private Button enterNameButton;
+    @FXML
+    private Button closeNamePlantButton;
+    @FXML
+    private Label nameYourPlantLabel;
+    @FXML
+    private Rectangle namePlantPrompt;
+    @FXML
+    private TextField namePlantField;
+    @FXML
     private Font pixelFont;
     @FXML
     private Label seedName1;
@@ -388,6 +399,30 @@ public class HelloController implements Initializable {
         seedDifficualty3.setVisible(false);
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
+    }
+
+    public void namePlantPrompt(ActionEvent e){
+            if (namePlantField.getText().length() > 0) {
+                String name = namePlantField.getText();
+                System.out.println(name);
+                if(name != null){
+                    mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                    goBackToLibrary(e);
+                }
+            }
+    }
+
+    public void plantSeedOne(ActionEvent e){
+        namePlantPrompt.setVisible(true);
+        namePlantPrompt.setVisible(true);
+        namePlantField.setVisible(true);
+    }
+
+    public void hideNamePrompt(ActionEvent e){
+        namePlantPrompt.setVisible(false);
+        namePlantField.setVisible(false);
+        nameYourPlantLabel.setVisible(false);
+        closeNamePlantButton.setVisible(false);
     }
 
 
