@@ -282,7 +282,10 @@ public class HelloController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
-        timelineUpdateHealth.playFromStart();
+        mainBoundary.getPlantController().startTheTimer();
+        startTimeline();
+        updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
+        updatePlantHealthBarOne();
         plantHealthBarOne.getStyleClass().add("progressBarHealth");
         ProgressBar plantWaterBarOne = new ProgressBar();
         plantWaterBarOne.setStyle("-fx-accent: #34a8d9;");
@@ -293,11 +296,15 @@ public class HelloController implements Initializable {
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
     }
+    public void startTimeline() {
+        timelineUpdateHealth.playFromStart();
+    }
     public HelloController() {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         timelineUpdateHealth = new Timeline();
-        KeyFrame updateGUIFrame = new KeyFrame(Duration.seconds(3), event -> {
+        KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(1), event -> {
+            System.out.println("started timeline Update health");
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
             updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
             //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)

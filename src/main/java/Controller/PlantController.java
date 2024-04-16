@@ -40,7 +40,7 @@ public class PlantController implements Serializable {
      */
     public void initializeWaterLevelProperty(){
         waterLevelProperty = new SimpleDoubleProperty();
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+        this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
             for (Plant growinPlant : growingPlants)
                 if (growinPlant != null) {
                     growinPlant.decreaseWaterOverTime(1, growinPlant);
