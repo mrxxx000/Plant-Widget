@@ -1,6 +1,8 @@
 package com.example.plantwidget_g18_gui;
 
+import Controller.PlantController;
 import Model.Plant;
+import Model.PlantTypes;
 import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -25,6 +27,8 @@ import java.util.ResourceBundle;
 
 import javafx.scene.layout.Background;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -32,6 +36,20 @@ import javafx.util.Duration;
 public class HelloController implements Initializable {
 
     private Timeline timelineUpdateHealth;
+    @FXML
+    private Button enterNameButton;
+    @FXML
+    private Button closeNamePlantButton;
+    @FXML
+    private Label nameYourPlantLabel;
+    @FXML
+    private Rectangle namePlantPrompt;
+    @FXML
+    private TextField namePlantField;
+    @FXML
+    private Font pixelFont;
+    @FXML
+    private Label seedName1;
     @FXML
     private Button chooseSeedButton1;
     @FXML
@@ -99,6 +117,26 @@ public class HelloController implements Initializable {
     private ProgressBar plantHealthBarOne;
     @FXML
     private ProgressBar plantWaterBarOne;
+    @FXML
+    private ProgressBar plantHealthBarTwo;
+    @FXML
+    private ProgressBar plantWaterBarTwo;
+    @FXML
+    private ProgressBar plantHealthBarThree;
+    @FXML
+    private ProgressBar plantWaterBarThree;
+    @FXML
+    private Label plantLeveltwo;
+    @FXML
+    private Label plantLevelThree;
+    @FXML
+    private Button waterPlantTwo;
+    @FXML
+    private Button waterPlantThree;
+    @FXML
+    private Button selectPlantTwo;
+    @FXML
+    private Button selectPlantThree;
     @FXML
     private ProgressBar difficultyBarOne;
     @FXML
@@ -291,6 +329,8 @@ public class HelloController implements Initializable {
         plantWaterBarOne.setBackground(Background.EMPTY);
 
 
+        UpdateCurrentLibrary updateCurrentLibrary = new UpdateCurrentLibrary();
+        updateCurrentLibrary.start();
 
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
@@ -395,6 +435,63 @@ public class HelloController implements Initializable {
         seedDifficualty3.setVisible(false);
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
+    }
+
+    public void plantSeedOne(ActionEvent e){
+            if (namePlantField.getText().length() > 0) {
+                String name = namePlantField.getText();
+                System.out.println(name);
+                if(name != null){
+                    mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                    goBackToLibrary(e);
+                }
+            }
+    }
+
+    public void namePlantPrompt(ActionEvent e){
+        namePlantPrompt.setVisible(true);
+        nameYourPlantLabel.setVisible(true);
+        closeNamePlantButton.setVisible(true);
+        enterNameButton.setVisible(true);
+        namePlantField.setVisible(true);
+    }
+
+    public void hideNamePrompt(ActionEvent e){
+        namePlantPrompt.setVisible(false);
+        namePlantField.setVisible(false);
+        nameYourPlantLabel.setVisible(false);
+        closeNamePlantButton.setVisible(false);
+        enterNameButton.setVisible(false);
+    }
+
+    private class UpdateCurrentLibrary extends Thread{
+        private boolean isRunning = true;
+        public void run(){
+            while(isRunning){
+                Plant plant2 = mainBoundary.getPlantController().getPlant(1);
+                //Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+
+                if(plant2 != null){
+                    String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
+                    double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
+                    double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+
+
+                    plantLeveltwo.setText(plantLevel2);
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
+                    plantWaterBarTwo.setProgress(plantWaterLevel2);
+                    plantHealthBarTwo.setProgress(plantHealthLevel2);
+
+                    plantLeveltwo.setVisible(true);
+                    imagePlantTwo.setVisible(true);
+                    plantWaterBarTwo.setVisible(true);
+                    plantHealthBarTwo.setVisible(true);
+                    selectPlantTwo.setVisible(true);
+                    waterPlantTwo.setVisible(true);
+
+                }
+            }
+        }
     }
 
 

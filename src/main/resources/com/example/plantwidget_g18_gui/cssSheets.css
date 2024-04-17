@@ -198,13 +198,18 @@
     -fx-background-color: #92eaa9;
 }
 @font-face {
+    src: url("fonts/PixemonTrialRegular-p7nLK.ttf");
+}
+
+@font-face {
+    src: url("fonts/PixemontrialRegular-x3KqK.otf");
+}
+
+@font-face {
     src: url("fonts/retro_computer_personal_use.ttf");
 }
 .text {
-    -fx-font-family:"Retro Computer";
-}
-.label {
-    -fx-font-family:"Retro Computer";
+    fx-font: 20px "Pixemon Trial";
 }
 .elementToggle {
     -fx-background-radius :30 30 30 30;

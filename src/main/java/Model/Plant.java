@@ -1,6 +1,8 @@
 package Model;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -20,6 +22,7 @@ public class Plant implements Serializable {
         this.type = type;
         setWaterLevel(1.0);
         setHealthLevel(1.0);
+        setLevel(0);
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
