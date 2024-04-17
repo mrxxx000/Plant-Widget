@@ -307,7 +307,7 @@ public class PlantController implements Serializable {
 
         System.out.println("The date is: " + formatedDate.format(date));
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\petvi\\Documents\\GitHub\\Plant-Widget\\src\\main\\resources\\SaveFile\\saveFile.txt.txt", false))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("saveFile.txt", false))) {
 
             for(int i = 0; i<growingPlants.length; i++) {
                 if(growingPlants[i] != null) {
@@ -325,7 +325,7 @@ public class PlantController implements Serializable {
     }
 
     public void timeTrackReader() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\petvi\\Documents\\GitHub\\Plant-Widget\\src\\main\\resources\\SaveFile\\saveFile.txt.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] parts = line.split(": ");
