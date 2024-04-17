@@ -119,7 +119,7 @@ public class PlantController implements Serializable {
             if(growingPlants[i] == null) {
                 growingPlants[i] = new Plant(type);
                 if(name != null) {
-                    growingPlants[i].setName(name); // added this since when planting a seed we want a name aswell
+                    growingPlants[i].setName(name);
                 }
             }
         }
@@ -224,11 +224,16 @@ public class PlantController implements Serializable {
             growingPlants[index].decreaseHealth();
         } else {
             //fill the water level by x amount
-            growingPlants[index].waterThePlant();
+            boolean shouldItLevelUp =growingPlants[index].waterThePlant();
             if(growingPlants[index].getHealthLevel() != 1.0) {
                 //increase the health bar as well
                 growingPlants[index].increaseHealth();
             }
+            if(shouldItLevelUp){
+                levelUp(index);
+            }
+
+
         }
     }
 
