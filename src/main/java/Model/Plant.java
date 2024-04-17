@@ -2,6 +2,7 @@ package Model;
 
 import javafx.scene.image.Image;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Plant implements Serializable {
     private String name;
@@ -11,13 +12,14 @@ public class Plant implements Serializable {
     private Image image; //ImageIcon not available?
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
+    private LocalDate datePlanted;
 
 
     public Plant(PlantTypes type) {
+        datePlanted = LocalDate.now();
         this.type = type;
         setWaterLevel(1.0);
         setHealthLevel(1.0);
-        setLevel(0);
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
@@ -121,7 +123,7 @@ public class Plant implements Serializable {
         this.level = level;
     }
     public int getLevel() {
-        return level;
+        return this.level;
     }
     public void setHealthLevel(double healthLevel) {
         this.healthLevel = healthLevel;

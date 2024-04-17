@@ -1,6 +1,5 @@
 package com.example.plantwidget_g18_gui;
 
-import Controller.PlantController;
 import Model.Plant;
 import View.MainBoundary;
 import javafx.animation.Animation;
@@ -17,16 +16,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import com.example.plantwidget_g18_gui.*;
+
 import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -212,6 +209,7 @@ public class HelloController implements Initializable {
         CLOSES THE PROGRAM
     */
     public void closeProgram(ActionEvent event){
+        mainBoundary.getPlantController().timeTrackWriter();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -283,6 +281,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
         mainBoundary.getPlantController().startTheTimer();
+        mainBoundary.getPlantController().timeTrackReader();
         startTimeline();
         updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
         updatePlantHealthBarOne();
@@ -302,6 +301,7 @@ public class HelloController implements Initializable {
     public HelloController() {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
+        mainBoundary.getPlantController().timeTrackReader();
         timelineUpdateHealth = new Timeline();
         KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(1), event -> {
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
@@ -319,9 +319,11 @@ public class HelloController implements Initializable {
         //water plant in controller, that takes in the plant
     }
     public void skipDay1(){
+        mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(0);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
+        System.out.println(plant1.getLevel());
     }
     //public void skipDay3(){
     //    plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
@@ -394,6 +396,7 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
     }
+
 
 
 }
