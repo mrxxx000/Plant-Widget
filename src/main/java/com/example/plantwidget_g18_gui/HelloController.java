@@ -311,6 +311,7 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
 
+
     }
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
@@ -395,6 +396,9 @@ public class HelloController implements Initializable {
         seedDifficualty3.setVisible(false);
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
+    }
+    public void updateLevelPlantOne(){
+        levelPlantOne.setText(String.valueOf(mainBoundary.getPlantController().getPlant(0).getLevel()));
     }
 
 

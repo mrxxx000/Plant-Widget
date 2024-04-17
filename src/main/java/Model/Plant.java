@@ -126,6 +126,7 @@ public class Plant implements Serializable {
         this.level++;
     }
     public int getLevel() {
+
         return this.level;
     }
     public void setHealthLevel(double healthLevel) {
