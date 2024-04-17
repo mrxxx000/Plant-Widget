@@ -48,9 +48,9 @@ public class PlantController implements Serializable {
 
         // This is just for testing purposes can remove later
         Plant catPlant = new Plant(PlantTypes.PUMPKIN);
-        InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
-        Image image = new Image(inputStream);
-        catPlant.setImage(image);
+        //InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+        //Image image = new Image(inputStream);
+        //catPlant.setImage(image);
         growingPlants[1] = catPlant;
     }
 
