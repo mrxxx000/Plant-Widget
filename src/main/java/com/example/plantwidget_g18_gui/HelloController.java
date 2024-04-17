@@ -36,6 +36,7 @@ import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
+
     @FXML
     private Button enterNameButton;
     @FXML
@@ -117,6 +118,26 @@ public class HelloController implements Initializable {
     private ProgressBar plantHealthBarOne;
     @FXML
     private ProgressBar plantWaterBarOne;
+    @FXML
+    private ProgressBar plantHealthBarTwo;
+    @FXML
+    private ProgressBar plantWaterBarTwo;
+    @FXML
+    private ProgressBar plantHealthBarThree;
+    @FXML
+    private ProgressBar plantWaterBarThree;
+    @FXML
+    private Label plantLeveltwo;
+    @FXML
+    private Label plantLevelThree;
+    @FXML
+    private Button waterPlantTwo;
+    @FXML
+    private Button waterPlantThree;
+    @FXML
+    private Button selectPlantTwo;
+    @FXML
+    private Button selectPlantThree;
     @FXML
     private ProgressBar difficultyBarOne;
     @FXML
@@ -311,6 +332,9 @@ public class HelloController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
+        UpdateCurrentLibrary updateCurrentLibrary = new UpdateCurrentLibrary();
+        updateCurrentLibrary.start();
+
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
     }
@@ -401,7 +425,7 @@ public class HelloController implements Initializable {
         plantNewSeedButton3.setVisible(false);
     }
 
-    public void namePlantPrompt(ActionEvent e){
+    public void plantSeedOne(ActionEvent e){
             if (namePlantField.getText().length() > 0) {
                 String name = namePlantField.getText();
                 System.out.println(name);
@@ -412,7 +436,7 @@ public class HelloController implements Initializable {
             }
     }
 
-    public void plantSeedOne(ActionEvent e){
+    public void namePlantPrompt(ActionEvent e){
         namePlantPrompt.setVisible(true);
         namePlantPrompt.setVisible(true);
         namePlantField.setVisible(true);
@@ -423,6 +447,36 @@ public class HelloController implements Initializable {
         namePlantField.setVisible(false);
         nameYourPlantLabel.setVisible(false);
         closeNamePlantButton.setVisible(false);
+    }
+
+    private class UpdateCurrentLibrary extends Thread{
+        private boolean isRunning = true;
+        public void run(){
+            while(isRunning){
+                Plant plant2 = mainBoundary.getPlantController().getPlant(1);
+                //Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+
+                if(plant2 != null){
+                    String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
+                    double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
+                    double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+
+
+                    plantLeveltwo.setText(plantLevel2);
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
+                    plantWaterBarTwo.setProgress(plantWaterLevel2);
+                    plantHealthBarTwo.setProgress(plantHealthLevel2);
+
+                    plantLeveltwo.setVisible(true);
+                    imagePlantTwo.setVisible(true);
+                    plantWaterBarTwo.setVisible(true);
+                    plantHealthBarTwo.setVisible(true);
+                    selectPlantTwo.setVisible(true);
+                    waterPlantTwo.setVisible(true);
+
+                }
+            }
+        }
     }
 
 

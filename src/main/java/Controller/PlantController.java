@@ -8,6 +8,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.*;
@@ -32,6 +34,14 @@ public class PlantController implements Serializable {
         cactusPlant.setHealthLevel(0.2);
         cactusPlant.setWaterLevel(0.9);
         growingPlants[0] = cactusPlant;
+
+
+        // This is just for testing purposes can remove later
+        Plant catPlant = new Plant(PlantTypes.PUMPKIN);
+        InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+        Image image = new Image(inputStream);
+        catPlant.setImage(image);
+        growingPlants[1] = catPlant;
     }
 
     /**  Method to initialize water level property
@@ -104,6 +114,8 @@ public class PlantController implements Serializable {
             }
         }
     }
+
+    // TODO add here a method to create the plants we are going to have with all the constructors image name species etc
 
     /**
      * This method increments the plants level by one.
@@ -267,7 +279,10 @@ public class PlantController implements Serializable {
         return plant.getWaterLevel();
     }
     public Plant getPlant(int index){
-        return growingPlants[index];
+        if(growingPlants[index] != null){
+            return growingPlants[index];
+        }
+        return null;
     }
     public void skipDay(int index){
         growingPlants[index].skipDayWater();
