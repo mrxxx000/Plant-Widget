@@ -438,7 +438,9 @@ public class HelloController implements Initializable {
 
     public void namePlantPrompt(ActionEvent e){
         namePlantPrompt.setVisible(true);
-        namePlantPrompt.setVisible(true);
+        nameYourPlantLabel.setVisible(true);
+        closeNamePlantButton.setVisible(true);
+        enterNameButton.setVisible(true);
         namePlantField.setVisible(true);
     }
 
@@ -447,6 +449,7 @@ public class HelloController implements Initializable {
         namePlantField.setVisible(false);
         nameYourPlantLabel.setVisible(false);
         closeNamePlantButton.setVisible(false);
+        enterNameButton.setVisible(false);
     }
 
     private class UpdateCurrentLibrary extends Thread{
