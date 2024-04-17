@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ProgressBar?>
@@ -11,13 +12,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
+      <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="150.0" fill="#61523a" layoutX="243.0" layoutY="400.0" startX="-250.0" stroke="BLACK" />
       <Pane layoutX="-10.0" layoutY="-179.0" prefHeight="385.0" prefWidth="360.0" rotate="38.7" style="-fx-background-color: #61523a; -fx-background-radius: 60;" />
-      <Pane layoutX="355.0" layoutY="271.0" prefHeight="385.0" prefWidth="360.0" rotate="-40.6" style="-fx-background-color: #61523a; -fx-background-radius: 23;" />
+      <Pane disable="true" layoutX="479.0" layoutY="255.0" prefHeight="385.0" prefWidth="360.0" style="-fx-background-color: #61523a; -fx-background-radius: 23;">
+         <children>
+            <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" disable="true" endX="150.0" fill="#61513a" layoutX="61.0" layoutY="146.0" startX="-150.0" stroke="BLACK" />
+         </children></Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="224.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="434.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
@@ -36,56 +44,11 @@
       <ImageView fx:id="imagePlantSix" fitHeight="88.0" fitWidth="111.0" layoutX="318.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ProgressBar fx:id="plantWaterBarOne" layoutX="19.0" layoutY="125.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" />
       <ProgressBar fx:id="plantHealthBarOne" layoutX="19.0" layoutY="139.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" />
-      <Button fx:id="waterThePlantOne" layoutX="15.0" layoutY="159.0" mnemonicParsing="false" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonWater" stylesheets="@cssSheets.css" text="Water Plant">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
-      <Button fx:id="selectPlantButton" layoutX="91.0" layoutY="159.0" mnemonicParsing="false" onAction="#selectPlant" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" stylesheets="@cssSheets.css" text="Select Plant">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Button>
       <TextField fx:id="levelPlantOne" editable="false" layoutX="43.0" layoutY="13.0" onAction="#updateLevelPlantOne" prefHeight="2.0" prefWidth="88.0" style="-fx-background-color: #80cd93;" styleClass="textFieldGreen">
          <opaqueInsets>
             <Insets />
-         </opaqueInsets></TextField>
-      <Button fx:id="plantNewSeedButton" layoutX="489.0" layoutY="268.0" mnemonicParsing="false" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" text="+ New Seed" textOverrun="CLIP">
-         <effect>
-            <DropShadow blurType="GAUSSIAN">
-               <color>
-                  <Color red="0.4020467698574066" green="0.7236841917037964" blue="0.46101364493370056" />
-               </color>
-            </DropShadow>
-         </effect>
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="489.0" layoutY="301.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" styleClass="buttonLegendary" stylesheets="@cssSheets.css" text="Legendary Plants" textOverrun="CLIP">
-         <effect>
-            <DropShadow blurType="GAUSSIAN">
-               <color>
-                  <Color red="0.3307017683982849" green="0.3552631437778473" blue="0.14473684132099152" />
-               </color>
-            </DropShadow>
-         </effect>
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
-      <Button fx:id="exitButton" layoutX="489.0" layoutY="367.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="25.0" prefWidth="111.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="Exit Application" textOverrun="CLIP">
-         <effect>
-            <DropShadow blurType="GAUSSIAN">
-               <color>
-                  <Color red="1.0" />
-               </color>
-            </DropShadow>
-         </effect>
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
+         </opaqueInsets>
+      </TextField>
       <Button fx:id="exitButton1" layoutX="570.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="X" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
@@ -98,18 +61,34 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="settingsButton" layoutX="489.0" layoutY="334.0" mnemonicParsing="false" onAction="#goToSettings" prefHeight="25.0" prefWidth="111.0" styleClass="buttonSettings" stylesheets="@cssSheets.css" text="Settings" textOverrun="CLIP">
-         <effect>
-            <DropShadow blurType="GAUSSIAN">
-               <color>
-                  <Color red="0.16374269127845764" green="0.18421052396297455" blue="0.16749513149261475" />
-               </color>
-            </DropShadow>
-         </effect>
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Button>
+      <JFXButton fx:id="plantNewSeedButton" buttonType="RAISED" layoutX="489.0" layoutY="261.0" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="button1" text="+ New Seed" />
+      <JFXButton buttonType="RAISED" layoutX="489.0" layoutY="293.0" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="Legendary Plants" textFill="WHITE" />
+      <JFXButton fx:id="settingsButton" buttonType="RAISED" layoutX="489.0" layoutY="325.0" onAction="#goToSettings" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonSettings" text="Settings" textFill="WHITE" />
+      <JFXButton fx:id="waterThePlantOne" buttonType="RAISED" layoutX="15.0" layoutY="159.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" />
+      <JFXButton fx:id="selectPlantButton" buttonType="RAISED" layoutX="91.0" layoutY="159.0" onAction="#selectPlant" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select PLant">
+         <ripplerFill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9176470637321472" green="0.9215686321258545" blue="0.9176470637321472" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.010067114093959731">
+                     <color>
+                        <Color red="0.501960813999176" green="0.8039215803146362" blue="0.5764706134796143" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9210526347160339" green="0.48184698820114136" blue="0.8771320581436157" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
+      <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="488.0" layoutY="357.0" onAction="#closeProgram" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonExit" text="Exit Application" textFill="WHITE" />
    </children>
    <effect>
       <Glow />
