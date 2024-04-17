@@ -76,12 +76,13 @@ public class Plant implements Serializable {
 
     }
 
-    public void waterThePlant() {
+    public boolean waterThePlant() {
         waterLevel = waterLevel + 0.2;
         // if we have filled the water bar, decrement the countdown
         if (waterLevel == 1.0) {
-            levelUpCountdown();
+             return levelUpCountdown();
         }
+        return false;
     }
 
     public void decreaseHealth() {
@@ -105,12 +106,13 @@ public class Plant implements Serializable {
         }
     }
 
-    public void levelUpCountdown() {
+    public boolean levelUpCountdown() {
         levelUpCountdown--;
         if(levelUpCountdown == 0) {
             levelUpCountdown = 3;
-            incrementLevel();
+            return true;
         }
+        return false;
     }
 
     public void setName(String name) {
@@ -157,5 +159,6 @@ public class Plant implements Serializable {
         this.level = level++;
         setHealthLevel(1.0);
         setWaterLevel(1.0);
+        //TODO instead of calling this, call the LevelUp method in PlantController
     }
 }

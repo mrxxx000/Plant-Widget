@@ -8,6 +8,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.*;
@@ -42,6 +44,14 @@ public class PlantController implements Serializable {
         growingPlants[0] = cactusPlant;
         timeTrackReader();
 
+
+
+        // This is just for testing purposes can remove later
+        Plant catPlant = new Plant(PlantTypes.PUMPKIN);
+        InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+        Image image = new Image(inputStream);
+        catPlant.setImage(image);
+        growingPlants[1] = catPlant;
     }
 
     /**  Method to initialize water level property
@@ -103,14 +113,19 @@ public class PlantController implements Serializable {
      * Once found, it creates a new plant and adds it to the spot.
      * @param type used to create the right type of plant
      */
-    public void plantSeed(PlantTypes type) {
+    public void plantSeed(PlantTypes type, String name) {
         // TODO Get user input from GUI to know what enum type we need here
         for(int i = 0; i < growingPlants.length; i++) {
             if(growingPlants[i] == null) {
                 growingPlants[i] = new Plant(type);
+                if(name != null) {
+                    growingPlants[i].setName(name);
+                }
             }
         }
     }
+
+    // TODO add here a method to create the plants we are going to have with all the constructors image name species etc
 
     /**
      * This method increments the plants level by one.
@@ -209,11 +224,16 @@ public class PlantController implements Serializable {
             growingPlants[index].decreaseHealth();
         } else {
             //fill the water level by x amount
-            growingPlants[index].waterThePlant();
+            boolean shouldItLevelUp =growingPlants[index].waterThePlant();
             if(growingPlants[index].getHealthLevel() != 1.0) {
                 //increase the health bar as well
                 growingPlants[index].increaseHealth();
             }
+            if(shouldItLevelUp){
+                levelUp(index);
+            }
+
+
         }
     }
 
@@ -274,7 +294,10 @@ public class PlantController implements Serializable {
         return plant.getWaterLevel();
     }
     public Plant getPlant(int index){
-        return growingPlants[index];
+        if(growingPlants[index] != null){
+            return growingPlants[index];
+        }
+        return null;
     }
     public void skipDay(int index){
         growingPlants[index].skipDayWater();
@@ -289,7 +312,7 @@ public class PlantController implements Serializable {
 
         System.out.println("The date is: " + formatedDate.format(date));
 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\petvi\\Documents\\GitHub\\Plant-Widget\\src\\main\\resources\\SaveFile\\saveFile.txt.txt", false))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("saveFile.txt", false))) {
 
             for(int i = 0; i<growingPlants.length; i++) {
                 if(growingPlants[i] != null) {
@@ -307,7 +330,7 @@ public class PlantController implements Serializable {
     }
 
     public void timeTrackReader() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\petvi\\Documents\\GitHub\\Plant-Widget\\src\\main\\resources\\SaveFile\\saveFile.txt.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] parts = line.split(": ");
