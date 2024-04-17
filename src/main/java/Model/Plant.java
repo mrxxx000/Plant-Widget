@@ -122,6 +122,9 @@ public class Plant implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
+    public void setLevelSkip() {
+        this.level++;
+    }
     public int getLevel() {
         return this.level;
     }
