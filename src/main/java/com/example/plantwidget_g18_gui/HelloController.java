@@ -332,8 +332,7 @@ public class HelloController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
-        UpdateCurrentLibrary updateCurrentLibrary = new UpdateCurrentLibrary();
-        updateCurrentLibrary.start();
+        updateCurrentLibrary();
 
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
@@ -452,19 +451,17 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
 
-    private class UpdateCurrentLibrary extends Thread{
-        private boolean isRunning = true;
-        public void run(){
-            while(isRunning){
-                Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-                //Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+    public void updateCurrentLibrary(){
+        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
 
-                if(plant2 != null){
-                    String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
-                    double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
-                    double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
+            if(plant2 != null){
+                String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
+                double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
+                double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
 
 
+                if(plantLeveltwo!= null) {
                     plantLeveltwo.setText(plantLevel2);
                     imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
                     plantWaterBarTwo.setProgress(plantWaterLevel2);
@@ -476,11 +473,14 @@ public class HelloController implements Initializable {
                     plantHealthBarTwo.setVisible(true);
                     selectPlantTwo.setVisible(true);
                     waterPlantTwo.setVisible(true);
-
                 }
+
+
             }
-        }
+        }));
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
     }
-
-
 }
