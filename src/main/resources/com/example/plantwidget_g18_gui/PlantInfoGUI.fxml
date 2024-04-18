@@ -43,11 +43,7 @@
       <Text layoutX="498.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Level" wrappingWidth="137.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="239.0" layoutX="56.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
       <TextField fx:id="levelPlantOne" layoutX="56.0" layoutY="36.0" prefHeight="38.0" prefWidth="266.0" style="-fx-background-color: #61523a; -fx-border-radius: 60;" />
-      <ImageView fitHeight="239.0" fitWidth="266.0" layoutX="70.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="239.0" fitWidth="266.0" layoutX="70.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" />
       <AmbientLight layoutX="383.0" layoutY="234.0" lightOn="true">
          <color>
             <Color red="0.501960813999176" green="1.0" />

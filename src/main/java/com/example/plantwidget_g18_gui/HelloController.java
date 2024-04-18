@@ -36,7 +36,11 @@ import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
-
+    @FXML
+    private ProgressBar waterBarInSelectPlantScene;
+    @FXML
+    private ProgressBar healthBarInSelectPlantScene;
+    @FXML
     private Timeline timelineUpdateHealth;
     @FXML
     private Button enterNameButton;
@@ -176,7 +180,7 @@ public class HelloController implements Initializable {
     /*
          switches gui to the plant info scene, currently only works for plant number 1.
      */
-    public void selectPlant(ActionEvent event){
+    public void selectPlant(ActionEvent event, int index){
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
 
@@ -188,6 +192,14 @@ public class HelloController implements Initializable {
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setScene(scene);
             mouseMoveable(scene);
+            ImageView plantImageForInfo = getImageViewFromStage(stage); // this gets the imageview from the stage so to set the image of the plant
+            plantImageForInfo.setImage(mainBoundary.getPlantController().getPlant(index).getImage());//sets the image but i dont know if this breaks MVC
+            //ProgressBar waterBarInSelectPlantScene = getWaterBarInSelectPlantScene(stage);
+            //ProgressBar healthBarInSelectPlantScene = getHealthBarInSelectPlantScene(stage);
+
+            //waterBarInSelectPlantScene.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(index));
+            //healthBarInSelectPlantScene.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(index));
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -307,13 +319,17 @@ public class HelloController implements Initializable {
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
         */
     public void updatePlantHealthBarOne() {
-        plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
+        if(plantHealthBarOne != null){
+            plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
+        }
     }
     /*
         UPDATES TEH WATER BAR OF THE FIRST PLANT
     */
     public void updatePlantWaterBarOne() {
-        plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
+        if(plantWaterBarOne != null){
+            plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
+        }
     }
     /*
         THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
@@ -351,7 +367,7 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
 
-
+        updateCurrentLibrary();
     }
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
@@ -359,6 +375,14 @@ public class HelloController implements Initializable {
         updatePlantHealthBarOne();
         //water plant in controller, that takes in the plant
     }
+
+    public void waterPlantTwo() {
+        mainBoundary.getPlantController().waterPlant(1);
+        plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(1));
+        plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(1));
+
+    }
+
     public void skipDay1(){
         mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(0);
@@ -500,4 +524,54 @@ public class HelloController implements Initializable {
         timeline.play();
 
     }
+
+    public void selectPlantOne(ActionEvent e){
+        selectPlant(e,0);
+    }
+
+    public void selectPlantTwo(ActionEvent e){
+        selectPlant(e,1);
+
+    }
+
+    public void selectPlantThree(ActionEvent e){
+        selectPlant(e,2);
+    }
+
+    public ImageView getImageViewFromStage(Stage stage){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ImageView){
+                    return (ImageView) node;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ProgressBar getWaterBarInSelectPlantScene(Stage stage){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ProgressBar && node.getId().equals("waterBarInSelectPlantScene")){
+                    return (ProgressBar) node;
+                }
+            }
+        }
+        return null;
+    }
+
+    public ProgressBar getHealthBarInSelectPlantScene(Stage stage){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ProgressBar && node.getId().equals("healthBarInSelectPlantScene")){
+                    return (ProgressBar) node;
+                }
+            }
+        }
+        return null;
+    }
+
 }
