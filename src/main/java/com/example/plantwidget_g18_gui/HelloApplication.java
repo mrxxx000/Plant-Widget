@@ -1,6 +1,8 @@
 package com.example.plantwidget_g18_gui;
 
+import View.MainBoundary;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -23,6 +25,7 @@ public class HelloApplication extends Application {
         //Image icon = new Image("src/main/resources/images/pngtree-cactus-pixel-art-png-image_6581983.png");
         stage.getIcons().add(image);
         stage.show();
+
     }
 
     public static void main(String[] args) {

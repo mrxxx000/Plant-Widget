@@ -1,9 +1,8 @@
 package Model;
 
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 import java.io.Serializable;
+import java.time.LocalDate;
 
 public class Plant implements Serializable {
     private String name;
@@ -13,14 +12,14 @@ public class Plant implements Serializable {
     private Image image; //ImageIcon not available?
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
+    private LocalDate datePlanted;
 
 
     public Plant(PlantTypes type) {
+        datePlanted = LocalDate.now();
         this.type = type;
         setWaterLevel(1.0);
         setHealthLevel(1.0);
-        setLevel(0);
-        this.type = type;
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
@@ -77,12 +76,13 @@ public class Plant implements Serializable {
 
     }
 
-    public void waterThePlant() {
+    public boolean waterThePlant() {
         waterLevel = waterLevel + 0.2;
         // if we have filled the water bar, decrement the countdown
         if (waterLevel == 1.0) {
-            levelUpCountdown();
+             return levelUpCountdown();
         }
+        return false;
     }
 
     public void decreaseHealth() {
@@ -106,12 +106,13 @@ public class Plant implements Serializable {
         }
     }
 
-    public void levelUpCountdown() {
+    public boolean levelUpCountdown() {
         levelUpCountdown--;
         if(levelUpCountdown == 0) {
             levelUpCountdown = 3;
-            incrementLevel();
+            return true;
         }
+        return false;
     }
 
     public void setName(String name) {
@@ -123,8 +124,12 @@ public class Plant implements Serializable {
     public void setLevel(int level) {
         this.level = level;
     }
+    public void setLevelSkip() {
+        this.level++;
+    }
     public int getLevel() {
-        return level;
+
+        return this.level;
     }
     public void setHealthLevel(double healthLevel) {
         this.healthLevel = healthLevel;
@@ -154,5 +159,6 @@ public class Plant implements Serializable {
         this.level = level++;
         setHealthLevel(1.0);
         setWaterLevel(1.0);
+        //TODO instead of calling this, call the LevelUp method in PlantController
     }
 }

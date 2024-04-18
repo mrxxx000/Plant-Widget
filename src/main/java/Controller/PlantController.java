@@ -16,7 +16,13 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PlantController implements Serializable {
     private Plant[] growingPlants;
@@ -24,9 +30,11 @@ public class PlantController implements Serializable {
     private Plant plant;
     private DoubleProperty waterLevelProperty;
     private Timeline timeline;
+    private LocalDate dateNow;
+    private LocalDate lastDateSaved;
 
     public PlantController() {
-        growingPlants = new Plant[2]; // allows the user to have MAX 3 growing plants at a time
+        growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
         Plant cactusPlant = new Plant(PlantTypes.CACTUS);
@@ -34,13 +42,15 @@ public class PlantController implements Serializable {
         cactusPlant.setHealthLevel(0.2);
         cactusPlant.setWaterLevel(0.9);
         growingPlants[0] = cactusPlant;
+        timeTrackReader();
+
 
 
         // This is just for testing purposes can remove later
         Plant catPlant = new Plant(PlantTypes.PUMPKIN);
-        InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
-        Image image = new Image(inputStream);
-        catPlant.setImage(image);
+        //InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+        //Image image = new Image(inputStream);
+        //catPlant.setImage(image);
         growingPlants[1] = catPlant;
     }
 
@@ -50,7 +60,7 @@ public class PlantController implements Serializable {
      */
     public void initializeWaterLevelProperty(){
         waterLevelProperty = new SimpleDoubleProperty();
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+        this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
             for (Plant growinPlant : growingPlants)
                 if (growinPlant != null) {
                     growinPlant.decreaseWaterOverTime(1, growinPlant);
@@ -109,7 +119,7 @@ public class PlantController implements Serializable {
             if(growingPlants[i] == null) {
                 growingPlants[i] = new Plant(type);
                 if(name != null) {
-                    growingPlants[i].setName(name); // added this since when planting a seed we want a name aswell
+                    growingPlants[i].setName(name);
                 }
             }
         }
@@ -214,11 +224,16 @@ public class PlantController implements Serializable {
             growingPlants[index].decreaseHealth();
         } else {
             //fill the water level by x amount
-            growingPlants[index].waterThePlant();
+            boolean shouldItLevelUp =growingPlants[index].waterThePlant();
             if(growingPlants[index].getHealthLevel() != 1.0) {
                 //increase the health bar as well
                 growingPlants[index].increaseHealth();
             }
+            if(shouldItLevelUp){
+                levelUp(index);
+            }
+
+
         }
     }
 
@@ -286,9 +301,73 @@ public class PlantController implements Serializable {
     }
     public void skipDay(int index){
         growingPlants[index].skipDayWater();
+        growingPlants[index].setLevelSkip();
     }
     public void setPlantName(String name, int index) {
         growingPlants[index].setName(name);
+    }
+    public void timeTrackWriter() { // need to specifgy how we write the progress for three plants
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter formatedDate = DateTimeFormatter.ofPattern("dd/MM-yy");
+
+        System.out.println("The date is: " + formatedDate.format(date));
+
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("saveFile.txt", false))) {
+
+            for(int i = 0; i<growingPlants.length; i++) {
+                if(growingPlants[i] != null) {
+                    writer.write(growingPlants[i].getName() + ": ");
+                    writer.write(growingPlants[i].getLevel() + ": "); // days alive
+                    writer.write(formatedDate.format(date)); // last saved date.
+                    writer.newLine();
+                }
+                writer.flush();
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing to file.");
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void timeTrackReader() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
+            String line = reader.readLine();
+            while (line != null) {
+                String[] parts = line.split(": ");
+                if (parts.length != 3) {
+                    System.out.println("Invalid line format: " + line);
+                    continue;
+                }
+                String plantName = parts[0];
+                String daysAliveStr = parts[1];
+                String lastSavedDateStr = parts[2];
+
+                try {
+                    for(int i = 0; i<growingPlants.length;i++) {
+                        if(i==0) {
+                            int daysAlive = Integer.parseInt(daysAliveStr);
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yy");
+                            LocalDate lastSavedDate = LocalDate.parse(lastSavedDateStr, formatter);
+                            dateNow = LocalDate.now();
+
+                            long daysDifference = ChronoUnit.DAYS.between(lastSavedDate, dateNow);
+
+                            growingPlants[i].setLevel((int) (daysAlive + daysDifference));
+                        }
+
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid number format in line: " + line);
+                } catch (DateTimeParseException e) {
+                    System.out.println("Invalid date format in line: " + line);
+                }
+
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading from file.");
+            throw new RuntimeException(e);
+        }
     }
 }
 

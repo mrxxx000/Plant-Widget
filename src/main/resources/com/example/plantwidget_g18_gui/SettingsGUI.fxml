@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXSlider?>
-<?import com.jfoenix.controls.JFXToggleButton?>
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleNode?>
 <?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Pane layoutX="159.0" layoutY="-167.0" prefHeight="424.0" prefWidth="100.0" rotate="90.0" stylesheets="@cssSheets.css">
+      <Pane layoutX="7.0" layoutY="7.0" prefHeight="475.0" prefWidth="44.0" stylesheets="@cssSheets.css">
          <styleClass>
             <String fx:value="buttonWater" />
             <String fx:value="backgroundColorSettings" />
@@ -25,46 +27,65 @@
             <Glow />
          </effect>
       </Pane>
-      <Label layoutX="154.0" layoutY="26.0" text="Settings" textFill="WHITE">
-         <font>
-            <Font name="Neo Sans" size="32.0" />
-         </font>
-      </Label>
-      <VBox layoutX="45.0" layoutY="95.0" prefHeight="245.0" prefWidth="332.0">
-         <children>
-            <JFXToggleButton text="Light/Dark Theme" toggleColor="#393b3c" toggleLineColor="#101011" unToggleColor="#2185ff" unToggleLineColor="#569ff2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXToggleButton>
-            <Line endX="120.29289245605469" endY="-0.7073240280151367" startX="450.5857849121094" startY="-0.7076148986816406" stroke="#61523a" />
-            <Label />
-            <JFXToggleButton text="PLACEHOLDER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXToggleButton>
-            <Line endX="120.29289245605469" endY="-0.7073240280151367" startX="450.5857849121094" startY="-0.7076148986816406" stroke="#61523a" />
-            <Label prefHeight="27.0" prefWidth="345.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label prefHeight="27.0" prefWidth="345.0" text="                    Difficulty Mode">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <JFXSlider />
-         </children>
-      </VBox>
-      <MFXButton fx:id="backButton" buttonType="RAISED" depthLevel="LEVEL5" layoutX="152.0" layoutY="360.0" onAction="#goBackToLibrary" prefHeight="40.0" prefWidth="119.0" rippleColor="#a18c6b" style="-fx-background-color: #61523a;" text="Back to Library" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </MFXButton>
       <ProgressBar fx:id="plantWaterBarOne" disable="true" layoutX="490.0" layoutY="222.0" prefHeight="23.0" prefWidth="175.0" progress="0.78" />
       <ProgressBar fx:id="plantHealthBarOne" disable="true" layoutX="489.0" layoutY="284.0" prefHeight="23.0" prefWidth="175.0" progress="0.53" />
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="152.0" layoutY="396.0" onAction="#goBackToLibrary" prefHeight="40.0" prefWidth="119.0" ripplerFill="#b9a07b" style="-fx-background-color: #61523a;" text="Back to Library" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="29.0" />
+         </font>
+      </JFXButton>
+      <Pane layoutX="60.0" layoutY="61.0" prefHeight="261.0" prefWidth="332.0">
+         <children>
+            <JFXToggleNode layoutX="14.0" layoutY="222.0" prefHeight="25.0" prefWidth="52.0">
+               <selectedColor>
+                  <Color red="0.15442252159118652" green="0.17517970502376556" blue="0.19736842811107635" />
+               </selectedColor>
+               <unSelectedColor>
+                  <Color red="0.975344181060791" green="0.9868420958518982" blue="0.2969663739204407" />
+               </unSelectedColor>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </JFXToggleNode>
+            <Label layoutX="73.0" layoutY="224.0" text="Turn On/Off lights">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXToggleNode layoutX="9.0" layoutY="48.0" prefHeight="47.0" prefWidth="44.0" styleClass="elementToggle" stylesheets="@cssSheets.css">
+               <selectedColor>
+                  <Color red="0.1500999927520752" green="0.16938500106334686" blue="0.1899999976158142" opacity="0.0" />
+               </selectedColor>
+               <unSelectedColor>
+                  <Color red="0.9800000190734863" green="0.9800000190734863" blue="0.30379998683929443" />
+               </unSelectedColor>
+               <cursor>
+                  <Cursor fx:constant="NONE" />
+               </cursor>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </JFXToggleNode>
+            <Label layoutX="73.0" layoutY="66.0" text="Turn On/Off lights">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView disable="true" fitHeight="80.0" fitWidth="52.0" layoutX="8.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/settingsBulb.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="115.0" layoutY="14.0" text="Settings" textFill="#61523a">
+         <font>
+            <Font name="Segoe UI Bold" size="50.0" />
+         </font>
+      </Label>
    </children>
    <effect>
       <DropShadow />
