@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
+import com.example.plantwidget_g18_gui.*;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
