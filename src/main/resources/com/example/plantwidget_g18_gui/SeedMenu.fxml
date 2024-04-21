@@ -32,11 +32,7 @@
                   <Font size="11.0" />
                </font>
             </Button>
-            <Button fx:id="selectPlantButton" disable="true" layoutX="253.0" layoutY="161.0" mnemonicParsing="false" onAction="#selectPlant" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" stylesheets="@cssSheets.css" text="Select Plant">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Button>
+
             <TextField fx:id="levelPlantOne1" disable="true" editable="false" layoutX="205.0" layoutY="15.0" prefHeight="2.0" prefWidth="88.0" promptText="Level" style="-fx-background-color: #80cd93;" styleClass="textFieldGreen" text="Level X">
                <opaqueInsets>
                   <Insets />
