@@ -122,6 +122,10 @@ public class HelloController implements Initializable {
     @FXML
     private Button skipDayButton1;
     @FXML
+    private Button skipDayButton2;
+    @FXML
+    private Button skipDayButton3;
+    @FXML
     private TextField levelPlantOne;
     @FXML
     private ProgressBar plantHealthBarOne;
@@ -206,19 +210,8 @@ public class HelloController implements Initializable {
             waterBarInSelectPlantScene.setStyle("-fx-accent: #34a8d9;");
             waterBarInSelectPlantScene.setBackground(Background.EMPTY);
             updateWaterAndHealthBarInSelectPlantScene(waterBarInSelectPlantScene, healthBarInSelectPlantScene, index);
+            setUpSelectPlantScene(stage,index);
             stage.show();
-            if(index == 0){
-                Button waterThePlantOne = getWaterThePlantOne(stage);
-                waterThePlantOne.setVisible(true);
-            }
-            else if(index == 1){
-                Button waterThePlantTwo = getWaterThePlantTwo(stage);
-                waterThePlantTwo.setVisible(true);
-            }
-            else if(index == 2){
-                plantImageForInfo.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
-            }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -389,20 +382,7 @@ public class HelloController implements Initializable {
         updateCurrentLibrary();
     }
 
-    public void waterPlantInSelectScene(){
-        switch (this.indexOfChosenPlant){
-            case 0:
-                mainBoundary.getPlantController().waterPlant(0);
-                break;
-            case 1:
-                mainBoundary.getPlantController().waterPlant(1);
-                break;
-            case 2:
-                mainBoundary.getPlantController().waterPlant(2);
-                break;
-        }
 
-    }
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
         updatePlantWaterBarOne();
@@ -421,6 +401,20 @@ public class HelloController implements Initializable {
     public void skipDay1(){
         mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(0);
+        updatePlantWaterBarOne();
+        updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
+        System.out.println(plant1.getLevel());
+    }
+
+    public void skipDay2(){
+        mainBoundary.getPlantController().timeTrackReader();
+        mainBoundary.getPlantController().skipDay(1);
+        System.out.println(plant1.getLevel());
+    }
+
+    public void skipDay3(){
+        mainBoundary.getPlantController().timeTrackReader();
+        mainBoundary.getPlantController().skipDay(2);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(plant1.getLevel());
@@ -588,23 +582,11 @@ public class HelloController implements Initializable {
         return null;
     }
 
-    public Button getWaterThePlantOne(Stage stage){
+    public Button getButtonsFromSelectPlantScene(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof Button && node.getId().equals("waterThePlantOne")){
-                    return (Button) node;
-                }
-            }
-        }
-        return null;
-    }
-
-    public Button getWaterThePlantTwo(Stage stage){
-        Node root = stage.getScene().getRoot();
-        if(root instanceof Parent){
-            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof Button && node.getId().equals("waterThePlantTwo")){
+                if(node instanceof Button && node.getId().equals(id)){
                     return (Button) node;
                 }
             }
@@ -646,6 +628,27 @@ public class HelloController implements Initializable {
             }
         }
         return null;
+    }
+
+    public void setUpSelectPlantScene(Stage stage,int index){
+        if(index == 0){
+            Button waterThePlantOne = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
+            Button skipDayButton1 = getButtonsFromSelectPlantScene(stage, "skipDayButton1");
+            waterThePlantOne.setVisible(true);
+            skipDayButton1.setVisible(true);
+        }
+        else if(index == 1){
+            Button waterThePlantTwo = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
+            Button skipDayButton2 = getButtonsFromSelectPlantScene(stage, "skipDayButton2");
+            waterThePlantTwo.setVisible(true);
+            skipDayButton2.setVisible(true);
+        }
+        else if(index == 2){
+            Button waterThePlantThree = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
+            Button skipDayButton3 = getButtonsFromSelectPlantScene(stage, "skipDayButton3");
+            waterThePlantThree.setVisible(true);
+            skipDayButton3.setVisible(true);
+        }
     }
 
 }
