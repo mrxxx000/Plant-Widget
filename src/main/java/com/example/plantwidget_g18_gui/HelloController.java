@@ -184,7 +184,7 @@ public class HelloController implements Initializable {
     private Plant plant1;
     private Plant plant2;
     private Plant plant3;
-    private int indexOfChosenPlant = 0;
+    private int indexOfChosenSeed;
 
     /*
          switches gui to the plant info scene, currently only works for plant number 1.
@@ -398,6 +398,14 @@ public class HelloController implements Initializable {
         }
     }
 
+    public void waterPlantThree() {
+        mainBoundary.getPlantController().waterPlant(2);
+        if(plantWaterBarOne != null){
+            plantWaterBarThree.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(2));
+            plantHealthBarThree.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(2));
+        }
+    }
+
     public void skipDay1(){
         mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(0);
@@ -497,9 +505,20 @@ public class HelloController implements Initializable {
     public void plantSeedOne(ActionEvent e){
             if (namePlantField.getText().length() > 0) {
                 String name = namePlantField.getText();
+                System.out.println("in plant seed one");
                 System.out.println(name);
                 if(name != null){
-                    mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                    switch (indexOfChosenSeed){
+                        case 0:
+                            mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                            break;
+                        case 1:
+                            mainBoundary.getPlantController().plantSeed(PlantTypes.PUMPKIN,name);
+                            break;
+                        case 2:
+                            mainBoundary.getPlantController().plantSeed(PlantTypes.SNAKEPLANT,name);
+                            break;
+                    }
                     goBackToLibrary(e);
                 }
             }
@@ -511,6 +530,18 @@ public class HelloController implements Initializable {
         closeNamePlantButton.setVisible(true);
         enterNameButton.setVisible(true);
         namePlantField.setVisible(true);
+        if(e.getSource() instanceof Button){
+            Button button = (Button) e.getSource();
+            if(button.getId().equals("plantNewSeedButton1")){
+                this.indexOfChosenSeed = 0;
+            }
+            else if(button.getId().equals("plantNewSeedButton2")){
+                this.indexOfChosenSeed = 1;
+            }
+            else if(button.getId().equals("plantNewSeedButton3")){
+                this.indexOfChosenSeed = 2;
+            }
+        }
     }
 
     public void hideNamePrompt(ActionEvent e){
@@ -523,6 +554,13 @@ public class HelloController implements Initializable {
 
     public void updateCurrentLibrary(){
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
+        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+
+        if(plant2 != null && plant3 != null) {
+            System.out.println("in update current library");
+            System.out.println(plant2.getName());
+            System.out.println(plant3.getName());
+        }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(plant2 != null){
@@ -544,8 +582,25 @@ public class HelloController implements Initializable {
                     selectPlantTwo.setVisible(true);
                     waterPlantTwo.setVisible(true);
                 }
+            }
+            if(plant3 != null){
+                String plantLevel3 = Integer.toString(mainBoundary.getPlantController().getPlant(2).getLevel());
+                double plantWaterLevel3 = mainBoundary.getPlantController().getPlant(2).getWaterLevel();
+                double plantHealthLevel3 = mainBoundary.getPlantController().getPlant(2).getHealthLevel();
 
+                if(plantLevelThree != null){
+                    plantLevelThree.setText(plantLevel3);
+                    imagePlantThree.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
+                    plantWaterBarThree.setProgress(plantWaterLevel3);
+                    plantHealthBarThree.setProgress(plantHealthLevel3);
 
+                    plantLevelThree.setVisible(true);
+                    imagePlantThree.setVisible(true);
+                    plantWaterBarThree.setVisible(true);
+                    plantHealthBarThree.setVisible(true);
+                    selectPlantThree.setVisible(true);
+                    waterPlantThree.setVisible(true);
+                }
             }
         }));
 
@@ -556,18 +611,15 @@ public class HelloController implements Initializable {
 
     public void selectPlantOne(ActionEvent e){
         selectPlant(e,0);
-        this.indexOfChosenPlant = 0;
     }
 
     public void selectPlantTwo(ActionEvent e){
         selectPlant(e,1);
-        this.indexOfChosenPlant = 1;
 
     }
 
     public void selectPlantThree(ActionEvent e){
         selectPlant(e,2);
-        this.indexOfChosenPlant = 2;
     }
 
     public ImageView getImageViewFromStage(Stage stage){

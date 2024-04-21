@@ -86,7 +86,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="waterThePlantThree" layoutX="224.0" layoutY="406.0" mnemonicParsing="false" onAction="#waterPlantTwo" prefHeight="38.0" prefWidth="137.0" styleClass="buttonWaterMiddle" stylesheets="@cssSheets.css" text="Water the plant" textFill="WHITE" visible="false">
+      <Button fx:id="waterThePlantThree" layoutX="224.0" layoutY="406.0" mnemonicParsing="false" onAction="#waterPlantThree" prefHeight="38.0" prefWidth="137.0" styleClass="buttonWaterMiddle" stylesheets="@cssSheets.css" text="Water the plant" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

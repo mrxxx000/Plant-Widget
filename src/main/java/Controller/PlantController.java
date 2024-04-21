@@ -113,6 +113,9 @@ public class PlantController implements Serializable {
      * Once found, it creates a new plant and adds it to the spot.
      * @param type used to create the right type of plant
      */
+
+    // TODO dont know if this is working correctly since when i plant a seed it plants 2 of them. it doesnt stop when it has already added one
+
     public void plantSeed(PlantTypes type, String name) {
         // TODO Get user input from GUI to know what enum type we need here
         for(int i = 0; i < growingPlants.length; i++) {

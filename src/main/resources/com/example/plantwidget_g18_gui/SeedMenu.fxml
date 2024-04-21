@@ -107,8 +107,8 @@
          </image>
       </ImageView>
       <Button fx:id="plantNewSeedButton1" layoutX="63.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
-      <Button fx:id="plantNewSeedButton2" layoutX="275.0" layoutY="318.0" mnemonicParsing="false" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
-      <Button fx:id="plantNewSeedButton3" layoutX="486.0" layoutY="318.0" mnemonicParsing="false" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
+      <Button fx:id="plantNewSeedButton2" layoutX="275.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
+      <Button fx:id="plantNewSeedButton3" layoutX="486.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
       <Button fx:id="plantNewSeedButton" layoutX="491.0" layoutY="360.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">

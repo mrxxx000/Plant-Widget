@@ -39,7 +39,7 @@
          </image>
       </ImageView>
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="246.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="439.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFour" fitHeight="88.0" fitWidth="111.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFive" fitHeight="88.0" fitWidth="111.0" layoutX="170.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantSix" fitHeight="88.0" fitWidth="111.0" layoutX="318.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
@@ -117,6 +117,33 @@
          </ripplerFill>
       </JFXButton>
       <Label fx:id="plantLeveltwo" layoutX="286.0" layoutY="17.0" visible="false" />
+      <ProgressBar fx:id="plantWaterBarThree" layoutX="439.0" layoutY="129.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" visible="false" />
+      <ProgressBar fx:id="plantHealthBarThree" layoutX="439.0" layoutY="143.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" visible="false" />
+      <JFXButton fx:id="waterPlantThree" buttonType="RAISED" layoutX="435.0" layoutY="163.0" onAction="#waterPlantThree" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" visible="false" />
+      <JFXButton fx:id="selectPlantThree" buttonType="RAISED" layoutX="511.0" layoutY="163.0" onAction="#selectPlantThree" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select PLant" visible="false">
+         <ripplerFill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9176470637321472" green="0.9215686321258545" blue="0.9176470637321472" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.010067114093959731">
+                     <color>
+                        <Color red="0.501960813999176" green="0.8039215803146362" blue="0.5764706134796143" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.9210526347160339" green="0.48184698820114136" blue="0.8771320581436157" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
+      <Label fx:id="plantLevelThree" layoutX="496.0" layoutY="22.0" visible="false" />
    </children>
    <effect>
       <Glow />
