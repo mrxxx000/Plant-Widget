@@ -306,6 +306,10 @@ public class PlantController implements Serializable {
     public void setPlantName(String name, int index) {
         growingPlants[index].setName(name);
     }
+
+    //Don't know why it says that I have written this one, might be because of me reseting the merge
+    //That's my bad, but who ever has written this one just write your name here
+    //Actually written by:
     public void timeTrackWriter() { // need to specifgy how we write the progress for three plants
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatedDate = DateTimeFormatter.ofPattern("dd/MM-yy");
@@ -328,6 +332,9 @@ public class PlantController implements Serializable {
             throw new RuntimeException(e);
         }
     }
+
+    //same goes with this one
+    //Actually written by:
 
     public void timeTrackReader() {
         try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
