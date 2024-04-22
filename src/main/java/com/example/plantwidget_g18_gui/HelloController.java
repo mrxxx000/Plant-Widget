@@ -1,6 +1,5 @@
 package com.example.plantwidget_g18_gui;
 
-import Controller.PlantController;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
@@ -18,24 +17,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import com.example.plantwidget_g18_gui.*;
+
 import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
+    @FXML
+    private ProgressBar waterBarInWidgetScene;
+    @FXML
+    private ProgressBar healthBarInWidgetScene;
     @FXML
     private ProgressBar waterBarInSelectPlantScene;
     @FXML
@@ -111,6 +111,10 @@ public class HelloController implements Initializable {
     private Button addNewPLantButton;
     @FXML
     private Button placeOnDesk1;
+    @FXML
+    private Button placeOnDesk2;
+    @FXML
+    private Button placeOnDesk3;
     @FXML
     private Button exitButton;
     @FXML
@@ -209,7 +213,7 @@ public class HelloController implements Initializable {
             healthBarInSelectPlantScene.getStyleClass().add("progressBarHealth");
             waterBarInSelectPlantScene.setStyle("-fx-accent: #34a8d9;");
             waterBarInSelectPlantScene.setBackground(Background.EMPTY);
-            updateWaterAndHealthBarInSelectPlantScene(waterBarInSelectPlantScene, healthBarInSelectPlantScene, index);
+            updateWaterAndHealthBar(waterBarInSelectPlantScene, healthBarInSelectPlantScene, index);
             setUpSelectPlantScene(stage,index);
             stage.show();
         } catch (IOException e) {
@@ -230,6 +234,11 @@ public class HelloController implements Initializable {
             //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setScene(scene);
             mouseMoveable(scene);
+
+            Button button = (Button)event.getSource();
+            setupWidgetScene(button,stage);
+
+
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -658,7 +667,8 @@ public class HelloController implements Initializable {
         return null;
     }
 
-    public void updateWaterAndHealthBarInSelectPlantScene(ProgressBar waterBar, ProgressBar healthBar, int index){
+    //this method uses a timeline to update waterbar and health bar with the right index for the plant
+    public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(waterBar != null && healthBar != null){
                 waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
@@ -686,21 +696,75 @@ public class HelloController implements Initializable {
         if(index == 0){
             Button waterThePlantOne = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
             Button skipDayButton1 = getButtonsFromSelectPlantScene(stage, "skipDayButton1");
+            Button placeOnDesk1 = getButtonsFromSelectPlantScene(stage, "placeOnDesk1");
             waterThePlantOne.setVisible(true);
             skipDayButton1.setVisible(true);
+            placeOnDesk1.setVisible(true);
         }
         else if(index == 1){
             Button waterThePlantTwo = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
             Button skipDayButton2 = getButtonsFromSelectPlantScene(stage, "skipDayButton2");
+            Button placeOnDesk2 = getButtonsFromSelectPlantScene(stage, "placeOnDesk2");
             waterThePlantTwo.setVisible(true);
             skipDayButton2.setVisible(true);
+            placeOnDesk2.setVisible(true);
         }
         else if(index == 2){
             Button waterThePlantThree = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
             Button skipDayButton3 = getButtonsFromSelectPlantScene(stage, "skipDayButton3");
+            Button placeOnDesk3 = getButtonsFromSelectPlantScene(stage, "placeOnDesk3");
             waterThePlantThree.setVisible(true);
             skipDayButton3.setVisible(true);
+            placeOnDesk3.setVisible(true);
         }
+    }
+
+    public void setupWidgetScene(Button button, Stage stage){
+        if(button.getId().equals("placeOnDesk1")){
+            ImageView imagePlantOne = getImageViewFromStage(stage);
+            imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
+            ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
+            ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(0).getWaterLevel());
+            healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(0).getHealthLevel());
+            updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 0);
+            Button waterButton1 = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
+            waterButton1.setVisible(true);
+        }
+        if(button.getId().equals("placeOnDesk2")){
+            ImageView imagePlantTwo = getImageViewFromStage(stage);
+            imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
+            ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
+            ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(1).getWaterLevel());
+            healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(1).getHealthLevel());
+            updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 1);
+            Button waterButton2 = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
+            waterButton2.setVisible(true);
+        }
+        if(button.getId().equals("placeOnDesk3")){
+            ImageView imagePlantThree = getImageViewFromStage(stage);
+            imagePlantThree.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
+            ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
+            ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(2).getWaterLevel());
+            healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(2).getHealthLevel());
+            updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 2);
+            Button waterButton3 = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
+            waterButton3.setVisible(true);
+        }
+    }
+
+    public ProgressBar getProgressBarFromStage(Stage stage, String id){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ProgressBar && node.getId().equals(id)){
+                    return (ProgressBar) node;
+                }
+            }
+        }
+        return null;
     }
 
 }
