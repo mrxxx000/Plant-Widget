@@ -58,6 +58,7 @@ public class PlantController implements Serializable {
      * // Creates a new SimpleDoubleProperty object
      * Starts the timer for updating water levels
      */
+    //Akmal Safi
     public void initializeWaterLevelProperty(){
         waterLevelProperty = new SimpleDoubleProperty();
         this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
@@ -83,13 +84,13 @@ public class PlantController implements Serializable {
      * Checks if the element is not null
      * Decreasing water level for the plant
      */
-
+    //Akmal Safi
     public void startTimer() {
 
         timeline.play();
     }
 
-
+    //Akmal Safi
     public DoubleProperty waterLevelProperty() {
         return waterLevelProperty;
     }
