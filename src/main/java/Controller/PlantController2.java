@@ -11,7 +11,7 @@ import java.io.*;
 public class PlantController2 implements Serializable {
     private Plant[] growingPlants;
 
-    //Author:
+    //Akmal Safi:
     public void SavePlantToFile(String filename) {
         try(ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(filename))){
             for (Plant plant: growingPlants){
@@ -25,7 +25,7 @@ public class PlantController2 implements Serializable {
             System.out.println("Failed to save plants" + e.getMessage());
         }
     }
-    //Author:
+    //Akmal Safi:
     public void LoadPlantsFromFile(String filename){
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))){
             int index = 0;
