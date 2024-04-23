@@ -9,7 +9,7 @@ public class Plant implements Serializable {
     private int level;
     private double healthLevel; //Max 1.0
     private double waterLevel; //Max 1.0
-    private Image image; //ImageIcon not available?
+    //private Image image; //ImageIcon not available? normal image not work with serialazble
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
     private LocalDate datePlanted;
@@ -150,10 +150,11 @@ public class Plant implements Serializable {
         return type;
     }
     public void setImage(Image image) {
-        this.image = image;
+        //this.image = image;
     }
     public Image getImage() {
-        return image;
+        //return image;
+        return null;
     }
     public void incrementLevel() {
         this.level = level++;

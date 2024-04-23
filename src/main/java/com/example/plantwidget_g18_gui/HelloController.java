@@ -282,6 +282,7 @@ public class HelloController implements Initializable {
     */
     public void closeProgram(ActionEvent event){
         mainBoundary.getPlantController().timeTrackWriter();
+        mainBoundary.getPlantController().SavePlantToFile();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
@@ -357,6 +358,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
         mainBoundary.getPlantController().startTheTimer();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         mainBoundary.getPlantController().timeTrackReader();
         startTimeline();
         updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
@@ -580,7 +582,7 @@ public class HelloController implements Initializable {
 
                 if(plantLeveltwo!= null) {
                     plantLeveltwo.setText(plantLevel2);
-                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
+                    //imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
                     plantWaterBarTwo.setProgress(plantWaterLevel2);
                     plantHealthBarTwo.setProgress(plantHealthLevel2);
 

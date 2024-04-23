@@ -380,6 +380,69 @@ public class PlantController implements Serializable {
             throw new RuntimeException(e);
         }
     }
+    //akmal safi & Emre Mengutay
+    public void SavePlantToFile() {
+        String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
+        File file = new File(filename);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            }catch (IOException e){
+                System.out.println("Failed to create file " + e.getMessage());
+            }
+        }
+        try(ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(filename))){
+            for (Plant plant: growingPlants){
+                if (plant!= null){
+                    oss.writeObject(plant);
+                    oss.writeDouble(plant.getWaterLevel());
+                    oss.writeDouble(plant.getHealthLevel());
+                    oss.writeInt(plant.getLevel());
+                }
+            }
+            System.out.println("Plant info saved successfully");
+
+        }catch (IOException e){
+            System.out.println("Failed to save plants" + e.getMessage());
+        }
+    }
+    //akmal safi & Emre Mengutay
+    public void LoadPlantsFromFile(){
+        String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
+        File file = new File(filename);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            }catch (IOException e){
+                System.out.println("Failed to create file " + e.getMessage());
+            }
+        }else {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
+                int index = 0;
+                while (true) {
+                    try {
+                        Plant plant = (Plant) ois.readObject();
+                        double waterLevel = ois.readDouble();
+                        double healthLevel = ois.readDouble();
+                        int level = ois.readInt();
+                        if (plant != null) {
+                            plant.setWaterLevel(waterLevel);
+                            plant.setHealthLevel(healthLevel);
+                            plant.setLevel(level);
+                            growingPlants[index++] = plant;
+                        }
+                    } catch (EOFException e) {
+                        break;
+                    }
+                }
+            } catch (EOFException e) {
+                e.printStackTrace();
+
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("Failed to load plants " + e.getMessage());
+            }
+        }
+    }
 }
 
 
