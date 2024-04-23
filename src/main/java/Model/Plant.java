@@ -32,7 +32,7 @@ public class Plant implements Serializable {
      * @param hoursElapsed
      * @param plant
      */
-
+    //Akmal Safi
     public void decreaseWaterOverTime(int hoursElapsed, Plant plant) {
         // Calculate the water loss rate based on the plant type
         double waterLossPerHours = 0.0;
