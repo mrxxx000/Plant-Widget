@@ -233,9 +233,9 @@ public class PlantController implements Serializable {
                 //increase the health bar as well
                 growingPlants[index].increaseHealth();
             }
-            if(shouldItLevelUp){
+            /*if(shouldItLevelUp){
                 levelUp(index);
-            }
+            }*/
 
 
         }

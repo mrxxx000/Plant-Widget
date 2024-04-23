@@ -418,21 +418,19 @@ public class HelloController implements Initializable {
     }
 
     public void skipDay1(){
-        mainBoundary.getPlantController().timeTrackReader();
+
         mainBoundary.getPlantController().skipDay(0);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
-        System.out.println(plant1.getLevel());
+        System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
     }
 
     public void skipDay2(){
-        mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(1);
-        System.out.println(plant1.getLevel());
+        System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
     }
 
     public void skipDay3(){
-        mainBoundary.getPlantController().timeTrackReader();
         mainBoundary.getPlantController().skipDay(2);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
