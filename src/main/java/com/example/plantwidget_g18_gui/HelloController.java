@@ -196,6 +196,7 @@ public class HelloController implements Initializable {
     public void selectPlant(ActionEvent event, int index){
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
+        mainBoundary.getPlantController().SavePlantToFile();
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
@@ -226,6 +227,7 @@ public class HelloController implements Initializable {
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
+        mainBoundary.getPlantController().SavePlantToFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -250,6 +252,7 @@ public class HelloController implements Initializable {
     public void goToSettings(ActionEvent event){
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
+        mainBoundary.getPlantController().SavePlantToFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
@@ -298,6 +301,7 @@ public class HelloController implements Initializable {
         stage.show();*/
         mainBoundary.getPlantController().startTimer();
         timelineUpdateHealth.playFromStart();
+        mainBoundary.getPlantController().SavePlantToFile();
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -319,6 +323,7 @@ public class HelloController implements Initializable {
     public void goTochooseSeedScene(ActionEvent event){
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
+        mainBoundary.getPlantController().SavePlantToFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
@@ -358,7 +363,6 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
         mainBoundary.getPlantController().startTheTimer();
-        mainBoundary.getPlantController().LoadPlantsFromFile();
         mainBoundary.getPlantController().timeTrackReader();
         startTimeline();
         updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
@@ -378,6 +382,7 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.playFromStart();
     }
     public HelloController() {
+
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         mainBoundary.getPlantController().timeTrackReader();
@@ -389,8 +394,9 @@ public class HelloController implements Initializable {
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
-
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         updateCurrentLibrary();
+
     }
 
 
