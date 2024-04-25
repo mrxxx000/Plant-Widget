@@ -33,6 +33,10 @@ import javafx.util.Duration;
 
 public class HelloController implements Initializable {
     @FXML
+    private Label speciesNameInSelectPlantScene;
+    @FXML
+    private Label plantNameInSelectPlantScene;
+    @FXML
     private ProgressBar waterBarInWidgetScene;
     @FXML
     private ProgressBar healthBarInWidgetScene;
@@ -637,6 +641,18 @@ public class HelloController implements Initializable {
         selectPlant(e,2);
     }
 
+    public Label getLabelFromStage(Stage stage, String id){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof Label && node.getId().equals(id)){
+                    return (Label) node;
+                }
+            }
+        }
+        return null;
+    }
+
     public ImageView getImageViewFromStage(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -699,10 +715,14 @@ public class HelloController implements Initializable {
     }
 
     public void setUpSelectPlantScene(Stage stage,int index){
+        speciesNameInSelectPlantScene = getLabelFromStage(stage, "speciesNameInSelectPlantScene");
+        plantNameInSelectPlantScene = getLabelFromStage(stage, "plantNameInSelectPlantScene");
         if(index == 0){
             Button waterThePlantOne = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
             Button skipDayButton1 = getButtonsFromSelectPlantScene(stage, "skipDayButton1");
             Button placeOnDesk1 = getButtonsFromSelectPlantScene(stage, "placeOnDesk1");
+            speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(0).getType().toString());
+            plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(0).getName());
             waterThePlantOne.setVisible(true);
             skipDayButton1.setVisible(true);
             placeOnDesk1.setVisible(true);
@@ -711,6 +731,8 @@ public class HelloController implements Initializable {
             Button waterThePlantTwo = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
             Button skipDayButton2 = getButtonsFromSelectPlantScene(stage, "skipDayButton2");
             Button placeOnDesk2 = getButtonsFromSelectPlantScene(stage, "placeOnDesk2");
+            speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(1).getType().toString());
+            plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(1).getName());
             waterThePlantTwo.setVisible(true);
             skipDayButton2.setVisible(true);
             placeOnDesk2.setVisible(true);
@@ -719,6 +741,8 @@ public class HelloController implements Initializable {
             Button waterThePlantThree = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
             Button skipDayButton3 = getButtonsFromSelectPlantScene(stage, "skipDayButton3");
             Button placeOnDesk3 = getButtonsFromSelectPlantScene(stage, "placeOnDesk3");
+            speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(2).getType().toString());
+            plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(2).getName());
             waterThePlantThree.setVisible(true);
             skipDayButton3.setVisible(true);
             placeOnDesk3.setVisible(true);
