@@ -590,7 +590,7 @@ public class HelloController implements Initializable {
 
                 if(plantLeveltwo!= null) {
                     plantLeveltwo.setText(plantLevel2);
-                    //imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
                     plantWaterBarTwo.setProgress(plantWaterLevel2);
                     plantHealthBarTwo.setProgress(plantHealthLevel2);
 

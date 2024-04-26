@@ -51,7 +51,7 @@ public class PlantController implements Serializable {
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
         Image image = new Image(inputStream);
         catPlant.setImage(image);
-        growingPlants[1] = catPlant;
+        //growingPlants[1] = catPlant;
     }
 
     /**  Method to initialize water level property
@@ -429,6 +429,7 @@ public class PlantController implements Serializable {
                             plant.setWaterLevel(waterLevel);
                             plant.setHealthLevel(healthLevel);
                             plant.setLevel(level);
+                            setPlantImage(plant);
                             growingPlants[index++] = plant;
                         }
                     } catch (EOFException e) {
@@ -443,6 +444,81 @@ public class PlantController implements Serializable {
             }
         }
     }
+
+    //this is to set the images it's not the best but it was either this or saving the pixels of the picture.
+    public void setPlantImage(Plant plant){
+        if(plant.getLevel() < 10) {
+            if(plant.getType() == PlantTypes.CACTUS) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel1.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.PUMPKIN) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel1.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.MONSTERA) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant3/testplantlevel1.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel1.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel1.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            }
+        }
+        if(plant.getLevel() < 20 && plant.getLevel() >= 10){
+            if(plant.getType() == PlantTypes.CACTUS) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel2.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.PUMPKIN) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel2.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.MONSTERA) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant3/testplantlevel2.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel2.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel2.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            }
+        }
+        if(plant.getLevel() < 30 && plant.getLevel() >= 20){
+            if(plant.getType() == PlantTypes.CACTUS) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.PUMPKIN) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.MONSTERA) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant3/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            }
+        }
+    }
+
+
 }
 
 

@@ -1,6 +1,8 @@
 package Model;
 
 import javafx.scene.image.Image;
+import kotlin.jvm.Transient;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -9,10 +11,11 @@ public class Plant implements Serializable {
     private int level;
     private double healthLevel; //Max 1.0
     private double waterLevel; //Max 1.0
-    //private Image image; //ImageIcon not available? normal image not work with serialazble
+    private transient Image image; // transient just means it doesnt get serialized when saving to dat file
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
     private LocalDate datePlanted;
+
 
 
     public Plant(PlantTypes type) {
@@ -151,11 +154,10 @@ public class Plant implements Serializable {
         return type;
     }
     public void setImage(Image image) {
-        //this.image = image;
+        this.image = image;
     }
     public Image getImage() {
-        //return image;
-        return null;
+        return image;
     }
     public void incrementLevel() {
         this.level = level++;
