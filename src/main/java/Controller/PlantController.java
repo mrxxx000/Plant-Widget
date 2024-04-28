@@ -201,7 +201,57 @@ public class PlantController implements Serializable {
      */
     public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex < 3) {
+            String plantName = growingPlants[plantIndex].getName();
             growingPlants[plantIndex] = null;
+            removePlantFromFile(plantName);
+        }
+    }
+
+    public void removePlantFromFile(String plantName){
+        File orgFile = new File("src/main/resources/SaveFile/PlantSaveFile.dat");
+        File newFile = new File("src/main/resources/SaveFile/tempFile.dat");
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(orgFile));
+             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(newFile))) {
+
+            Plant plant;
+
+            while(true) {
+                try {
+                    plant = (Plant) ois.readObject();
+                    System.out.println("Plant name: " + plant.getName());
+                    if (!plant.getName().equals(plantName)) {
+                        oos.writeObject(plant);
+                        deleteGrowingPlant(0);
+                        System.out.println("Plant removed from file: " + plant.getName());
+
+                    }
+                }catch (OptionalDataException e) {
+                    if (e.eof) {
+                        System.out.println("End of file reached.");
+                    } else {
+                        System.out.println("Primitive data: " + e.length);
+                        e.printStackTrace();
+                        break;
+                    }
+                } catch (EOFException e) {
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error removing /disarding plant!");
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error removing /disarding plant!");
+            throw new RuntimeException(e);
+        }
+
+        if(!orgFile.delete()) {
+            System.out.println("Failed to delete the original file!");
+            return;
+        }
+        if(!newFile.renameTo(orgFile)) {
+            System.out.println("Failed to rename the new file!");
         }
     }
 

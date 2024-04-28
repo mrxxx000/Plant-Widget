@@ -49,6 +49,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button enterNameButton;
     @FXML
+    private Button deletePlantButton;
+    @FXML
     private Button closeNamePlantButton;
     @FXML
     private Label nameYourPlantLabel;
@@ -292,6 +294,20 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
+    }
+    public void deletePlant1(ActionEvent event){
+        String name = mainBoundary.getPlantController().getPlant(0).getName();
+        System.out.println(name);
+        if(name != null){
+
+                System.out.println("HELLOOOOO IS : " + name);
+
+        }
+        mainBoundary.getPlantController().removePlantFromFile(name);
+        mainBoundary.getPlantController().LoadPlantsFromFile();
+        updateCurrentLibrary();
+        goBackToLibrary(event);
+
     }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
