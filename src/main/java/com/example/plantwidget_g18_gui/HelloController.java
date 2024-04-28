@@ -296,16 +296,19 @@ public class HelloController implements Initializable {
         stage.close();
     }
     public void deletePlant1(ActionEvent event){
-        String name = mainBoundary.getPlantController().getPlant(0).getName();
+       /* String name = mainBoundary.getPlantController().getPlant(0).getName();
         System.out.println(name);
         if(name != null){
 
                 System.out.println("HELLOOOOO IS : " + name);
 
-        }
-        mainBoundary.getPlantController().removePlantFromFile(name);
+        }*/
+        //mainBoundary.getPlantController().removePlantFromFile(name);
+        //mainBoundary.getPlantController().LoadPlantsFromFile();
+        mainBoundary.getPlantController().deleteGrowingPlant(0);
+
+        mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
-        updateCurrentLibrary();
         goBackToLibrary(event);
 
     }
@@ -365,7 +368,7 @@ public class HelloController implements Initializable {
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
         */
     public void updatePlantHealthBarOne() {
-        if(plantHealthBarOne != null){
+        if(plantHealthBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
         }
     }
@@ -373,7 +376,7 @@ public class HelloController implements Initializable {
         UPDATES TEH WATER BAR OF THE FIRST PLANT
     */
     public void updatePlantWaterBarOne() {
-        if(plantWaterBarOne != null){
+        if(plantWaterBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
         }
     }
@@ -588,17 +591,39 @@ public class HelloController implements Initializable {
     }
 
     public void updateCurrentLibrary(){
+        Plant plant1 = mainBoundary.getPlantController().getPlant(0);
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
         Plant plant3 = mainBoundary.getPlantController().getPlant(2);
 
-        if(plant2 != null && plant3 != null) {
+        if(plant2 != null && plant3 != null && plant1 != null) {
             System.out.println("in update current library");
             System.out.println(plant2.getName());
             System.out.println(plant3.getName());
+            System.out.println(plant1.getName());
         }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(plant2 != null){
+                String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
+                double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
+                double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+
+
+                if(plantLeveltwo!= null) {
+                    plantLeveltwo.setText(plantLevel2);
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
+                    plantWaterBarTwo.setProgress(plantWaterLevel2);
+                    plantHealthBarTwo.setProgress(plantHealthLevel2);
+
+                    plantLeveltwo.setVisible(true);
+                    imagePlantTwo.setVisible(true);
+                    plantWaterBarTwo.setVisible(true);
+                    plantHealthBarTwo.setVisible(true);
+                    selectPlantTwo.setVisible(true);
+                    waterPlantTwo.setVisible(true);
+                }
+            }
+            if(plant1 != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
                 double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
                 double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
@@ -709,8 +734,11 @@ public class HelloController implements Initializable {
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(waterBar != null && healthBar != null){
-                waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
-                healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
+                if(mainBoundary.getPlantController().getPlant(index) != null) {
+                    //System.out.println("updating water and health bar"
+                    waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
+                    healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
+                }
             }
         }));
         timeline.setCycleCount(Animation.INDEFINITE);

@@ -37,11 +37,7 @@ public class PlantController implements Serializable {
         growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
-        Plant cactusPlant = new Plant(PlantTypes.CACTUS);
-        cactusPlant.setName("My Cactus");
-        cactusPlant.setHealthLevel(0.2);
-        cactusPlant.setWaterLevel(0.9);
-        growingPlants[0] = cactusPlant;
+
         timeTrackReader();
 
 
@@ -202,8 +198,15 @@ public class PlantController implements Serializable {
     public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex < 3) {
             String plantName = growingPlants[plantIndex].getName();
+            System.out.println("Plant name: " + plantName);
             growingPlants[plantIndex] = null;
-            removePlantFromFile(plantName);
+            for(int i =0; i < growingPlants.length;i++){
+                if(growingPlants[i] != null){
+                    System.out.println("Plant name: " + growingPlants[i].getName());
+                }
+            }
+
+            //removePlantFromFile(plantName);
         }
     }
 
@@ -405,7 +408,7 @@ public class PlantController implements Serializable {
 
                 try {
                     for(int i = 0; i<growingPlants.length;i++) {
-                        if(i==0) {
+                        if(i==0 && growingPlants[i] != null) {
                             int daysAlive = Integer.parseInt(daysAliveStr);
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yy");
                             LocalDate lastSavedDate = LocalDate.parse(lastSavedDateStr, formatter);
