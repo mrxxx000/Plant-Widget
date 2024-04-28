@@ -63,7 +63,7 @@
          </font>
       </Button>
       <JFXButton fx:id="plantNewSeedButton" buttonType="RAISED" layoutX="489.0" layoutY="261.0" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="button1" text="+ New Seed" />
-      <JFXButton buttonType="RAISED" layoutX="489.0" layoutY="293.0" onAction="#goTochooseSeedScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="Legendary Plants" textFill="WHITE" />
+      <JFXButton fx:id="goToLegendaryPlants" buttonType="RAISED" layoutX="489.0" layoutY="293.0" onAction="#goToLegendaryScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="Legendary Plants" textFill="WHITE" />
       <JFXButton fx:id="settingsButton" buttonType="RAISED" layoutX="489.0" layoutY="325.0" onAction="#goToSettings" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonSettings" text="Settings" textFill="WHITE" />
       <JFXButton fx:id="waterThePlantOne" buttonType="RAISED" layoutX="15.0" layoutY="159.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" />
       <JFXButton fx:id="selectPlantButton" buttonType="RAISED" layoutX="91.0" layoutY="159.0" onAction="#selectPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select PLant">
