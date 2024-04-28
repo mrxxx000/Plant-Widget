@@ -10,25 +10,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
-
 import javafx.scene.layout.Background;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 
 public class HelloController implements Initializable {
@@ -179,6 +181,10 @@ public class HelloController implements Initializable {
     private Button backButton;
     @FXML
     private Button selectPlantButton;
+    @FXML
+    private ScrollPane legendaryScrollPane;
+    @FXML
+    private GridPane legendaryGridPane;
     private double xOffset = 0;
     private double yOffset = 0;
     //double healthPlantOne = 0.5;
@@ -338,6 +344,70 @@ public class HelloController implements Initializable {
             System.out.println("fel i gotochooseseedscene");
             e.printStackTrace();
         }
+    }
+
+    public void goToLegendaryScene(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
+            Scene scene = new Scene(root);
+
+
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Legendary Plants");
+            stage.setScene(scene);
+            stage.setResizable(false);
+
+            stage.show();
+
+            legendaryGridPane = getLegendaryGridPane(stage);
+            int row = -1;
+
+            //loop for legendary plant list
+            for(int i = 0; i < 10; i++){
+                if(i % 3== 0){
+                    row++;
+                }
+
+                StackPane stackPane = new StackPane();
+                GridPane gridPane = new GridPane();
+                Rectangle rectangle = new Rectangle(152, 181, Color.GREEN);
+
+                //Plant name
+                Label plantName = new Label("Name 1");
+                GridPane.setConstraints(plantName,0,2);
+
+                //Plant image
+                ImageView plantImage = new ImageView();
+                InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+                Image image = new Image(inputStream);
+                plantImage.setImage(image);
+                plantImage.setFitHeight(88);
+                plantImage.setFitWidth(111);
+                GridPane.setConstraints(plantImage, 0,1);
+
+
+                gridPane.getChildren().addAll(plantImage, plantName);
+                gridPane.setAlignment(Pos.CENTER);
+                gridPane.setHgap(10);
+                gridPane.setVgap(10);
+
+                stackPane.setMaxHeight(152);
+                stackPane.setMaxWidth(181);
+
+                StackPane.setAlignment(gridPane, Pos.CENTER);
+                stackPane.getChildren().addAll(rectangle, gridPane);
+
+
+                legendaryGridPane.add(stackPane,(i + 3) % 3, row);
+            }
+           // legendaryGridPane.add(new Rectangle(50, 50, Color.BLUE), 0 , 0);
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -656,6 +726,21 @@ public class HelloController implements Initializable {
                 if(node instanceof Button && node.getId().equals(id)){
                     return (Button) node;
                 }
+            }
+        }
+        return null;
+    }
+    private GridPane getLegendaryGridPane(Stage stage){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ScrollPane){
+                    ScrollPane scorllPane = (ScrollPane) node;
+                    Object gridPane = scorllPane.getContent();
+                    return (GridPane) gridPane;
+                }
+
             }
         }
         return null;
