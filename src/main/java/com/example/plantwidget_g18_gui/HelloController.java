@@ -826,12 +826,9 @@ public class HelloController implements Initializable {
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof StackPane stackPane){
-                    for(Node node2: stackPane.getChildren()){
-                        if(node2 instanceof ScrollPane scrollPane){
+                if(node instanceof ScrollPane scrollPane){
                             return (GridPane) scrollPane.getContent();
-                        }
-                    }
+
                 }
 
             }
