@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -371,8 +372,10 @@ public class HelloController implements Initializable {
 
                 StackPane stackPane = new StackPane();
                 GridPane gridPane = new GridPane();
-                Rectangle rectangle = new Rectangle(152, 181, Color.GREEN);
+                Region region = new Region();
+                Rectangle rectangle = new Rectangle(152, 181, Color.color(0.5725490196078431, 0.9176470588235294 ,0.6627450980392157));
 
+                rectangle.setStyle(" -fx-stroke: black; -fx-stroke-width: 1;");
                 //Plant name
                 Label plantName = new Label("Name 1");
                 GridPane.setConstraints(plantName,0,2);
@@ -733,12 +736,13 @@ public class HelloController implements Initializable {
     private GridPane getLegendaryGridPane(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
-
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof ScrollPane){
-                    ScrollPane scorllPane = (ScrollPane) node;
-                    Object gridPane = scorllPane.getContent();
-                    return (GridPane) gridPane;
+                if(node instanceof StackPane stackPane){
+                    for(Node node2: stackPane.getChildren()){
+                        if(node2 instanceof ScrollPane scrollPane){
+                            return (GridPane) scrollPane.getContent();
+                        }
+                    }
                 }
 
             }
