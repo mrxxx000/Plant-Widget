@@ -1,5 +1,6 @@
 package com.example.plantwidget_g18_gui;
 
+import Controller.PlantController;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
@@ -201,6 +202,9 @@ public class HelloController implements Initializable {
     private Plant plant2;
     private Plant plant3;
     private int indexOfChosenSeed;
+    private ComboBox<PlantTypes>plantTypesComboBox;
+    private PlantTypes selectedPlantType;
+    private PlantController plantController;
 
     /*
          switches gui to the plant info scene, currently only works for plant number 1.
@@ -492,7 +496,6 @@ public class HelloController implements Initializable {
 
     }
 
-
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
         updatePlantWaterBarOne();
@@ -542,8 +545,23 @@ public class HelloController implements Initializable {
      //   plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
     //}
 
+    /** Method for tracing the click from the user
+     * Make sure that what type of plant the user has clicked on
+     * Needs to be implemented in fmxl file to be able to work
+     * Akmal Safi
+     */
+    public void handlePlantTypeSelection(ActionEvent event){
+        selectedPlantType = plantTypesComboBox.getValue();
+    }
+
+    /**
+     * same with this metod
+     * @param e
+     * Akmal Safi
+     */
     public void plantSeed(ActionEvent e){
         System.out.println("planted seed");
+        PlantController.getInstance().plantSeed(selectedPlantType,"Name of the plant");
         goBackToLibrary(e);
     }
 
