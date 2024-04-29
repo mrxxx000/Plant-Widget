@@ -4,6 +4,7 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -32,6 +33,8 @@ public class PlantController implements Serializable {
     private Timeline timeline;
     private LocalDate dateNow;
     private LocalDate lastDateSaved;
+    private static PlantController instance = new PlantController();
+
 
     public PlantController() {
         growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
@@ -39,7 +42,6 @@ public class PlantController implements Serializable {
         initializeWaterLevelProperty();
 
         timeTrackReader();
-
 
 
         // This is just for testing purposes can remove later
@@ -54,31 +56,39 @@ public class PlantController implements Serializable {
         return growingPlants;
     }
 
-    /**  Method to initialize water level property
+    /**
+     * Method to initialize water level property
      * // Creates a new SimpleDoubleProperty object
      * Starts the timer for updating water levels
      */
     //Akmal Safi
-    public void initializeWaterLevelProperty(){
+    public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
         this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
-            for (Plant growinPlant : growingPlants)
+            for (int i = 0; i < growingPlants.length; i++) {
+                Plant growinPlant = growingPlants[i];
                 if (growinPlant != null) {
                     growinPlant.decreaseWaterOverTime(1, growinPlant);
                     waterLevelProperty.set(growinPlant.getWaterLevel());
+                    updateWaterBarGUI(i);
+                    updateHealthBarGUI(i); // Update health bar GUI
                 }
+            }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         //startTimer();
     }
-    public void startTheTimer(){
+
+    public void startTheTimer() {
         timeline.play();
     }
-    public void stopTheTimer(){
+
+    public void stopTheTimer() {
         timeline.stop();
     }
 
-    /** Method to start the timer for updating water levels
+    /**
+     * Method to start the timer for updating water levels
      * Loops through each element of the growingPlants array
      * to update water level property for each plant
      * Checks if the element is not null
@@ -98,11 +108,12 @@ public class PlantController implements Serializable {
     /**
      * This method checks if the growingPlants array is full.
      * Returns true if there is space, false if it is full.
+     *
      * @return returns true if there is an empty spot, false if array is full.
      */
     public boolean checkForSpace() {
         for (int i = 0; i < growingPlants.length; i++) {
-            if (growingPlants[i] ==null) {
+            if (growingPlants[i] == null) {
                 return true;
             }
         }
@@ -112,12 +123,21 @@ public class PlantController implements Serializable {
     /**
      * This method goes through the list to find the first empty spot.
      * Once found, it creates a new plant and adds it to the spot.
-     * @param type used to create the right type of plant
+    // * @param type used to create the right type of plant
      */
 
     // TODO dont know if this is working correctly since when i plant a seed it plants 2 of them. it doesnt stop when it has already added one
 
+    /**
+     * Metod which get instance of the type of plant
+     * @return : the typ of plant
+     * Akmal Safi
+     */
+    public static PlantController getInstance(){
+        return instance;
+    }
     public void plantSeed(PlantTypes type, String name) {
+
         // TODO Get user input from GUI to know what enum type we need here
         for(int i = 0; i < growingPlants.length; i++) {
             if(growingPlants[i] == null) {
