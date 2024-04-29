@@ -74,7 +74,7 @@
       <Button fx:id="chooseSeedButtonExtended1" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu1" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
       <ProgressBar fx:id="difficultyBarThree2" layoutX="18.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.22" stylesheets="@cssSheets.css" />
       <Button fx:id="chooseSeedButtonExtended2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu2" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
-      <ImageView fx:id="imagePlantOne13" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="230.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage2" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="230.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
          </image>
@@ -96,12 +96,12 @@
       <ProgressBar fx:id="seedDifficultyBar1" layoutX="19.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpeciesDifficualty1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="26.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
       <Label fx:id="seedDifficualty1" layoutX="63.0" layoutY="275.0" text="Difficualty" visible="false" />
-      <ImageView fx:id="imagePlantOne1" disable="true" fitHeight="141.0" fitWidth="141.0" layoutX="440.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage3" disable="true" fitHeight="141.0" fitWidth="141.0" layoutX="440.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imagePlantOne12" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="20.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage1" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="26.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
          </image>

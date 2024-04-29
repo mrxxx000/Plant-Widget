@@ -6,6 +6,7 @@ import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.NamedArg;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,9 +18,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -68,6 +71,12 @@ public class HelloController implements Initializable {
     private Button chooseSeedButton3;
     @FXML
     private Button settingsButton;
+    @FXML
+    private ImageView seedImage1;
+    @FXML
+    private ImageView seedImage2;
+    @FXML
+    private ImageView seedImage3;
     @FXML
     private Button chooseSeedButtonExtended1;
     @FXML
@@ -330,13 +339,12 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
-            //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Choose Seed");
             stage.setScene(scene);
-            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
+            setUpSeedScene(stage);
             stage.show();
         } catch (IOException e) {
             System.out.println("fel i gotochooseseedscene");
@@ -653,6 +661,18 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    public ImageView getImageViewFromStage(Stage stage, String id){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ImageView && node.getId().equals(id)){
+                    return (ImageView) node;
+                }
+            }
+        }
+        return null;
+    }
+
     public ImageView getImageViewFromStage(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -784,6 +804,24 @@ public class HelloController implements Initializable {
             waterButton3.setVisible(true);
         }
     }
+
+    public void setUpSeedScene(Stage stage){
+        InputStream inputStream = HelloController.class.getResourceAsStream("/images/plant1/testcatlevel3.png");
+        Image image1 = new Image(inputStream);
+        seedImage1 = getImageViewFromStage(stage, "seedImage1");
+        seedImage1.setImage(image1);
+        InputStream inputStream2 = HelloController.class.getResourceAsStream("/images/plant2/testplantlevel3.png");
+        Image image2 = new Image(inputStream2);
+        seedImage2 = getImageViewFromStage(stage, "seedImage2");
+        seedImage2.setImage(image2);
+        InputStream inputStream3 = HelloController.class.getResourceAsStream("/images/plant3/testplantlevel3.png");
+        Image image3 = new Image(inputStream3);
+        seedImage2 = getImageViewFromStage(stage, "seedImage3");
+        seedImage2.setImage(image3);
+
+
+    }
+
 
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
