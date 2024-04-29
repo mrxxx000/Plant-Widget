@@ -74,36 +74,36 @@
       <Button fx:id="chooseSeedButtonExtended1" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu1" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
       <ProgressBar fx:id="difficultyBarThree2" layoutX="18.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.22" stylesheets="@cssSheets.css" />
       <Button fx:id="chooseSeedButtonExtended2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu2" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
-      <ImageView fx:id="imagePlantOne13" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="230.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage2" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="259.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+            <Image url="@../../../images/plant2/testplantlevel3.png" />
          </image>
       </ImageView>
       <Rectangle fx:id="seedSpecies2" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="235.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedSpeciesLabel2" layoutX="263.0" layoutY="246.0" text="Cereus Cactus" visible="false" />
+      <Label fx:id="seedSpeciesLabel2" layoutX="263.0" layoutY="246.0" text="NORMAL PLANT" visible="false" />
       <ProgressBar fx:id="seedDifficultyBar2" layoutX="229.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpeciesDifficualty2" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="235.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
       <Label fx:id="seedDifficualty2" layoutX="274.0" layoutY="275.0" text="Difficualty" visible="false" />
       <Button fx:id="chooseSeedButtonExtended3" layoutX="435.0" layoutY="109.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu3" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpecies3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="445.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedSpeciesLabel3" layoutX="473.0" layoutY="246.0" text="Cereus Cactus" visible="false" />
+      <Label fx:id="seedSpeciesLabel3" layoutX="473.0" layoutY="246.0" text="PLANT IN  A POT" visible="false" />
       <ProgressBar fx:id="seedDifficultyBar3" layoutX="439.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpeciesDifficualty3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="446.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
       <Label fx:id="seedDifficualty3" layoutX="484.0" layoutY="275.0" text="Difficualty" visible="false" />
       <Button fx:id="chooseSeedButtonExtended1" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu1" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpecies1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="26.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedSpeciesLabel1" layoutX="54.0" layoutY="248.0" text="Cereus Cactus" visible="false" />
+      <Label fx:id="seedSpeciesLabel1" layoutX="54.0" layoutY="248.0" text="CAT" visible="false" />
       <ProgressBar fx:id="seedDifficultyBar1" layoutX="19.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpeciesDifficualty1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="26.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
       <Label fx:id="seedDifficualty1" layoutX="63.0" layoutY="275.0" text="Difficualty" visible="false" />
-      <ImageView fx:id="imagePlantOne1" disable="true" fitHeight="141.0" fitWidth="141.0" layoutX="440.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage3" disable="true" fitHeight="141.0" fitWidth="141.0" layoutX="469.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+            <Image url="@../../../images/plant3/testplantlevel3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imagePlantOne12" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="20.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage1" disable="true" fitHeight="141.0" fitWidth="152.0" layoutX="40.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+            <Image url="@../../../images/plant1/testcatlevel3.png" />
          </image>
       </ImageView>
       <Button fx:id="plantNewSeedButton1" layoutX="63.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
@@ -121,24 +121,9 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <ImageView fitHeight="18.0" fitWidth="74.0" layoutX="475.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pictureFonts/CactusNamePixelFont.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="195.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/pictureFonts/ChooseSeedText.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="74.0" layoutX="264.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pictureFonts/CactusNamePixelFont.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="74.0" layoutX="54.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pictureFonts/CactusNamePixelFont.png" />
          </image>
       </ImageView>
       <ImageView disable="true" fitHeight="18.0" fitWidth="131.0" layoutX="511.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">

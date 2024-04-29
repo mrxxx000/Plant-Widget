@@ -359,13 +359,12 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
-            //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Choose Seed");
             stage.setScene(scene);
-            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
+            setUpSeedScene(stage);
             stage.show();
         } catch (IOException e) {
             System.out.println("fel i gotochooseseedscene");
@@ -794,6 +793,18 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    public ImageView getImageViewFromStage(Stage stage, String id){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ImageView && node.getId().equals(id)){
+                    return (ImageView) node;
+                }
+            }
+        }
+        return null;
+    }
+
     public Button getButtonsFromSelectPlantScene(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -940,6 +951,21 @@ public class HelloController implements Initializable {
             Button waterButton3 = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
             waterButton3.setVisible(true);
         }
+    }
+
+    public void setUpSeedScene(Stage stage){
+        InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel3.png");
+        Image image = new Image(inputStream);
+        ImageView imageView = getImageViewFromStage(stage,"seedImage1");
+        imageView.setImage(image);
+        InputStream inputStream2 = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+        Image image2 = new Image(inputStream2);
+        ImageView imageView2 = getImageViewFromStage(stage,"seedImage2");
+        imageView2.setImage(image2);
+        InputStream inputStream3 = getClass().getResourceAsStream("/images/plant3/testplantlevel3.png");
+        Image image3 = new Image(inputStream3);
+        ImageView imageView3 = getImageViewFromStage(stage,"seedImage3");
+        imageView3.setImage(image3);
     }
 
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
