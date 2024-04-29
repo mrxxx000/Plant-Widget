@@ -4,6 +4,7 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -32,18 +33,15 @@ public class PlantController implements Serializable {
     private Timeline timeline;
     private LocalDate dateNow;
     private LocalDate lastDateSaved;
+    private static PlantController instance = new PlantController();
+
 
     public PlantController() {
         growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
-        Plant cactusPlant = new Plant(PlantTypes.CACTUS);
-        cactusPlant.setName("My Cactus");
-        cactusPlant.setHealthLevel(0.2);
-        cactusPlant.setWaterLevel(0.9);
-        growingPlants[0] = cactusPlant;
-        timeTrackReader();
 
+        timeTrackReader();
 
 
         // This is just for testing purposes can remove later
@@ -54,31 +52,43 @@ public class PlantController implements Serializable {
         //growingPlants[1] = catPlant;
     }
 
-    /**  Method to initialize water level property
+    public Plant[] getGrowingPlants() {
+        return growingPlants;
+    }
+
+    /**
+     * Method to initialize water level property
      * // Creates a new SimpleDoubleProperty object
      * Starts the timer for updating water levels
      */
     //Akmal Safi
-    public void initializeWaterLevelProperty(){
+    public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
         this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
-            for (Plant growinPlant : growingPlants)
+            for (int i = 0; i < growingPlants.length; i++) {
+                Plant growinPlant = growingPlants[i];
                 if (growinPlant != null) {
                     growinPlant.decreaseWaterOverTime(1, growinPlant);
                     waterLevelProperty.set(growinPlant.getWaterLevel());
+                    updateWaterBarGUI(i);
+                    updateHealthBarGUI(i); // Update health bar GUI
                 }
+            }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         //startTimer();
     }
-    public void startTheTimer(){
+
+    public void startTheTimer() {
         timeline.play();
     }
-    public void stopTheTimer(){
+
+    public void stopTheTimer() {
         timeline.stop();
     }
 
-    /** Method to start the timer for updating water levels
+    /**
+     * Method to start the timer for updating water levels
      * Loops through each element of the growingPlants array
      * to update water level property for each plant
      * Checks if the element is not null
@@ -98,11 +108,12 @@ public class PlantController implements Serializable {
     /**
      * This method checks if the growingPlants array is full.
      * Returns true if there is space, false if it is full.
+     *
      * @return returns true if there is an empty spot, false if array is full.
      */
     public boolean checkForSpace() {
         for (int i = 0; i < growingPlants.length; i++) {
-            if (growingPlants[i] ==null) {
+            if (growingPlants[i] == null) {
                 return true;
             }
         }
@@ -112,12 +123,21 @@ public class PlantController implements Serializable {
     /**
      * This method goes through the list to find the first empty spot.
      * Once found, it creates a new plant and adds it to the spot.
-     * @param type used to create the right type of plant
+    // * @param type used to create the right type of plant
      */
 
     // TODO dont know if this is working correctly since when i plant a seed it plants 2 of them. it doesnt stop when it has already added one
 
+    /**
+     * Metod which get instance of the type of plant
+     * @return : the typ of plant
+     * Akmal Safi
+     */
+    public static PlantController getInstance(){
+        return instance;
+    }
     public void plantSeed(PlantTypes type, String name) {
+
         // TODO Get user input from GUI to know what enum type we need here
         for(int i = 0; i < growingPlants.length; i++) {
             if(growingPlants[i] == null) {
@@ -201,7 +221,64 @@ public class PlantController implements Serializable {
      */
     public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex < 3) {
+            String plantName = growingPlants[plantIndex].getName();
+            System.out.println("Plant name: " + plantName);
             growingPlants[plantIndex] = null;
+            for(int i =0; i < growingPlants.length;i++){
+                if(growingPlants[i] != null){
+                    System.out.println("Plant name: " + growingPlants[i].getName());
+                }
+            }
+
+            //removePlantFromFile(plantName);
+        }
+    }
+
+    public void removePlantFromFile(String plantName){
+        File orgFile = new File("src/main/resources/SaveFile/PlantSaveFile.dat");
+        File newFile = new File("src/main/resources/SaveFile/tempFile.dat");
+
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(orgFile));
+             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(newFile))) {
+
+            Plant plant;
+
+            while(true) {
+                try {
+                    plant = (Plant) ois.readObject();
+                    System.out.println("Plant name: " + plant.getName());
+                    if (!plant.getName().equals(plantName)) {
+                        oos.writeObject(plant);
+                        deleteGrowingPlant(0);
+                        System.out.println("Plant removed from file: " + plant.getName());
+
+                    }
+                }catch (OptionalDataException e) {
+                    if (e.eof) {
+                        System.out.println("End of file reached.");
+                    } else {
+                        System.out.println("Primitive data: " + e.length);
+                        e.printStackTrace();
+                        break;
+                    }
+                } catch (EOFException e) {
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error removing /disarding plant!");
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error removing /disarding plant!");
+            throw new RuntimeException(e);
+        }
+
+        if(!orgFile.delete()) {
+            System.out.println("Failed to delete the original file!");
+            return;
+        }
+        if(!newFile.renameTo(orgFile)) {
+            System.out.println("Failed to rename the new file!");
         }
     }
 
@@ -355,7 +432,7 @@ public class PlantController implements Serializable {
 
                 try {
                     for(int i = 0; i<growingPlants.length;i++) {
-                        if(i==0) {
+                        if(i==0 && growingPlants[i] != null) {
                             int daysAlive = Integer.parseInt(daysAliveStr);
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yy");
                             LocalDate lastSavedDate = LocalDate.parse(lastSavedDateStr, formatter);

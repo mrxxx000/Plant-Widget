@@ -1,37 +1,37 @@
 package com.example.plantwidget_g18_gui;
 
+import Controller.PlantController;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.beans.NamedArg;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
-import javafx.scene.layout.Background;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 
 public class HelloController implements Initializable {
@@ -52,6 +52,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button enterNameButton;
     @FXML
+    private Button deletePlantButton;
+    @FXML
     private Button closeNamePlantButton;
     @FXML
     private Label nameYourPlantLabel;
@@ -71,12 +73,6 @@ public class HelloController implements Initializable {
     private Button chooseSeedButton3;
     @FXML
     private Button settingsButton;
-    @FXML
-    private ImageView seedImage1;
-    @FXML
-    private ImageView seedImage2;
-    @FXML
-    private ImageView seedImage3;
     @FXML
     private Button chooseSeedButtonExtended1;
     @FXML
@@ -192,6 +188,10 @@ public class HelloController implements Initializable {
     private Button backButton;
     @FXML
     private Button selectPlantButton;
+    @FXML
+    private ScrollPane legendaryScrollPane;
+    @FXML
+    private GridPane legendaryGridPane;
     private double xOffset = 0;
     private double yOffset = 0;
     //double healthPlantOne = 0.5;
@@ -202,6 +202,9 @@ public class HelloController implements Initializable {
     private Plant plant2;
     private Plant plant3;
     private int indexOfChosenSeed;
+    private ComboBox<PlantTypes>plantTypesComboBox;
+    private PlantTypes selectedPlantType;
+    private PlantController plantController;
 
     /*
          switches gui to the plant info scene, currently only works for plant number 1.
@@ -302,6 +305,23 @@ public class HelloController implements Initializable {
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
+    public void deletePlant1(ActionEvent event){
+       /* String name = mainBoundary.getPlantController().getPlant(0).getName();
+        System.out.println(name);
+        if(name != null){
+
+                System.out.println("HELLOOOOO IS : " + name);
+
+        }*/
+        //mainBoundary.getPlantController().removePlantFromFile(name);
+        //mainBoundary.getPlantController().LoadPlantsFromFile();
+        mainBoundary.getPlantController().deleteGrowingPlant(0);
+
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
+        goBackToLibrary(event);
+
+    }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
     */
@@ -315,7 +335,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTimer();
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
-
+        updateGUI();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -339,12 +359,13 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
+            //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Choose Seed");
             stage.setScene(scene);
+            //stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
-            setUpSeedScene(stage);
             stage.show();
         } catch (IOException e) {
             System.out.println("fel i gotochooseseedscene");
@@ -352,12 +373,76 @@ public class HelloController implements Initializable {
         }
     }
 
+    public void goToLegendaryScene(ActionEvent event){
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
+            Scene scene = new Scene(root);
+
+
+
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Legendary Plants");
+            stage.setScene(scene);
+            stage.setResizable(false);
+
+            stage.show();
+
+            legendaryGridPane = getLegendaryGridPane(stage);
+            int row = -1;
+
+            //loop for legendary plant list
+            for(int i = 0; i < 10; i++){
+                if(i % 3== 0){
+                    row++;
+                }
+
+                StackPane stackPane = new StackPane();
+                GridPane gridPane = new GridPane();
+                Rectangle rectangle = new Rectangle(152, 181, Color.GREEN);
+
+                //Plant name
+                Label plantName = new Label("Name 1");
+                GridPane.setConstraints(plantName,0,2);
+
+                //Plant image
+                ImageView plantImage = new ImageView();
+                InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+                Image image = new Image(inputStream);
+                plantImage.setImage(image);
+                plantImage.setFitHeight(88);
+                plantImage.setFitWidth(111);
+                GridPane.setConstraints(plantImage, 0,1);
+
+
+                gridPane.getChildren().addAll(plantImage, plantName);
+                gridPane.setAlignment(Pos.CENTER);
+                gridPane.setHgap(10);
+                gridPane.setVgap(10);
+
+                stackPane.setMaxHeight(152);
+                stackPane.setMaxWidth(181);
+
+                StackPane.setAlignment(gridPane, Pos.CENTER);
+                stackPane.getChildren().addAll(rectangle, gridPane);
+
+
+                legendaryGridPane.add(stackPane,(i + 3) % 3, row);
+            }
+           // legendaryGridPane.add(new Rectangle(50, 50, Color.BLUE), 0 , 0);
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
 
     /*
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
         */
     public void updatePlantHealthBarOne() {
-        if(plantHealthBarOne != null){
+        if(plantHealthBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
         }
     }
@@ -365,7 +450,7 @@ public class HelloController implements Initializable {
         UPDATES TEH WATER BAR OF THE FIRST PLANT
     */
     public void updatePlantWaterBarOne() {
-        if(plantWaterBarOne != null){
+        if(plantWaterBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
         }
     }
@@ -410,7 +495,6 @@ public class HelloController implements Initializable {
         updateCurrentLibrary();
 
     }
-
 
     public void waterPlantOne(){
         mainBoundary.getPlantController().waterPlant(0);
@@ -461,8 +545,23 @@ public class HelloController implements Initializable {
      //   plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
     //}
 
+    /** Method for tracing the click from the user
+     * Make sure that what type of plant the user has clicked on
+     * Needs to be implemented in fmxl file to be able to work
+     * Akmal Safi
+     */
+    public void handlePlantTypeSelection(ActionEvent event){
+        selectedPlantType = plantTypesComboBox.getValue();
+    }
+
+    /**
+     * same with this metod
+     * @param e
+     * Akmal Safi
+     */
     public void plantSeed(ActionEvent e){
         System.out.println("planted seed");
+        PlantController.getInstance().plantSeed(selectedPlantType,"Name of the plant");
         goBackToLibrary(e);
     }
 
@@ -580,17 +679,39 @@ public class HelloController implements Initializable {
     }
 
     public void updateCurrentLibrary(){
+        Plant plant1 = mainBoundary.getPlantController().getPlant(0);
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
         Plant plant3 = mainBoundary.getPlantController().getPlant(2);
 
-        if(plant2 != null && plant3 != null) {
+        if(plant2 != null && plant3 != null && plant1 != null) {
             System.out.println("in update current library");
             System.out.println(plant2.getName());
             System.out.println(plant3.getName());
+            System.out.println(plant1.getName());
         }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(plant2 != null){
+                String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
+                double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
+                double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+
+
+                if(plantLeveltwo!= null) {
+                    plantLeveltwo.setText(plantLevel2);
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
+                    plantWaterBarTwo.setProgress(plantWaterLevel2);
+                    plantHealthBarTwo.setProgress(plantHealthLevel2);
+
+                    plantLeveltwo.setVisible(true);
+                    imagePlantTwo.setVisible(true);
+                    plantWaterBarTwo.setVisible(true);
+                    plantHealthBarTwo.setVisible(true);
+                    selectPlantTwo.setVisible(true);
+                    waterPlantTwo.setVisible(true);
+                }
+            }
+            if(plant1 != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
                 double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
                 double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
@@ -661,18 +782,6 @@ public class HelloController implements Initializable {
         return null;
     }
 
-    public ImageView getImageViewFromStage(Stage stage, String id){
-        Node root = stage.getScene().getRoot();
-        if(root instanceof Parent){
-            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof ImageView && node.getId().equals(id)){
-                    return (ImageView) node;
-                }
-            }
-        }
-        return null;
-    }
-
     public ImageView getImageViewFromStage(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -696,6 +805,21 @@ public class HelloController implements Initializable {
         }
         return null;
     }
+    private GridPane getLegendaryGridPane(Stage stage){
+        Node root = stage.getScene().getRoot();
+        if(root instanceof Parent){
+
+            for(Node node : ((Parent) root).getChildrenUnmodifiable()){
+                if(node instanceof ScrollPane){
+                    ScrollPane scorllPane = (ScrollPane) node;
+                    Object gridPane = scorllPane.getContent();
+                    return (GridPane) gridPane;
+                }
+
+            }
+        }
+        return null;
+    }
 
     public ProgressBar getWaterBarInSelectPlantScene(Stage stage){
         Node root = stage.getScene().getRoot();
@@ -713,8 +837,11 @@ public class HelloController implements Initializable {
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(waterBar != null && healthBar != null){
-                waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
-                healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
+                if(mainBoundary.getPlantController().getPlant(index) != null) {
+                    //System.out.println("updating water and health bar"
+                    waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
+                    healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
+                }
             }
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -732,6 +859,16 @@ public class HelloController implements Initializable {
             }
         }
         return null;
+    }
+    public void updateGUI(){
+        Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
+        for(int i = 0; i<plants.length; i++){
+            if(plants[i] == null){
+
+            }
+
+        }
+
     }
 
     public void setUpSelectPlantScene(Stage stage,int index){
@@ -804,24 +941,6 @@ public class HelloController implements Initializable {
             waterButton3.setVisible(true);
         }
     }
-
-    public void setUpSeedScene(Stage stage){
-        InputStream inputStream = HelloController.class.getResourceAsStream("/images/plant1/testcatlevel3.png");
-        Image image1 = new Image(inputStream);
-        seedImage1 = getImageViewFromStage(stage, "seedImage1");
-        seedImage1.setImage(image1);
-        InputStream inputStream2 = HelloController.class.getResourceAsStream("/images/plant2/testplantlevel3.png");
-        Image image2 = new Image(inputStream2);
-        seedImage2 = getImageViewFromStage(stage, "seedImage2");
-        seedImage2.setImage(image2);
-        InputStream inputStream3 = HelloController.class.getResourceAsStream("/images/plant3/testplantlevel3.png");
-        Image image3 = new Image(inputStream3);
-        seedImage2 = getImageViewFromStage(stage, "seedImage3");
-        seedImage2.setImage(image3);
-
-
-    }
-
 
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
