@@ -12,14 +12,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="721.0" style="-fx-background-color: #4e835b;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="721.0" style="-fx-background-color: #4e835b;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Pane layoutY="-169.0" prefHeight="385.0" prefWidth="360.0" rotate="38.7" style="-fx-background-color: #61523a; -fx-background-radius: 60;" />
+      <CubicCurve controlX1="-123.4435043334961" controlX2="46.556495666503906" controlY1="83.6259765625" controlY2="747.6259765625" endX="701.0000610351562" endY="-18.0" fill="#796a4b" layoutX="20.0" layoutY="20.0" startX="701.0000610351562" startY="469.0" stroke="BLACK" />
+      <CubicCurve controlX1="-8.20709228515625" controlX2="197.8313446044922" controlY1="69.20578002929688" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" layoutX="10.0" layoutY="10.0" startX="-102.24007415771484" startY="-7.3740234375" stroke="BLACK" />
       <Pane layoutX="435.0" layoutY="110.0" prefHeight="239.0" prefWidth="232.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" />
       <Label fx:id="speciesNameInSelectPlantScene" layoutX="483.0" layoutY="190.0" prefHeight="17.0" prefWidth="104.0" text="asd" />
       <Label fx:id="plantNameInSelectPlantScene" layoutX="484.0" layoutY="145.0" prefHeight="17.0" prefWidth="149.0" text="asd" textAlignment="CENTER" />
