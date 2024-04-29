@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -18,9 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -394,29 +393,36 @@ public class HelloController implements Initializable {
                 if(i % 3== 0){
                     row++;
                 }
-
+                //Gridpane stacks on top of rectangle
                 StackPane stackPane = new StackPane();
                 GridPane gridPane = new GridPane();
-                Rectangle rectangle = new Rectangle(152, 181, Color.GREEN);
+                Rectangle rectangle = new Rectangle(152, 181, Color.color(0.5725490196078431, 0.9176470588235294 ,0.6627450980392157));
+                rectangle.setStyle(" -fx-stroke: black; -fx-stroke-width: 1;");
 
                 //Plant name
                 Label plantName = new Label("Name 1");
+                plantName.setFont(new Font("Verdana Pro Cond Black", 24));
+                plantName.setAlignment(Pos.CENTER);
+                plantName.setMaxWidth(Double.MAX_VALUE);
                 GridPane.setConstraints(plantName,0,2);
 
-                //Plant image
+                //Plant imagex
                 ImageView plantImage = new ImageView();
                 InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
                 Image image = new Image(inputStream);
                 plantImage.setImage(image);
                 plantImage.setFitHeight(88);
                 plantImage.setFitWidth(111);
-                GridPane.setConstraints(plantImage, 0,1);
+                BorderPane imageWrap = new BorderPane(plantImage);
+                imageWrap.setStyle("-fx-border-color: gold; -fx-border-width: 2;");
+                imageWrap.setPadding(new Insets(1));
 
+                GridPane.setConstraints(imageWrap, 0,1);
 
-                gridPane.getChildren().addAll(plantImage, plantName);
-                gridPane.setAlignment(Pos.CENTER);
+                gridPane.getChildren().addAll(imageWrap, plantName);
+                gridPane.setAlignment(Pos.TOP_CENTER);
                 gridPane.setHgap(10);
-                gridPane.setVgap(10);
+                gridPane.setVgap(20);
 
                 stackPane.setMaxHeight(152);
                 stackPane.setMaxWidth(181);
@@ -819,12 +825,13 @@ public class HelloController implements Initializable {
     private GridPane getLegendaryGridPane(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
-
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof ScrollPane){
-                    ScrollPane scorllPane = (ScrollPane) node;
-                    Object gridPane = scorllPane.getContent();
-                    return (GridPane) gridPane;
+                if(node instanceof StackPane stackPane){
+                    for(Node node2: stackPane.getChildren()){
+                        if(node2 instanceof ScrollPane scrollPane){
+                            return (GridPane) scrollPane.getContent();
+                        }
+                    }
                 }
 
             }
