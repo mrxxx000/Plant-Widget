@@ -50,6 +50,10 @@ public class PlantController implements Serializable {
         //growingPlants[1] = catPlant;
     }
 
+    public Plant[] getGrowingPlants() {
+        return growingPlants;
+    }
+
     /**  Method to initialize water level property
      * // Creates a new SimpleDoubleProperty object
      * Starts the timer for updating water levels

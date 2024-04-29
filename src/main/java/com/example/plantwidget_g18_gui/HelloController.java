@@ -331,7 +331,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTimer();
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
-
+        updateGUI();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -841,6 +841,16 @@ public class HelloController implements Initializable {
             }
         }
         return null;
+    }
+    public void updateGUI(){
+        Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
+        for(int i = 0; i<plants.length; i++){
+            if(plants[i] == null){
+
+            }
+
+        }
+
     }
 
     public void setUpSelectPlantScene(Stage stage,int index){
