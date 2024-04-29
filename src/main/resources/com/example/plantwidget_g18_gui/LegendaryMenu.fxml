@@ -37,7 +37,7 @@
          <children>
             <ScrollPane fx:id="legendaryScrollPane" hbarPolicy="NEVER" maxWidth="-Infinity" prefHeight="328.0" prefWidth="600.0" style="-fx-background-color: #81d896;">
                <content>
-                  <GridPane fx:id="legendaryGridPane" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #81d896;" vgap="50.0">
+                  <GridPane fx:id="legendaryGridPane" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="334.0" prefWidth="600.0" style="-fx-background-color: #81d896;" vgap="50.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
