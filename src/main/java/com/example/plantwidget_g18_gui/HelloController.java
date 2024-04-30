@@ -827,8 +827,14 @@ public class HelloController implements Initializable {
         if(root instanceof Parent){
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
                 if(node instanceof ScrollPane scrollPane){
-                            return (GridPane) scrollPane.getContent();
+                    StackPane stackPane = (StackPane) scrollPane.getContent();
 
+                    for(Node node2 : stackPane.getChildren()){
+                        if (node2 instanceof GridPane gridPane) {
+                            return gridPane;
+
+                        }
+                    }
                 }
 
             }
