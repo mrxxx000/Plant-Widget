@@ -16,6 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
+<<<<<<< Updated upstream
       <Label layoutX="182.0" layoutY="16.0" text="Legendary Plants">
          <font>
             <Font name="Verdana Pro Cond Black" size="29.0" />
@@ -38,6 +39,37 @@
             <ScrollPane fx:id="legendaryScrollPane" hbarPolicy="NEVER" maxWidth="-Infinity" prefHeight="328.0" prefWidth="600.0" style="-fx-background-color: #81d896;">
                <content>
                   <GridPane fx:id="legendaryGridPane" alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="334.0" prefWidth="600.0" style="-fx-background-color: #81d896;" vgap="50.0">
+=======
+      <ScrollPane fx:id="legendaryScrollPane" hbarPolicy="NEVER" layoutY="72.0" pannable="true" prefHeight="328.0" prefWidth="600.0" style="-fx-background-color: #908641;">
+         <content>
+            <StackPane prefHeight="326.0" prefWidth="600.0" style="-fx-background-color: #908641;">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="328.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.6973684430122375" green="0.6460343599319458" blue="0.3551413118839264" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.5647059082984924" green="0.5254902243614197" blue="0.2549019753932953" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Rectangle>
+                        <CubicCurve controlX1="-8.20709228515625" controlX2="422.7599182128906" controlY1="69.20578002929688" controlY2="489.6259765625" endX="590.7599487304688" endY="-22.3740234375" fill="#796a4b" startX="590.0000610351562" startY="390.0" stroke="BLACK" />
+                        <CubicCurve controlX1="-8.20709228515625" controlX2="197.8313446044922" controlY1="69.20578002929688" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" startX="-139.0" startY="3.0" stroke="BLACK" />
+                     </children>
+                  </Pane>
+                  <GridPane fx:id="legendaryGridPane" alignment="TOP_CENTER" maxWidth="-Infinity" prefWidth="590.0" vgap="50.0">
+>>>>>>> Stashed changes
                     <columnConstraints>
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
