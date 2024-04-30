@@ -4,13 +4,11 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
-import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.*;
@@ -23,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PlantController implements Serializable {
     private Plant[] growingPlants;
@@ -49,6 +46,15 @@ public class PlantController implements Serializable {
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
         Image image = new Image(inputStream);
         catPlant.setImage(image);
+
+        //test for legendary plants
+        for(int i = 0; i < 10; i++) {
+            Plant plant = new Plant(PlantTypes.CACTUS);
+            plant.setName("Pumpkin " + (i + 1));
+            InputStream legendaryInputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+            plant.setImage(new Image(legendaryInputStream));
+            createLegendary(plant);
+        }
         //growingPlants[1] = catPlant;
     }
 
@@ -595,7 +601,9 @@ public class PlantController implements Serializable {
         }
     }
 
-
+    public ArrayList<LegendaryPlant> getLegendaryPlants() {
+        return legendaryPlants;
+    }
 }
 
 

@@ -1,6 +1,7 @@
 package com.example.plantwidget_g18_gui;
 
 import Controller.PlantController;
+import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
@@ -29,6 +30,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -376,8 +378,6 @@ public class HelloController implements Initializable {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
             Scene scene = new Scene(root);
 
-
-
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Legendary Plants");
             stage.setScene(scene);
@@ -387,6 +387,8 @@ public class HelloController implements Initializable {
 
             legendaryGridPane = getLegendaryGridPane(stage);
             int row = -1;
+
+            ArrayList<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants();
 
             //loop for legendary plant list
             for(int i = 0; i < 10; i++){
@@ -400,7 +402,7 @@ public class HelloController implements Initializable {
                 rectangle.setStyle(" -fx-stroke: black; -fx-stroke-width: 1;");
 
                 //Plant name
-                Label plantName = new Label("Name 1");
+                Label plantName = new Label(legendaryPlants.get(i).getName());
                 plantName.setFont(new Font("Verdana Pro Cond Black", 24));
                 plantName.setAlignment(Pos.CENTER);
                 plantName.setMaxWidth(Double.MAX_VALUE);
@@ -408,9 +410,7 @@ public class HelloController implements Initializable {
 
                 //Plant imagex
                 ImageView plantImage = new ImageView();
-                InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
-                Image image = new Image(inputStream);
-                plantImage.setImage(image);
+                plantImage.setImage(legendaryPlants.get(i).getImage());
                 plantImage.setFitHeight(88);
                 plantImage.setFitWidth(111);
                 BorderPane imageWrap = new BorderPane(plantImage);
