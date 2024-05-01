@@ -229,16 +229,26 @@ public class PlantController implements Serializable {
         if (plantIndex >= 0 && plantIndex < 3) {
             String plantName = growingPlants[plantIndex].getName();
             System.out.println("Plant name: " + plantName);
-            growingPlants[plantIndex] = null;
-            for(int i =0; i < growingPlants.length;i++){
-                if(growingPlants[i] != null){
+
+            // Shift remaining plants to fill the gap
+            for (int i = plantIndex; i < growingPlants.length - 1; i++) {
+                growingPlants[i] = growingPlants[i + 1];
+            }
+
+            // Set the last element to null
+            growingPlants[growingPlants.length - 1] = null;
+
+            // Print remaining plant names
+            for (int i = 0; i < growingPlants.length; i++) {
+                if (growingPlants[i] != null) {
                     System.out.println("Plant name: " + growingPlants[i].getName());
                 }
             }
 
-            //removePlantFromFile(plantName);
+            // removePlantFromFile(plantName);
         }
     }
+
 
     public void removePlantFromFile(String plantName){
         File orgFile = new File("src/main/resources/SaveFile/PlantSaveFile.dat");
@@ -490,7 +500,7 @@ public class PlantController implements Serializable {
         }
     }
     //akmal safi & Emre Mengutay
-    public void LoadPlantsFromFile(){
+    public void LoadPlantsFromFile(Runnable callback){
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
         File file = new File(filename);
         if (!file.exists()){
@@ -519,6 +529,7 @@ public class PlantController implements Serializable {
                         break;
                     }
                 }
+                callback.run();
             } catch (EOFException e) {
                 e.printStackTrace();
 
