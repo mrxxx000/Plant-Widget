@@ -318,8 +318,13 @@ public class PlantController implements Serializable {
     public void waterPlant(int index) {
         if(growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
-            growingPlants[index].decreaseHealth();
-        } else {
+            if(growingPlants[index].getHealthLevel()>0) {
+                growingPlants[index].decreaseHealth();
+            }else{
+                killPlant(index);
+            }
+        }
+        else if(growingPlants[index].getWaterLevel() < 1.0){
             //fill the water level by x amount
             boolean shouldItLevelUp =growingPlants[index].waterThePlant();
             if(growingPlants[index].getHealthLevel() != 1.0) {
@@ -329,9 +334,23 @@ public class PlantController implements Serializable {
             /*if(shouldItLevelUp){
                 levelUp(index);
             }*/
-
-
         }
+    }
+    public void killPlant(int index){
+        //if the health is already 0, remove the plant
+        InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/deademoji.png");
+        Image image = new Image(inputStream);
+
+        growingPlants[index].setImage(image); // could be like a big X image or sumn
+        //growingPlants[index].setPlantDead(); // this or the line under this
+        growingPlants[index].setWaterLevel(0.0);
+        growingPlants[index].setHealthLevel(0.0);
+        deleteGrowingPlant(index);
+        System.out.println("Plant is dead");
+
+    }
+    public  Plant[] getGrowingPlantsArray(){
+        return growingPlants;
     }
 
     /**
@@ -431,7 +450,7 @@ public class PlantController implements Serializable {
     }
 
     //same goes with this one
-    //Actually written by:
+    //Actually written by: Emre Mengütay
 
     public void timeTrackReader() {
         try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
@@ -457,7 +476,10 @@ public class PlantController implements Serializable {
                             long daysDifference = ChronoUnit.DAYS.between(lastSavedDate, dateNow);
 
                             growingPlants[i].setLevel((int) (daysAlive + daysDifference));
-                        }
+                            double waterLoss = daysDifference * 0.3;
+
+                            double newWaterLevel = growingPlants[i].getWaterLevel() - waterLoss;
+                            growingPlants[i].setWaterLevel(newWaterLevel);                 }
 
                     }
                 } catch (NumberFormatException e) {
@@ -539,7 +561,7 @@ public class PlantController implements Serializable {
         }
     }
 
-    //this is to set the images it's not the best but it was either this or saving the pixels of the picture.
+    //this is to set the images it's not the best but it was either this or saving the pixels of the picture. // gg (Emre Mengutay);
     public void setPlantImage(Plant plant){
         if(plant.getLevel() < 10) {
             if(plant.getType() == PlantTypes.CACTUS) {

@@ -863,6 +863,12 @@ public class HelloController implements Initializable {
             if(waterBar != null && healthBar != null){
                 if(mainBoundary.getPlantController().getPlant(index) != null) {
                     //System.out.println("updating water and health bar"
+
+                    if(mainBoundary.getPlantController().getPlant(index).getHealthLevel() == 0){
+                        mainBoundary.getPlantController().killPlant(index);
+                        waterBar.setProgress(0);
+                        healthBar.setProgress(0);
+                    }
                     waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
                     healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
                 }
