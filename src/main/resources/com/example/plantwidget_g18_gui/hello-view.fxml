@@ -141,6 +141,9 @@
          </ripplerFill>
       </JFXButton>
       <Label fx:id="plantLevelThree" layoutX="496.0" layoutY="22.0" visible="false" />
+      <JFXButton fx:id="waterPlantOne" buttonType="RAISED" layoutX="15.0" layoutY="159.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" />
+      <JFXButton fx:id="selectPlantOne" buttonType="RAISED" layoutX="91.0" layoutY="159.0" onAction="#selectPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select Plant" />
+
    </children>
    <effect>
       <Glow />
