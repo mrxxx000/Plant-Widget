@@ -143,14 +143,18 @@ public class PlantController implements Serializable {
         return instance;
     }
     public void plantSeed(PlantTypes type, String name) {
-
-        // TODO Get user input from GUI to know what enum type we need here
-        for(int i = 0; i < growingPlants.length; i++) {
-            if(growingPlants[i] == null) {
+        // Loop through each spot in the growingPlants array
+        for (int i = 0; i < growingPlants.length; i++) {
+            // Check if the spot is empty
+            if (growingPlants[i] == null) {
+                // Create a new plant in the current spot
                 growingPlants[i] = new Plant(type);
-                if(name != null) {
+                // If a name is provided, set the name for the plant
+                if (name != null) {
                     growingPlants[i].setName(name);
                 }
+                // Exit the loop after creating one seed
+                break;
             }
         }
     }
@@ -226,7 +230,7 @@ public class PlantController implements Serializable {
      * @param plantIndex index to find the relevant plant
      */
     public void deleteGrowingPlant(int plantIndex) {
-        if (plantIndex >= 0 && plantIndex < 3) {
+        if (plantIndex >= 0 && plantIndex <= 3) {
             String plantName = growingPlants[plantIndex].getName();
             System.out.println("Plant name: " + plantName);
 
