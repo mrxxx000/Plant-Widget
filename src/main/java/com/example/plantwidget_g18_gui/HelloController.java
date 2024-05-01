@@ -318,10 +318,12 @@ public class HelloController implements Initializable {
         //mainBoundary.getPlantController().LoadPlantsFromFile();
         mainBoundary.getPlantController().deleteGrowingPlant(0);
 
-        mainBoundary.getPlantController().SavePlantToFile();
-        mainBoundary.getPlantController().LoadPlantsFromFile();
-        goBackToLibrary(event);
-
+        mainBoundary.getPlantController().LoadPlantsFromFile(() -> {
+            mainBoundary.getPlantController().SavePlantToFile();
+            mainBoundary.getPlantController().LoadPlantsFromFile(() -> {
+               goBackToLibrary(event);
+            });
+        });
     }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
@@ -496,8 +498,9 @@ public class HelloController implements Initializable {
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
-        mainBoundary.getPlantController().LoadPlantsFromFile();
-        updateCurrentLibrary();
+        mainBoundary.getPlantController().LoadPlantsFromFile(()-> {
+            updateCurrentLibrary();
+        });
 
     }
 
