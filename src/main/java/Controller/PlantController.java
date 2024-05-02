@@ -342,11 +342,12 @@ public class PlantController implements Serializable {
     }
     public void killPlant(int index){
         //if the health is already 0, remove the plant
-        InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/deademoji.png");
+        InputStream inputStream = getClass().getResourceAsStream("/images/deademoji.png");
         Image image = new Image(inputStream);
 
         growingPlants[index].setImage(image); // could be like a big X image or sumn
         //growingPlants[index].setPlantDead(); // this or the line under this
+        getPlant(index).setImage(image);
         growingPlants[index].setWaterLevel(0.0);
         growingPlants[index].setHealthLevel(0.0);
         deleteGrowingPlant(index);

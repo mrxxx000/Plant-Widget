@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -30,11 +29,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="15.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="165.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="313.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="43.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="43.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="246.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" visible="false" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFour" fitHeight="88.0" fitWidth="111.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
