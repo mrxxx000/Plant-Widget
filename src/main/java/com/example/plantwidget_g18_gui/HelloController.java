@@ -693,7 +693,7 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
 
-    /*public void updateCurrentLibrary(){
+    public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
         Plant plant3 = mainBoundary.getPlantController().getPlant(2);
@@ -772,8 +772,9 @@ public class HelloController implements Initializable {
 
     }
 
-     */
-    public void updateCurrentLibrary(){
+    //detta fungerar inte, min method fungerade problemet ligger inte här det ligger i plantcontroller
+
+    /*public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
         Plant plant3 = mainBoundary.getPlantController().getPlant(2);
@@ -838,6 +839,8 @@ public class HelloController implements Initializable {
             }
         }
     }
+
+     */
 
 
     public void selectPlantOne(ActionEvent e){
