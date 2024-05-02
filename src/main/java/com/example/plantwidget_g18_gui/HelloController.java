@@ -188,6 +188,12 @@ public class HelloController implements Initializable {
     private ImageView imagePlantFive;
     @FXML
     private ImageView imagePlantSix;
+    @FXML
+    private ImageView pot;
+    @FXML
+    private ImageView pot3;
+    @FXML
+    private ImageView pot2;
     private Stage stage;
     private Scene scene;
     @FXML
@@ -491,7 +497,12 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.playFromStart();
     }
     public HelloController() {
-
+        this.pot = new ImageView();
+        this.pot2 = new ImageView();
+        this.pot3 = new ImageView();
+        pot.setVisible(false);
+        pot2.setVisible(false);
+        pot3.setVisible(false);
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         this.plant2 =  mainBoundary.getPlantController().getPlant(1);
@@ -724,6 +735,7 @@ public class HelloController implements Initializable {
                     plantHealthBarOne.setVisible(true);
                     selectPlantOne.setVisible(true);
                     waterPlantOne.setVisible(true);
+                    //pot.setVisible(true);
                 }
             }
             if(plant2 != null){
@@ -744,6 +756,7 @@ public class HelloController implements Initializable {
                     plantHealthBarTwo.setVisible(true);
                     selectPlantTwo.setVisible(true);
                     waterPlantTwo.setVisible(true);
+                    //pot2.setVisible(true);
                 }
             }
             if(plant3 != null){
@@ -763,6 +776,7 @@ public class HelloController implements Initializable {
                     plantHealthBarThree.setVisible(true);
                     selectPlantThree.setVisible(true);
                     waterPlantThree.setVisible(true);
+                    //pot3.setVisible(true);
                 }
             }
         }));

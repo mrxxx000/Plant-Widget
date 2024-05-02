@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -138,6 +139,21 @@
       <Label fx:id="plantLevelThree" layoutX="496.0" layoutY="22.0" visible="false" />
       <JFXButton fx:id="waterPlantOne" buttonType="RAISED" layoutX="15.0" layoutY="159.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" />
       <JFXButton fx:id="selectPlantOne" buttonType="RAISED" layoutX="91.0" layoutY="159.0" onAction="#selectPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select Plant" />
+      <ImageView fx:id="pot" fitHeight="88.0" fitWidth="94.0" layoutX="37.0" layoutY="49.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/peter_pot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pot2" fitHeight="88.0" fitWidth="94.0" layoutX="252.0" layoutY="49.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/peter_pot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pot3" fitHeight="88.0" fitWidth="94.0" layoutX="464.0" layoutY="49.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/peter_pot.png" />
+         </image>
+      </ImageView>
 
    </children>
    <effect>
