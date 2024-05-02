@@ -568,9 +568,9 @@ public class PlantController implements Serializable {
 
     //this is to set the images it's not the best but it was either this or saving the pixels of the picture. // gg (Emre Mengutay);
     public void setPlantImage(Plant plant){
-        if(plant.getLevel() < 10) {
+        if(plant.getLevel() < 25) {
             if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel1.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl1.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
@@ -591,9 +591,9 @@ public class PlantController implements Serializable {
                 plant.setImage(image);
             }
         }
-        if(plant.getLevel() < 20 && plant.getLevel() >= 10){
+        if(plant.getLevel() < 50 && plant.getLevel() >= 25){
             if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl2.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
@@ -614,9 +614,33 @@ public class PlantController implements Serializable {
                 plant.setImage(image);
             }
         }
-        if(plant.getLevel() < 30 && plant.getLevel() >= 20){
+        if(plant.getLevel() < 75 && plant.getLevel() >= 50){
             if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.PUMPKIN) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.MONSTERA) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant3/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel3.png");
+                Image image = new Image(inputStream);
+                plant.setImage(image);
+            }
+        }
+
+        if(plant.getLevel() < 100 && plant.getLevel() >= 75){
+            if(plant.getType() == PlantTypes.CACTUS) {
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl4.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
