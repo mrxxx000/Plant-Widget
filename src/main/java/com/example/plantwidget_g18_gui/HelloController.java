@@ -706,27 +706,27 @@ public class HelloController implements Initializable {
         }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
-            if(plant2 != null){
-                String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
-                double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
-                double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+            if(plant1 != null){
+                String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
+                double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
+                double plantHealthLevel1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
 
 
-                if(plantLeveltwo!= null) {
-                    plantLeveltwo.setText(plantLevel2);
-                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
-                    plantWaterBarTwo.setProgress(plantWaterLevel2);
-                    plantHealthBarTwo.setProgress(plantHealthLevel2);
+                if(plantLevelOne!= null) {
+                    plantLevelOne.setText(plantLevel1);
+                    imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage()); // not working rn
+                    plantWaterBarOne.setProgress(plantWaterLevel1);
+                    plantHealthBarOne.setProgress(plantHealthLevel1);
 
-                    plantLeveltwo.setVisible(true);
-                    imagePlantTwo.setVisible(true);
-                    plantWaterBarTwo.setVisible(true);
-                    plantHealthBarTwo.setVisible(true);
-                    selectPlantTwo.setVisible(true);
-                    waterPlantTwo.setVisible(true);
+                    plantLevelOne.setVisible(true);
+                    imagePlantOne.setVisible(true);
+                    plantWaterBarOne.setVisible(true);
+                    plantHealthBarOne.setVisible(true);
+                    selectPlantOne.setVisible(true);
+                    waterPlantOne.setVisible(true);
                 }
             }
-            if(plant1 != null){
+            if(plant2 != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
                 double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
                 double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
