@@ -89,7 +89,7 @@ public class Plant implements Serializable {
     }
 
     public void decreaseHealth() {
-        healthLevel = healthLevel - 0.2;
+        healthLevel = healthLevel - 0.3;
         if (healthLevel <= 0.0) {
 
             // TODO the plant is now dead, implement the logic needed.
