@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.PlantController;
 import javafx.scene.image.Image;
 import kotlin.jvm.Transient;
 
@@ -15,6 +16,7 @@ public class Plant implements Serializable {
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
     private LocalDate datePlanted;
+    private PlantController plantController;
 
 
 
@@ -92,9 +94,11 @@ public class Plant implements Serializable {
         healthLevel = healthLevel - 0.3;
         if (healthLevel <= 0.0) {
 
+
             // TODO the plant is now dead, implement the logic needed.
         }
     }
+
 
     public void skipDayWater() {
         this.waterLevel = waterLevel - 0.2;
@@ -104,7 +108,7 @@ public class Plant implements Serializable {
     }
 
     public void increaseHealth() {
-        healthLevel = healthLevel + 0.2;
+        healthLevel = healthLevel + 0.1;
         if(healthLevel > 1.0) {
             healthLevel = 1.0;
         }
