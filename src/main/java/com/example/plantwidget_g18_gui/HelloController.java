@@ -18,6 +18,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -27,6 +29,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -1065,7 +1068,7 @@ public class HelloController implements Initializable {
     }
 
     public void setUpSeedScene(Stage stage){
-        InputStream inputStream = getClass().getResourceAsStream("/images/plant1/testcatlevel3.png");
+        InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl4.png");
         Image image = new Image(inputStream);
         ImageView imageView = getImageViewFromStage(stage,"seedImage1");
         imageView.setImage(image);
