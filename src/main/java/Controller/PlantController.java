@@ -574,7 +574,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel1.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/pumpkinLvl1.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
@@ -597,7 +597,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/pumpkinLvl2.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
@@ -620,7 +620,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/pumpkinLvl3.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
@@ -644,7 +644,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/pumpkinLvl4.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
