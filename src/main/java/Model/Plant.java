@@ -28,45 +28,22 @@ public class Plant implements Serializable {
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
+
     /**
-     * Method decreases the water level of the plant over time based on its specific watering needs.
-     * The method calculates the decrease in water level per hour depending on the plant.
-     * Method then decreases the water level based on the elapsed hours and watering needs.
-     * It ensures that the water level doesn't go below 0.0 and
-     * decreases the health if the water level becomes critical.
-     * @param hoursElapsed
-     * @param plant
+     * Akmal Safi
+     * Decreases the water level of the plant over time based on its watering needs.
+     * Calculates the water loss rate for the plant type and decreases the water level
+     * accordingly for the specified duration. Ensures the water level doesn't go below
+     * 0 and decreases the plant's health if the water level becomes critical.
+     *
+     * @param secondsElapsed The duration in seconds for which the water level should decrease
      */
-    //Akmal Safi
-    public void decreaseWaterOverTime(int hoursElapsed, Plant plant) {
-        // Calculate the water loss rate based on the plant type
-        double waterLossPerHours = 0.0;
 
-        switch (type){
-            case CACTUS:
-                //Water bar goes from full to empty after 5 days (5 * 24 = 120 hours
-                waterLossPerHours = 1.0/120.0;
-                break;
-            // Water bar goes from full to empty after 3 days (3 * 24 = 72 hours)
-            case PUMPKIN:
-                waterLossPerHours = 1.0/72.0;
-                break;
-            // Water bar goes from full to empty after 4 days (4 * 24 = 96 hours)
-            case SNAKEPLANT:
-                waterLossPerHours = 1.0/96.0;
-                break;
-            // Water bar goes from full to empty after 1 day (1 * 24 = 24 hours)
-            case MONSTERA:
-                waterLossPerHours = 1.0/24.0;
-                break;
-            // Water bar goes from full to empty after 2 days (2 * 24 = 48 hours)
-            case SUNFLOWER:
-                waterLossPerHours = 1.0/48.0;
-                break;
-        }
+    public void decreaseWaterOverTime(int secondsElapsed) {
+        double waterLossRate = 1.0 / (getWateringIntervalForPlantType(type) * 3600); // Convert hours to seconds
 
-        // Decrease water level based on elapsed hours and watering needs
-        waterLevel -= waterLossPerHours * hoursElapsed;
+        // Decrease water level based on the calculated water loss rate and elapsed time
+        waterLevel -= waterLossRate * secondsElapsed;
 
         // Ensure water level doesn't go below 0
         if (waterLevel < 0.0) {
@@ -74,11 +51,42 @@ public class Plant implements Serializable {
         }
 
         // Check if the plant's water level has reached critical level
-        if (waterLevel<= 0.0){
+        if (waterLevel <= 0.0) {
             decreaseHealth(); // Decrease health if water level is critical
         }
+    }
 
-
+    /**
+     * Akmal Safi
+     * Method retrieves the watering interval for the specified plant type.
+     * Returns the watering interval in seconds based on the plant type.
+     * If no specific interval is defined for the type, returns the default interval.
+     *
+     * @param type The type of plant to retrieve the watering interval for
+     * @return The watering interval for the specified plant type in seconds
+     */
+    public double getWateringIntervalForPlantType(PlantTypes type) {
+        switch (type) {
+            // calculation: 3,6 = 0.001 so if you want 30sec the calculation will be
+            // 30/3,6 which is 8,33 and then 8,33* 0,001 = 0,0083
+            case CACTUS:
+                return 0.0055; // Cactus water level will reach water level 0 in 20sec
+            // in the future it will be 5 days according to req
+            case PUMPKIN: // Pumpkin water level will reach water level 0 in 30sec
+                // in the future it will be 3 days according to req
+                return 0.0166;
+            case SNAKEPLANT: // SnakePlant water level will reach water level 0 in 30sec
+                // in the future it will be 4 days according to req
+                return 0.0166;
+            case MONSTERA: // Monstera water level will reach water level 0 in 60sec
+                // in the future it will be 1 day according to req
+                return 0.0083;
+            case SUNFLOWER:
+                return 0.0083; // Sunflower water level will reach water level 0 in 60sec
+            // in the future it will be 2 days according to req
+            default:
+                return 1;
+        }
     }
 
     public boolean waterThePlant() {
