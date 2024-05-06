@@ -63,26 +63,64 @@ public class PlantController implements Serializable {
     }
 
     /**
-     * Method to initialize water level property
-     * // Creates a new SimpleDoubleProperty object
-     * Starts the timer for updating water levels
+     * Akmal Safi
+     * This method initializes the water level property and sets up a timeline to periodically update
+     * the water level of growing plants and update the GUI accordingly.
+     * The method creates a timeline with a duration of 1 second, which triggers actions
+     * to decrease the water level of each growing plant based on its watering needs,
+     * updates the water level property, and refreshes the GUI to reflect the changes.
+     * It sets the timeline to run indefinitely, with keyframes corresponding to the
+     * watering intervals of each plant type, and triggers watering actions accordingly.
      */
-    //Akmal Safi
     public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
         this.timeline = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent -> {
             for (int i = 0; i < growingPlants.length; i++) {
-                Plant growinPlant = growingPlants[i];
-                if (growinPlant != null) {
-                    growinPlant.decreaseWaterOverTime(1, growinPlant);
-                    waterLevelProperty.set(growinPlant.getWaterLevel());
+                Plant growingPlant = growingPlants[i];
+                if (growingPlant != null) {
+                    // Decrease water level based on the plant's watering needs
+                    growingPlant.decreaseWaterOverTime(1);
+                    waterLevelProperty.set(growingPlant.getWaterLevel());
                     updateWaterBarGUI(i);
                     updateHealthBarGUI(i); // Update health bar GUI
                 }
             }
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
-        //startTimer();
+
+        // Start the timeline with the appropriate interval for each plant type
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                double wateringInterval = growingPlant.getWateringIntervalForPlantType(growingPlant.getType());
+                KeyFrame keyFrame = new KeyFrame(Duration.seconds(wateringInterval), event -> {
+                    // Water the plant after the watering interval
+                    growingPlant.waterThePlant();
+                    // Update GUI after watering
+                    updateWaterBarGUI(indexOfPlant(growingPlant));
+                    updateHealthBarGUI(indexOfPlant(growingPlant));
+                });
+                timeline.getKeyFrames().add(keyFrame);
+            }
+        }
+    }
+
+    /**
+     * Akmal Safi
+     * This method finds the index of a specified plant in the array of growing plants.
+     * Iterates through the array and checks each element to find the specified plant.
+     * If the plant is found, returns its index in the array; otherwise, returns -1
+     * to indicate that the plant was not found in the array.
+     *
+     * @param plant The plant to find the index of
+     * @return The index of the specified plant in the array, or -1 if not found
+     */
+    private int indexOfPlant(Plant plant) {
+        for (int i = 0; i < growingPlants.length; i++) {
+            if (growingPlants[i] == plant) {
+                return i;
+            }
+        }
+        return -1; // Plant not found
     }
 
     public void startTheTimer() {
