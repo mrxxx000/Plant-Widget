@@ -10,6 +10,7 @@ module com.example.plantwidget_g18_gui {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.media;
 
     opens com.example.plantwidget_g18_gui to javafx.fxml;
     exports com.example.plantwidget_g18_gui;
