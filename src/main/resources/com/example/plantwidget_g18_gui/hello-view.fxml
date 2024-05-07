@@ -147,7 +147,7 @@
             <Image url="@../../../images/peter_pot.png" />
          </image>
       </ImageView>
-      <Label fx:id="levelPlantOne" layoutX="76.0" layoutY="19.0" />
+      <Label fx:id="levelPlantOne" layoutX="76.0" layoutY="19.0" visible="false" />
 
    </children>
    <effect>

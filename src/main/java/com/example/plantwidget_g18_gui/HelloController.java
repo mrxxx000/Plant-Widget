@@ -513,8 +513,15 @@ public class HelloController implements Initializable {
         timelineUpdateHealth = new Timeline();
         KeyFrame updateGUIFrame = new KeyFrame(Duration.millis(1), event -> {
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
-            updatePlantHealthBarOne(); // updates the healthbar to correct value every 5 seconds
-            //mainBoundary.getPlantController().getPlant(0).setWaterLevel(0.2); // just for testing, remove later (decreases water level)
+            updatePlantHealthBarOne();
+            Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
+            if(plants != null) {
+                for (int i = 0; i < plants.length; i++) {
+                    if (plants[i] != null && plants[i].getHealthLevel() < 0.01 ) {
+                        mainBoundary.getPlantController().killPlant(i);
+                    }
+                }
+            }
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
@@ -532,7 +539,7 @@ public class HelloController implements Initializable {
 
     public void waterPlantTwo() {
         mainBoundary.getPlantController().waterPlant(1);
-        if(plantWaterBarOne != null){
+        if(plantWaterBarTwo != null){
             plantWaterBarTwo.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(1));
             plantHealthBarTwo.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(1));
         }
@@ -740,6 +747,20 @@ public class HelloController implements Initializable {
                     waterPlantOne.setVisible(true);
                     //pot.setVisible(true);
                 }
+            }else if(levelPlantOne != null){
+                plantWaterBarOne.setProgress(0);
+                plantHealthBarOne.setProgress(0);
+
+                levelPlantOne.setVisible(false);
+                imagePlantOne.setVisible(false);
+                pot.setVisible(false);
+                plantWaterBarOne.setVisible(false);
+                plantHealthBarOne.setVisible(false);
+                selectPlantOne.setVisible(false);
+                waterPlantOne.setVisible(false);
+            }
+            else{
+                System.out.println("else");
             }
             if(plant2 != null && mainBoundary.getPlantController().getPlant(1) != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
@@ -762,6 +783,21 @@ public class HelloController implements Initializable {
                     waterPlantTwo.setVisible(true);
                     //pot2.setVisible(true);
                 }
+                else if(plantLeveltwo != null){
+                    plantHealthBarTwo.setProgress(0);
+                    plantHealthBarTwo.setProgress(0);
+
+                    plantLeveltwo.setVisible(false);
+                    imagePlantTwo.setVisible(false);
+                    pot.setVisible(false);
+                    plantWaterBarTwo.setVisible(false);
+                    plantHealthBarTwo.setVisible(false);
+                    selectPlantTwo.setVisible(false);
+                    waterPlantTwo.setVisible(false);
+                }
+                else{
+                    System.out.println("else");
+                }
             }
             if(plant3 != null && mainBoundary.getPlantController().getPlant(2) != null ){
                 String plantLevel3 = Integer.toString(mainBoundary.getPlantController().getPlant(2).getLevel());
@@ -782,6 +818,21 @@ public class HelloController implements Initializable {
                     selectPlantThree.setVisible(true);
                     waterPlantThree.setVisible(true);
                     //pot3.setVisible(true);
+                }
+                else if(plantLevelThree != null){
+                    plantWaterBarThree.setProgress(0);
+                    plantHealthBarThree.setProgress(0);
+
+                    plantLevelThree.setVisible(false);
+                    imagePlantThree.setVisible(false);
+                    pot.setVisible(false);
+                    plantWaterBarThree.setVisible(false);
+                    plantHealthBarThree.setVisible(false);
+                    selectPlantThree.setVisible(false);
+                    waterPlantThree.setVisible(false);
+                }
+                else{
+                    System.out.println("else");
                 }
             }
         }));
@@ -956,12 +1007,12 @@ public class HelloController implements Initializable {
 
     //this method uses a timeline to update waterbar and health bar with the right index for the plant
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.001),e ->{
             if(waterBar != null && healthBar != null){
                 if(mainBoundary.getPlantController().getPlant(index) != null) {
                     //System.out.println("updating water and health bar"
 
-                    if(mainBoundary.getPlantController().getPlant(index).getHealthLevel() == 0){
+                    if(mainBoundary.getPlantController().getPlant(index).getHealthLevel() < 0.05){
                         mainBoundary.getPlantController().killPlant(index);
                         waterBar.setProgress(0);
                         healthBar.setProgress(0);
