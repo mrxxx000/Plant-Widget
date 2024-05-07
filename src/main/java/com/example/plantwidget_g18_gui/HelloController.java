@@ -332,12 +332,10 @@ public class HelloController implements Initializable {
         //mainBoundary.getPlantController().LoadPlantsFromFile();
         mainBoundary.getPlantController().deleteGrowingPlant(0);
 
-        mainBoundary.getPlantController().LoadPlantsFromFile(() -> {
-            mainBoundary.getPlantController().SavePlantToFile();
-            mainBoundary.getPlantController().LoadPlantsFromFile(() -> {
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
                 goBackToLibrary(event);
-            });
-        });
+                System.out.println("Plant Deleted");
     }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
@@ -519,9 +517,8 @@ public class HelloController implements Initializable {
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
-        mainBoundary.getPlantController().LoadPlantsFromFile(()-> {
+        mainBoundary.getPlantController().LoadPlantsFromFile();
             updateCurrentLibrary();
-        });
 
     }
 
@@ -963,6 +960,8 @@ public class HelloController implements Initializable {
                         mainBoundary.getPlantController().killPlant(index);
                         waterBar.setProgress(0);
                         healthBar.setProgress(0);
+                        waterBar.setVisible(false);
+                        healthBar.setVisible(false);
                     }
                     waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
                     healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());

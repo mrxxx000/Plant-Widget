@@ -565,7 +565,7 @@ public class PlantController implements Serializable {
         }
     }
     //akmal safi & Emre Mengutay
-    public void LoadPlantsFromFile(Runnable callback){
+    public void LoadPlantsFromFile(){
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
         File file = new File(filename);
         if (!file.exists()){
@@ -594,7 +594,6 @@ public class PlantController implements Serializable {
                         break;
                     }
                 }
-                callback.run();
             } catch (EOFException e) {
                 e.printStackTrace();
 
