@@ -350,6 +350,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTimer();
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         updateGUI();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
