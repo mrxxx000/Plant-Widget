@@ -31,7 +31,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="165.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="313.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="27.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="246.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="imagePlantTwo" fitHeight="138.0" fitWidth="74.0" layoutX="262.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFour" fitHeight="88.0" fitWidth="111.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFive" fitHeight="88.0" fitWidth="111.0" layoutX="170.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
@@ -139,17 +139,17 @@
       <Label fx:id="plantLevelThree" layoutX="496.0" layoutY="22.0" visible="false" />
       <JFXButton fx:id="waterPlantOne" buttonType="RAISED" layoutX="15.0" layoutY="159.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="74.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" />
       <JFXButton fx:id="selectPlantOne" buttonType="RAISED" layoutX="91.0" layoutY="159.0" onAction="#selectPlantOne" prefHeight="25.0" prefWidth="74.0" styleClass="buttonSelect" text="Select Plant" />
-      <ImageView fx:id="pot" fitHeight="88.0" fitWidth="94.0" layoutX="37.0" layoutY="49.0" pickOnBounds="true">
+      <ImageView fx:id="pot" fitHeight="88.0" fitWidth="94.0" layoutX="37.0" layoutY="49.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../../../images/peter_pot.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pot2" fitHeight="88.0" fitWidth="94.0" layoutX="252.0" layoutY="49.0" pickOnBounds="true">
+      <ImageView fx:id="pot2" fitHeight="96.0" fitWidth="104.0" layoutX="247.0" layoutY="45.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../../../images/peter_pot.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="pot3" fitHeight="88.0" fitWidth="94.0" layoutX="464.0" layoutY="49.0" pickOnBounds="true">
+      <ImageView fx:id="pot3" fitHeight="88.0" fitWidth="94.0" layoutX="464.0" layoutY="49.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../../../images/peter_pot.png" />
          </image>
