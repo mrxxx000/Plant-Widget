@@ -143,7 +143,7 @@ public class HelloController implements Initializable {
     @FXML
     private Button skipDayButton3;
     @FXML
-    private TextField levelPlantOne;
+    private Label levelPlantOne;
     @FXML
     private ProgressBar plantHealthBarOne;
     @FXML
@@ -718,19 +718,20 @@ public class HelloController implements Initializable {
         }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
-            if(plant1 != null){
+            if(plant1 != null && mainBoundary.getPlantController().getPlant(0) != null){
                 String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
                 double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
                 double plantHealthLevel1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
+                int level = mainBoundary.getPlantController().getPlant(0).getLevel();
 
 
-                if(plantLevelOne!= null) {
-                    plantLevelOne.setText(plantLevel1);
+                if(levelPlantOne!= null) {
+                    levelPlantOne.setText(plantLevel1);
                     imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage()); // not working rn
                     plantWaterBarOne.setProgress(plantWaterLevel1);
                     plantHealthBarOne.setProgress(plantHealthLevel1);
 
-                    plantLevelOne.setVisible(true);
+                    levelPlantOne.setVisible(true);
                     imagePlantOne.setVisible(true);
                     pot.setVisible(true);
                     plantWaterBarOne.setVisible(true);
@@ -740,7 +741,7 @@ public class HelloController implements Initializable {
                     //pot.setVisible(true);
                 }
             }
-            if(plant2 != null){
+            if(plant2 != null && mainBoundary.getPlantController().getPlant(1) != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
                 double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
                 double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
@@ -762,7 +763,7 @@ public class HelloController implements Initializable {
                     //pot2.setVisible(true);
                 }
             }
-            if(plant3 != null){
+            if(plant3 != null && mainBoundary.getPlantController().getPlant(2) != null ){
                 String plantLevel3 = Integer.toString(mainBoundary.getPlantController().getPlant(2).getLevel());
                 double plantWaterLevel3 = mainBoundary.getPlantController().getPlant(2).getWaterLevel();
                 double plantHealthLevel3 = mainBoundary.getPlantController().getPlant(2).getHealthLevel();
