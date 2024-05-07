@@ -391,6 +391,7 @@ public class PlantController implements Serializable {
         deleteGrowingPlant(index);
         System.out.println("Plant is dead");
 
+
     }
     public  Plant[] getGrowingPlantsArray(){
         return growingPlants;

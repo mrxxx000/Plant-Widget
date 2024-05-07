@@ -51,11 +51,6 @@
       </ImageView>
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="245.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="levelPlantOne" editable="false" layoutX="47.0" layoutY="123.0" prefHeight="2.0" prefWidth="88.0" promptText="Level" style="-fx-background-color: #80cd93;" text="Level X">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </TextField>
       <Button fx:id="exitButton1" layoutX="570.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="X" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
