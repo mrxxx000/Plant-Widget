@@ -619,7 +619,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel1.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/sunflowerLvl1.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
@@ -642,7 +642,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/sunflowerLvl2.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
@@ -665,7 +665,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/sunflowerLvl3.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
@@ -689,7 +689,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/sunflowerLvl4.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
