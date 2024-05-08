@@ -121,6 +121,8 @@ public class HelloController implements Initializable {
     @FXML
     private Button plantNewSeedButton3;
     @FXML
+    private Button plantNewSeedButton;
+    @FXML
     private Button addNewPLantButton;
     @FXML
     private Button placeOnDesk1;
@@ -725,6 +727,13 @@ public class HelloController implements Initializable {
         }
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
+            if(plantNewSeedButton !=null) {
+                if (mainBoundary.getPlantController().checkForSpace() == false) {
+                    plantNewSeedButton.setDisable(true);
+                } else {
+                    plantNewSeedButton.setDisable(false);
+                }
+            }
             if(plant1 != null && mainBoundary.getPlantController().getPlant(0) != null){
                 String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
                 double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
