@@ -257,7 +257,7 @@ public class HelloController implements Initializable {
      */
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
-        timelineUpdateHealth.playFromStart();
+        //timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
@@ -732,7 +732,7 @@ public class HelloController implements Initializable {
                 int level = mainBoundary.getPlantController().getPlant(0).getLevel();
 
 
-                if(levelPlantOne!= null) {
+                if(levelPlantOne!= null && plantWaterBarOne!=null) {
                     levelPlantOne.setText(plantLevel1);
                     imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage()); // not working rn
                     plantWaterBarOne.setProgress(plantWaterLevel1);
@@ -747,7 +747,7 @@ public class HelloController implements Initializable {
                     waterPlantOne.setVisible(true);
                     //pot.setVisible(true);
                 }
-            }else if(levelPlantOne != null){
+            }else if(levelPlantOne != null && plantWaterBarOne != null){
                 plantWaterBarOne.setProgress(0);
                 plantHealthBarOne.setProgress(0);
 
