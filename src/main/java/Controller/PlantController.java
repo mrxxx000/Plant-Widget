@@ -541,6 +541,7 @@ public class PlantController implements Serializable {
             throw new RuntimeException(e);
         }
     }
+
     //akmal safi & Emre Mengutay
     public void SavePlantToFile() {
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
@@ -585,25 +586,31 @@ public class PlantController implements Serializable {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
                 int index = 0;
                 Object obj;
-                while ((obj = ois.readObject()) != null) {
-                    if (obj instanceof Plant) {
-                        Plant plant = (Plant) obj;
-                        double waterLevel = ois.readDouble();
-                        double healthLevel = ois.readDouble();
-                        int level = ois.readInt();
-                        plant.setWaterLevel(waterLevel);
-                        plant.setHealthLevel(healthLevel);
-                        plant.setLevel(level);
-                        setPlantImage(plant);
-                        growingPlants[index++] = plant;
-                    } else if (obj instanceof LegendaryPlant) {
-                        LegendaryPlant legendaryPlant = (LegendaryPlant) obj;
-                        getLegendaryPlants().add(legendaryPlant);
+                try {
+                    while (true) {
+                        obj = ois.readObject();
+                        if (obj instanceof Plant) {
+                            Plant plant = (Plant) obj;
+                            double waterLevel = ois.readDouble();
+                            double healthLevel = ois.readDouble();
+                            int level = ois.readInt();
+                            plant.setWaterLevel(waterLevel);
+                            plant.setHealthLevel(healthLevel);
+                            plant.setLevel(level);
+                            setPlantImage(plant);
+                            growingPlants[index++] = plant;
+                        } else if (obj instanceof LegendaryPlant) {
+                            LegendaryPlant legendaryPlant = (LegendaryPlant) obj;
+                            legendaryPlants.add(legendaryPlant);
+                        }
                     }
+                } catch (EOFException e) {
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("Failed to load plants " + e.getMessage());
                 }
             } catch (EOFException e) {
                 // End of file reached
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (IOException e) {
                 System.out.println("Failed to load plants " + e.getMessage());
             }
         }
