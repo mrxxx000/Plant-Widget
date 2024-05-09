@@ -533,43 +533,61 @@ public class HelloController implements Initializable {
 
     }
 
-    public void waterPlantOne(){
+    public void waterPlantOne(ActionEvent event){
         mainBoundary.getPlantController().waterPlant(0);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();
+        if(checkLegendary(0)){
+            goBackToLibrary(event);
+        }
         //water plant in controller, that takes in the plant
     }
 
-    public void waterPlantTwo() {
+    public void waterPlantTwo(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(1);
         if(plantWaterBarTwo != null){
             plantWaterBarTwo.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(1));
             plantHealthBarTwo.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(1));
         }
+        if(checkLegendary(1)) {
+            goBackToLibrary(event);
+        }
     }
 
-    public void waterPlantThree() {
+    public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
         if(plantWaterBarOne != null){
             plantWaterBarThree.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(2));
             plantHealthBarThree.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(2));
         }
+        if(checkLegendary(2)) {
+            goBackToLibrary(event);
+        }
     }
 
-    public void skipDay1(){
+    public void skipDay1(ActionEvent event){
         mainBoundary.getPlantController().skipDay(0);
+        if(checkLegendary(0)) {
+            goBackToLibrary(event);
+        }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
     }
 
-    public void skipDay2(){
+    public void skipDay2(ActionEvent event){
         mainBoundary.getPlantController().skipDay(1);
+        if(checkLegendary(1)) {
+            goBackToLibrary(event);
+        }
         System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
     }
 
-    public void skipDay3(){
+    public void skipDay3(ActionEvent event){
         mainBoundary.getPlantController().skipDay(2);
+        if(checkLegendary(2)){
+            goBackToLibrary(event);
+        }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(plant1.getLevel());
@@ -714,22 +732,15 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
 
-    public void checkLegendary(int index){
+    public boolean checkLegendary(int index){
         int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
         if(level1>=10){
             mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
             mainBoundary.getPlantController().deleteGrowingPlant(index);
-            /*plantWaterBarOne.setProgress(0);
-            plantHealthBarOne.setProgress(0);
-
-            levelPlantOne.setVisible(false);
-            imagePlantOne.setVisible(false);
-            pot.setVisible(false);
-            plantWaterBarOne.setVisible(false);
-            plantHealthBarOne.setVisible(false);
-            selectPlantOne.setVisible(false);
-            waterPlantOne.setVisible(false);*/
+            ActionEvent event = new ActionEvent();
+            return true;
         }
+        return false;
     }
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
@@ -946,15 +957,24 @@ public class HelloController implements Initializable {
 
     public void selectPlantOne(ActionEvent e){
         selectPlant(e,0);
+        if(checkLegendary(0)) {
+            goBackToLibrary(e);
+        }
     }
 
     public void selectPlantTwo(ActionEvent e){
         selectPlant(e,1);
+        if(checkLegendary(1)) {
+            goBackToLibrary(e);
+        }
 
     }
 
     public void selectPlantThree(ActionEvent e){
         selectPlant(e,2);
+        if(checkLegendary(2)) {
+            goBackToLibrary(e);
+        }
     }
 
     public Label getLabelFromStage(Stage stage, String id){
