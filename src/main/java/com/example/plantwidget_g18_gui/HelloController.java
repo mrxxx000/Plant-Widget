@@ -734,7 +734,7 @@ public class HelloController implements Initializable {
 
     public boolean checkLegendary(int index){
         int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
-        if(level1>=10){
+        if(level1>=100){
             mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
             mainBoundary.getPlantController().deleteGrowingPlant(index);
             ActionEvent event = new ActionEvent();
