@@ -36,6 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 
 public class HelloController implements Initializable {
@@ -403,13 +404,14 @@ public class HelloController implements Initializable {
             stage.show();
 
             legendaryGridPane = getLegendaryGridPane(stage);
-            int row = -1;
+            //int row = -1;
 
-            ArrayList<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants();
+            Set<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants(); // Assuming you have a PlantController instance named plantController
+            int row = 0;
+            int i = 0;
 
-            //loop for legendary plant list
-            for(int i = 0; i < 10; i++){
-                if(i % 3== 0){
+            for (LegendaryPlant legendaryPlant : legendaryPlants) {
+                if(i % 3 == 0){
                     row++;
                 }
                 //Gridpane stacks on top of rectangle
@@ -417,17 +419,16 @@ public class HelloController implements Initializable {
                 GridPane gridPane = new GridPane();
                 Rectangle rectangle = new Rectangle(152, 181, Color.color(0.5725490196078431, 0.9176470588235294 ,0.6627450980392157));
                 rectangle.setStyle(" -fx-stroke: black; -fx-stroke-width: 1;");
-
                 //Plant name
-                Label plantName = new Label(legendaryPlants.get(i).getName());
+                Label plantName = new Label(legendaryPlant.getName());
                 plantName.setFont(new Font("Verdana Pro Cond Black", 24));
                 plantName.setAlignment(Pos.CENTER);
                 plantName.setMaxWidth(Double.MAX_VALUE);
                 GridPane.setConstraints(plantName,0,2);
 
-                //Plant imagex
+                //Plant image
                 ImageView plantImage = new ImageView();
-                plantImage.setImage(legendaryPlants.get(i).getImage());
+                plantImage.setImage(legendaryPlant.getImage());
                 plantImage.setFitHeight(88);
                 plantImage.setFitWidth(111);
                 BorderPane imageWrap = new BorderPane(plantImage);
@@ -447,8 +448,8 @@ public class HelloController implements Initializable {
                 StackPane.setAlignment(gridPane, Pos.CENTER);
                 stackPane.getChildren().addAll(rectangle, gridPane);
 
-
                 legendaryGridPane.add(stackPane,(i + 3) % 3, row);
+                i++;
             }
            // legendaryGridPane.add(new Rectangle(50, 50, Color.BLUE), 0 , 0);
 
@@ -556,7 +557,6 @@ public class HelloController implements Initializable {
     }
 
     public void skipDay1(){
-
         mainBoundary.getPlantController().skipDay(0);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
@@ -714,17 +714,39 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
 
+    public void checkLegendary(int index){
+        int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
+        if(level1>=10){
+            mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
+            mainBoundary.getPlantController().deleteGrowingPlant(index);
+            /*plantWaterBarOne.setProgress(0);
+            plantHealthBarOne.setProgress(0);
+
+            levelPlantOne.setVisible(false);
+            imagePlantOne.setVisible(false);
+            pot.setVisible(false);
+            plantWaterBarOne.setVisible(false);
+            plantHealthBarOne.setVisible(false);
+            selectPlantOne.setVisible(false);
+            waterPlantOne.setVisible(false);*/
+        }
+    }
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
-        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
-
-        if(plant2 != null && plant3 != null && plant1 != null) {
-            System.out.println("in update current library");
-            System.out.println(plant2.getName());
-            System.out.println(plant3.getName());
-            System.out.println(plant1.getName());
+        if(plant1 != null){
+            checkLegendary(0);
         }
+        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
+        if(plant2 != null){
+            checkLegendary(1);
+        }
+        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+        if(plant3 != null){
+            checkLegendary(2);
+        }
+        /*for(int i =0;i<mainBoundary.getPlantController().getGrowingPlantsArray().length;i++){
+            checkLegendary(i);
+        }*/
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
             if(plantNewSeedButton !=null) {
@@ -734,16 +756,16 @@ public class HelloController implements Initializable {
                     plantNewSeedButton.setDisable(false);
                 }
             }
+
             if(plant1 != null && mainBoundary.getPlantController().getPlant(0) != null){
                 String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
                 double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
                 double plantHealthLevel1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
                 int level = mainBoundary.getPlantController().getPlant(0).getLevel();
 
-
                 if(levelPlantOne!= null && plantWaterBarOne!=null) {
                     levelPlantOne.setText(plantLevel1);
-                    imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage()); // not working rn
+                    imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
                     plantWaterBarOne.setProgress(plantWaterLevel1);
                     plantHealthBarOne.setProgress(plantHealthLevel1);
 

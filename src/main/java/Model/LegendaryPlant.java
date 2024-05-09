@@ -10,6 +10,9 @@ public class LegendaryPlant implements Serializable {
     private String name;
     private PlantTypes type;
     private Image image;
+    public LegendaryPlant(){
+
+    }
 
     public void setImage(Image image) {
         this.image = image;
