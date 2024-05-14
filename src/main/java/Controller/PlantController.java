@@ -322,8 +322,10 @@ public class PlantController implements Serializable {
         return null;
     }
     public void skipDay(int index){
-        growingPlants[index].skipDayWater();
-        growingPlants[index].setLevelSkip();
+        if(growingPlants[index] != null) {
+            growingPlants[index].skipDayWater();
+            growingPlants[index].setLevelSkip();
+        }
     }
     public void setPlantName(String name, int index) {
         growingPlants[index].setName(name);
