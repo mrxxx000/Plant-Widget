@@ -2,7 +2,6 @@ package Model;
 
 import Controller.PlantController;
 import javafx.scene.image.Image;
-import kotlin.jvm.Transient;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -70,7 +69,7 @@ public class Plant implements Serializable {
             // calculation: 3,6 = 0.001 so if you want 30sec the calculation will be
             // 30/3,6 which is 8,33 and then 8,33* 0,001 = 0,0083
             case CACTUS:
-                return 0.0055; // Cactus water level will reach water level 0 in 20sec
+                return 0.0166; // Cactus water level will reach water level 0 in 20sec
             // in the future it will be 5 days according to req
             case PUMPKIN: // Pumpkin water level will reach water level 0 in 30sec
                 // in the future it will be 3 days according to req

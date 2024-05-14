@@ -36,6 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 
 public class HelloController implements Initializable {
@@ -120,6 +121,8 @@ public class HelloController implements Initializable {
     private Button plantNewSeedButton2;
     @FXML
     private Button plantNewSeedButton3;
+    @FXML
+    private Button plantNewSeedButton;
     @FXML
     private Button addNewPLantButton;
     @FXML
@@ -257,7 +260,7 @@ public class HelloController implements Initializable {
      */
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
-        timelineUpdateHealth.playFromStart();
+        //timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
@@ -401,13 +404,14 @@ public class HelloController implements Initializable {
             stage.show();
 
             legendaryGridPane = getLegendaryGridPane(stage);
-            int row = -1;
+            //int row = -1;
 
-            ArrayList<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants();
+            Set<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants(); // Assuming you have a PlantController instance named plantController
+            int row = 0;
+            int i = 0;
 
-            //loop for legendary plant list
-            for(int i = 0; i < 10; i++){
-                if(i % 3== 0){
+            for (LegendaryPlant legendaryPlant : legendaryPlants) {
+                if(i % 3 == 0){
                     row++;
                 }
                 //Gridpane stacks on top of rectangle
@@ -415,17 +419,16 @@ public class HelloController implements Initializable {
                 GridPane gridPane = new GridPane();
                 Rectangle rectangle = new Rectangle(152, 181, Color.color(0.5725490196078431, 0.9176470588235294 ,0.6627450980392157));
                 rectangle.setStyle(" -fx-stroke: black; -fx-stroke-width: 1;");
-
                 //Plant name
-                Label plantName = new Label(legendaryPlants.get(i).getName());
+                Label plantName = new Label(legendaryPlant.getName());
                 plantName.setFont(new Font("Verdana Pro Cond Black", 24));
                 plantName.setAlignment(Pos.CENTER);
                 plantName.setMaxWidth(Double.MAX_VALUE);
                 GridPane.setConstraints(plantName,0,2);
 
-                //Plant imagex
+                //Plant image
                 ImageView plantImage = new ImageView();
-                plantImage.setImage(legendaryPlants.get(i).getImage());
+                plantImage.setImage(legendaryPlant.getImage());
                 plantImage.setFitHeight(88);
                 plantImage.setFitWidth(111);
                 BorderPane imageWrap = new BorderPane(plantImage);
@@ -445,8 +448,8 @@ public class HelloController implements Initializable {
                 StackPane.setAlignment(gridPane, Pos.CENTER);
                 stackPane.getChildren().addAll(rectangle, gridPane);
 
-
                 legendaryGridPane.add(stackPane,(i + 3) % 3, row);
+                i++;
             }
            // legendaryGridPane.add(new Rectangle(50, 50, Color.BLUE), 0 , 0);
 
@@ -530,62 +533,64 @@ public class HelloController implements Initializable {
 
     }
 
-    public void waterPlantOne(){
+    public void waterPlantOne(ActionEvent event){
         mainBoundary.getPlantController().waterPlant(0);
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();
+        if(checkLegendary(0)){
+            goBackToLibrary(event);
+        }
         //water plant in controller, that takes in the plant
     }
 
-    public void waterPlantTwo() {
+    public void waterPlantTwo(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(1);
         if(plantWaterBarTwo != null){
             plantWaterBarTwo.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(1));
             plantHealthBarTwo.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(1));
         }
+        if(checkLegendary(1)) {
+            goBackToLibrary(event);
+        }
     }
 
-    public void waterPlantThree() {
+    public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
         if(plantWaterBarOne != null){
             plantWaterBarThree.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(2));
             plantHealthBarThree.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(2));
         }
+        if(checkLegendary(2)) {
+            goBackToLibrary(event);
+        }
     }
 
-    public void skipDay1(){
-
+    public void skipDay1(ActionEvent event){
         mainBoundary.getPlantController().skipDay(0);
+        if(checkLegendary(0)) {
+            goBackToLibrary(event);
+        }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
     }
 
-    public void skipDay2(){
+    public void skipDay2(ActionEvent event){
         mainBoundary.getPlantController().skipDay(1);
+        if(checkLegendary(1)) {
+            goBackToLibrary(event);
+        }
         System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
     }
 
-    public void skipDay3(){
+    public void skipDay3(ActionEvent event){
         mainBoundary.getPlantController().skipDay(2);
+        if(checkLegendary(2)){
+            goBackToLibrary(event);
+        }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(plant1.getLevel());
-    }
-    //public void skipDay3(){
-    //    plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
-    //}
-   // public void skipDay2(){
-     //   plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
-    //}
-
-    /** Method for tracing the click from the user
-     * Make sure that what type of plant the user has clicked on
-     * Needs to be implemented in fmxl file to be able to work
-     * Akmal Safi
-     */
-    public void handlePlantTypeSelection(ActionEvent event){
-        selectedPlantType = plantTypesComboBox.getValue();
     }
 
     /**
@@ -712,29 +717,51 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
 
+    public boolean checkLegendary(int index){
+        int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
+        if(level1>=100){
+            mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
+            mainBoundary.getPlantController().deleteGrowingPlant(index);
+            ActionEvent event = new ActionEvent();
+            return true;
+        }
+        return false;
+    }
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
-        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
-
-        if(plant2 != null && plant3 != null && plant1 != null) {
-            System.out.println("in update current library");
-            System.out.println(plant2.getName());
-            System.out.println(plant3.getName());
-            System.out.println(plant1.getName());
+        if(plant1 != null){
+            checkLegendary(0);
         }
+        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
+        if(plant2 != null){
+            checkLegendary(1);
+        }
+        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
+        if(plant3 != null){
+            checkLegendary(2);
+        }
+        /*for(int i =0;i<mainBoundary.getPlantController().getGrowingPlantsArray().length;i++){
+            checkLegendary(i);
+        }*/
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
+            if(plantNewSeedButton !=null) {
+                if (mainBoundary.getPlantController().checkForSpace() == false) {
+                    plantNewSeedButton.setDisable(true);
+                } else {
+                    plantNewSeedButton.setDisable(false);
+                }
+            }
+
             if(plant1 != null && mainBoundary.getPlantController().getPlant(0) != null){
                 String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
                 double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
                 double plantHealthLevel1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
                 int level = mainBoundary.getPlantController().getPlant(0).getLevel();
 
-
-                if(levelPlantOne!= null) {
+                if(levelPlantOne!= null && plantWaterBarOne!=null) {
                     levelPlantOne.setText(plantLevel1);
-                    imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage()); // not working rn
+                    imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
                     plantWaterBarOne.setProgress(plantWaterLevel1);
                     plantHealthBarOne.setProgress(plantHealthLevel1);
 
@@ -747,7 +774,7 @@ public class HelloController implements Initializable {
                     waterPlantOne.setVisible(true);
                     //pot.setVisible(true);
                 }
-            }else if(levelPlantOne != null){
+            }else if(levelPlantOne != null && plantWaterBarOne != null){
                 plantWaterBarOne.setProgress(0);
                 plantHealthBarOne.setProgress(0);
 
@@ -842,88 +869,27 @@ public class HelloController implements Initializable {
 
     }
 
-    //detta fungerar inte, min method fungerade problemet ligger inte här det ligger i plantcontroller
-
-    /*public void updateCurrentLibrary(){
-        Plant plant1 = mainBoundary.getPlantController().getPlant(0);
-        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
-
-        if(plant1 != null) {
-            String plantLevel1 = Integer.toString(plant1.getLevel());
-            double plantWaterLevel1 = plant1.getWaterLevel();
-            double plantHealthLevel1 = plant1.getHealthLevel();
-
-            if(plantLevelOne != null) {
-                plantLevelOne.setText(plantLevel1);
-                imagePlantOne.setImage(plant1.getImage()); // assuming you have this method in Plant class
-                plantWaterBarOne.setProgress(plantWaterLevel1);
-                plantHealthBarOne.setProgress(plantHealthLevel1);
-
-                plantLevelOne.setVisible(true);
-                imagePlantOne.setVisible(true);
-                plantWaterBarOne.setVisible(true);
-                plantHealthBarOne.setVisible(true);
-                waterPlantOne.setVisible(true);
-                selectPlantOne.setVisible(true);
-            }
-        }
-
-        if(plant2 != null){
-            String plantLevel2 = Integer.toString(plant2.getLevel());
-            double plantWaterLevel2 = plant2.getWaterLevel();
-            double plantHealthLevel2 = plant2.getHealthLevel();
-
-            if(plantLeveltwo != null) {
-                plantLeveltwo.setText(plantLevel2);
-                imagePlantTwo.setImage(plant2.getImage());
-                plantWaterBarTwo.setProgress(plantWaterLevel2);
-                plantHealthBarTwo.setProgress(plantHealthLevel2);
-
-                plantLeveltwo.setVisible(true);
-                imagePlantTwo.setVisible(true);
-                plantWaterBarTwo.setVisible(true);
-                plantHealthBarTwo.setVisible(true);
-                waterPlantTwo.setVisible(true);
-                selectPlantTwo.setVisible(true);
-            }
-        }
-
-        if(plant3 != null){
-            String plantLevel3 = Integer.toString(plant3.getLevel());
-            double plantWaterLevel3 = plant3.getWaterLevel();
-            double plantHealthLevel3 = plant3.getHealthLevel();
-
-            if(plantLevelThree != null){
-                plantLevelThree.setText(plantLevel3);
-                imagePlantThree.setImage(plant3.getImage());
-                plantWaterBarThree.setProgress(plantWaterLevel3);
-                plantHealthBarThree.setProgress(plantHealthLevel3);
-
-                plantLevelThree.setVisible(true);
-                imagePlantThree.setVisible(true);
-                plantWaterBarThree.setVisible(true);
-                plantHealthBarThree.setVisible(true);
-                waterPlantThree.setVisible(true);
-                selectPlantThree.setVisible(true);
-            }
-        }
-    }
-
-     */
-
 
     public void selectPlantOne(ActionEvent e){
         selectPlant(e,0);
+        if(checkLegendary(0)) {
+            goBackToLibrary(e);
+        }
     }
 
     public void selectPlantTwo(ActionEvent e){
         selectPlant(e,1);
+        if(checkLegendary(1)) {
+            goBackToLibrary(e);
+        }
 
     }
 
     public void selectPlantThree(ActionEvent e){
         selectPlant(e,2);
+        if(checkLegendary(2)) {
+            goBackToLibrary(e);
+        }
     }
 
     public Label getLabelFromStage(Stage stage, String id){

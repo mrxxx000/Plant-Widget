@@ -12,15 +12,14 @@ import javafx.scene.image.Image;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlantController implements Serializable {
     private Plant[] growingPlants;
@@ -48,13 +47,13 @@ public class PlantController implements Serializable {
         catPlant.setImage(image);
 
         //test for legendary plants
-        for(int i = 0; i < 10; i++) {
+        /*for(int i = 0; i < 10; i++) {
             Plant plant = new Plant(PlantTypes.CACTUS);
             plant.setName("Pumpkin " + (i + 1));
             InputStream legendaryInputStream = getClass().getResourceAsStream("/images/testCat.jpg");
             plant.setImage(new Image(legendaryInputStream));
             createLegendary(plant);
-        }
+        }*/
         //growingPlants[1] = catPlant;
     }
 
@@ -198,65 +197,26 @@ public class PlantController implements Serializable {
     // TODO add here a method to create the plants we are going to have with all the constructors image name species etc
 
     /**
-     * This method increments the plants level by one.
-     * It then checks to see if the plants level is equal to three, which means it has reached Legendary stage.
-     * If it has, it calls the method to create a LegendaryPlant and sends the Plant object as parameters.
-     * @param plantIndex used to find the relevant plant object
-     */
-    public void levelUp(int plantIndex) {
-        growingPlants[plantIndex].incrementLevel();
-        Plant plantCopy = growingPlants[plantIndex];
-        PlantTypes typeCopy = plantCopy.getType();
-        if(plantCopy.getLevel() == 30) {
-            if (typeCopy == PlantTypes.CACTUS) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the CACTUS sprout
-            } else if (typeCopy == PlantTypes.PUMPKIN) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the PUMPKIN sprout
-            } else if (typeCopy == PlantTypes.MONSTERA) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the MONSTER sprout
-            } else if (typeCopy == PlantTypes.SUNFLOWER) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SUNFLOWER sprout
-            } else if (typeCopy == PlantTypes.SNAKEPLANT) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SNAKEPLANT sprout
-            }
-        } else if (plantCopy.getLevel() == 60) {
-            if (typeCopy == PlantTypes.CACTUS) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the CACTUS plant
-            } else if (typeCopy == PlantTypes.PUMPKIN) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the PUMPKIN plant
-            } else if (typeCopy == PlantTypes.MONSTERA) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the MONSTER plant
-            } else if (typeCopy == PlantTypes.SUNFLOWER) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SUNFLOWER plant
-            } else if (typeCopy == PlantTypes.SNAKEPLANT) {
-                //growingPlants[plantIndex].setImage(); //TODO set the image to be the SNAKEPLANT plant
-            }
-        } else if (plantCopy.getLevel() == 100) {
-            createLegendary(growingPlants[plantIndex]);
-        }
-    }
-
-    /**
      * This method creates a new LegendaryPlant based on the plant sent through the parameters.
      * It checks what type the plant is, so it can add the correct Legendary image.
      * It adds it to the legendaryPlants arrayList.
      * @param plant Plant object used to create a Legendary Plant
      */
-    private void createLegendary(Plant plant) {
+    public void createLegendary(Plant plant) {
         LegendaryPlant legendaryPlant = new LegendaryPlant();
         legendaryPlant.setName(plant.getName());
         PlantTypes type = plant.getType();
         legendaryPlant.setTypes(type);
         if (type == PlantTypes.CACTUS) {
-            // set legendaryPlant image to CACTUS LEGENDARY image
+            //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.PUMPKIN) {
-            // set legendaryPlant image to PUMPKIN LEGENDARY image
+            //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.MONSTERA) {
-            // set legendaryPlant image to MONSTERA LEGENDARY image
+            //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.SUNFLOWER) {
-            // set legendaryPlant image to SUNFLOWER LEGENDARY image
+            //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.SNAKEPLANT) {
-            // set legendaryPlant image to SNAKEPLANT LEGENDARY image
+            //legendaryPlant.setImage(image);
         }
         legendaryPlants.add(legendaryPlant);
     }
@@ -289,64 +249,6 @@ public class PlantController implements Serializable {
         }
     }
 
-
-    public void removePlantFromFile(String plantName){
-        File orgFile = new File("src/main/resources/SaveFile/PlantSaveFile.dat");
-        File newFile = new File("src/main/resources/SaveFile/tempFile.dat");
-
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(orgFile));
-             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(newFile))) {
-
-            Plant plant;
-
-            while(true) {
-                try {
-                    plant = (Plant) ois.readObject();
-                    System.out.println("Plant name: " + plant.getName());
-                    if (!plant.getName().equals(plantName)) {
-                        oos.writeObject(plant);
-                        deleteGrowingPlant(0);
-                        System.out.println("Plant removed from file: " + plant.getName());
-
-                    }
-                }catch (OptionalDataException e) {
-                    if (e.eof) {
-                        System.out.println("End of file reached.");
-                    } else {
-                        System.out.println("Primitive data: " + e.length);
-                        e.printStackTrace();
-                        break;
-                    }
-                } catch (EOFException e) {
-                    break;
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error removing /disarding plant!");
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error removing /disarding plant!");
-            throw new RuntimeException(e);
-        }
-
-        if(!orgFile.delete()) {
-            System.out.println("Failed to delete the original file!");
-            return;
-        }
-        if(!newFile.renameTo(orgFile)) {
-            System.out.println("Failed to rename the new file!");
-        }
-    }
-
-    /**
-     * This method attempts to delete a plant from the LegendaryPlants list.
-     * @param plantIndex index to find the relevant plant
-     */
-    public void deleteLegendaryPlant(int plantIndex) {
-        if (plantIndex >= 0 && plantIndex < legendaryPlants.size()) {
-            legendaryPlants.remove(plantIndex);
-        }
-    }
 
     /**
      * This method attempts to water the plant.
@@ -391,6 +293,7 @@ public class PlantController implements Serializable {
 
 
     }
+
     public  Plant[] getGrowingPlantsArray(){
         return growingPlants;
     }
@@ -407,45 +310,6 @@ public class PlantController implements Serializable {
      */
     public double updateHealthBarGUI(int index) {
         return growingPlants[index].getHealthLevel();
-    }
-
-    /**
-    This method will save the current state of the PlantController object to a file.
-     */
-    public void saveProgress(String filename) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-            oos.writeObject(this);
-            System.out.println("Progress saved to file: " + filename);
-        } catch (IOException e) {
-            System.out.println("Failed to save progress to file. " + e);
-        }
-    }
-
-    /**
-     * This method will load the PlantController object from a save file.
-     * @param fileName
-     * @return
-     */
-    public static PlantController loadProgress(String fileName) {
-        Path path = Paths.get(fileName);
-        if (!Files.exists(path)) {
-            try {
-                Files.createFile(path);
-                return new PlantController();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        PlantController plantController = null;
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
-            plantController = (PlantController) in.readObject();
-            System.out.println("Progress loaded successfully.");
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return plantController;
     }
 
     public double plantGetWaterLevel(){
@@ -537,6 +401,7 @@ public class PlantController implements Serializable {
             throw new RuntimeException(e);
         }
     }
+
     //akmal safi & Emre Mengutay
     public void SavePlantToFile() {
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
@@ -557,6 +422,10 @@ public class PlantController implements Serializable {
                     oss.writeInt(plant.getLevel());
                 }
             }
+            Set<LegendaryPlant> legendaryPlants = getLegendaryPlants();
+            for (LegendaryPlant legendaryPlant : legendaryPlants) {
+                oss.writeObject(legendaryPlant);
+            }
             System.out.println("Plant info saved successfully");
 
         }catch (IOException e){
@@ -576,27 +445,32 @@ public class PlantController implements Serializable {
         }else {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
                 int index = 0;
-                while (true) {
-                    try {
-                        Plant plant = (Plant) ois.readObject();
-                        double waterLevel = ois.readDouble();
-                        double healthLevel = ois.readDouble();
-                        int level = ois.readInt();
-                        if (plant != null) {
+                Object obj;
+                try {
+                    while (true) {
+                        obj = ois.readObject();
+                        if (obj instanceof Plant) {
+                            Plant plant = (Plant) obj;
+                            double waterLevel = ois.readDouble();
+                            double healthLevel = ois.readDouble();
+                            int level = ois.readInt();
                             plant.setWaterLevel(waterLevel);
                             plant.setHealthLevel(healthLevel);
                             plant.setLevel(level);
                             setPlantImage(plant);
                             growingPlants[index++] = plant;
+                        } else if (obj instanceof LegendaryPlant) {
+                            LegendaryPlant legendaryPlant = (LegendaryPlant) obj;
+                            legendaryPlants.add(legendaryPlant);
                         }
-                    } catch (EOFException e) {
-                        break;
                     }
+                } catch (EOFException e) {
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("Failed to load plants " + e.getMessage());
                 }
             } catch (EOFException e) {
-                e.printStackTrace();
-
-            } catch (IOException | ClassNotFoundException e) {
+                // End of file reached
+            } catch (IOException e) {
                 System.out.println("Failed to load plants " + e.getMessage());
             }
         }
@@ -622,7 +496,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel1.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/snakeplantLvl1.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }
@@ -645,7 +519,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/snakeplantLvl2.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }
@@ -668,7 +542,7 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/snakeplantLvl3.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }
@@ -692,15 +566,27 @@ public class PlantController implements Serializable {
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/testplantlevel3.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/snakeplantLvl4.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }
         }
     }
 
-    public ArrayList<LegendaryPlant> getLegendaryPlants() {
-        return legendaryPlants;
+    public Set<LegendaryPlant> getLegendaryPlants() {
+        return new HashSet<>(legendaryPlants);
+    }
+
+    public void discardPlant1 () {
+        growingPlants[0] = null;
+    }
+
+    public void discardPlant2 () {
+        growingPlants[1] = null;
+    }
+
+    public void discardPlant3 () {
+        growingPlants[2] = null;
     }
 }
 
