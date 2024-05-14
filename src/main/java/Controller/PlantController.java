@@ -170,8 +170,6 @@ public class PlantController implements Serializable {
     // * @param type used to create the right type of plant
      */
 
-    // TODO dont know if this is working correctly since when i plant a seed it plants 2 of them. it doesnt stop when it has already added one
-
     /**
      * Metod which get instance of the type of plant
      * @return : the typ of plant

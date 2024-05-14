@@ -760,7 +760,7 @@ public class HelloController implements Initializable {
                 waterPlantOne.setVisible(false);
             }
             else{
-                System.out.println("else");
+
             }
             if(plant2 != null && mainBoundary.getPlantController().getPlant(1) != null){
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
@@ -796,7 +796,7 @@ public class HelloController implements Initializable {
                     waterPlantTwo.setVisible(false);
                 }
                 else{
-                    System.out.println("else");
+
                 }
             }
             if(plant3 != null && mainBoundary.getPlantController().getPlant(2) != null ){
@@ -832,7 +832,7 @@ public class HelloController implements Initializable {
                     waterPlantThree.setVisible(false);
                 }
                 else{
-                    System.out.println("else");
+
                 }
             }
         }));
