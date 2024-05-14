@@ -164,12 +164,6 @@ public class PlantController implements Serializable {
     }
 
     /**
-     * This method goes through the list to find the first empty spot.
-     * Once found, it creates a new plant and adds it to the spot.
-    // * @param type used to create the right type of plant
-     */
-
-    /**
      * Metod which get instance of the type of plant
      * @return : the typ of plant
      * Akmal Safi
@@ -294,10 +288,6 @@ public class PlantController implements Serializable {
 
     }
 
-    public  Plant[] getGrowingPlantsArray(){
-        return growingPlants;
-    }
-
     /**
     This method fetches the plant's water level and sends the double to the GUI.
      */
@@ -404,6 +394,12 @@ public class PlantController implements Serializable {
         }
     }
 
+    /**
+     * Saves the list of growing plants and legendary plants to a file.
+     * The file is created if it does not exist.
+     * Each plant's details including water level, health level, and level are written to the file.
+     * Legendary plants are also saved.
+     */
     //akmal safi & Emre Mengutay
     public void SavePlantToFile() {
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
@@ -434,6 +430,13 @@ public class PlantController implements Serializable {
             System.out.println("Failed to save plants" + e.getMessage());
         }
     }
+    /**
+     * Loads plant data from a file and populates the growingPlants array and legendaryPlants set.
+     * If the file does not exist, it is created.
+     * For each plant in the file, its details including water level,
+     * health level, and level are read and assigned.
+     * Legendary plants are also loaded and added to the legendaryPlants set.
+     */
     //akmal safi & Emre Mengutay
     public void LoadPlantsFromFile(){
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
