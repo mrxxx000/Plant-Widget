@@ -2,7 +2,6 @@ package Model;
 
 import Controller.PlantController;
 import javafx.scene.image.Image;
-import kotlin.jvm.Transient;
 
 import java.io.Serializable;
 import java.time.LocalDate;

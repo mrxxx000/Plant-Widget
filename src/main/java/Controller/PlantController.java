@@ -12,9 +12,6 @@ import javafx.scene.image.Image;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -171,8 +168,6 @@ public class PlantController implements Serializable {
      * Once found, it creates a new plant and adds it to the spot.
     // * @param type used to create the right type of plant
      */
-
-    // TODO dont know if this is working correctly since when i plant a seed it plants 2 of them. it doesnt stop when it has already added one
 
     /**
      * Metod which get instance of the type of plant
@@ -580,6 +575,18 @@ public class PlantController implements Serializable {
 
     public Set<LegendaryPlant> getLegendaryPlants() {
         return new HashSet<>(legendaryPlants);
+    }
+
+    public void discardPlant1 () {
+        growingPlants[0] = null;
+    }
+
+    public void discardPlant2 () {
+        growingPlants[1] = null;
+    }
+
+    public void discardPlant3 () {
+        growingPlants[2] = null;
     }
 }
 
