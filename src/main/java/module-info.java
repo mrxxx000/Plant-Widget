@@ -11,6 +11,7 @@ module com.example.plantwidget_g18_gui {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.media;
+    requires java.desktop;
 
     opens com.example.plantwidget_g18_gui to javafx.fxml;
     exports com.example.plantwidget_g18_gui;

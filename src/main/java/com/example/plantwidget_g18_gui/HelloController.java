@@ -8,6 +8,7 @@ import View.MainBoundary;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,9 +27,12 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,6 +44,10 @@ import java.util.Set;
 
 
 public class HelloController implements Initializable {
+    @FXML
+    private Button backToLib;
+    @FXML
+    private ButtonType backToLibButtonType;
     @FXML
     private Label speciesNameInSelectPlantScene;
     @FXML
@@ -365,8 +373,8 @@ public class HelloController implements Initializable {
             stage.setResizable(false);
             stage.centerOnScreen();
             stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e){
+
         }
     }
     /*
@@ -521,6 +529,11 @@ public class HelloController implements Initializable {
             if(plants != null) {
                 for (int i = 0; i < plants.length; i++) {
                     if (plants[i] != null && plants[i].getHealthLevel() < 0.01 ) {
+                        try {
+                            showDeathAlert();
+                        }catch (Exception e){
+                            System.out.println("Death alert not working");
+                        }
                         mainBoundary.getPlantController().killPlant(i);
                     }
                 }
@@ -531,6 +544,45 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
             updateCurrentLibrary();
 
+    }
+
+    public void showDeathAlert() {
+        JButton backButton = new JButton(":(");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                goBackToLibrarySwing();
+            }
+        });
+
+        String message = "Your plant has died... you should be ashamed of yourself...";
+        Object[] params = {message, backButton};
+
+        JOptionPane optionPane = new JOptionPane();
+        optionPane.setMessage(params);
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("Death Alert");
+        dialog.setVisible(true);
+    }
+    public void goBackToLibrarySwing() {
+        Platform.runLater(() -> {
+            mainBoundary.getPlantController().startTimer();
+            timelineUpdateHealth.playFromStart();
+            mainBoundary.getPlantController().SavePlantToFile();
+            mainBoundary.getPlantController().LoadPlantsFromFile();
+            updateGUI();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+                scene = new Scene(fxmlLoader.load());
+                stage.setTitle("Plant Widget Library!");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.centerOnScreen();
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void waterPlantOne(ActionEvent event){
