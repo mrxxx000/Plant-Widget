@@ -578,6 +578,18 @@ public class PlantController implements Serializable {
     public Set<LegendaryPlant> getLegendaryPlants() {
         return new HashSet<>(legendaryPlants);
     }
+
+    public void discardPlant1 () {
+        growingPlants[0] = null;
+    }
+
+    public void discardPlant2 () {
+        growingPlants[1] = null;
+    }
+
+    public void discardPlant3 () {
+        growingPlants[2] = null;
+    }
 }
 
 
