@@ -316,7 +316,7 @@ public class PlantController implements Serializable {
     public double updateHealthBarGUI(int index) {
         return growingPlants[index].getHealthLevel();
     }
-    
+
     public double plantGetWaterLevel(){
         return plant.getWaterLevel();
     }

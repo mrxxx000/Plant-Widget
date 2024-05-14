@@ -592,21 +592,6 @@ public class HelloController implements Initializable {
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(plant1.getLevel());
     }
-    //public void skipDay3(){
-    //    plantController.skipDay(plant3);// implement skipping 1 day, this is plant spot specific.
-    //}
-   // public void skipDay2(){
-     //   plantController.skipDay(plant2);// implement skipping 1 day, this is plant spot specific.
-    //}
-
-    /** Method for tracing the click from the user
-     * Make sure that what type of plant the user has clicked on
-     * Needs to be implemented in fmxl file to be able to work
-     * Akmal Safi
-     */
-    public void handlePlantTypeSelection(ActionEvent event){
-        selectedPlantType = plantTypesComboBox.getValue();
-    }
 
     /**
      * same with this metod
@@ -883,76 +868,6 @@ public class HelloController implements Initializable {
         timeline.play();
 
     }
-
-    //detta fungerar inte, min method fungerade problemet ligger inte här det ligger i plantcontroller
-
-    /*public void updateCurrentLibrary(){
-        Plant plant1 = mainBoundary.getPlantController().getPlant(0);
-        Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-        Plant plant3 = mainBoundary.getPlantController().getPlant(2);
-
-        if(plant1 != null) {
-            String plantLevel1 = Integer.toString(plant1.getLevel());
-            double plantWaterLevel1 = plant1.getWaterLevel();
-            double plantHealthLevel1 = plant1.getHealthLevel();
-
-            if(plantLevelOne != null) {
-                plantLevelOne.setText(plantLevel1);
-                imagePlantOne.setImage(plant1.getImage()); // assuming you have this method in Plant class
-                plantWaterBarOne.setProgress(plantWaterLevel1);
-                plantHealthBarOne.setProgress(plantHealthLevel1);
-
-                plantLevelOne.setVisible(true);
-                imagePlantOne.setVisible(true);
-                plantWaterBarOne.setVisible(true);
-                plantHealthBarOne.setVisible(true);
-                waterPlantOne.setVisible(true);
-                selectPlantOne.setVisible(true);
-            }
-        }
-
-        if(plant2 != null){
-            String plantLevel2 = Integer.toString(plant2.getLevel());
-            double plantWaterLevel2 = plant2.getWaterLevel();
-            double plantHealthLevel2 = plant2.getHealthLevel();
-
-            if(plantLeveltwo != null) {
-                plantLeveltwo.setText(plantLevel2);
-                imagePlantTwo.setImage(plant2.getImage());
-                plantWaterBarTwo.setProgress(plantWaterLevel2);
-                plantHealthBarTwo.setProgress(plantHealthLevel2);
-
-                plantLeveltwo.setVisible(true);
-                imagePlantTwo.setVisible(true);
-                plantWaterBarTwo.setVisible(true);
-                plantHealthBarTwo.setVisible(true);
-                waterPlantTwo.setVisible(true);
-                selectPlantTwo.setVisible(true);
-            }
-        }
-
-        if(plant3 != null){
-            String plantLevel3 = Integer.toString(plant3.getLevel());
-            double plantWaterLevel3 = plant3.getWaterLevel();
-            double plantHealthLevel3 = plant3.getHealthLevel();
-
-            if(plantLevelThree != null){
-                plantLevelThree.setText(plantLevel3);
-                imagePlantThree.setImage(plant3.getImage());
-                plantWaterBarThree.setProgress(plantWaterLevel3);
-                plantHealthBarThree.setProgress(plantHealthLevel3);
-
-                plantLevelThree.setVisible(true);
-                imagePlantThree.setVisible(true);
-                plantWaterBarThree.setVisible(true);
-                plantHealthBarThree.setVisible(true);
-                waterPlantThree.setVisible(true);
-                selectPlantThree.setVisible(true);
-            }
-        }
-    }
-
-     */
 
 
     public void selectPlantOne(ActionEvent e){
