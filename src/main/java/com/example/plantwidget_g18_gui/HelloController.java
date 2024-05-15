@@ -1093,7 +1093,7 @@ public class HelloController implements Initializable {
         Image image = new Image(inputStream);
         ImageView imageView = getImageViewFromStage(stage,"seedImage1");
         imageView.setImage(image);
-        InputStream inputStream2 = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+        InputStream inputStream2 = getClass().getResourceAsStream("/images/plant2/pumpkinLvl4.png");
         Image image2 = new Image(inputStream2);
         ImageView imageView2 = getImageViewFromStage(stage,"seedImage2");
         imageView2.setImage(image2);

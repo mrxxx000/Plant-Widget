@@ -22,20 +22,14 @@
       <CubicCurve controlX1="-222.0" controlX2="-56.0" controlY1="-22.3740234375" controlY2="690.0" endX="590.7599487304688" endY="-22.3740234375" fill="#796a4b" layoutX="20.0" layoutY="20.0" startX="590.0000610351562" startY="390.0" stroke="BLACK" />
       <CubicCurve controlX1="-18.0" controlX2="197.8313446044922" controlY1="46.0" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" layoutX="10.0" layoutY="10.0" startX="-111.0" startY="-3.0" stroke="BLACK" />
       <Pane disable="true" layoutX="479.0" layoutY="255.0" prefHeight="385.0" prefWidth="360.0" style="-fx-background-color: #61523a; -fx-background-radius: 23;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="15.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="224.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" layoutX="434.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="15.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="165.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="313.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="27.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="28.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantTwo" fitHeight="138.0" fitWidth="74.0" layoutX="262.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantFour" fitHeight="88.0" fitWidth="111.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantFive" fitHeight="88.0" fitWidth="111.0" layoutX="170.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantSix" fitHeight="88.0" fitWidth="111.0" layoutX="318.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
-      <ProgressBar fx:id="plantWaterBarOne" layoutX="19.0" layoutY="125.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" visible="false" />
-      <ProgressBar fx:id="plantHealthBarOne" layoutX="19.0" layoutY="139.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" visible="false" />
+      <ProgressBar fx:id="plantWaterBarOne" layoutX="20.0" layoutY="235.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" visible="false" />
+      <ProgressBar fx:id="plantHealthBarOne" layoutX="20.0" layoutY="249.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" visible="false" />
       <Button fx:id="exitButton1" layoutX="570.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="X" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
