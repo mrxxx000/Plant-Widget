@@ -41,6 +41,14 @@ import java.util.Set;
 
 public class HelloController implements Initializable {
     @FXML
+    private Button goToLegendaryPlants;
+    @FXML
+    private Rectangle menuBar;
+    @FXML
+    private Button menuButton;
+    @FXML
+    private Button hideMenuButton;
+    @FXML
     private Label speciesNameInSelectPlantScene;
     @FXML
     private Label plantNameInSelectPlantScene;
@@ -663,6 +671,30 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
     }
+
+    public void showMenu(ActionEvent e){
+        menuButton.setVisible(false);
+        hideMenuButton.setVisible(true);
+        menuBar.setArcHeight(35.0d);
+        menuBar.setArcWidth(35.0d);
+
+        menuBar.setVisible(true);
+        plantNewSeedButton.setVisible(true);
+        settingsButton.setVisible(true);
+        goToLegendaryPlants.setVisible(true);
+        exitButton.setVisible(true);
+    }
+
+    public void hideMenu(ActionEvent e){
+        menuButton.setVisible(true);
+        hideMenuButton.setVisible(false);
+        menuBar.setVisible(false);
+        plantNewSeedButton.setVisible(false);
+        settingsButton.setVisible(false);
+        goToLegendaryPlants.setVisible(false);
+        exitButton.setVisible(false);
+    }
+
     public void updateLevelPlantOne(){
         levelPlantOne.setText(String.valueOf(mainBoundary.getPlantController().getPlant(0).getLevel()));
     }
