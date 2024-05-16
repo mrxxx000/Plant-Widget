@@ -9,6 +9,8 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -257,6 +259,7 @@ public class HelloController implements Initializable {
             waterBarInSelectPlantScene.setStyle("-fx-accent: #34a8d9;");
             waterBarInSelectPlantScene.setBackground(Background.EMPTY);
             updateWaterAndHealthBar(waterBarInSelectPlantScene, healthBarInSelectPlantScene, index);
+            updatePictureInSelectPlantScene(plantImageForInfo, index);
             setUpSelectPlantScene(stage,index);
             stage.show();
         } catch (IOException e) {
@@ -564,6 +567,8 @@ public class HelloController implements Initializable {
         JDialog dialog = optionPane.createDialog("Death Alert");
         dialog.setVisible(true);
     }
+
+
     public void goBackToLibrarySwing() {
         Platform.runLater(() -> {
             mainBoundary.getPlantController().startTimer();
@@ -1023,22 +1028,41 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method uses a timeline to update the picture of the plant in the select plant scene based on levels every two seconds
+     * @param imageView the imageview that needs to be updated
+     * @param index the index of the plant
+     */
+    public void updatePictureInSelectPlantScene(ImageView imageView, int index){
+        int level = mainBoundary.getPlantController().getPlant(index).getLevel();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2),e ->{
+            if(imageView != null){
+                if(mainBoundary.getPlantController().getPlant(index) != null) {
+                    if(level < 25){
+                        mainBoundary.getPlantController().setPlantImage(mainBoundary.getPlantController().getPlant(index));
+                    }else if(level < 50 && level >= 25){
+                        mainBoundary.getPlantController().setPlantImage(mainBoundary.getPlantController().getPlant(index));
+                    }else if(level < 75 && level >= 50){
+                        mainBoundary.getPlantController().setPlantImage(mainBoundary.getPlantController().getPlant(index));
+                    }else if(level < 100 && level >= 75){
+                        mainBoundary.getPlantController().setPlantImage(mainBoundary.getPlantController().getPlant(index));
+                    }
+                    imageView.setImage(mainBoundary.getPlantController().getPlant(index).getImage());
+                }
+            }
+        }));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
     //this method uses a timeline to update waterbar and health bar with the right index for the plant
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.001),e ->{
             if(waterBar != null && healthBar != null){
                 if(mainBoundary.getPlantController().getPlant(index) != null) {
-                    //System.out.println("updating water and health bar"
-
-                    if(mainBoundary.getPlantController().getPlant(index).getHealthLevel() < 0.05){
-                        mainBoundary.getPlantController().killPlant(index);
-                        waterBar.setProgress(0);
-                        healthBar.setProgress(0);
-                        waterBar.setVisible(false);
-                        healthBar.setVisible(false);
-                    }
                     waterBar.setProgress(mainBoundary.getPlantController().getPlant(index).getWaterLevel());
                     healthBar.setProgress(mainBoundary.getPlantController().getPlant(index).getHealthLevel());
+                    int level = mainBoundary.getPlantController().getPlant(index).getLevel();
                 }
             }
         }));
@@ -1145,11 +1169,11 @@ public class HelloController implements Initializable {
         Image image = new Image(inputStream);
         ImageView imageView = getImageViewFromStage(stage,"seedImage1");
         imageView.setImage(image);
-        InputStream inputStream2 = getClass().getResourceAsStream("/images/plant2/testplantlevel3.png");
+        InputStream inputStream2 = getClass().getResourceAsStream("/images/plant2/pumpkinLvl4.png");
         Image image2 = new Image(inputStream2);
         ImageView imageView2 = getImageViewFromStage(stage,"seedImage2");
         imageView2.setImage(image2);
-        InputStream inputStream3 = getClass().getResourceAsStream("/images/plant3/testplantlevel3.png");
+        InputStream inputStream3 = getClass().getResourceAsStream("/images/plant3/monsteraLvl4.png");
         Image image3 = new Image(inputStream3);
         ImageView imageView3 = getImageViewFromStage(stage,"seedImage3");
         imageView3.setImage(image3);
