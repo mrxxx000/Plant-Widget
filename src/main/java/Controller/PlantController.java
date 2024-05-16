@@ -18,8 +18,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class PlantController implements Serializable {
     private Plant[] growingPlants;
@@ -45,15 +43,6 @@ public class PlantController implements Serializable {
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
         Image image = new Image(inputStream);
         catPlant.setImage(image);
-
-        //test for legendary plants
-        /*for(int i = 0; i < 10; i++) {
-            Plant plant = new Plant(PlantTypes.CACTUS);
-            plant.setName("Pumpkin " + (i + 1));
-            InputStream legendaryInputStream = getClass().getResourceAsStream("/images/testCat.jpg");
-            plant.setImage(new Image(legendaryInputStream));
-            createLegendary(plant);
-        }*/
         //growingPlants[1] = catPlant;
     }
 
@@ -418,12 +407,10 @@ public class PlantController implements Serializable {
                     oss.writeInt(plant.getLevel());
                 }
             }
-            Set<LegendaryPlant> legendaryPlants = getLegendaryPlants();
             for (LegendaryPlant legendaryPlant : legendaryPlants) {
                 oss.writeObject(legendaryPlant);
             }
             System.out.println("Plant info saved successfully");
-
         }catch (IOException e){
             System.out.println("Failed to save plants" + e.getMessage());
         }
@@ -448,6 +435,8 @@ public class PlantController implements Serializable {
         }else {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename))) {
                 int index = 0;
+                growingPlants = new Plant[3];
+                legendaryPlants = new ArrayList<>();
                 Object obj;
                 try {
                     while (true) {
@@ -576,8 +565,8 @@ public class PlantController implements Serializable {
         }
     }
 
-    public Set<LegendaryPlant> getLegendaryPlants() {
-        return new HashSet<>(legendaryPlants);
+    public ArrayList<LegendaryPlant> getLegendaryPlants() {
+        return legendaryPlants;
     }
 
     public void discardPlant1 () {
