@@ -116,7 +116,14 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXButton fx:id="deletePlantButton" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant1" prefHeight="25.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="´" />
+      <JFXButton fx:id="deletePlantButton" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant1" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
+      <JFXButton fx:id="deletePlantButton2" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant2" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
+      <JFXButton fx:id="deletePlantButton3" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant3" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
+      <ImageView disable="true" fitHeight="21.0" fitWidth="26.0" layoutX="297.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../Pictures/PlantWidget/icons/152557.png" />
+         </image>
+      </ImageView>
 
    </children>
    <effect>

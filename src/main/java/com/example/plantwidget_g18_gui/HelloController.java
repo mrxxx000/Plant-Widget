@@ -69,6 +69,10 @@ public class HelloController implements Initializable {
     @FXML
     private Button deletePlantButton;
     @FXML
+    private Button deletePlantButton2;
+    @FXML
+    private Button deletePlantButton3;
+    @FXML
     private Button closeNamePlantButton;
     @FXML
     private Label nameYourPlantLabel;
@@ -335,21 +339,26 @@ public class HelloController implements Initializable {
         stage.close();
     }
     public void deletePlant1(ActionEvent event){
-       /* String name = mainBoundary.getPlantController().getPlant(0).getName();
-        System.out.println(name);
-        if(name != null){
-
-                System.out.println("HELLOOOOO IS : " + name);
-
-        }*/
-        //mainBoundary.getPlantController().removePlantFromFile(name);
-        //mainBoundary.getPlantController().LoadPlantsFromFile();
-        mainBoundary.getPlantController().deleteGrowingPlant(0);
-
+        mainBoundary.getPlantController().discardPlant1();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
-                goBackToLibrary(event);
-                System.out.println("Plant Deleted");
+        goBackToLibrary(event);
+        System.out.println("Plant Deleted");
+    }
+
+    public void deletePlant2(ActionEvent event){
+        mainBoundary.getPlantController().discardPlant2();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
+        goBackToLibrary(event);
+        System.out.println("Plant Deleted");
+    }
+    public void deletePlant3(ActionEvent event){
+        mainBoundary.getPlantController().discardPlant3();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
+        goBackToLibrary(event);
+        System.out.println("Plant Deleted");
     }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
@@ -1100,8 +1109,10 @@ public class HelloController implements Initializable {
             Button waterThePlantOne = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
             Button skipDayButton1 = getButtonsFromSelectPlantScene(stage, "skipDayButton1");
             Button placeOnDesk1 = getButtonsFromSelectPlantScene(stage, "placeOnDesk1");
+            Button deletePlantButton = getButtonsFromSelectPlantScene(stage, "deletePlantButton");
             speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(0).getType().toString());
             plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(0).getName());
+            deletePlantButton.setVisible(true);
             waterThePlantOne.setVisible(true);
             skipDayButton1.setVisible(true);
             placeOnDesk1.setVisible(true);
@@ -1110,8 +1121,10 @@ public class HelloController implements Initializable {
             Button waterThePlantTwo = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
             Button skipDayButton2 = getButtonsFromSelectPlantScene(stage, "skipDayButton2");
             Button placeOnDesk2 = getButtonsFromSelectPlantScene(stage, "placeOnDesk2");
+            Button deletePlantButton2 = getButtonsFromSelectPlantScene(stage, "deletePlantButton2");
             speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(1).getType().toString());
             plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(1).getName());
+            deletePlantButton2.setVisible(true);
             waterThePlantTwo.setVisible(true);
             skipDayButton2.setVisible(true);
             placeOnDesk2.setVisible(true);
@@ -1120,8 +1133,10 @@ public class HelloController implements Initializable {
             Button waterThePlantThree = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
             Button skipDayButton3 = getButtonsFromSelectPlantScene(stage, "skipDayButton3");
             Button placeOnDesk3 = getButtonsFromSelectPlantScene(stage, "placeOnDesk3");
+            Button deletePlantButton3 = getButtonsFromSelectPlantScene(stage, "deletePlantButton3");
             speciesNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(2).getType().toString());
             plantNameInSelectPlantScene.setText(mainBoundary.getPlantController().getPlant(2).getName());
+            deletePlantButton3.setVisible(true);
             waterThePlantThree.setVisible(true);
             skipDayButton3.setVisible(true);
             placeOnDesk3.setVisible(true);

@@ -238,8 +238,6 @@ public class PlantController implements Serializable {
                     System.out.println("Plant name: " + growingPlants[i].getName());
                 }
             }
-
-            // removePlantFromFile(plantName);
         }
     }
 
