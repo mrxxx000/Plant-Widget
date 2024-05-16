@@ -343,7 +343,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
         goBackToLibrary(event);
-        System.out.println("Plant Deleted");
+        System.out.println("Plant Deleted1");
     }
 
     public void deletePlant2(ActionEvent event){
@@ -351,14 +351,14 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
         goBackToLibrary(event);
-        System.out.println("Plant Deleted");
+        System.out.println("Plant Deleted2");
     }
     public void deletePlant3(ActionEvent event){
         mainBoundary.getPlantController().discardPlant3();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
         goBackToLibrary(event);
-        System.out.println("Plant Deleted");
+        System.out.println("Plant Deleted3");
     }
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
@@ -518,9 +518,12 @@ public class HelloController implements Initializable {
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
 
     }
+
     public void startTimeline() {
         timelineUpdateHealth.playFromStart();
     }
+
+    //Akmal Safi and Emre 
     public HelloController() {
         this.pot = new ImageView();
         this.pot2 = new ImageView();
@@ -538,18 +541,19 @@ public class HelloController implements Initializable {
             updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
             updatePlantHealthBarOne();
             Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
-            if(plants != null) {
-                for (int i = 0; i < plants.length; i++) {
-                    if (plants[i] != null && plants[i].getHealthLevel() < 0.01 ) {
+            if (plants != null) {
+                for (int i = plants.length - 1; i >= 0; i--) {
+                    if (plants[i] != null && plants[i].getHealthLevel() < 0.01) {
                         try {
                             showDeathAlert();
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             System.out.println("Death alert not working");
                         }
                         mainBoundary.getPlantController().killPlant(i);
                     }
                 }
             }
+
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
@@ -793,39 +797,35 @@ public class HelloController implements Initializable {
         }
         return false;
     }
+
+    // Akmal Safi and mojtaba
+    //Fixed the metod which caused the problem in plant death
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
-        if(plant1 != null){
+        if (plant1 != null) {
             checkLegendary(0);
         }
         Plant plant2 = mainBoundary.getPlantController().getPlant(1);
-        if(plant2 != null){
+        if (plant2 != null) {
             checkLegendary(1);
         }
         Plant plant3 = mainBoundary.getPlantController().getPlant(2);
-        if(plant3 != null){
+        if (plant3 != null) {
             checkLegendary(2);
         }
-        /*for(int i =0;i<mainBoundary.getPlantController().getGrowingPlantsArray().length;i++){
-            checkLegendary(i);
-        }*/
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1),e ->{
-            if(plantNewSeedButton !=null) {
-                if (mainBoundary.getPlantController().checkForSpace() == false) {
-                    plantNewSeedButton.setDisable(true);
-                } else {
-                    plantNewSeedButton.setDisable(false);
-                }
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), e -> {
+            if (plantNewSeedButton != null) {
+                plantNewSeedButton.setDisable(!mainBoundary.getPlantController().checkForSpace());
             }
 
-            if(plant1 != null && mainBoundary.getPlantController().getPlant(0) != null){
+            if (plant1 != null && mainBoundary.getPlantController().getPlant(0) != null) {
                 String plantLevel1 = Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel());
                 double plantWaterLevel1 = mainBoundary.getPlantController().getPlant(0).getWaterLevel();
                 double plantHealthLevel1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
                 int level = mainBoundary.getPlantController().getPlant(0).getLevel();
 
-                if(levelPlantOne!= null && plantWaterBarOne!=null) {
+                if (levelPlantOne != null && plantWaterBarOne != null) {
                     levelPlantOne.setText(plantLevel1);
                     imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
                     plantWaterBarOne.setProgress(plantWaterLevel1);
@@ -838,9 +838,8 @@ public class HelloController implements Initializable {
                     plantHealthBarOne.setVisible(true);
                     selectPlantOne.setVisible(true);
                     waterPlantOne.setVisible(true);
-                    //pot.setVisible(true);
                 }
-            }else if(levelPlantOne != null && plantWaterBarOne != null){
+            } else if (levelPlantOne != null && plantWaterBarOne != null) {
                 plantWaterBarOne.setProgress(0);
                 plantHealthBarOne.setProgress(0);
 
@@ -852,18 +851,15 @@ public class HelloController implements Initializable {
                 selectPlantOne.setVisible(false);
                 waterPlantOne.setVisible(false);
             }
-            else{
 
-            }
-            if(plant2 != null && mainBoundary.getPlantController().getPlant(1) != null){
+            if (plant2 != null && mainBoundary.getPlantController().getPlant(1) != null) {
                 String plantLevel2 = Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel());
                 double plantWaterLevel2 = mainBoundary.getPlantController().getPlant(1).getWaterLevel();
                 double plantHealthLevel2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
 
-
-                if(plantLeveltwo!= null) {
+                if (plantLeveltwo != null) {
                     plantLeveltwo.setText(plantLevel2);
-                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage()); // not working rn
+                    imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
                     plantWaterBarTwo.setProgress(plantWaterLevel2);
                     plantHealthBarTwo.setProgress(plantHealthLevel2);
 
@@ -874,30 +870,26 @@ public class HelloController implements Initializable {
                     plantHealthBarTwo.setVisible(true);
                     selectPlantTwo.setVisible(true);
                     waterPlantTwo.setVisible(true);
-                    //pot2.setVisible(true);
                 }
-                else if(plantLeveltwo != null){
-                    plantHealthBarTwo.setProgress(0);
-                    plantHealthBarTwo.setProgress(0);
+            } else if (plantLeveltwo != null) {
+                plantWaterBarTwo.setProgress(0);
+                plantHealthBarTwo.setProgress(0);
 
-                    plantLeveltwo.setVisible(false);
-                    imagePlantTwo.setVisible(false);
-                    pot.setVisible(false);
-                    plantWaterBarTwo.setVisible(false);
-                    plantHealthBarTwo.setVisible(false);
-                    selectPlantTwo.setVisible(false);
-                    waterPlantTwo.setVisible(false);
-                }
-                else{
-
-                }
+                plantLeveltwo.setVisible(false);
+                imagePlantTwo.setVisible(false);
+                pot2.setVisible(false);
+                plantWaterBarTwo.setVisible(false);
+                plantHealthBarTwo.setVisible(false);
+                selectPlantTwo.setVisible(false);
+                waterPlantTwo.setVisible(false);
             }
-            if(plant3 != null && mainBoundary.getPlantController().getPlant(2) != null ){
+
+            if (plant3 != null && mainBoundary.getPlantController().getPlant(2) != null) {
                 String plantLevel3 = Integer.toString(mainBoundary.getPlantController().getPlant(2).getLevel());
                 double plantWaterLevel3 = mainBoundary.getPlantController().getPlant(2).getWaterLevel();
                 double plantHealthLevel3 = mainBoundary.getPlantController().getPlant(2).getHealthLevel();
 
-                if(plantLevelThree != null){
+                if (plantLevelThree != null) {
                     plantLevelThree.setText(plantLevel3);
                     imagePlantThree.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
                     plantWaterBarThree.setProgress(plantWaterLevel3);
@@ -910,30 +902,25 @@ public class HelloController implements Initializable {
                     plantHealthBarThree.setVisible(true);
                     selectPlantThree.setVisible(true);
                     waterPlantThree.setVisible(true);
-                    //pot3.setVisible(true);
                 }
-                else if(plantLevelThree != null){
-                    plantWaterBarThree.setProgress(0);
-                    plantHealthBarThree.setProgress(0);
+            } else if (plantLevelThree != null) {
+                plantWaterBarThree.setProgress(0);
+                plantHealthBarThree.setProgress(0);
 
-                    plantLevelThree.setVisible(false);
-                    imagePlantThree.setVisible(false);
-                    pot.setVisible(false);
-                    plantWaterBarThree.setVisible(false);
-                    plantHealthBarThree.setVisible(false);
-                    selectPlantThree.setVisible(false);
-                    waterPlantThree.setVisible(false);
-                }
-                else{
-
-                }
+                plantLevelThree.setVisible(false);
+                imagePlantThree.setVisible(false);
+                pot3.setVisible(false);
+                plantWaterBarThree.setVisible(false);
+                plantHealthBarThree.setVisible(false);
+                selectPlantThree.setVisible(false);
+                waterPlantThree.setVisible(false);
             }
         }));
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
     }
+
 
 
     public void selectPlantOne(ActionEvent e){

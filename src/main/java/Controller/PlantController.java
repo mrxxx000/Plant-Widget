@@ -580,16 +580,22 @@ public class PlantController implements Serializable {
         return new HashSet<>(legendaryPlants);
     }
 
+    //Akmal Safi and Yrja
     public void discardPlant1 () {
-        growingPlants[0] = null;
+      //  growingPlants[0] = null;
+        deleteGrowingPlant(0);
     }
 
+    //Akmal Safi and Yrja
     public void discardPlant2 () {
-        growingPlants[1] = null;
+      //  growingPlants[1] = null;
+        deleteGrowingPlant(1);
     }
 
+    //Akmal Safi and Yrja
     public void discardPlant3 () {
-        growingPlants[2] = null;
+       // growingPlants[2] = null;
+        deleteGrowingPlant(2);
     }
 }
 
