@@ -9,8 +9,6 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,28 +19,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 
 public class HelloController implements Initializable {
@@ -425,8 +421,7 @@ public class HelloController implements Initializable {
 
             legendaryGridPane = getLegendaryGridPane(stage);
             //int row = -1;
-
-            Set<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants(); // Assuming you have a PlantController instance named plantController
+            ArrayList<LegendaryPlant> legendaryPlants = mainBoundary.getPlantController().getLegendaryPlants(); // Assuming you have a PlantController instance named plantController
             int row = 0;
             int i = 0;
 
