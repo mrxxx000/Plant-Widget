@@ -472,23 +472,23 @@ public class PlantController implements Serializable {
     public void setPlantImage(Plant plant){
         if(plant.getLevel() < 25) {
             if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/cactuslevel1/cactuslevel1mort.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/pumpkinlevel1/pumpkinlevel1mort.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/monsteralevel1/monsteralevel1mort.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("src/main/resources/images/sunflowerlevel1/sunflowerlevel1mort.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("C:\\Users\\petvi\\Documents\\GitHub\\Plant-Widget\\src\\main\\resources\\images\\snakeplantlevel1\\snakeplantlevel1mort.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }

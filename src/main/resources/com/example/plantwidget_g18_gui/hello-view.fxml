@@ -28,9 +28,9 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="15.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="165.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="147.0" layoutX="313.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="27.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantTwo" fitHeight="138.0" fitWidth="74.0" layoutX="262.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="27.0" layoutY="39.0" pickOnBounds="true" />
+      <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="128.0" layoutX="235.0" layoutY="39.0" pickOnBounds="true" />
+      <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="128.0" layoutX="446.0" layoutY="39.0" pickOnBounds="true" />
       <ImageView fx:id="imagePlantFour" fitHeight="88.0" fitWidth="111.0" layoutX="20.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantFive" fitHeight="88.0" fitWidth="111.0" layoutX="170.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagePlantSix" fitHeight="88.0" fitWidth="111.0" layoutX="318.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true" />
