@@ -558,12 +558,8 @@ public class HelloController implements Initializable {
 
     //Akmal Safi and Emre 
     public HelloController() {
-        this.pot = new ImageView();
-        this.pot2 = new ImageView();
-        this.pot3 = new ImageView();
-        pot.setVisible(false);
-        pot2.setVisible(false);
-        pot3.setVisible(false);
+
+
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         this.plant2 =  mainBoundary.getPlantController().getPlant(1);
@@ -876,7 +872,6 @@ public class HelloController implements Initializable {
 
                     levelPlantOne.setVisible(true);
                     imagePlantOne.setVisible(true);
-                    pot.setVisible(true);
                     plantWaterBarOne.setVisible(true);
                     plantHealthBarOne.setVisible(true);
                     selectPlantOne.setVisible(true);
@@ -888,7 +883,7 @@ public class HelloController implements Initializable {
 
                 levelPlantOne.setVisible(false);
                 imagePlantOne.setVisible(false);
-                pot.setVisible(false);
+
                 plantWaterBarOne.setVisible(false);
                 plantHealthBarOne.setVisible(false);
                 selectPlantOne.setVisible(false);
@@ -908,7 +903,7 @@ public class HelloController implements Initializable {
 
                     plantLeveltwo.setVisible(true);
                     imagePlantTwo.setVisible(true);
-                    pot2.setVisible(true);
+
                     plantWaterBarTwo.setVisible(true);
                     plantHealthBarTwo.setVisible(true);
                     selectPlantTwo.setVisible(true);
@@ -920,7 +915,7 @@ public class HelloController implements Initializable {
 
                 plantLeveltwo.setVisible(false);
                 imagePlantTwo.setVisible(false);
-                pot2.setVisible(false);
+
                 plantWaterBarTwo.setVisible(false);
                 plantHealthBarTwo.setVisible(false);
                 selectPlantTwo.setVisible(false);
@@ -940,7 +935,7 @@ public class HelloController implements Initializable {
 
                     plantLevelThree.setVisible(true);
                     imagePlantThree.setVisible(true);
-                    pot3.setVisible(true);
+
                     plantWaterBarThree.setVisible(true);
                     plantHealthBarThree.setVisible(true);
                     selectPlantThree.setVisible(true);
@@ -952,7 +947,7 @@ public class HelloController implements Initializable {
 
                 plantLevelThree.setVisible(false);
                 imagePlantThree.setVisible(false);
-                pot3.setVisible(false);
+
                 plantWaterBarThree.setVisible(false);
                 plantHealthBarThree.setVisible(false);
                 selectPlantThree.setVisible(false);
