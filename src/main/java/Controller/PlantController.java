@@ -495,23 +495,23 @@ public class PlantController implements Serializable {
         }
         if(plant.getLevel() < 50 && plant.getLevel() >= 25){
             if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant2/pumpkinLvl2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant3/monsteraLvl2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant4/sunflowerLvl2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/plant5/snakeplantLvl2.png");
+                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2mort.png");
                 Image image = new Image(inputStream);
                 plant.setImage(image);
             }
