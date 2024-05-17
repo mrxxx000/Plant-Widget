@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -18,7 +19,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Pane layoutX="495.0" layoutY="-61.0" prefHeight="385.0" prefWidth="360.0" rotate="38.9" style="-fx-background-color: #61523a; -fx-background-radius: 23;">
+      <Pane disable="true" layoutX="495.0" layoutY="-61.0" prefHeight="385.0" prefWidth="360.0" rotate="38.9" style="-fx-background-color: #61523a; -fx-background-radius: 23;">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="181.0" layoutX="176.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
             <ImageView fx:id="imagePlantOne2" disable="true" fitHeight="88.0" fitWidth="128.0" layoutX="205.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
@@ -44,11 +45,6 @@
       <CubicCurve controlX1="-50.0" controlX2="28.0333251953125" controlY1="-100.0" controlY2="294.75897216796875" endX="449.0" endY="351.0" fill="#61523a" layoutX="178.0" layoutY="19.0" startX="-208.9666748046875" startY="-70.24102783203125" stroke="BLACK" />
       <Pane layoutX="-114.0" layoutY="331.0" prefHeight="385.0" prefWidth="360.0" rotate="38.6" style="-fx-background-color: #61523a; -fx-background-radius: 23;" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#61523a" height="49.0" layoutX="172.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" width="247.0" />
-      <ImageView fx:id="imagePlantOne" disable="true" fitHeight="88.0" fitWidth="128.0" layoutX="43.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="imagePlantTwo" fitHeight="88.0" fitWidth="111.0" layoutX="245.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false" />
       <ImageView fx:id="imagePlantThree" fitHeight="88.0" fitWidth="111.0" layoutX="455.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="exitButton1" layoutX="570.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="X" textOverrun="CLIP">
@@ -63,16 +59,16 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="chooseSeedButton3" layoutX="435.0" layoutY="109.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu3" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
-      <ProgressBar fx:id="difficultyBarThree" layoutX="438.0" layoutY="263.0" prefHeight="14.0" prefWidth="143.0" progress="0.82" stylesheets="@cssSheets.css" />
+      <Button fx:id="chooseSeedButton3" layoutX="405.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu3" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <ProgressBar fx:id="difficultyBarThree" layoutX="409.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.82" stylesheets="@cssSheets.css" visible="false" />
       <ImageView fx:id="imagePlantThree1" fitHeight="88.0" fitWidth="111.0" layoutX="244.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="chooseSeedButton2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu2" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
-      <ProgressBar fx:id="difficultyBarThree1" layoutX="227.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" />
+      <Button fx:id="chooseSeedButton2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu2" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <ProgressBar fx:id="difficultyBarThree1" layoutX="227.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <ImageView fx:id="imagePlantThree2" fitHeight="88.0" fitWidth="111.0" layoutX="35.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="chooseSeedButtonExtended1" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu1" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
-      <ProgressBar fx:id="difficultyBarThree2" layoutX="18.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.22" stylesheets="@cssSheets.css" />
+      <Button fx:id="chooseSeedButton1" layoutX="43.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu1" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <ProgressBar fx:id="difficultyBarThree2" layoutX="48.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.22" stylesheets="@cssSheets.css" visible="false" />
       <Button fx:id="chooseSeedButtonExtended2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu2" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
-      <ImageView fx:id="seedImage2" disable="true" fitHeight="141.0" fitWidth="163.0" layoutX="224.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage2" disable="true" fitHeight="141.0" fitWidth="163.0" layoutX="224.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../images/plant2/pumpkinLvl4.png" />
          </image>
@@ -82,31 +78,31 @@
       <ProgressBar fx:id="seedDifficultyBar2" layoutX="229.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
       <Rectangle fx:id="seedSpeciesDifficualty2" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="235.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
       <Label fx:id="seedDifficualty2" layoutX="274.0" layoutY="275.0" text="Difficualty" visible="false" />
-      <Button fx:id="chooseSeedButtonExtended3" layoutX="435.0" layoutY="109.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu3" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
-      <Rectangle fx:id="seedSpecies3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="445.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedSpeciesLabel3" layoutX="473.0" layoutY="246.0" text="MONSTERA" visible="false" />
-      <ProgressBar fx:id="seedDifficultyBar3" layoutX="439.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
-      <Rectangle fx:id="seedSpeciesDifficualty3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="446.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedDifficualty3" layoutX="484.0" layoutY="275.0" text="Difficualty" visible="false" />
-      <Button fx:id="chooseSeedButtonExtended1" layoutX="15.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu1" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
-      <Rectangle fx:id="seedSpecies1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="26.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedSpeciesLabel1" layoutX="54.0" layoutY="248.0" text="CACTUS" visible="false" />
-      <ProgressBar fx:id="seedDifficultyBar1" layoutX="19.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
-      <Rectangle fx:id="seedSpeciesDifficualty1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="26.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
-      <Label fx:id="seedDifficualty1" layoutX="63.0" layoutY="275.0" text="Difficualty" visible="false" />
-      <ImageView fx:id="seedImage3" disable="true" fitHeight="113.0" fitWidth="152.0" layoutX="436.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="chooseSeedButtonExtended3" layoutX="406.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu3" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpecies3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="416.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedSpeciesLabel3" layoutX="444.0" layoutY="248.0" text="MONSTERA" visible="false" />
+      <ProgressBar fx:id="seedDifficultyBar3" layoutX="410.0" layoutY="303.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpeciesDifficualty3" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="417.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedDifficualty3" layoutX="455.0" layoutY="277.0" text="Difficualty" visible="false" />
+      <Button fx:id="chooseSeedButtonExtended1" layoutX="43.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu1" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpecies1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="54.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedSpeciesLabel1" layoutX="82.0" layoutY="248.0" text="CACTUS" visible="false" />
+      <ProgressBar fx:id="seedDifficultyBar1" layoutX="47.0" layoutY="301.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpeciesDifficualty1" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="54.0" layoutY="271.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedDifficualty1" layoutX="91.0" layoutY="275.0" text="Difficualty" visible="false" />
+      <ImageView fx:id="seedImage3" disable="true" fitHeight="113.0" fitWidth="152.0" layoutX="407.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../images/plant3/monsteraLvl4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="seedImage1" disable="true" fitHeight="133.0" fitWidth="102.0" layoutX="40.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="seedImage1" disable="true" fitHeight="133.0" fitWidth="102.0" layoutX="68.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../images/plant1/cactusLvl4.png" />
          </image>
       </ImageView>
-      <Button fx:id="plantNewSeedButton1" layoutX="63.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
+      <Button fx:id="plantNewSeedButton1" layoutX="91.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
       <Button fx:id="plantNewSeedButton2" layoutX="275.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
-      <Button fx:id="plantNewSeedButton3" layoutX="486.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
+      <Button fx:id="plantNewSeedButton3" layoutX="457.0" layoutY="320.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
       <Button fx:id="plantNewSeedButton" layoutX="491.0" layoutY="360.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="25.0" prefWidth="111.0" styleClass="button1" stylesheets="@cssSheets.css" textOverrun="CLIP">
          <effect>
             <DropShadow blurType="GAUSSIAN">
@@ -149,6 +145,39 @@
          </font>
       </Button>
       <Button fx:id="enterNameButton" layoutX="365.0" layoutY="183.0" mnemonicParsing="false" onAction="#plantSeedOne" text="enter" visible="false" />
+      <JFXButton fx:id="switchSeedButtonLeft" layoutX="-12.0" layoutY="156.0" onAction="#switchSeedsToLeft" prefHeight="88.0" prefWidth="52.0" styleClass="buttonNextPageSeedMenuLeft" stylesheets="@cssSheets.css" text="." visible="false" />
+      <JFXButton fx:id="switchSeedButtonRight" layoutX="560.0" layoutY="158.0" onAction="#switchSeedsToRight" prefHeight="88.0" prefWidth="52.0" styleClass="buttonNextPageSeedMenuRight" stylesheets="@cssSheets.css" text="." />
+      <ImageView fx:id="leftArrow" disable="true" fitHeight="65.0" fitWidth="52.0" layoutX="2.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../images/left.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightArrow" disable="true" fitHeight="101.0" fitWidth="33.0" layoutX="567.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/right.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="chooseSeedButton4" layoutX="43.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu4" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
+      <ProgressBar fx:id="difficultyBarThree21" layoutX="48.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.7" stylesheets="@cssSheets.css" />
+      <Button fx:id="chooseSeedButton5" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu2" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" />
+      <ProgressBar fx:id="difficultyBarThree11" layoutX="227.0" layoutY="265.0" prefHeight="14.0" prefWidth="143.0" progress="0.37" stylesheets="@cssSheets.css" />
+      <Button fx:id="chooseSeedButtonExtended4" layoutX="43.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu3" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpecies4" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="53.0" layoutY="244.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedSpeciesLabel4" layoutX="94.0" layoutY="249.0" text="Sunflower" visible="false" />
+      <ProgressBar fx:id="seedDifficultyBar4" layoutX="47.0" layoutY="303.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" stylesheets="@cssSheets.css" visible="false" />
+      <Rectangle fx:id="seedSpeciesDifficualty4" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="54.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
+      <Label fx:id="seedDifficualty4" layoutX="92.0" layoutY="277.0" text="Difficualty" visible="false" />
+      <ImageView fx:id="seedImage5" disable="true" fitHeight="141.0" fitWidth="163.0" layoutX="240.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/plant5/snakeplantLvl4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="seedImage4" disable="true" fitHeight="134.0" fitWidth="84.0" layoutX="78.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/plant4/sunflowerLvl4.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="plantNewSeedButton4" layoutX="94.0" layoutY="320.0" mnemonicParsing="false" onAction="#namePlantPrompt" styleClass="backgroundColor" stylesheets="@cssSheets.css" text="Plant!" visible="false" />
    </children>
    <effect>
       <Glow />

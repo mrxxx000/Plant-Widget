@@ -124,6 +124,42 @@
 
 }
 
+.buttonNextPageSeedMenuRight
+{
+    -fx-background-color : #483e2b;
+    -fx-background-radius: 30 0 0 30;
+}
+
+.buttonNextPageSeedMenuRight:hover
+{
+    -fx-background-color : #3a2f1f;
+    -fx-background-radius: 30 0 0 30;
+}
+
+.buttonNextPageSeedMenuRight:pressed
+{
+    -fx-background-color : #483e2b;
+    -fx-background-radius: 30 0 0 30;
+}
+
+.buttonNextPageSeedMenuLeft
+{
+    -fx-background-color : #483e2b;
+    -fx-background-radius: 0 30 30 0;
+}
+
+.buttonNextPageSeedMenuLeft:hover
+{
+    -fx-background-color : #3a2f1f;
+    -fx-background-radius: 0 30 30 0;
+}
+
+.buttonNextPageSeedMenuLeft:pressed
+{
+    -fx-background-color : #483e2b;
+    -fx-background-radius: 0 30 30 0;
+}
+
 .buttonSkipDay
 {
 -fx-background-color : #61523a;
