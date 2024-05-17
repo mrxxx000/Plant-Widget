@@ -89,6 +89,10 @@ public class HelloController implements Initializable {
     @FXML
     private Label seedName1;
     @FXML
+    private ImageView seedImage4;
+    @FXML
+    private ImageView seedImage5;
+    @FXML
     private Button chooseSeedButton1;
     @FXML
     private Button chooseSeedButton2;
@@ -97,7 +101,7 @@ public class HelloController implements Initializable {
     @FXML
     private Button chooseSeedButton4;
     @FXML
-    private Button getChooseSeedButton5;
+    private Button chooseSeedButton5;
     @FXML
     private Button settingsButton;
     @FXML
@@ -108,6 +112,8 @@ public class HelloController implements Initializable {
     private Button chooseSeedButtonExtended3;
     @FXML
     private Button chooseSeedButtonExtended4;
+    @FXML
+    private Button chooseSeedButtonExtended5;
     @FXML
     private Rectangle seedSpecies1;
     @FXML
@@ -743,6 +749,16 @@ public class HelloController implements Initializable {
         plantNewSeedButton4.setVisible(true);
     }
 
+    public void showExtendedSeedMenu5(ActionEvent e){
+        chooseSeedButtonExtended5.setVisible(true);
+        seedSpecies5.setVisible(true);
+        seedSpeciesLabel5.setVisible(true);
+        seedSpeciesDifficualty5.setVisible(true);
+        seedDifficualty5.setVisible(true);
+        seedDifficultyBar5.setVisible(true);
+        plantNewSeedButton5.setVisible(true);
+    }
+
     public void hideExtendedSeedMenu1(ActionEvent e){
         chooseSeedButtonExtended1.setVisible(false);
         seedSpecies1.setVisible(false);
@@ -772,6 +788,24 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
     }
+    public void hideExtendedSeedMenu4(ActionEvent e){
+        chooseSeedButtonExtended4.setVisible(false);
+        seedSpecies4.setVisible(false);
+        seedSpeciesLabel4.setVisible(false);
+        seedSpeciesDifficualty4.setVisible(false);
+        seedDifficualty4.setVisible(false);
+        seedDifficultyBar4.setVisible(false);
+        plantNewSeedButton4.setVisible(false);
+    }
+    public void hideExtendedSeedMenu5(ActionEvent e){
+        chooseSeedButtonExtended5.setVisible(false);
+        seedSpecies5.setVisible(false);
+        seedSpeciesLabel5.setVisible(false);
+        seedSpeciesDifficualty5.setVisible(false);
+        seedDifficualty5.setVisible(false);
+        seedDifficultyBar5.setVisible(false);
+        plantNewSeedButton5.setVisible(false);
+    }
     public void updateLevelPlantOne(){
         levelPlantOne.setText(String.valueOf(mainBoundary.getPlantController().getPlant(0).getLevel()));
     }
@@ -791,6 +825,12 @@ public class HelloController implements Initializable {
                             break;
                         case 2:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.MONSTERA,name);
+                            break;
+                        case 3:
+                            mainBoundary.getPlantController().plantSeed(PlantTypes.SUNFLOWER,name);
+                            break;
+                        case 4:
+                            mainBoundary.getPlantController().plantSeed(PlantTypes.SNAKEPLANT,name);
                             break;
                     }
                     goBackToLibrary(e);
@@ -814,6 +854,10 @@ public class HelloController implements Initializable {
             }
             else if(button.getId().equals("plantNewSeedButton3")){
                 this.indexOfChosenSeed = 2;
+            }else if(button.getId().equals("plantNewSeedButton4")){
+                this.indexOfChosenSeed = 3;
+            }else if(button.getId().equals("plantNewSeedButton5")){
+                this.indexOfChosenSeed = 4;
             }
         }
     }
@@ -1011,7 +1055,7 @@ public class HelloController implements Initializable {
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
             for(Node node : ((Parent) root).getChildrenUnmodifiable()){
-                if(node instanceof ImageView && node.getId().equals(id)){
+                if(node instanceof ImageView && node.getId() != null && node.getId().equals(id)){
                     return (ImageView) node;
                 }
             }
@@ -1237,30 +1281,83 @@ public class HelloController implements Initializable {
         switchSeedButtonLeft.setVisible(true);
         rightArrow.setVisible(false);
         switchSeedButtonRight.setVisible(false);
+
         Button chooseSeedButton1 = getButtonsFromSelectPlantScene(stage,"chooseSeedButton1");
         chooseSeedButton1.setVisible(false);
         ImageView imageView = getImageViewFromStage(stage,"seedImage1");
         imageView.setVisible(false);
         ProgressBar difficultyBarThree2 = getProgressBarFromStage(stage,"difficultyBarThree2");
         difficultyBarThree2.setVisible(false);
+
         chooseSeedButton2.setVisible(false);
         ImageView imageView2 = getImageViewFromStage(stage,"seedImage2");
         imageView2.setVisible(false);
         ProgressBar difficultyBarThree1 = getProgressBarFromStage(stage,"difficultyBarThree1");
         difficultyBarThree1.setVisible(false);
+
         chooseSeedButton3.setVisible(false);
         ImageView imageView3 = getImageViewFromStage(stage,"seedImage3");
         imageView3.setVisible(false);
         difficultyBarThree.setVisible(false);
+
         hideExtendedSeedMenu1(e);
         hideExtendedSeedMenu2(e);
         hideExtendedSeedMenu3(e);
+
+        chooseSeedButton4.setVisible(true);
+        ImageView imageView4 = getImageViewFromStage(stage,"seedImage4");
+        imageView4.setVisible(true);
+        ProgressBar difficultyBarFour = getProgressBarFromStage(stage,"difficultyBarThree21");
+        difficultyBarFour.setVisible(true);
+
+        chooseSeedButton5.setVisible(true);
+        ImageView imageView5 = getImageViewFromStage(stage,"seedImage5");
+        imageView5.setVisible(true);
+        ProgressBar difficultyBarFive = getProgressBarFromStage(stage,"difficultyBarThree11");
+        difficultyBarFive.setVisible(true);
 
     }
 
 
     public void switchSeedsToLeft(ActionEvent e){
+        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+        leftArrow.setVisible(false);
+        switchSeedButtonLeft.setVisible(false);
+        rightArrow.setVisible(true);
+        switchSeedButtonRight.setVisible(true);
 
+        Button chooseSeedButton1 = getButtonsFromSelectPlantScene(stage,"chooseSeedButton1");
+        chooseSeedButton1.setVisible(true);
+        ImageView imageView = getImageViewFromStage(stage,"seedImage1");
+        imageView.setVisible(true);
+        ProgressBar difficultyBarThree2 = getProgressBarFromStage(stage,"difficultyBarThree2");
+        difficultyBarThree2.setVisible(true);
+
+        chooseSeedButton2.setVisible(true);
+        ImageView imageView2 = getImageViewFromStage(stage,"seedImage2");
+        imageView2.setVisible(true);
+        ProgressBar difficultyBarThree1 = getProgressBarFromStage(stage,"difficultyBarThree1");
+        difficultyBarThree1.setVisible(true);
+
+        chooseSeedButton3.setVisible(true);
+        ImageView imageView3 = getImageViewFromStage(stage,"seedImage3");
+        imageView3.setVisible(true);
+        difficultyBarThree.setVisible(true);
+
+        chooseSeedButton4.setVisible(false);
+        ImageView imageView4 = getImageViewFromStage(stage,"seedImage4");
+        imageView4.setVisible(false);
+        ProgressBar difficultyBarFour = getProgressBarFromStage(stage,"difficultyBarThree21");
+        difficultyBarFour.setVisible(false);
+
+        chooseSeedButton5.setVisible(false);
+        ImageView imageView5 = getImageViewFromStage(stage,"seedImage5");
+        imageView5.setVisible(false);
+        ProgressBar difficultyBarFive = getProgressBarFromStage(stage,"difficultyBarThree11");
+        difficultyBarFive.setVisible(false);
+
+        hideExtendedSeedMenu5(e);
+        hideExtendedSeedMenu4(e);
     }
 
 }
