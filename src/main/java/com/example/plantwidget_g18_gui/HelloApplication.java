@@ -1,7 +1,7 @@
 package com.example.plantwidget_g18_gui;
 
 
-import Controller.Music;
+import Model.Music;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;

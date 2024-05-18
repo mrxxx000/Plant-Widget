@@ -31,8 +31,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -580,6 +582,7 @@ public class HelloController implements Initializable {
                 for (int i = plants.length - 1; i >= 0; i--) {
                     if (plants[i] != null && plants[i].getHealthLevel() < 0.01) {
                         try {
+                            mainBoundary.getPlantController().deathSoundGenerator();
                             showDeathAlert();
                         } catch (Exception e) {
                             System.out.println("Death alert not working");
@@ -614,6 +617,7 @@ public class HelloController implements Initializable {
         optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         JDialog dialog = optionPane.createDialog("Death Alert");
         dialog.setVisible(true);
+        mainBoundary.getPlantController().deathSoundGenerator();
     }
 
 

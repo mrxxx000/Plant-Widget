@@ -4,6 +4,7 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
+import com.example.plantwidget_g18_gui.HelloController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -11,6 +12,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
 
+import javax.sound.sampled.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -109,6 +111,27 @@ public class PlantController implements Serializable {
             }
         }
         return -1; // Plant not found
+    }
+
+    public void deathSoundGenerator() {
+        try {
+            InputStream inputStream = HelloController.class.getResourceAsStream("/deathsound/funnydeathsoundeffect.wav");
+            if (inputStream != null) {
+
+                InputStream bufferedIn = new BufferedInputStream(inputStream);
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioStream);
+                clip.start();
+            }else{
+                System.out.println("inputstream is null");
+                System.out.println("Resource Path: " + HelloController.class.getResource("musicc/funnydeathsoundeffect.wav"));
+
+
+            }
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     public void startTheTimer() {
@@ -239,7 +262,7 @@ public class PlantController implements Serializable {
      * @param index index to find the relevant plant.
      */
     public void waterPlant(int index) {
-        if(growingPlants[index].getWaterLevel() >= 1.0) {
+        if(this.growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
             if(growingPlants[index].getHealthLevel()>0) {
                 growingPlants[index].decreaseHealth();
