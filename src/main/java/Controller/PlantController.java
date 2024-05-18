@@ -113,6 +113,12 @@ public class PlantController implements Serializable {
         return -1; // Plant not found
     }
 
+    /**
+     * This method generates and plays a death sound effect.
+     * If the death sound file is found, it plays the sound in a continuous loop.
+     * If the death sound file is not found, it prints an error message.
+     */
+
     public void deathSoundGenerator() {
         try {
             InputStream inputStream = HelloController.class.getResourceAsStream("/deathsound/funnydeathsoundeffect.wav");
