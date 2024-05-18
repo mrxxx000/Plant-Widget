@@ -582,7 +582,7 @@ public class HelloController implements Initializable {
                 for (int i = plants.length - 1; i >= 0; i--) {
                     if (plants[i] != null && plants[i].getHealthLevel() < 0.01) {
                         try {
-                            mainBoundary.getPlantController().deathSoundGenerator();
+                            mainBoundary.getMusic().deathSoundGenerator();
                             showDeathAlert();
                         } catch (Exception e) {
                             System.out.println("Death alert not working");
@@ -617,7 +617,7 @@ public class HelloController implements Initializable {
         optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         JDialog dialog = optionPane.createDialog("Death Alert");
         dialog.setVisible(true);
-        mainBoundary.getPlantController().deathSoundGenerator();
+        mainBoundary.getMusic().deathSoundGenerator();
     }
 
 
@@ -644,6 +644,7 @@ public class HelloController implements Initializable {
 
     public void waterPlantOne(ActionEvent event){
         mainBoundary.getPlantController().waterPlant(0);
+        mainBoundary.getMusic().wateringSound();
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();
         if(checkLegendary(0)){
@@ -654,6 +655,7 @@ public class HelloController implements Initializable {
 
     public void waterPlantTwo(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(1);
+        mainBoundary.getMusic().wateringSound();
         if(plantWaterBarTwo != null){
             plantWaterBarTwo.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(1));
             plantHealthBarTwo.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(1));
@@ -665,6 +667,7 @@ public class HelloController implements Initializable {
 
     public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
+        mainBoundary.getMusic().wateringSound();
         if(plantWaterBarOne != null){
             plantWaterBarThree.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(2));
             plantHealthBarThree.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(2));
@@ -823,18 +826,23 @@ public class HelloController implements Initializable {
                     switch (indexOfChosenSeed){
                         case 0:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.CACTUS,name);
+                            mainBoundary.getMusic().cactusSound();
                             break;
                         case 1:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.PUMPKIN,name);
+                            mainBoundary.getMusic().pumpkinSound();
                             break;
                         case 2:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.MONSTERA,name);
+                            mainBoundary.getMusic().monsteraSound();
                             break;
                         case 3:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.SUNFLOWER,name);
+                            mainBoundary.getMusic().sunflowerSound();
                             break;
                         case 4:
                             mainBoundary.getPlantController().plantSeed(PlantTypes.SNAKEPLANT,name);
+                            mainBoundary.getMusic().snakeplantSound();
                             break;
                     }
                     goBackToLibrary(e);

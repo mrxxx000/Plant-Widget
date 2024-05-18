@@ -4,10 +4,13 @@ package Model;
  * This class provides functionality to play audio file in a continuous loop.
  */
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+import com.example.plantwidget_g18_gui.HelloController;
+
+import javax.sound.sampled.*;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Plays the specified audio file in a continuous loop.
@@ -24,5 +27,54 @@ public class Music {
             System.out.println("Error with playing sound.");
             e.printStackTrace();
         }
+    }
+
+    /**
+     * This method generates and plays sounds effect.
+     * If the sound file is found, it plays the sound in a continuous loop.
+     * If the sound file is not found, it prints an error message.
+     */
+
+    public void playSound(String soundFilePath) {
+        try {
+            InputStream inputStream = HelloController.class.getResourceAsStream(soundFilePath);
+            if (inputStream != null) {
+                InputStream bufferedIn = new BufferedInputStream(inputStream);
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioStream);
+                clip.start();
+            } else {
+                System.out.println("InputStream is null");
+                System.out.println("Resource Path: " + HelloController.class.getResource(soundFilePath));
+            }
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deathSoundGenerator() {
+        playSound("/deathsound/funnydeathsoundeffect.wav");
+    }
+
+    public void wateringSound() {
+        playSound("/deathsound/watersound.wav");
+    }
+    public void pumpkinSound() {
+        playSound("/deathsound/Pumpkinsoundeffect.wav");
+    }
+    public void cactusSound() {
+        playSound("/deathsound/cactussound.wav");
+    }
+
+    public void monsteraSound() {
+        playSound("/deathsound/Monsterasound.wav");
+    }
+
+    public void sunflowerSound() {
+        playSound("/deathsound/sunflowersound.wav");
+    }
+    public void snakeplantSound() {
+        playSound("/deathsound/snakeplantsound.wav");
     }
 }

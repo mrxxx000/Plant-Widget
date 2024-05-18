@@ -113,32 +113,6 @@ public class PlantController implements Serializable {
         return -1; // Plant not found
     }
 
-    /**
-     * This method generates and plays a death sound effect.
-     * If the death sound file is found, it plays the sound in a continuous loop.
-     * If the death sound file is not found, it prints an error message.
-     */
-
-    public void deathSoundGenerator() {
-        try {
-            InputStream inputStream = HelloController.class.getResourceAsStream("/deathsound/funnydeathsoundeffect.wav");
-            if (inputStream != null) {
-
-                InputStream bufferedIn = new BufferedInputStream(inputStream);
-                AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioStream);
-                clip.start();
-            }else{
-                System.out.println("inputstream is null");
-                System.out.println("Resource Path: " + HelloController.class.getResource("musicc/funnydeathsoundeffect.wav"));
-
-
-            }
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void startTheTimer() {
         timeline.play();
@@ -268,6 +242,10 @@ public class PlantController implements Serializable {
      * @param index index to find the relevant plant.
      */
     public void waterPlant(int index) {
+        if (growingPlants[index] == null) {
+            System.out.println("No plant found at index " + index);
+            return;// Exit the method if the plant is null
+        }
         if(this.growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
             if(growingPlants[index].getHealthLevel()>0) {
