@@ -1,18 +1,14 @@
-
 package Controller;
 
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
-import com.example.plantwidget_g18_gui.HelloController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
-
-import javax.sound.sampled.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

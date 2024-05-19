@@ -30,7 +30,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -41,7 +40,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
 
 public class HelloController implements Initializable {
     @FXML
@@ -312,6 +310,7 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+
     /*
      this turns the first plant in to a widget, specific to plant number 1.
      */
@@ -331,12 +330,12 @@ public class HelloController implements Initializable {
             Button button = (Button)event.getSource();
             setupWidgetScene(button,stage);
 
-
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     /*
          switches gui settings scene
      */
@@ -358,6 +357,7 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+
     /*
         makes the scene moveable
     */
@@ -371,6 +371,7 @@ public class HelloController implements Initializable {
             stage.setY(event.getScreenY() - yOffset);
         });
     }
+
     /*
         CLOSES THE PROGRAM
     */
@@ -380,6 +381,7 @@ public class HelloController implements Initializable {
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
+
     public void deletePlant1(ActionEvent event){
         mainBoundary.getPlantController().discardPlant1();
         mainBoundary.getPlantController().SavePlantToFile();
@@ -402,6 +404,7 @@ public class HelloController implements Initializable {
         goBackToLibrary(event);
         System.out.println("Plant Deleted3");
     }
+
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
     */
@@ -431,6 +434,7 @@ public class HelloController implements Initializable {
 
         }
     }
+
     /*
             GOES TO THE PLANT NEW SEED SCENE, OR THE FIRST GUI WHEN OPENING PROGRAM FOR THE FIRST TIME
         */
@@ -513,14 +517,10 @@ public class HelloController implements Initializable {
                 i++;
             }
            // legendaryGridPane.add(new Rectangle(50, 50, Color.BLUE), 0 , 0);
-
         } catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
-
 
     /*
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
@@ -530,6 +530,7 @@ public class HelloController implements Initializable {
             plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
         }
     }
+
     /*
         UPDATES TEH WATER BAR OF THE FIRST PLANT
     */
@@ -538,6 +539,7 @@ public class HelloController implements Initializable {
             plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
         }
     }
+
     /*
         THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
     */
@@ -557,7 +559,6 @@ public class HelloController implements Initializable {
          */
 
         //levelPlantOne.setStyle("-fx-accent: #92eaa9;");
-
     }
 
     public void startTimeline() {
@@ -566,8 +567,6 @@ public class HelloController implements Initializable {
 
     //Akmal Safi and Emre 
     public HelloController() {
-
-
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         this.plant2 =  mainBoundary.getPlantController().getPlant(1);
@@ -591,13 +590,11 @@ public class HelloController implements Initializable {
                     }
                 }
             }
-
         });
         timelineUpdateHealth.getKeyFrames().add(updateGUIFrame);
         timelineUpdateHealth.setCycleCount(Animation.INDEFINITE);
         mainBoundary.getPlantController().LoadPlantsFromFile();
             updateCurrentLibrary();
-
     }
 
     public void showDeathAlert() {
@@ -619,7 +616,6 @@ public class HelloController implements Initializable {
         dialog.setVisible(true);
         mainBoundary.getMusic().deathSoundGenerator();
     }
-
 
     public void goBackToLibrarySwing() {
         Platform.runLater(() -> {
@@ -733,9 +729,8 @@ public class HelloController implements Initializable {
         seedDifficualty2.setVisible(true);
         seedDifficultyBar2.setVisible(true);
         plantNewSeedButton2.setVisible(true);
-
-
     }
+
     public void showExtendedSeedMenu3(ActionEvent e){
         chooseSeedButtonExtended3.setVisible(true);
         seedSpecies3.setVisible(true);
@@ -813,6 +808,7 @@ public class HelloController implements Initializable {
         seedDifficultyBar5.setVisible(false);
         plantNewSeedButton5.setVisible(false);
     }
+
     public void updateLevelPlantOne(){
         levelPlantOne.setText(String.valueOf(mainBoundary.getPlantController().getPlant(0).getLevel()));
     }
@@ -1015,8 +1011,6 @@ public class HelloController implements Initializable {
         timeline.play();
     }
 
-
-
     public void selectPlantOne(ActionEvent e){
         selectPlant(e,0);
         if(checkLegendary(0)) {
@@ -1158,7 +1152,6 @@ public class HelloController implements Initializable {
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
     }
 
     public ProgressBar getHealthBarInSelectPlantScene(Stage stage){
@@ -1172,15 +1165,14 @@ public class HelloController implements Initializable {
         }
         return null;
     }
+
     public void updateGUI(){
         Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
         for(int i = 0; i<plants.length; i++){
             if(plants[i] == null){
 
             }
-
         }
-
     }
 
     public void setUpSelectPlantScene(Stage stage,int index){
@@ -1327,9 +1319,7 @@ public class HelloController implements Initializable {
         imageView5.setVisible(true);
         ProgressBar difficultyBarFive = getProgressBarFromStage(stage,"difficultyBarThree11");
         difficultyBarFive.setVisible(true);
-
     }
-
 
     public void switchSeedsToLeft(ActionEvent e){
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
@@ -1371,5 +1361,4 @@ public class HelloController implements Initializable {
         hideExtendedSeedMenu5(e);
         hideExtendedSeedMenu4(e);
     }
-
 }

@@ -8,25 +8,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 
 public class HelloApplication extends Application {
+
     @Override
     public void start(Stage stage) throws IOException {
         boolean fileExists = true;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/SaveFile/PlantSaveFile.dat"));
-            if(bufferedReader.readLine() == null) {
+            if (bufferedReader.readLine() == null) {
                 System.out.println("File is empty");
                 fileExists = false;
-            }else{
+            } else {
                 System.out.println("File is not empty");
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("File not found");
             fileExists = false;
         }
@@ -43,7 +43,7 @@ public class HelloApplication extends Application {
             //Image icon = new Image("src/main/resources/images/pngtree-cactus-pixel-art-png-image_6581983.png");
             stage.getIcons().add(image);
             stage.show();
-        }else if (fileExists == false) {
+        } else if (fileExists == false) {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Plant Seed!");
@@ -54,10 +54,7 @@ public class HelloApplication extends Application {
             stage.getIcons().add(image);
             stage.show();
         }
-
         Music.playMusic("musicc/mountainflowers.wav");
-
-
     }
 
     public static void main(String[] args) {

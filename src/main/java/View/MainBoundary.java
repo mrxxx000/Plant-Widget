@@ -29,6 +29,7 @@ public class MainBoundary {
     public PlantController getPlantController() {
         return plantController;
     }
+
     public Music getMusic() {
         return music;
     }

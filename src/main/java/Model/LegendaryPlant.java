@@ -1,7 +1,6 @@
 package Model;
 
 import javafx.scene.image.Image;
-
 import java.io.Serializable;
 
 /**
