@@ -1,14 +1,17 @@
 package View;
 
 import Controller.PlantController;
+import Model.Music;
 
 public class MainBoundary {
     private static MainBoundary instance;
     private PlantController plantController;
+    private Music music;
     private String saveFile;
 
     public MainBoundary() {
         plantController = new PlantController();
+        music = new Music();
         //plantController = PlantController.loadProgress(saveFile);
     }
 
@@ -25,5 +28,9 @@ public class MainBoundary {
 
     public PlantController getPlantController() {
         return plantController;
+    }
+
+    public Music getMusic() {
+        return music;
     }
 }

@@ -1,4 +1,3 @@
-
 package Controller;
 
 import Model.LegendaryPlant;
@@ -10,7 +9,6 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -37,7 +35,6 @@ public class PlantController implements Serializable {
 
         timeTrackReader();
 
-
         // This is just for testing purposes can remove later
         Plant catPlant = new Plant(PlantTypes.PUMPKIN);
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
@@ -46,12 +43,16 @@ public class PlantController implements Serializable {
         //growingPlants[1] = catPlant;
     }
 
+    /**
+     * This method returns the array of growing plants.
+     * @return The array of growing plants
+     * @author Yrja Mai Hoang
+     */
     public Plant[] getGrowingPlants() {
         return growingPlants;
     }
 
     /**
-     * Akmal Safi
      * This method initializes the water level property and sets up a timeline to periodically update
      * the water level of growing plants and update the GUI accordingly.
      * The method creates a timeline with a duration of 1 second, which triggers actions
@@ -59,6 +60,7 @@ public class PlantController implements Serializable {
      * updates the water level property, and refreshes the GUI to reflect the changes.
      * It sets the timeline to run indefinitely, with keyframes corresponding to the
      * watering intervals of each plant type, and triggers watering actions accordingly.
+     * @author Akmal Safi
      */
     public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
@@ -93,7 +95,6 @@ public class PlantController implements Serializable {
     }
 
     /**
-     * Akmal Safi
      * This method finds the index of a specified plant in the array of growing plants.
      * Iterates through the array and checks each element to find the specified plant.
      * If the plant is found, returns its index in the array; otherwise, returns -1
@@ -101,6 +102,7 @@ public class PlantController implements Serializable {
      *
      * @param plant The plant to find the index of
      * @return The index of the specified plant in the array, or -1 if not found
+     * @author Akmal Safi
      */
     private int indexOfPlant(Plant plant) {
         for (int i = 0; i < growingPlants.length; i++) {
@@ -110,6 +112,7 @@ public class PlantController implements Serializable {
         }
         return -1; // Plant not found
     }
+
 
     public void startTheTimer() {
         timeline.play();
@@ -125,14 +128,18 @@ public class PlantController implements Serializable {
      * to update water level property for each plant
      * Checks if the element is not null
      * Decreasing water level for the plant
+     * @Author Akmal Safi
      */
-    //Akmal Safi
     public void startTimer() {
 
         timeline.play();
     }
 
-    //Akmal Safi
+    /**
+     *
+     * @return : the water level property
+     * @author Akmal Safi
+     */
     public DoubleProperty waterLevelProperty() {
         return waterLevelProperty;
     }
@@ -140,8 +147,8 @@ public class PlantController implements Serializable {
     /**
      * This method checks if the growingPlants array is full.
      * Returns true if there is space, false if it is full.
-     *
      * @return returns true if there is an empty spot, false if array is full.
+     * @author Yrja Mai Hoang
      */
     public boolean checkForSpace() {
         for (int i = 0; i < growingPlants.length; i++) {
@@ -155,7 +162,7 @@ public class PlantController implements Serializable {
     /**
      * Metod which get instance of the type of plant
      * @return : the typ of plant
-     * Akmal Safi
+     * @author Akmal Safi
      */
     public static PlantController getInstance(){
         return instance;
@@ -184,6 +191,7 @@ public class PlantController implements Serializable {
      * It checks what type the plant is, so it can add the correct Legendary image.
      * It adds it to the legendaryPlants arrayList.
      * @param plant Plant object used to create a Legendary Plant
+     * @author Yrja Mai Hoang
      */
     public void createLegendary(Plant plant) {
         LegendaryPlant legendaryPlant = new LegendaryPlant();
@@ -237,9 +245,14 @@ public class PlantController implements Serializable {
      * If the water is not full, it calls waterThePlant() and check the health.
      * If the health is not full, it calls increaseHealth().
      * @param index index to find the relevant plant.
+     * @author Yrja Mai Hoang
      */
     public void waterPlant(int index) {
-        if(growingPlants[index].getWaterLevel() >= 1.0) {
+        if (growingPlants[index] == null) {
+            System.out.println("No plant found at index " + index);
+            return;// Exit the method if the plant is null
+        }
+        if(this.growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
             if(growingPlants[index].getHealthLevel()>0) {
                 growingPlants[index].decreaseHealth();
@@ -259,6 +272,7 @@ public class PlantController implements Serializable {
             }*/
         }
     }
+
     public void killPlant(int index){
         //if the health is already 0, remove the plant
         InputStream inputStream = getClass().getResourceAsStream("/images/deademoji.png");
@@ -271,19 +285,19 @@ public class PlantController implements Serializable {
         growingPlants[index].setHealthLevel(0.0);
         deleteGrowingPlant(index);
         System.out.println("Plant is dead");
-
-
     }
 
     /**
-    This method fetches the plant's water level and sends the double to the GUI.
+     * This method fetches the plant's water level and sends the double to the GUI.
+     * @author Yrja Mai Hoang
      */
     public double updateWaterBarGUI(int index) {
         return growingPlants[index].getWaterLevel();
     }
 
     /**
-    This method fetches the plant's health level and sends the double to the GUI.
+     * This method fetches the plant's health level and sends the double to the GUI.
+     * @author Yrja Mai Hoang
      */
     public double updateHealthBarGUI(int index) {
         return growingPlants[index].getHealthLevel();
@@ -292,18 +306,33 @@ public class PlantController implements Serializable {
     public double plantGetWaterLevel(){
         return plant.getWaterLevel();
     }
+
+    /**
+     * This method returns the plant at the specified index.
+     * @param index The index of the plant to return
+     * @return The plant at the specified index, or null if no plant is found
+     * @author Yrja Mai Hoang
+     */
     public Plant getPlant(int index){
         if(growingPlants[index] != null){
             return growingPlants[index];
         }
         return null;
     }
+
     public void skipDay(int index){
         if(growingPlants[index] != null) {
             growingPlants[index].skipDayWater();
             growingPlants[index].setLevelSkip();
         }
     }
+
+    /**
+     * Sets the name of the plant at the specified index.
+     * @param name The name to set
+     * @param index The index of the plant to set the name for
+     * @author Yrja Mai Hoang
+     */
     public void setPlantName(String name, int index) {
         growingPlants[index].setName(name);
     }
@@ -334,9 +363,9 @@ public class PlantController implements Serializable {
         }
     }
 
-    //same goes with this one
-    //Actually written by: Emre Mengütay
-
+    /**
+     * @author Emre Mengutay
+     */
     public void timeTrackReader() {
         try (BufferedReader reader = new BufferedReader(new FileReader("saveFile.txt"))) {
             String line = reader.readLine();
@@ -386,8 +415,9 @@ public class PlantController implements Serializable {
      * The file is created if it does not exist.
      * Each plant's details including water level, health level, and level are written to the file.
      * Legendary plants are also saved.
+     * @author Akmal Safi
+     * @author Emre Mengutay
      */
-    //akmal safi & Emre Mengutay
     public void SavePlantToFile() {
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
         File file = new File(filename);
@@ -415,14 +445,16 @@ public class PlantController implements Serializable {
             System.out.println("Failed to save plants" + e.getMessage());
         }
     }
+
     /**
      * Loads plant data from a file and populates the growingPlants array and legendaryPlants set.
      * If the file does not exist, it is created.
      * For each plant in the file, its details including water level,
      * health level, and level are read and assigned.
      * Legendary plants are also loaded and added to the legendaryPlants set.
+     * @author Akmal Safi
+     * @author Emre Mengutay
      */
-    //akmal safi & Emre Mengutay
     public void LoadPlantsFromFile(){
         String filename = "src/main/resources/SaveFile/PlantSaveFile.dat";
         File file = new File(filename);
@@ -569,19 +601,31 @@ public class PlantController implements Serializable {
         return legendaryPlants;
     }
 
-    //Akmal Safi and Yrja
+    /**
+     * Method to discard the first plant
+     * @author Akmal Safi
+     * @author Yrja Mai Hoang
+     */
     public void discardPlant1 () {
       //  growingPlants[0] = null;
         deleteGrowingPlant(0);
     }
 
-    //Akmal Safi and Yrja
+    /**
+     * Method to discard the second plant
+     * @author Akmal Safi
+     * @author Yrja Mai Hoang
+     */
     public void discardPlant2 () {
       //  growingPlants[1] = null;
         deleteGrowingPlant(1);
     }
 
-    //Akmal Safi and Yrja
+    /**
+     * Method to discard the third plant
+     * @author Akmal Safi
+     * @author Yrja Mai Hoang
+     */
     public void discardPlant3 () {
        // growingPlants[2] = null;
         deleteGrowingPlant(2);
