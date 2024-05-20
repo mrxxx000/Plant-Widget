@@ -289,7 +289,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
-
+        buttonClickSound();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -324,6 +324,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTheTimer();
         //timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
+        buttonClickSound();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -348,6 +349,7 @@ public class HelloController implements Initializable {
      *              @Author Emre Mengütay
      */
     public void goToSettings(ActionEvent event){
+        buttonClickSound();
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
         mainBoundary.getPlantController().SavePlantToFile();
@@ -386,6 +388,7 @@ public class HelloController implements Initializable {
      * @param event Button click event that triggers the method.
      */
     public void closeProgram(ActionEvent event){
+        closeProgramSound();
         mainBoundary.getPlantController().timeTrackWriter();
         mainBoundary.getPlantController().SavePlantToFile();
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -398,6 +401,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      */
     public void deletePlant1(ActionEvent event){
+        playSadMusic();
         mainBoundary.getPlantController().discardPlant1();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
@@ -406,6 +410,7 @@ public class HelloController implements Initializable {
     }
 
     public void deletePlant2(ActionEvent event){
+        playSadMusic();
         mainBoundary.getPlantController().discardPlant2();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
@@ -413,6 +418,7 @@ public class HelloController implements Initializable {
         System.out.println("Plant Deleted2");
     }
     public void deletePlant3(ActionEvent event){
+        playSadMusic();
         mainBoundary.getPlantController().discardPlant3();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
@@ -436,6 +442,7 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
+        buttonClickSound();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -475,6 +482,7 @@ public class HelloController implements Initializable {
     }
 
     public void goToLegendaryScene(ActionEvent event){
+        buttonClickSound();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
             Scene scene = new Scene(root);
@@ -629,6 +637,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      */
     public void showDeathAlert() {
+        playSadMusic();
         JButton backButton = new JButton(":(");
         JDialog dialog = new JDialog();
 
@@ -661,6 +670,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      */
     public void goBackToLibrarySwing() {
+        buttonClickSound();
         Platform.runLater(() -> {
             mainBoundary.getPlantController().startTimer();
             timelineUpdateHealth.playFromStart();
@@ -733,6 +743,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay1(ActionEvent event){
+        buttonClickSound();
         mainBoundary.getPlantController().skipDay(0);
         if(checkLegendary(0)) {
             goBackToLibrary(event);
@@ -746,6 +757,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay2(ActionEvent event){
+        buttonClickSound();
         mainBoundary.getPlantController().skipDay(1);
         if(checkLegendary(1)) {
             goBackToLibrary(event);
@@ -757,6 +769,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay3(ActionEvent event){
+        buttonClickSound();
         mainBoundary.getPlantController().skipDay(2);
         if(checkLegendary(2)){
             goBackToLibrary(event);
@@ -879,7 +892,8 @@ public class HelloController implements Initializable {
     }
 
     public void plantSeedOne(ActionEvent e){
-            if (namePlantField.getText().length() > 0) {
+        buttonClickSound();
+        if (namePlantField.getText().length() > 0) {
                 String name = namePlantField.getText();
                 System.out.println("in plant seed one");
                 System.out.println(name);
@@ -912,6 +926,7 @@ public class HelloController implements Initializable {
     }
 
     public void namePlantPrompt(ActionEvent e){
+        buttonClickSound();
         namePlantPrompt.setVisible(true);
         nameYourPlantLabel.setVisible(true);
         closeNamePlantButton.setVisible(true);
@@ -936,6 +951,7 @@ public class HelloController implements Initializable {
     }
 
     public void hideNamePrompt(ActionEvent e){
+        buttonClickSound();
         namePlantPrompt.setVisible(false);
         namePlantField.setVisible(false);
         nameYourPlantLabel.setVisible(false);
@@ -1097,6 +1113,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantOne(ActionEvent e){
+        buttonClickSound();
         selectPlant(e,0);
         if(checkLegendary(0)) {
             goBackToLibrary(e);
@@ -1108,6 +1125,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantTwo(ActionEvent e){
+        buttonClickSound();
         selectPlant(e,1);
         if(checkLegendary(1)) {
             goBackToLibrary(e);
@@ -1121,6 +1139,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantThree(ActionEvent e){
+        buttonClickSound();
         selectPlant(e,2);
         if(checkLegendary(2)) {
             goBackToLibrary(e);
@@ -1369,6 +1388,7 @@ public class HelloController implements Initializable {
     }
 
     public void switchSeedsToRight(ActionEvent e){
+        buttonClickSound();
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         leftArrow.setVisible(true);
         switchSeedButtonLeft.setVisible(true);
@@ -1411,6 +1431,7 @@ public class HelloController implements Initializable {
     }
 
     public void switchSeedsToLeft(ActionEvent e){
+        buttonClickSound();
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         leftArrow.setVisible(false);
         switchSeedButtonLeft.setVisible(false);
@@ -1455,5 +1476,17 @@ public class HelloController implements Initializable {
     }
     public void buttonClickSound(){
         mainBoundary.getMusic().buttonClickSound();
+    }
+    public void closeProgramSound(){
+        mainBoundary.getMusic().closeProgramSound();
+    }
+    public void stopMusic(){
+        mainBoundary.getMusic().stopMusic();
+    }
+    public void turnOnMusic(){
+        mainBoundary.getMusic().startMusic();
+    }
+    public void playSadMusic(){
+        mainBoundary.getMusic().playSadSound();
     }
 }

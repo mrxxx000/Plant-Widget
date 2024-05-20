@@ -16,6 +16,8 @@ import java.io.InputStream;
  * Plays the specified audio file in a continuous loop.
  */
 public class Music {
+    private Clip clipMusic;
+    private Clip backgroundMusic;
     public static void playMusic(String path) {
         try {
             File file = new File(path);
@@ -41,9 +43,9 @@ public class Music {
             if (inputStream != null) {
                 InputStream bufferedIn = new BufferedInputStream(inputStream);
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioStream);
-                clip.start();
+                this.clipMusic = AudioSystem.getClip();
+                this.clipMusic.open(audioStream);
+                this.clipMusic.start();
             } else {
                 System.out.println("InputStream is null");
                 System.out.println("Resource Path: " + HelloController.class.getResource(soundFilePath));
@@ -54,14 +56,26 @@ public class Music {
     }
 
     public void deathSoundGenerator() {
-        playSound("/deathsound/funnydeathsoundeffect.wav");
+        playSound("/sounds/oof_death.wav");
+    }
+    public void stopMusic(){
+
+    }
+    public void startMusic(){
+        clipMusic.start();
     }
 
     public void buttonClickSound() {
-        playSound("/sounds/button_click.waw");
+        playSound("/sounds/button_click.wav");
+    }
+    public void closeProgramSound() {
+        playSound("/sounds/close.wav");
+    }
+    public void playSadSound() {
+        playSound("/sounds/sad.wav");
     }
     public void wateringSound() {
-        playSound("/deathsound/watersound.wav");
+        playSound("/sounds/roblox_drink.wav");
     }
     public void pumpkinSound() {
         playSound("/deathsound/Pumpkinsoundeffect.wav");
