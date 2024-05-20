@@ -22,7 +22,14 @@
    <children>
       <CubicCurve controlX1="-123.4435043334961" controlX2="46.556495666503906" controlY1="83.6259765625" controlY2="747.6259765625" endX="701.0000610351562" endY="-18.0" fill="#796a4b" layoutX="20.0" layoutY="20.0" startX="701.0000610351562" startY="469.0" stroke="BLACK" />
       <CubicCurve controlX1="-8.20709228515625" controlX2="197.8313446044922" controlY1="69.20578002929688" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" layoutX="10.0" layoutY="10.0" startX="-102.24007415771484" startY="-7.3740234375" stroke="BLACK" />
-      <Pane layoutX="435.0" layoutY="110.0" prefHeight="239.0" prefWidth="232.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" />
+      <Pane layoutX="435.0" layoutY="110.0" prefHeight="239.0" prefWidth="232.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css">
+         <children>
+            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="163.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/health-care.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
       <Label fx:id="speciesNameInSelectPlantScene" layoutX="483.0" layoutY="190.0" prefHeight="17.0" prefWidth="104.0" text="asd" />
       <Label fx:id="plantNameInSelectPlantScene" layoutX="484.0" layoutY="145.0" prefHeight="17.0" prefWidth="149.0" text="asd" textAlignment="CENTER" />
       <Button fx:id="backButton" layoutX="87.0" layoutY="406.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="38.0" prefWidth="137.0" styleClass="button1" stylesheets="@cssSheets.css" text="Back to library" textFill="WHITE">
@@ -33,7 +40,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="placeOnDesk1" layoutX="361.0" layoutY="406.0" mnemonicParsing="false" onAction="#placeOnDesk1" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSelectMiddle" stylesheets="@cssSheets.css" text="Place on desktop" textFill="WHITE" visible="false">
+      <Button fx:id="placeOnDesk1" layoutX="361.0" layoutY="406.0" mnemonicParsing="false" onAction="#placeOnDesk1" prefHeight="38.0" prefWidth="137.0" styleClass="buttonSelectMiddle" stylesheets="@cssSheets.css" text="Turn into a widget" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -42,7 +49,7 @@
             <Font name="System Bold" size="12.0" />
          </font></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="239.0" layoutX="56.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
-      <ImageView fitHeight="239.0" fitWidth="266.0" layoutX="56.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="235.0" fitWidth="266.0" layoutX="56.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" />
       <AmbientLight layoutX="383.0" layoutY="234.0" lightOn="true">
          <color>
             <Color red="0.501960813999176" green="1.0" />
@@ -94,14 +101,9 @@
       <ProgressBar fx:id="healthBarInSelectPlantScene" layoutX="464.0" layoutY="315.0" prefHeight="23.0" prefWidth="175.0" progress="0.53" />
       <Text layoutX="484.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Water Level" wrappingWidth="137.0" />
       <Text layoutX="483.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health Level" wrappingWidth="137.0" />
-      <ImageView fitHeight="38.0" fitWidth="46.0" layoutX="590.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="33.0" fitWidth="55.0" layoutX="600.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/water.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="38.0" layoutX="600.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/health.png" />
+            <Image url="@../../../images/drops.png" />
          </image>
       </ImageView>
       <Line endX="110.163330078125" fill="#61523a" layoutX="550.0" layoutY="169.0" startX="-108.0" stroke="#393021" strokeType="OUTSIDE" />
@@ -116,9 +118,14 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXButton fx:id="deletePlantButton" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant1" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
-      <JFXButton fx:id="deletePlantButton2" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant2" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
-      <JFXButton fx:id="deletePlantButton3" buttonType="RAISED" layoutX="288.0" layoutY="116.0" onAction="#deletePlant3" prefHeight="32.0" prefWidth="33.0" ripplerFill="#463a3a" styleClass="buttonDiscard" stylesheets="@cssSheets.css" text="." visible="false" />
+      <ImageView fx:id="imageX1" disable="true" fitHeight="25.0" fitWidth="26.0" layoutX="296.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/remove%20(1).png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="deletePlantButton" buttonType="RAISED" layoutX="296.0" layoutY="116.0" onAction="#deletePlant1" prefHeight="26.0" prefWidth="25.0" ripplerFill="#463a3a" stylesheets="@cssSheets.css" text="." visible="false" />
+      <JFXButton fx:id="deletePlantButton2" buttonType="RAISED" layoutX="296.0" layoutY="116.0" onAction="#deletePlant2" prefHeight="23.0" prefWidth="25.0" ripplerFill="#463a3a" stylesheets="@cssSheets.css" text="." visible="false" />
+      <JFXButton fx:id="deletePlantButton3" buttonType="RAISED" layoutX="295.0" layoutY="116.0" onAction="#deletePlant3" prefHeight="26.0" prefWidth="26.0" ripplerFill="#463a3a" stylesheets="@cssSheets.css" text="." visible="false" />
       <ImageView disable="true" fitHeight="21.0" fitWidth="26.0" layoutX="297.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../../../Pictures/PlantWidget/icons/152557.png" />

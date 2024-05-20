@@ -161,6 +161,8 @@ public class HelloController implements Initializable {
     @FXML
     private ProgressBar seedDifficultyBar3;
     @FXML
+    private ImageView imageX1;
+    @FXML
     private ProgressBar seedDifficultyBar4;
     @FXML
     private ProgressBar seedDifficultyBar5;
@@ -1438,5 +1440,8 @@ public class HelloController implements Initializable {
 
         hideExtendedSeedMenu5(e);
         hideExtendedSeedMenu4(e);
+    }
+    public void deletePlantHover(){
+        imageX1.setImage(new Image(getClass().getResourceAsStream("/images/remove.png")));
     }
 }
