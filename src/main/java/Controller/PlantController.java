@@ -46,7 +46,7 @@ public class PlantController implements Serializable {
     /**
      * This method returns the array of growing plants.
      * @return The array of growing plants
-     * @author Yrja Mai Hoang
+     * @author Yrja Mai Hoang && Emre
      */
     public Plant[] getGrowingPlants() {
         return growingPlants;
@@ -113,11 +113,19 @@ public class PlantController implements Serializable {
         return -1; // Plant not found
     }
 
-
+    /**
+     * This method start the timer for updating water levels.
+     * Stops the timeline to pause the periodic updates of water levels for growing plants.
+     * @Author Emre Mengütay
+     */
     public void startTheTimer() {
         timeline.play();
     }
-
+    /**
+     * This method stops the timer for updating water levels.
+     * Stops the timeline to pause the periodic updates of water levels for growing plants.
+     * @Author Emre Mengütay
+     */
     public void stopTheTimer() {
         timeline.stop();
     }
@@ -160,9 +168,9 @@ public class PlantController implements Serializable {
     }
 
     /**
-     * Metod which get instance of the type of plant
-     * @return : the typ of plant
-     * @author Akmal Safi
+     * Method for returning the specific plant controller instance, part of the singleton pattern.
+     * @return : This specific plant controller instance
+     * @author Emre Mengütay, does not say correct on Github.
      */
     public static PlantController getInstance(){
         return instance;
@@ -215,6 +223,7 @@ public class PlantController implements Serializable {
     /**
      * This method attempts to delete a plant from the growingPlants list.
      * @param plantIndex index to find the relevant plant
+     * @Author Emre Mengutay and Yrja Mai Hoang and Akmal Safi
      */
     public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex <= 3) {
@@ -245,7 +254,7 @@ public class PlantController implements Serializable {
      * If the water is not full, it calls waterThePlant() and check the health.
      * If the health is not full, it calls increaseHealth().
      * @param index index to find the relevant plant.
-     * @author Yrja Mai Hoang
+     * @author Yrja Mai Hoang and Emre
      */
     public void waterPlant(int index) {
         if (growingPlants[index] == null) {
@@ -272,7 +281,9 @@ public class PlantController implements Serializable {
             }*/
         }
     }
-
+    /**
+     * @author Emre Mengütay
+     */
     public void killPlant(int index){
         //if the health is already 0, remove the plant
         InputStream inputStream = getClass().getResourceAsStream("/images/deademoji.png");
@@ -339,7 +350,10 @@ public class PlantController implements Serializable {
 
     //Don't know why it says that I have written this one, might be because of me reseting the merge
     //That's my bad, but who ever has written this one just write your name here
-    //Actually written by:
+    //Actually written by: Emre Mengutay
+    /**
+     * @author Emre Mengütay
+     */
     public void timeTrackWriter() { // need to specifgy how we write the progress for three plants
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatedDate = DateTimeFormatter.ofPattern("dd/MM-yy");
@@ -501,6 +515,9 @@ public class PlantController implements Serializable {
     }
 
     //this is to set the images it's not the best but it was either this or saving the pixels of the picture. // gg (Emre Mengutay);
+    /**
+     * @author Mojtaba and some parts by Emre
+     */
     public void setPlantImage(Plant plant){
         if(plant.getLevel() < 25) {
             if(plant.getType() == PlantTypes.CACTUS) {

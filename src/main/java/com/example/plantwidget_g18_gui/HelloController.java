@@ -280,6 +280,7 @@ public class HelloController implements Initializable {
 
     /*
          switches gui to the plant info scene, currently only works for plant number 1.
+            @Author Emre Mengütay and Mojtaba
      */
     public void selectPlant(ActionEvent event, int index){
         mainBoundary.getPlantController().startTheTimer();
@@ -313,6 +314,7 @@ public class HelloController implements Initializable {
 
     /*
      this turns the first plant in to a widget, specific to plant number 1.
+     @Author Emre Mengütay
      */
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
@@ -338,6 +340,7 @@ public class HelloController implements Initializable {
 
     /*
          switches gui settings scene
+         @Author Emre Mengütay
      */
     public void goToSettings(ActionEvent event){
         mainBoundary.getPlantController().stopTheTimer();
@@ -360,6 +363,7 @@ public class HelloController implements Initializable {
 
     /*
         makes the scene moveable
+        @Author Emre Mengütay
     */
     public void mouseMoveable(Scene scene){
         scene.setOnMousePressed(event -> {
@@ -374,6 +378,7 @@ public class HelloController implements Initializable {
 
     /*
         CLOSES THE PROGRAM
+        @Author Emre Mengütay
     */
     public void closeProgram(ActionEvent event){
         mainBoundary.getPlantController().timeTrackWriter();
@@ -382,6 +387,9 @@ public class HelloController implements Initializable {
         stage.close();
     }
 
+    /**
+     * @author Emre Mengütay
+     */
     public void deletePlant1(ActionEvent event){
         mainBoundary.getPlantController().discardPlant1();
         mainBoundary.getPlantController().SavePlantToFile();
@@ -407,6 +415,7 @@ public class HelloController implements Initializable {
 
     /*
         GOES BACK TO THE PLANT LIBRARY GUI SCENE
+        @Author Emre Mengütay
     */
     public void goBackToLibrary(ActionEvent event){
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -524,6 +533,7 @@ public class HelloController implements Initializable {
 
     /*
             UPDATES THE HEALTH BAR OF THE FIRST PLANT
+            @Author Emre Mengütay
         */
     public void updatePlantHealthBarOne() {
         if(plantHealthBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
@@ -533,6 +543,7 @@ public class HelloController implements Initializable {
 
     /*
         UPDATES TEH WATER BAR OF THE FIRST PLANT
+        @Author Emre Mengütay
     */
     public void updatePlantWaterBarOne() {
         if(plantWaterBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
@@ -542,6 +553,8 @@ public class HelloController implements Initializable {
 
     /*
         THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
+        /**
+     * @author Emre Mengütay
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
@@ -596,7 +609,9 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
             updateCurrentLibrary();
     }
-
+    /**
+     * @author Emre Mengütay
+     */
     public void showDeathAlert() {
         JButton backButton = new JButton(":(");
         backButton.addActionListener(new ActionListener() {
@@ -616,7 +631,9 @@ public class HelloController implements Initializable {
         dialog.setVisible(true);
         mainBoundary.getMusic().deathSoundGenerator();
     }
-
+    /**
+     * @author Emre Mengütay
+     */
     public void goBackToLibrarySwing() {
         Platform.runLater(() -> {
             mainBoundary.getPlantController().startTimer();
@@ -637,7 +654,9 @@ public class HelloController implements Initializable {
             }
         });
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void waterPlantOne(ActionEvent event){
         mainBoundary.getPlantController().waterPlant(0);
         mainBoundary.getMusic().wateringSound();
@@ -648,7 +667,9 @@ public class HelloController implements Initializable {
         }
         //water plant in controller, that takes in the plant
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void waterPlantTwo(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(1);
         mainBoundary.getMusic().wateringSound();
@@ -660,7 +681,9 @@ public class HelloController implements Initializable {
             goBackToLibrary(event);
         }
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
         mainBoundary.getMusic().wateringSound();
@@ -672,7 +695,9 @@ public class HelloController implements Initializable {
             goBackToLibrary(event);
         }
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void skipDay1(ActionEvent event){
         mainBoundary.getPlantController().skipDay(0);
         if(checkLegendary(0)) {
@@ -682,7 +707,9 @@ public class HelloController implements Initializable {
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void skipDay2(ActionEvent event){
         mainBoundary.getPlantController().skipDay(1);
         if(checkLegendary(1)) {
@@ -690,7 +717,9 @@ public class HelloController implements Initializable {
         }
         System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba
+     */
     public void skipDay3(ActionEvent event){
         mainBoundary.getPlantController().skipDay(2);
         if(checkLegendary(2)){
@@ -877,7 +906,9 @@ public class HelloController implements Initializable {
         closeNamePlantButton.setVisible(false);
         enterNameButton.setVisible(false);
     }
-
+    /**
+     * @author Emre Mengütay
+     */
     public boolean checkLegendary(int index){
         int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
         if(level1>=100){
@@ -889,7 +920,7 @@ public class HelloController implements Initializable {
         return false;
     }
 
-    // Akmal Safi and mojtaba
+    // Akmal Safi and mojtaba and Emre Mengütay
     //Fixed the metod which caused the problem in plant death
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
@@ -1010,14 +1041,18 @@ public class HelloController implements Initializable {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba H
+     */
     public void selectPlantOne(ActionEvent e){
         selectPlant(e,0);
         if(checkLegendary(0)) {
             goBackToLibrary(e);
         }
     }
-
+    /**
+     * @author Emre Mengütay & Mojtaba H
+     */
     public void selectPlantTwo(ActionEvent e){
         selectPlant(e,1);
         if(checkLegendary(1)) {
@@ -1026,6 +1061,9 @@ public class HelloController implements Initializable {
 
     }
 
+    /**
+     * @author Emre Mengütay & Mojtaba H
+     */
     public void selectPlantThree(ActionEvent e){
         selectPlant(e,2);
         if(checkLegendary(2)) {
@@ -1140,6 +1178,9 @@ public class HelloController implements Initializable {
     }
 
     //this method uses a timeline to update waterbar and health bar with the right index for the plant
+    /**
+     * @author Emre Mengütay & Mojtaba H
+     */
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.001),e ->{
             if(waterBar != null && healthBar != null){
@@ -1166,6 +1207,9 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * @author Emre Mengütay
+     */
     public void updateGUI(){
         Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
         for(int i = 0; i<plants.length; i++){
