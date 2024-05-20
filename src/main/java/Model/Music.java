@@ -57,6 +57,9 @@ public class Music {
         playSound("/deathsound/funnydeathsoundeffect.wav");
     }
 
+    public void buttonClickSound() {
+        playSound("/sounds/button_click.waw");
+    }
     public void wateringSound() {
         playSound("/deathsound/watersound.wav");
     }

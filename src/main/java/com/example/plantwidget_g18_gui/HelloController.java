@@ -458,6 +458,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
         mainBoundary.getPlantController().SavePlantToFile();
+        buttonClickSound();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
             Scene scene = new Scene(root);
@@ -1451,5 +1452,8 @@ public class HelloController implements Initializable {
     }
     public void deletePlantHover(){
         imageX1.setImage(new Image(getClass().getResourceAsStream("/images/remove.png")));
+    }
+    public void buttonClickSound(){
+        mainBoundary.getMusic().buttonClickSound();
     }
 }
