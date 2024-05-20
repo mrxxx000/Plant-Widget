@@ -36,7 +36,7 @@
       </JFXButton>
       <Pane layoutX="60.0" layoutY="61.0" prefHeight="261.0" prefWidth="332.0">
          <children>
-            <JFXToggleNode layoutX="14.0" layoutY="222.0" onAction="#stopMusic" prefHeight="25.0" prefWidth="52.0">
+            <JFXToggleNode layoutX="14.0" layoutY="222.0" onAction="#turnOnMusic" prefHeight="25.0" prefWidth="52.0">
                <selectedColor>
                   <Color red="0.15442252159118652" green="0.17517970502376556" blue="0.19736842811107635" />
                </selectedColor>

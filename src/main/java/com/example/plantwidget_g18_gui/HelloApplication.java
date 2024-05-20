@@ -54,7 +54,7 @@ public class HelloApplication extends Application {
             stage.getIcons().add(image);
             stage.show();
         }
-        Music.playMusic("musicc/mountainflowers.wav");
+        //Music.playMusic("musicc/mountainflowers.wav");
     }
 
     public static void main(String[] args) {

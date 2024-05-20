@@ -18,17 +18,20 @@ import java.io.InputStream;
 public class Music {
     private Clip clipMusic;
     private Clip backgroundMusic;
-    public static void playMusic(String path) {
+    public  void playMusic(String path) {
         try {
             File file = new File(path);
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file.toURI().toURL());
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            backgroundMusic= AudioSystem.getClip();
+            backgroundMusic.open(audioInputStream);
+            backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception e) {
             System.out.println("Error with playing sound.");
             e.printStackTrace();
         }
+    }
+    public Clip getClipMusic() {
+        return backgroundMusic;
     }
 
     /**
@@ -59,7 +62,7 @@ public class Music {
         playSound("/sounds/oof_death.wav");
     }
     public void stopMusic(){
-
+        backgroundMusic.stop();
     }
     public void startMusic(){
         clipMusic.start();

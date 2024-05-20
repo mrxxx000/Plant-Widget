@@ -2,6 +2,7 @@ package com.example.plantwidget_g18_gui;
 
 import Controller.PlantController;
 import Model.LegendaryPlant;
+import Model.Music;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
@@ -1484,7 +1485,11 @@ public class HelloController implements Initializable {
         mainBoundary.getMusic().stopMusic();
     }
     public void turnOnMusic(){
-        mainBoundary.getMusic().startMusic();
+        Music music = mainBoundary.getMusic();
+        if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
+            music.stopMusic();
+        }else {
+            music.playMusic("musicc/mountainflowers.wav");}
     }
     public void playSadMusic(){
         mainBoundary.getMusic().playSadSound();
