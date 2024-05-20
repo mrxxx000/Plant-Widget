@@ -1063,6 +1063,13 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * This method gets the button from the scene with the stage and the id of the button
+     * 
+     * @param stage
+     * @param id
+     * @return
+     */
     public Button getButtonsFromSelectPlantScene(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1094,6 +1101,8 @@ public class HelloController implements Initializable {
         return null;
     }
 
+
+     //TODO switch this out with the more general getProgressbarfromScene method
     public ProgressBar getWaterBarInSelectPlantScene(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1149,6 +1158,11 @@ public class HelloController implements Initializable {
 
     }
 
+    /**
+     * this method is redundant and can be switched out with the getProgressbarfromScene method
+     * @param stage the stage that it gets the nodes from
+     * @return progressbar in that stage
+     */
     public ProgressBar getHealthBarInSelectPlantScene(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1160,6 +1174,8 @@ public class HelloController implements Initializable {
         }
         return null;
     }
+
+    //TODO this method is not finished? or not used correctly or not used at all @allstardrifter
     public void updateGUI(){
         Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
         for(int i = 0; i<plants.length; i++){
@@ -1171,6 +1187,11 @@ public class HelloController implements Initializable {
 
     }
 
+    /**
+     * This method sets up the selected plant seed with the right buttons showing for that specific plant
+     * @param stage the stage that it gets the nodes from
+     * @param index index of the chosen plant
+     */
     public void setUpSelectPlantScene(Stage stage,int index){
         speciesNameInSelectPlantScene = getLabelFromStage(stage, "speciesNameInSelectPlantScene");
         plantNameInSelectPlantScene = getLabelFromStage(stage, "plantNameInSelectPlantScene");
@@ -1212,6 +1233,12 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * this method sets up the widget scene with the right images and progress bars
+     * It also calls another method that is in charge of updating the water and health bar
+     * @param button the button that is clicked can be one of three buttons
+     * @param stage the stage that it gets the nodes from
+     */
     public void setupWidgetScene(Button button, Stage stage){
         if(button.getId().equals("placeOnDesk1")){
             ImageView imagePlantOne = getImageViewFromStage(stage);
@@ -1248,6 +1275,11 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * this method just sets up the seed scene with the right images
+     * @param stage the seed stage
+     */
+
     public void setUpSeedScene(Stage stage){
         InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl4.png");
         Image image = new Image(inputStream);
@@ -1263,6 +1295,13 @@ public class HelloController implements Initializable {
         imageView3.setImage(image3);
     }
 
+    /**
+     * this is used to get a progressbar from the stage by providing the stage and id
+     * @param stage the stage that the bar is in
+     * @param id the id of that bar
+     * @return Progress bar
+     */
+
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1274,6 +1313,12 @@ public class HelloController implements Initializable {
         }
         return null;
     }
+
+    /**
+     * this method switches to the two seeds on the right page
+     * it hides the three seeds on the left page and their extended menu then makes the two seeds on the right page visible
+     * @param e
+     */
 
     public void switchSeedsToRight(ActionEvent e){
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
@@ -1318,6 +1363,11 @@ public class HelloController implements Initializable {
 
     }
 
+    /**
+     * This method switches to the three seeds on the left page
+     * it hides the two seeds on the right page and their extended menu then makes the three seeds on the left page visible
+     * @param e
+     */
 
     public void switchSeedsToLeft(ActionEvent e){
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
