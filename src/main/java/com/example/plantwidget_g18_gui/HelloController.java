@@ -278,9 +278,10 @@ public class HelloController implements Initializable {
     private PlantTypes selectedPlantType;
     private PlantController plantController;
 
-    /*
-         switches gui to the plant info scene, currently only works for plant number 1.
-            @Author Emre Mengütay and Mojtaba
+    /**
+     * This method switches scene to PLant Info scene.
+     * @param event Button click.
+     * @param index Index of the plant.
      */
     public void selectPlant(ActionEvent event, int index){
         mainBoundary.getPlantController().startTheTimer();
@@ -312,9 +313,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    /*
-     this turns the first plant in to a widget, specific to plant number 1.
-     @Author Emre Mengütay
+    /**
+     * This method makes the plant in to widget scene.
+     * @Author Emre Mengütay
+     * @param event Button click.
      */
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
@@ -338,9 +340,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    /*
-         switches gui settings scene
-         @Author Emre Mengütay
+    /**
+     * This method takes the user to the Setting scene.
+     * @param event Button click.
+     *              @Author Emre Mengütay
      */
     public void goToSettings(ActionEvent event){
         mainBoundary.getPlantController().stopTheTimer();
@@ -361,10 +364,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    /*
-        makes the scene moveable
-        @Author Emre Mengütay
-    */
+    /**
+     * This method makes the scene moveable.
+     * @param scene The scene that should be moveable.
+     */
     public void mouseMoveable(Scene scene){
         scene.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
@@ -376,10 +379,10 @@ public class HelloController implements Initializable {
         });
     }
 
-    /*
-        CLOSES THE PROGRAM
-        @Author Emre Mengütay
-    */
+    /**
+     * This method closes the program and saves the plant progress.
+     * @param event Button click event that triggers the method.
+     */
     public void closeProgram(ActionEvent event){
         mainBoundary.getPlantController().timeTrackWriter();
         mainBoundary.getPlantController().SavePlantToFile();
@@ -388,6 +391,8 @@ public class HelloController implements Initializable {
     }
 
     /**
+     * Method for delete plant button, deletes the plant and goes back to the library scene.
+     * @param event that triggers the method. (Button click).
      * @author Emre Mengütay
      */
     public void deletePlant1(ActionEvent event){
@@ -413,10 +418,11 @@ public class HelloController implements Initializable {
         System.out.println("Plant Deleted3");
     }
 
-    /*
-        GOES BACK TO THE PLANT LIBRARY GUI SCENE
-        @Author Emre Mengütay
-    */
+    /**
+     * This method takes the user back to the library scene.
+     * @param event that triggers the method.
+     *              @Author Emre Mengütay
+     */
     public void goBackToLibrary(ActionEvent event){
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
@@ -428,7 +434,6 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
-        updateGUI();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
@@ -531,30 +536,29 @@ public class HelloController implements Initializable {
         }
     }
 
-    /*
-            UPDATES THE HEALTH BAR OF THE FIRST PLANT
-            @Author Emre Mengütay
-        */
+    /**
+     * This method updates the health bar of the first plant.
+     * @Author Emre Mengütay
+     */
     public void updatePlantHealthBarOne() {
         if(plantHealthBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantHealthBarOne.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(0)); // implement health level
         }
     }
 
-    /*
-        UPDATES TEH WATER BAR OF THE FIRST PLANT
-        @Author Emre Mengütay
-    */
+    /**
+     * This method updates the water bar of the first plant.
+     * @Author Emre Mengütay
+     */
     public void updatePlantWaterBarOne() {
         if(plantWaterBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
             plantWaterBarOne.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(0)); // implement water level
         }
     }
 
-    /*
-        THIS METHOD IS CALLED WHEN THE GUI IS INITIALIZED, IT'S LIKE A CONSTRUCTOR FOR THE GUI.
-        /**
-     * @author Emre Mengütay
+    /**
+     * This method initalizes the JavaFX GUI. It starts the timer and reads the time track from the file.
+     * @author Emre Mengütay & ---
     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
@@ -578,7 +582,14 @@ public class HelloController implements Initializable {
         timelineUpdateHealth.playFromStart();
     }
 
-    //Akmal Safi and Emre 
+    /**
+     * Constructs a new HelloController object. It initializes the mainBoundary, plant1, plant2, plant3, and-
+     * timelineUpdateHealth.
+     * It also reads the time track from the file.
+     * It also loads the plants from the file.
+     * It also updates the current library.
+     * @Author Emre Mengütay & Akmal Safi & ---
+     */
     public HelloController() {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
@@ -610,6 +621,8 @@ public class HelloController implements Initializable {
             updateCurrentLibrary();
     }
     /**
+     * This method creates a pop-up window that alerts the user that their plant has died. It also plays a sound effect.
+     * After clicking the :(  button the user is taken back to the library scene.
      * @author Emre Mengütay
      */
     public void showDeathAlert() {
@@ -632,6 +645,8 @@ public class HelloController implements Initializable {
         mainBoundary.getMusic().deathSoundGenerator();
     }
     /**
+     * Method that takes the program back to the library scene. It needs to be run on Swing because of JavaFX requiring
+     * an action event.
      * @author Emre Mengütay
      */
     public void goBackToLibrarySwing() {
@@ -640,7 +655,6 @@ public class HelloController implements Initializable {
             timelineUpdateHealth.playFromStart();
             mainBoundary.getPlantController().SavePlantToFile();
             mainBoundary.getPlantController().LoadPlantsFromFile();
-            updateGUI();
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
                 scene = new Scene(fxmlLoader.load());
@@ -655,6 +669,8 @@ public class HelloController implements Initializable {
         });
     }
     /**
+     * This method waters the plant in the library. It also plays a watering sound effect.
+     * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary..
      * @author Emre Mengütay & Mojtaba
      */
     public void waterPlantOne(ActionEvent event){
@@ -668,6 +684,9 @@ public class HelloController implements Initializable {
         //water plant in controller, that takes in the plant
     }
     /**
+     * This method waters the plant in the library. It also plays a watering sound effect.
+     * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary.
+     * @param event The event that triggers the watering of the plant.
      * @author Emre Mengütay & Mojtaba
      */
     public void waterPlantTwo(ActionEvent event) {
@@ -682,6 +701,9 @@ public class HelloController implements Initializable {
         }
     }
     /**
+     * This method waters the third plant in the library. It also plays a watering sound effect.
+     * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary.
+     * @param event The event that triggers the watering of the plant.
      * @author Emre Mengütay & Mojtaba
      */
     public void waterPlantThree(ActionEvent event) {
@@ -696,6 +718,7 @@ public class HelloController implements Initializable {
         }
     }
     /**
+     * This method simulates skipping a day for the first plant.
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay1(ActionEvent event){
@@ -708,6 +731,7 @@ public class HelloController implements Initializable {
         System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
     }
     /**
+     * This method simulates skipping a day for the second plant.
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay2(ActionEvent event){
@@ -718,6 +742,7 @@ public class HelloController implements Initializable {
         System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
     }
     /**
+     * This method simulates skipping a day for the third plant.
      * @author Emre Mengütay & Mojtaba
      */
     public void skipDay3(ActionEvent event){
@@ -907,6 +932,10 @@ public class HelloController implements Initializable {
         enterNameButton.setVisible(false);
     }
     /**
+     * This checks if the plant has reached legendary status and if so, it creates a legendary plant and deletes the
+     * growing plant.
+     * @param index the index of the plant in the plant array
+     * @return true if the plant has reached legendary status, false otherwise
      * @author Emre Mengütay
      */
     public boolean checkLegendary(int index){
@@ -922,6 +951,16 @@ public class HelloController implements Initializable {
 
     // Akmal Safi and mojtaba and Emre Mengütay
     //Fixed the metod which caused the problem in plant death
+    /**
+     * This method updates the current library scene with the current plants in the library.
+     * It also checks if the plant has achieved legendary status and if so, it switches back to the library scene.
+     * It also checks if there is space for a new plant and disables the plantNewSeedButton if there is no space.
+     * It also updates the water and health bars of the plants in the library.
+     * It also updates the level of the plants in the library.
+     * It also updates the image of the plants in the library.
+     * It also updates the visibility of the plants in the library.
+     * @Author Emre Mengütay & Mojtaba H & Akmal safi
+     */
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
         if (plant1 != null) {
@@ -1042,6 +1081,8 @@ public class HelloController implements Initializable {
         timeline.play();
     }
     /**
+     * This method selects the plant and switches to the plant info scene, it also checks if the plant has
+     * achieved legendary status and if so, it switches back to the library scene.
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantOne(ActionEvent e){
@@ -1051,6 +1092,8 @@ public class HelloController implements Initializable {
         }
     }
     /**
+     * This method selects the plant and switches to the plant info scene, it also checks if the plant has
+     * achieved legendary status and if so, it switches back to the library scene.
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantTwo(ActionEvent e){
@@ -1062,6 +1105,8 @@ public class HelloController implements Initializable {
     }
 
     /**
+     * This method selects the plant and switches to the plant info scene, it also checks if the plant has
+     * achieved legendary status and if so, it switches back to the library scene.
      * @author Emre Mengütay & Mojtaba H
      */
     public void selectPlantThree(ActionEvent e){
@@ -1177,8 +1222,9 @@ public class HelloController implements Initializable {
         timeline.play();
     }
 
-    //this method uses a timeline to update waterbar and health bar with the right index for the plant
+
     /**
+     * This method uses a timeline to update the water and health bar in the select plant scene every x seconds.
      * @author Emre Mengütay & Mojtaba H
      */
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
@@ -1205,18 +1251,6 @@ public class HelloController implements Initializable {
             }
         }
         return null;
-    }
-
-    /**
-     * @author Emre Mengütay
-     */
-    public void updateGUI(){
-        Plant[] plants = mainBoundary.getPlantController().getGrowingPlants();
-        for(int i = 0; i<plants.length; i++){
-            if(plants[i] == null){
-
-            }
-        }
     }
 
     public void setUpSelectPlantScene(Stage stage,int index){

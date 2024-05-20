@@ -24,7 +24,7 @@ public class MainBoundary {
     }
 
     /**
-     * This method returns the instance of the MainBoundary class.
+     * This method returns the instance of the MainBoundary class, there is only one instance.
      * @Author Emre Mengütay
      */
     public static MainBoundary getInstance() {
@@ -34,7 +34,7 @@ public class MainBoundary {
         return instance;
     }
     /**
-     * This method returns the plant controller.
+     * This method returns the plant controller, in order to access its methods in the view.
      * @Author Emre Mengütay
      */
     public PlantController getPlantController() {
