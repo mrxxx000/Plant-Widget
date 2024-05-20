@@ -629,21 +629,29 @@ public class HelloController implements Initializable {
      */
     public void showDeathAlert() {
         JButton backButton = new JButton(":(");
+        JDialog dialog = new JDialog();
+
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 goBackToLibrarySwing();
+                dialog.dispose();
             }
         });
 
         String message = "Your plant has died... you should be ashamed of yourself...";
-        Object[] params = {message, backButton};
+        JLabel messageLabel = new JLabel(message);
 
-        JOptionPane optionPane = new JOptionPane();
-        optionPane.setMessage(params);
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = optionPane.createDialog("Death Alert");
+        JPanel panel = new JPanel();
+        panel.add(messageLabel);
+        panel.add(backButton);
+
+        dialog.setUndecorated(true);
+        dialog.setContentPane(panel);
+        dialog.pack();
+        dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+
         mainBoundary.getMusic().deathSoundGenerator();
     }
     /**

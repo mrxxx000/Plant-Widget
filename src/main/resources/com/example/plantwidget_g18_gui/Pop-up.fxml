@@ -3,15 +3,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#406547" height="408.0" layoutX="-6.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="610.0" />
       <Button fx:id="backButton" layoutX="274.0" layoutY="188.0" mnemonicParsing="false" text=":(" />
-      <Label layoutX="55.0" layoutY="96.0" text="Your plant has died... you should be ashamed of yourself..." textAlignment="CENTER">
+      <Label layoutX="55.0" layoutY="96.0" text="Your plant has died... you should be ashamed of yourself..." textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Franklin Gothic Book Italic" size="20.0" />
          </font>
       </Label>
    </children>
