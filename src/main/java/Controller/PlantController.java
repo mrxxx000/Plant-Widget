@@ -60,7 +60,7 @@ public class PlantController implements Serializable {
      * updates the water level property, and refreshes the GUI to reflect the changes.
      * It sets the timeline to run indefinitely, with keyframes corresponding to the
      * watering intervals of each plant type, and triggers watering actions accordingly.
-     * @author Akmal Safi
+     * @author Akmal Safi & Emre Mengütay
      */
     public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
@@ -192,7 +192,6 @@ public class PlantController implements Serializable {
         }
     }
 
-    // TODO add here a method to create the plants we are going to have with all the constructors image name species etc
 
     /**
      * This method creates a new LegendaryPlant based on the plant sent through the parameters.
@@ -282,6 +281,8 @@ public class PlantController implements Serializable {
         }
     }
     /**
+     * This method kills a plant, it then sets the health and water level to 0 and removes the plant from the list.
+     * It also replaces the image of the plant with a dead plant image.
      * @author Emre Mengütay
      */
     public void killPlant(int index){
@@ -348,10 +349,9 @@ public class PlantController implements Serializable {
         growingPlants[index].setName(name);
     }
 
-    //Don't know why it says that I have written this one, might be because of me reseting the merge
-    //That's my bad, but who ever has written this one just write your name here
-    //Actually written by: Emre Mengutay
+
     /**
+     * This keeps track of the time the plant has been alive. It saves the date when the plant was last saved.
      * @author Emre Mengütay
      */
     public void timeTrackWriter() { // need to specifgy how we write the progress for three plants
@@ -378,6 +378,7 @@ public class PlantController implements Serializable {
     }
 
     /**
+     * This method reads the time track from the file and updates the plant's level and water level.
      * @author Emre Mengutay
      */
     public void timeTrackReader() {
