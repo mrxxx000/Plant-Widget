@@ -30,6 +30,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -970,7 +971,7 @@ public class HelloController implements Initializable {
         if(mainBoundary.getPlantController().getPlant(index) != null) {
 
             int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
-            if (level1 >= 100) {
+            if (level1 >= 10) {
                 mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
                 mainBoundary.getPlantController().deleteGrowingPlant(index);
                 ActionEvent event = new ActionEvent();
@@ -1496,5 +1497,24 @@ public class HelloController implements Initializable {
     }
     public void playSadMusic(){
         mainBoundary.getMusic().playSadSound();
+    }
+    public void closePopUp(ActionEvent event){
+        buttonClickSound();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    public void openPopUp(ActionEvent ev){
+        buttonClickSound();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/plantwidget_g18_gui/legendary_pop-up.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

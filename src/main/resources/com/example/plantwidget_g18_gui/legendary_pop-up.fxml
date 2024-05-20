@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="206.0" prefWidth="473.0" style="-fx-background-color: #908641;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutX="-7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="495.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5600000023841858" green="0.4270933270454407" blue="0.06159999966621399" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.7300000190734863" green="0.6559571027755737" blue="0.2919999957084656" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="52.0" layoutY="13.0" text="Information about Legendary Plants">
+         <font>
+            <Font name="Forte" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/question.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="14.0" layoutY="59.0" prefHeight="150.0" prefWidth="321.0">
+         <children>
+            <Label text="Q: What is a Legendary Plant?" />
+            <Label prefHeight="19.0" prefWidth="321.0" text="A : It's a plant that has reached level 100!" textFill="WHITE" />
+            <Label text="Q: Why is there no plants?" />
+            <Label prefHeight="19.0" prefWidth="321.0" text="A : It's probably because your current plants don't qualify" textFill="WHITE" />
+         </children>
+      </VBox>
+      <JFXRadioButton layoutX="458.0" onAction="#closePopUp" prefHeight="17.0" prefWidth="0.0" rotate="180.0" text="." textFill="#72bc4a">
+         <selectedColor>
+            <Color red="1.0" />
+         </selectedColor>
+         <unSelectedColor>
+            <Color red="1.0" />
+         </unSelectedColor>
+      </JFXRadioButton>
+   </children>
+</AnchorPane>

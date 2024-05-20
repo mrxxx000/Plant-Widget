@@ -4,6 +4,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -45,6 +47,7 @@
                         </Rectangle>
                         <CubicCurve controlX1="-8.20709228515625" controlX2="422.7599182128906" controlY1="69.20578002929688" controlY2="489.6259765625" endX="590.7599487304688" endY="-22.3740234375" fill="#796a4b" startX="590.0000610351562" startY="390.0" stroke="BLACK" />
                         <CubicCurve controlX1="-8.20709228515625" controlX2="197.8313446044922" controlY1="69.20578002929688" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" startX="-139.0" startY="3.0" stroke="BLACK" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#796a4b" height="328.0" layoutX="587.0" stroke="#796a4b" strokeType="INSIDE" width="26.0" />
                      </children>
                   </Pane>
                   <GridPane fx:id="legendaryGridPane" alignment="TOP_CENTER" maxWidth="-Infinity" prefWidth="590.0" vgap="50.0">
@@ -106,5 +109,11 @@
             </LinearGradient>
          </ripplerFill>
       </JFXButton>
+      <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="540.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/quest1.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="540.0" layoutY="338.0" onAction="#openPopUp" prefHeight="60.0" prefWidth="60.0" ripplerFill="#3f9a3b" text="." textFill="#2ec9a0" />
    </children>
 </AnchorPane>
