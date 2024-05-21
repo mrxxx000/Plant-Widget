@@ -22,13 +22,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -618,7 +617,7 @@ public class HelloController implements Initializable {
                     if (plants[i] != null && plants[i].getHealthLevel() < 0.01) {
                         try {
                             mainBoundary.getMusic().deathSoundGenerator();
-                            showDeathAlert();
+                            Platform.runLater(() -> showDeathAlert());
                         } catch (Exception e) {
                             System.out.println("Death alert not working");
                         }
@@ -637,7 +636,7 @@ public class HelloController implements Initializable {
      * After clicking the :(  button the user is taken back to the library scene.
      * @author Emre Mengütay
      */
-    public void showDeathAlert() {
+    /*public void showDeathAlert() {
         playSadMusic();
         JButton backButton = new JButton(":(");
         JDialog dialog = new JDialog();
@@ -662,6 +661,52 @@ public class HelloController implements Initializable {
         dialog.pack();
         dialog.setLocationRelativeTo(null);
         dialog.setVisible(true);
+
+        mainBoundary.getMusic().deathSoundGenerator();
+    }
+
+     */
+
+    public void showDeathAlert() {
+        playSadMusic();
+
+        Alert alert = new Alert(Alert.AlertType.NONE);
+        alert.initModality(Modality.APPLICATION_MODAL);
+
+        VBox dialogPaneContent = new VBox();
+
+        Label messageLabel = new Label("Your plant has died... you should be ashamed of yourself.");
+        messageLabel.setStyle("-fx-text-fill: white; -fx-background-color: red; -fx-padding: 10px; -fx-font-weight: bold;");
+        messageLabel.setFont(Font.font("Arial", FontWeight.BOLD, 10)); // Set the font and weight
+        BorderPane labelPane = new BorderPane();
+        labelPane.setCenter(messageLabel);
+        dialogPaneContent.getChildren().add(labelPane);
+
+        Image image = new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg"));
+        ImageView imageView = new ImageView(image);
+
+        imageView.setFitWidth(250);
+        imageView.setFitHeight(200);
+        
+        dialogPaneContent.getChildren().add(imageView);
+
+
+        alert.getDialogPane().setContent(dialogPaneContent);
+
+
+        ButtonType closeButton = new ButtonType("Close, I promise to water the next plant", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getDialogPane().getButtonTypes().add(closeButton);
+
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg"))); // Set the icon
+
+
+        alert.showAndWait();
+        stage.toFront();
+
+        if (alert.getResult() == ButtonType.CLOSE) {
+            goBackToLibrarySwing();
+        }
 
         mainBoundary.getMusic().deathSoundGenerator();
     }

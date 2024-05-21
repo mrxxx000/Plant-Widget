@@ -38,6 +38,7 @@ public class Music {
      * This method generates and plays sounds effect.
      * If the sound file is found, it plays the sound in a continuous loop.
      * If the sound file is not found, it prints an error message.
+     * @author: Akmal Safi
      */
 
     public void playSound(String soundFilePath) {
