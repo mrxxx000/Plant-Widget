@@ -39,6 +39,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
@@ -387,13 +388,57 @@ public class HelloController implements Initializable {
      * This method closes the program and saves the plant progress.
      * @param event Button click event that triggers the method.
      */
-    public void closeProgram(ActionEvent event){
-        closeProgramSound();
-        mainBoundary.getPlantController().timeTrackWriter();
-        mainBoundary.getPlantController().SavePlantToFile();
-        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+    public void closeProgram(ActionEvent event) {
+        if (confirmExit()) {
+            closeProgramSound();
+            mainBoundary.getPlantController().timeTrackWriter();
+            mainBoundary.getPlantController().SavePlantToFile();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        }
     }
+
+    //AKMAL SAfi
+    public boolean confirmDelete() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("⚠️ Hold on! ⚠️");
+        alert.setHeaderText("Are you sure?");
+        alert.setContentText("Are you absolutely, positively, beyond any shadow of a doubt sure " +
+                "you want to send this plant to the great compost heap in the sky? 🌿💀");
+
+        ButtonType okButton = new ButtonType("Yes, compost-bound! 🚮");
+        ButtonType cancelButton = new ButtonType("No way, I'm growing attached! 🌱");
+
+        alert.getButtonTypes().setAll(okButton, cancelButton);
+
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: #C8E6C9;");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == okButton;
+    }
+
+    //AKMAL SAFI
+    public boolean confirmExit() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Exit 🌿🌸");
+        alert.setHeaderText("Are you sure you want to leave the garden?");
+        alert.setContentText("Leaving now may cause your plants to feel neglected! 🥀🍃");
+
+        ButtonType exitButton = new ButtonType("Exit, my plants can wait! 🏡👋");
+        ButtonType cancelButton = new ButtonType("Cancel, I'll stay and tend to my garden! 🌱");
+
+        alert.getButtonTypes().setAll(exitButton, cancelButton);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.setStyle("-fx-background-color: #B0E57C; -fx-font-size: 14pt;");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        return result.isPresent() && result.get() == exitButton;
+    }
+
+
 
     /**
      * Method for delete plant button, deletes the plant and goes back to the library scene.
@@ -401,29 +446,35 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      */
     public void deletePlant1(ActionEvent event){
-        playSadMusic();
-        mainBoundary.getPlantController().discardPlant1();
-        mainBoundary.getPlantController().SavePlantToFile();
-        mainBoundary.getPlantController().LoadPlantsFromFile();
-        goBackToLibrary(event);
-        System.out.println("Plant Deleted1");
+        if (confirmDelete()) {
+            playSadMusic();
+            mainBoundary.getPlantController().discardPlant1();
+            mainBoundary.getPlantController().SavePlantToFile();
+            mainBoundary.getPlantController().LoadPlantsFromFile();
+            goBackToLibrary(event);
+            System.out.println("Plant Deleted1");
+        }
     }
 
-    public void deletePlant2(ActionEvent event){
-        playSadMusic();
-        mainBoundary.getPlantController().discardPlant2();
-        mainBoundary.getPlantController().SavePlantToFile();
-        mainBoundary.getPlantController().LoadPlantsFromFile();
-        goBackToLibrary(event);
-        System.out.println("Plant Deleted2");
+    public void deletePlant2(ActionEvent event) {
+        if (confirmDelete()) {
+            playSadMusic();
+            mainBoundary.getPlantController().discardPlant2();
+            mainBoundary.getPlantController().SavePlantToFile();
+            mainBoundary.getPlantController().LoadPlantsFromFile();
+            goBackToLibrary(event);
+            System.out.println("Plant Deleted2");
+        }
     }
-    public void deletePlant3(ActionEvent event){
-        playSadMusic();
-        mainBoundary.getPlantController().discardPlant3();
-        mainBoundary.getPlantController().SavePlantToFile();
-        mainBoundary.getPlantController().LoadPlantsFromFile();
-        goBackToLibrary(event);
-        System.out.println("Plant Deleted3");
+    public void deletePlant3(ActionEvent event) {
+        if (confirmDelete()) {
+            playSadMusic();
+            mainBoundary.getPlantController().discardPlant3();
+            mainBoundary.getPlantController().SavePlantToFile();
+            mainBoundary.getPlantController().LoadPlantsFromFile();
+            goBackToLibrary(event);
+            System.out.println("Plant Deleted3");
+        }
     }
 
     /**
@@ -677,7 +728,7 @@ public class HelloController implements Initializable {
 
         Label messageLabel = new Label("Your plant has died... you should be ashamed of yourself.");
         messageLabel.setStyle("-fx-text-fill: white; -fx-background-color: red; -fx-padding: 10px; -fx-font-weight: bold;");
-        messageLabel.setFont(Font.font("Arial", FontWeight.BOLD, 10)); // Set the font and weight
+        messageLabel.setFont(Font.font("Arial", FontWeight.BOLD, 10));
         BorderPane labelPane = new BorderPane();
         labelPane.setCenter(messageLabel);
         dialogPaneContent.getChildren().add(labelPane);
@@ -687,7 +738,7 @@ public class HelloController implements Initializable {
 
         imageView.setFitWidth(250);
         imageView.setFitHeight(200);
-        
+
         dialogPaneContent.getChildren().add(imageView);
 
 
@@ -698,7 +749,7 @@ public class HelloController implements Initializable {
         alert.getDialogPane().getButtonTypes().add(closeButton);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg"))); // Set the icon
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg")));
 
 
         alert.showAndWait();
