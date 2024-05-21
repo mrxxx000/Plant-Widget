@@ -1011,6 +1011,23 @@ public class HelloController implements Initializable {
         if (plant3 != null) {
             checkLegendary(2);
         }
+        Timeline healthLoss = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
+            if (mainBoundary.getPlantController().getPlant(0) != null) {
+                if(mainBoundary.getPlantController().getPlant(0).getHealthLevel()<1){
+                    playHealthLossSound();
+                }
+            }
+            if (mainBoundary.getPlantController().getPlant(1) != null) {
+                if(mainBoundary.getPlantController().getPlant(1).getHealthLevel()<1){
+                    playHealthLossSound();
+                }
+            }
+            if (mainBoundary.getPlantController().getPlant(2) != null) {
+             if(mainBoundary.getPlantController().getPlant(2).getHealthLevel()<1){
+                 playHealthLossSound();
+             }
+            }
+        }));
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), e -> {
             if (plantNewSeedButton != null) {
@@ -1028,6 +1045,7 @@ public class HelloController implements Initializable {
                     imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
                     plantWaterBarOne.setProgress(plantWaterLevel1);
                     plantHealthBarOne.setProgress(plantHealthLevel1);
+
 
                     levelPlantOne.setVisible(true);
                     imagePlantOne.setVisible(true);
@@ -1116,6 +1134,8 @@ public class HelloController implements Initializable {
 
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+        healthLoss.setCycleCount(Animation.INDEFINITE);
+        healthLoss.play();
     }
     /**
      * This method selects the plant and switches to the plant info scene, it also checks if the plant has
@@ -1500,8 +1520,25 @@ public class HelloController implements Initializable {
         }else {
             music.playMusic("musicc/mountainflowers.wav");}
     }
+    public void turnOnMusic1(){
+        Music music = mainBoundary.getMusic();
+        if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
+            music.stopMusic();
+        }else {
+            music.playMusic("src/main/resources/sounds/euphoria.wav");}
+    }
+    public void turnOnMusic2(){
+        Music music = mainBoundary.getMusic();
+        if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
+            music.stopMusic();
+        }else {
+            music.playMusic("src/main/resources/sounds/Sweden.wav");}
+    }
     public void playSadMusic(){
         mainBoundary.getMusic().playSadSound();
+    }
+    public void playHealthLossSound(){
+        mainBoundary.getMusic().healthSound();
     }
     public void closePopUp(ActionEvent event){
         buttonClickSound();

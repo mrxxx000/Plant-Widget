@@ -97,4 +97,7 @@ public class Music {
     public void snakeplantSound() {
         playSound("/deathsound/snakeplantsound.wav");
     }
+    public void healthSound() {
+        playSound("/sounds/oof_MC.wav");
+    }
 }

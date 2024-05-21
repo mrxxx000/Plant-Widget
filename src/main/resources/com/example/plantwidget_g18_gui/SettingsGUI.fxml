@@ -44,16 +44,19 @@
                   <Color red="0.3947368562221527" green="0.3947368562221527" blue="0.3947368562221527" />
                </unSelectedColor>
                <cursor>
-                  <Cursor fx:constant="NONE" />
+                  <Cursor fx:constant="CROSSHAIR" />
                </cursor>
                <effect>
                   <BoxBlur />
                </effect>
             </JFXToggleNode>
-            <Label layoutX="73.0" layoutY="224.0" text="Music toggle">
+            <Label layoutX="73.0" layoutY="224.0" text="Play Calm Music ">
                <font>
                   <Font name="Nirmala UI Bold" size="15.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
             </Label>
             <JFXToggleNode layoutX="9.0" layoutY="48.0" prefHeight="47.0" prefWidth="44.0" styleClass="elementToggle" stylesheets="@cssSheets.css">
                <selectedColor>
@@ -83,6 +86,57 @@
                <image>
                   <Image url="@../../../images/sound-waves.png" />
                </image>
+            </ImageView>
+            <JFXToggleNode layoutX="31.0" layoutY="185.0" onAction="#turnOnMusic2" prefHeight="25.0" prefWidth="34.0">
+               <selectedColor>
+                  <Color red="0.046296294778585434" green="1.0" blue="0.22114197909832" />
+               </selectedColor>
+               <unSelectedColor>
+                  <Color red="0.3947368562221527" green="0.3947368562221527" blue="0.3947368562221527" />
+               </unSelectedColor>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </JFXToggleNode>
+            <Label layoutX="72.0" layoutY="187.0" text="Play Minecraft Music">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/sound-waves.png" />
+               </image>
+            </ImageView>
+            <JFXToggleNode layoutX="31.0" layoutY="148.0" onAction="#turnOnMusic1" prefHeight="25.0" prefWidth="34.0">
+               <selectedColor>
+                  <Color red="0.046296294778585434" green="1.0" blue="0.22114197909832" />
+               </selectedColor>
+               <unSelectedColor>
+                  <Color red="0.3947368562221527" green="0.3947368562221527" blue="0.3947368562221527" />
+               </unSelectedColor>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </JFXToggleNode>
+            <Label layoutX="72.0" layoutY="150.0" text="Play euphoria ">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/sound-waves.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
             </ImageView>
          </children>
       </Pane>

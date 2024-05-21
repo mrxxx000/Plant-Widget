@@ -3,12 +3,15 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
+import View.MainBoundary;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
+
+import javax.imageio.stream.ImageInputStream;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -263,7 +266,9 @@ public class PlantController implements Serializable {
         if(this.growingPlants[index].getWaterLevel() >= 1.0) {
             //if the water is full already, lower health
             if(growingPlants[index].getHealthLevel()>0) {
+                MainBoundary.getInstance().getMusic().healthSound();
                 growingPlants[index].decreaseHealth();
+
             }else{
                 killPlant(index);
             }
