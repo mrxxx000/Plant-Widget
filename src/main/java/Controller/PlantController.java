@@ -205,6 +205,7 @@ public class PlantController implements Serializable {
         legendaryPlant.setName(plant.getName());
         PlantTypes type = plant.getType();
         legendaryPlant.setTypes(type);
+        legendaryPlant.setImage(plant.getImage());
         if (type == PlantTypes.CACTUS) {
             //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.PUMPKIN) {

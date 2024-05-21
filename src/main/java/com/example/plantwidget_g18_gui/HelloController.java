@@ -32,10 +32,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import javax.sound.sampled.*;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -752,7 +751,9 @@ public class HelloController implements Initializable {
         }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
-        System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
+        if(mainBoundary.getPlantController().getPlant(0) != null) {
+            System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
+        }
     }
     /**
      * This method simulates skipping a day for the second plant.
@@ -764,7 +765,9 @@ public class HelloController implements Initializable {
         if(checkLegendary(1)) {
             goBackToLibrary(event);
         }
-        System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
+        if(mainBoundary.getPlantController().getPlant(1) != null) {
+            System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
+        }
     }
     /**
      * This method simulates skipping a day for the third plant.
@@ -778,7 +781,9 @@ public class HelloController implements Initializable {
         }
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
-        System.out.println(plant1.getLevel());
+        if(mainBoundary.getPlantController().getPlant(2) != null) {
+            System.out.println(plant1.getLevel());
+        }
     }
 
     /**
