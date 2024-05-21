@@ -1559,4 +1559,18 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+    public void openPopUpSeed(ActionEvent ev){
+        buttonClickSound();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/plantwidget_g18_gui/seed_pop-up.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

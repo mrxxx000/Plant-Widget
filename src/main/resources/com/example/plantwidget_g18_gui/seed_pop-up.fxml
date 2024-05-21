@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="206.0" prefWidth="473.0" style="-fx-background-color: #908641;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="52.0" layoutX="-7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="506.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06159999966621399" green="0.5600000023841858" blue="0.3463999927043915" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.6184210777282715" green="0.5372532606124878" blue="0.3865131437778473" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4745098054409027" green="0.4156862795352936" blue="0.29411765933036804" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="167.0" layoutX="-8.0" layoutY="52.0" stroke="TRANSPARENT" strokeType="INSIDE" width="506.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.06159999966621399" green="0.5600000023841858" blue="0.3463999927043915" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.06159999966621399" green="0.5600000023841858" blue="0.3463999927043915" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4421714246273041" green="0.7300000190734863" blue="0.2919999957084656" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="52.0" layoutY="13.0" text="Information about planting a seed">
+         <font>
+            <Font name="Forte" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="339.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/question.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="14.0" layoutY="59.0" prefHeight="150.0" prefWidth="334.0">
+         <children>
+            <Label text="Q : What's the difference between the plants?" />
+            <Label prefHeight="19.0" prefWidth="321.0" text="A : The difficulties, water needs and looks are all different" textFill="WHITE" />
+            <Label text="Q : How can I see the difficulty of a specific plant?" />
+            <Label prefHeight="19.0" prefWidth="321.0" text="A : There is a difficulty bar under the &quot;Difficulty&quot; text" textFill="WHITE" />
+            <Label text="Q: Why does the seed I planted not look like the image?" />
+            <Label prefHeight="19.0" prefWidth="321.0" text="A : The images shown in the menu are fully grown plants" textFill="WHITE" />
+         </children>
+      </VBox>
+      <JFXRadioButton layoutX="458.0" onAction="#closePopUp" prefHeight="17.0" prefWidth="0.0" rotate="180.0" text="." textFill="#72bc4a">
+         <selectedColor>
+            <Color red="1.0" />
+         </selectedColor>
+         <unSelectedColor>
+            <Color red="1.0" />
+         </unSelectedColor>
+      </JFXRadioButton>
+   </children>
+</AnchorPane>
