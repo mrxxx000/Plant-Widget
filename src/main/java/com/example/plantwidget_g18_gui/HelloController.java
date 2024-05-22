@@ -1800,4 +1800,28 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void setPotHelloKitty(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotHelloKitty();
+    }
+
+    public void setPotMort(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotMort();
+    }
+
+    public void setPotPeter(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotPeter();
+    }
+
+    public void setPotRoblox(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotRoblox();
+    }
+
+    public void setPotSmile(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotSmile();
+    }
+
+    public void setPotSponge(ActionEvent actionEvent) {
+        mainBoundary.getPlantController().setPotSponge();
+    }
 }
