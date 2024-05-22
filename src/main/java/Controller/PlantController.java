@@ -3,6 +3,7 @@ package Controller;
 import Model.LegendaryPlant;
 import Model.Plant;
 import Model.PlantTypes;
+import Model.PotType;
 import View.MainBoundary;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -652,5 +653,59 @@ public class PlantController implements Serializable {
     public void discardPlant3 () {
        // growingPlants[2] = null;
         deleteGrowingPlant(2);
+    }
+
+    public void setPotHelloKitty() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.HelloKitty);
+            }
+        }
+        System.out.println("Hello Kitty");
+    }
+
+    public void setPotMort() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.Mort);
+            }
+        }
+        System.out.println("Mort");
+    }
+
+    public void setPotPeter() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.Peter);
+            }
+        }
+        System.out.println("Peter");
+    }
+
+    public void setPotRoblox() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.Roblox);
+            }
+        }
+        System.out.println("Roblox");
+    }
+
+    public void setPotSmile() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.Smile);
+            }
+        }
+        System.out.println("Smile");
+    }
+
+    public void setPotSponge() {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant != null) {
+                growingPlant.setPotType(PotType.Sponge);
+            }
+        }
+        System.out.println("Sponge");
     }
 }

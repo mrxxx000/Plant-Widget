@@ -141,12 +141,12 @@
       </Label>
       <MenuButton contentDisplay="TOP" layoutX="124.0" layoutY="317.0" mnemonicParsing="false" style="-fx-background-color: Green;" text="Change Pot">
         <items>
-          <MenuItem mnemonicParsing="false" text="Hello Kitty" />
-          <MenuItem mnemonicParsing="false" text="Mort" />
-            <MenuItem mnemonicParsing="false" text="Peter" />
-            <MenuItem mnemonicParsing="false" text="Roblox" />
-            <MenuItem mnemonicParsing="false" text="Smile" />
-            <MenuItem mnemonicParsing="false" text="Sponge" />
+          <MenuItem fx:id="setPotHelloKitty" mnemonicParsing="false" onAction="#setPotHelloKitty" text="Hello Kitty" />
+          <MenuItem fx:id="setPotMort" mnemonicParsing="false" onAction="#setPotMort" text="Mort" />
+            <MenuItem fx:id="setPotPeter" mnemonicParsing="false" onAction="#setPotPeter" text="Peter" />
+            <MenuItem fx:id="setPotRoblox" mnemonicParsing="false" onAction="#setPotRoblox" text="Roblox" />
+            <MenuItem fx:id="setPotSmile" mnemonicParsing="false" onAction="#setPotSmile" text="Smile" />
+            <MenuItem fx:id="setPotSponge" mnemonicParsing="false" onAction="#setPotSponge" text="Sponge" />
         </items>
          <font>
             <Font name="Nirmala UI Bold" size="15.0" />

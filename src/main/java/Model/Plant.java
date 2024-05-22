@@ -19,12 +19,14 @@ public class Plant implements Serializable {
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
     private LocalDate datePlanted;
     private PlantController plantController;
+    private PotType potType;
 
     public Plant(PlantTypes type) {
         datePlanted = LocalDate.now();
         this.type = type;
         setWaterLevel(1.0);
         setHealthLevel(1.0);
+        this.potType = PotType.Mort;
         //setImage(); //TODO Set the image to be the SEED image, regardless of plant type
     }
 
@@ -180,6 +182,9 @@ public class Plant implements Serializable {
         this.level = level;
     }
 
+    /**
+     * This method increases the level of the plant by 1.
+     */
     public void setLevelSkip() {
         this.level++;
         System.out.println("Level is now: " + this.level);
@@ -276,5 +281,14 @@ public class Plant implements Serializable {
         setHealthLevel(1.0);
         setWaterLevel(1.0);
         //TODO instead of calling this, call the LevelUp method in PlantController
+    }
+
+    /**
+     * This method sets the pot type of the plant.
+     * @param potType The pot type that should be set for the plant object
+     * @author Yrja Mai Hoang
+     */
+    public void setPotType(PotType potType) {
+        this.potType = potType;
     }
 }
