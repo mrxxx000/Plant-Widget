@@ -22,17 +22,15 @@ import java.util.ArrayList;
 public class PlantController implements Serializable {
     private Plant[] growingPlants;
     private ArrayList<LegendaryPlant> legendaryPlants;
-    private Plant plant;
     private DoubleProperty waterLevelProperty;
     private Timeline timeline;
     private LocalDate dateNow;
-    private LocalDate lastDateSaved;
     private static PlantController instance = new PlantController();
     private ImageController imageController;
 
 
     public PlantController() {
-        growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
+        growingPlants = new Plant[3];
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
         imageController = new ImageController(this);
@@ -43,7 +41,6 @@ public class PlantController implements Serializable {
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
         Image image = new Image(inputStream);
         catPlant.setImage(image);
-        //growingPlants[1] = catPlant;
     }
 
     /**
@@ -63,7 +60,8 @@ public class PlantController implements Serializable {
      * updates the water level property, and refreshes the GUI to reflect the changes.
      * It sets the timeline to run indefinitely, with keyframes corresponding to the
      * watering intervals of each plant type, and triggers watering actions accordingly.
-     * @author Akmal Safi & Emre Mengütay
+     * @author Akmal Safi
+     * @author Emre Mengütay
      */
     public void initializeWaterLevelProperty() {
         waterLevelProperty = new SimpleDoubleProperty();
@@ -124,6 +122,7 @@ public class PlantController implements Serializable {
     public void startTheTimer() {
         timeline.play();
     }
+
     /**
      * This method stops the timer for updating water levels.
      * Stops the timeline to pause the periodic updates of water levels for growing plants.
@@ -142,17 +141,7 @@ public class PlantController implements Serializable {
      * @author Akmal Safi
      */
     public void startTimer() {
-
         timeline.play();
-    }
-
-    /**
-     *
-     * @return : the water level property
-     * @author Akmal Safi
-     */
-    public DoubleProperty waterLevelProperty() {
-        return waterLevelProperty;
     }
 
     /**
@@ -178,6 +167,14 @@ public class PlantController implements Serializable {
     public static PlantController getInstance(){
         return instance;
     }
+
+    /**
+     * This method plants a seed in the first available spot in the growingPlants array.
+     * It creates a new plant object with the specified type and name, and adds it to the array.
+     * If a name is provided, it sets the name for the plant.
+     * @param type The type of plant to plant
+     * @param name The name of the plant to set, or null if no name is provided
+     */
     public void plantSeed(PlantTypes type, String name) {
         // Loop through each spot in the growingPlants array
         for (int i = 0; i < growingPlants.length; i++) {
@@ -202,14 +199,18 @@ public class PlantController implements Serializable {
      * It adds it to the legendaryPlants arrayList.
      * @param plant Plant object used to create a Legendary Plant
      * @author Yrja Mai Hoang
+     * TODO: Add correct image for each legendary plant type
      */
     public void createLegendary(Plant plant) {
+        PlantTypes type = plant.getType();
+        int levelCategory = getLevelCategory(plant.getLevel());
         LegendaryPlant legendaryPlant = new LegendaryPlant();
         legendaryPlant.setName(plant.getName());
-        PlantTypes type = plant.getType();
         legendaryPlant.setTypes(type);
         if (type == PlantTypes.CACTUS) {
             //legendaryPlant.setImage(image);
+            //TODO Added this as a test, won't add legendary plant to the list now cuz Image is not serializable?
+            //legendaryPlant.setImage(imageController.getCactusPotImage(plant.getPotType(), levelCategory));
         } else if (type == PlantTypes.PUMPKIN) {
             //legendaryPlant.setImage(image);
         } else if (type == PlantTypes.MONSTERA) {
@@ -318,10 +319,6 @@ public class PlantController implements Serializable {
      */
     public double updateHealthBarGUI(int index) {
         return growingPlants[index].getHealthLevel();
-    }
-
-    public double plantGetWaterLevel(){
-        return plant.getWaterLevel();
     }
 
     /**
