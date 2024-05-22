@@ -255,14 +255,34 @@ public class Plant implements Serializable {
     public PlantTypes getType() {
         return type;
     }
+    /**
+     * Sets the image path and initializes the image using the provided image path.
+     *
+     * @param imagePath The path of the image resource.
+     * @Author Akmal Safi
+     */
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
         this.image = new Image(getClass().getResourceAsStream(imagePath));
     }
 
+    /**
+     * Returns the path of the image resource.
+     *
+     * @return The path of the image resource.
+     * @Author Akmal Safi
+     */
     public String getImagePath() {
         return imagePath;
     }
+
+    /**
+     * Returns the image. If the image is not already initialized and the
+     * image path is set, it initializes the image using the image path.
+     *
+     * @return The image object.
+     * @author Akmal Safi
+     */
 
     public Image getImage() {
         if (image == null && imagePath != null) {
@@ -270,6 +290,13 @@ public class Plant implements Serializable {
         }
         return image;
     }
+
+    /**
+     * Sets the image object.
+     *
+     * @param image The image object to be set.
+     * @author Akmal Safi
+     */
 
     public void setImage(Image image) {
         this.image = image;

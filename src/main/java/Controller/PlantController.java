@@ -529,6 +529,7 @@ public class PlantController implements Serializable {
      *
      * @param plant The plant object to get the image for.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public void setPlantImage(Plant plant) {
         PlantTypes plantType = plant.getType();
@@ -549,6 +550,12 @@ public class PlantController implements Serializable {
         }
 
 
+    /**
+     * Sets the image path for the given legendary plant based on its type, pot type, and a predefined level category.
+     * @author Akmal Safi
+     * @author Yrja Mai Hoang
+     * @param plant The legendary plant for which the image path is to be set.
+     */
     public void setPlantImage(LegendaryPlant plant) {
         PlantTypes plantType = plant.getType();
         PotType potType = plant.getPotType();

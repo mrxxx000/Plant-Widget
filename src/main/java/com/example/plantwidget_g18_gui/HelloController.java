@@ -32,8 +32,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -399,8 +397,10 @@ public class HelloController implements Initializable {
     }
 
     /**
+     * Displays a confirmation dialog prompting the user to confirm deletion.
      *
-     * @return boolean
+     * @return {@code true} if the user confirms deletion by
+     * clicking the "Yes, compost-bound!" button, {@code false} otherwise.
      * @author Akmal Safi
      */
     public boolean confirmDelete() {
@@ -423,8 +423,10 @@ public class HelloController implements Initializable {
     }
 
     /**
+     * Displays a confirmation dialog prompting the user to confirm exiting the garden.
      *
-     * @return boolean
+     * @return {@code true} if the user confirms exiting by clicking the "Exit,
+     * my plants can wait!" button, {@code false} otherwise.
      * @author Akmal Safi
      */
     public boolean confirmExit() {
@@ -692,39 +694,9 @@ public class HelloController implements Initializable {
     }
 
     /**
-     * This method creates a pop-up window that alerts the user that their plant has died. It also plays a sound effect.
-     * After clicking the :(  button the user is taken back to the library scene.
-     * @author Emre Mengütay
-     */
-    /*public void showDeathAlert() {
-        playSadMusic();
-        JButton backButton = new JButton(":(");
-        JDialog dialog = new JDialog();
-
-        backButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                goBackToLibrarySwing();
-                dialog.dispose();
-            }
-        });
-
-        String message = "Your plant has died... you should be ashamed of yourself...";
-        JLabel messageLabel = new JLabel(message);
-
-        JPanel panel = new JPanel();
-        panel.add(messageLabel);
-        panel.add(backButton);
-
-        dialog.setUndecorated(true);
-        dialog.setContentPane(panel);
-        dialog.pack();
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
-
-        mainBoundary.getMusic().deathSoundGenerator();
-    }
-
+     * This method creates a pop-up window that alerts the user that their plant has died.
+     * It also plays a sound effect.
+     * @author Akmal Safi
      */
 
     public void showDeathAlert() {

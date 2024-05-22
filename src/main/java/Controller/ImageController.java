@@ -1,13 +1,12 @@
 package Controller;
 
 import Model.PotType;
-import javafx.scene.image.Image;
-import java.io.InputStream;
 
 /**
  * This class is responsible for the logic of what image to display based on plant type, pot type, and level.
  * It is used by the PlantController class and returns the image to be displayed in the GUI for the plant.
  * @author Yrja Mai Hoang
+ * @author Akmal Safi
  */
 public class ImageController {
     private PlantController plantController;
@@ -16,6 +15,7 @@ public class ImageController {
      * Constructor for ImageController
      * @param plantController PlantController object
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public ImageController(PlantController plantController) {
         this.plantController = plantController;
@@ -28,6 +28,7 @@ public class ImageController {
      * @param level int
      * @return Image object of the cactus plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public String getCactusPotImagePath(PotType potType, int level){
         switch (potType) {
@@ -62,6 +63,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImageMortPath(int level) {
         return switch (level) {
@@ -82,6 +84,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImageHelloKittyPath(int level) {
         return switch (level) {
@@ -102,6 +105,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImagePeterPath(int level) {
         return switch (level) {
@@ -122,6 +126,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImageRobloxPath(int level) {
         return switch (level) {
@@ -142,6 +147,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImageSmilePath(int level) {
         return switch (level) {
@@ -162,6 +168,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getCactusImageSpongePath(int level) {
         return switch (level) {
@@ -183,6 +190,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public String getMonsteraPotImagePath(PotType potType, int level){
         switch (potType) {
@@ -217,6 +225,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImageSpongePath(int level) {
         return switch (level) {
@@ -237,6 +246,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImageSmilePath(int level) {
         return switch (level) {
@@ -257,6 +267,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImageRobloxPath(int level) {
         return switch (level) {
@@ -277,6 +288,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImagePeterPath(int level) {
         return switch (level) {
@@ -298,6 +310,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImageHelloKittyPath(int level) {
         return switch (level) {
@@ -317,6 +330,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getMonsteraImageMortPath(int level) {
         return switch (level) {
@@ -338,6 +352,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public String getPumpkinPotImagePath(PotType potType, int level){
         switch (potType) {
@@ -372,6 +387,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImageMortPath(int level) {
         return switch (level) {
@@ -392,6 +408,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImageHelloKittyPath(int level) {
         return switch (level) {
@@ -412,6 +429,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImagePeterPath(int level) {
         return switch (level) {
@@ -432,6 +450,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImageRobloxPath(int level) {
         return switch (level) {
@@ -452,6 +471,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImageSmilePath(int level) {
         return switch (level) {
@@ -472,6 +492,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getPumpkinImageSpongePath(int level) {
         return switch (level) {
@@ -493,6 +514,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public String getSnakePlantPotImagePath(PotType potType, int level){
         switch (potType) {
@@ -527,6 +549,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImageMortPath(int level) {
         return switch (level) {
@@ -547,6 +570,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImageHelloKittyPath(int level) {
         return switch (level) {
@@ -567,6 +591,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImagePeterPath(int level) {
         return switch (level) {
@@ -587,6 +612,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImageRobloxPath(int level) {
         return switch (level) {
@@ -607,6 +633,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImageSmilePath(int level) {
         return switch (level) {
@@ -628,6 +655,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSnakePlantImageSpongePath(int level) {
         return switch (level) {
@@ -648,6 +676,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     public String getSunflowerPotImagePath(PotType potType, int level){
         switch (potType) {
@@ -682,6 +711,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImageHelloKittyPath(int level) {
         return switch (level) {
@@ -702,6 +732,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImagePeterPath(int level) {
         return switch (level) {
@@ -722,6 +753,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImageRobloxPath(int level) {
         return switch (level) {
@@ -742,6 +774,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImageSmilePath(int level) {
         return switch (level) {
@@ -761,6 +794,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImageSpongePath(int level) {
         return switch (level) {
@@ -780,6 +814,7 @@ public class ImageController {
      * @param level int level category
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
+     * @author Akmal Safi
      */
     private String getSunflowerImageMortPath(int level) {
         return switch (level) {
