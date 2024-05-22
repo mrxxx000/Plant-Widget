@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXToggleNode?>
-<?import java.lang.String?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.effect.BoxBlur?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
       <Pane layoutX="7.0" layoutY="7.0" prefHeight="475.0" prefWidth="44.0" stylesheets="@cssSheets.css">
          <styleClass>
@@ -145,6 +139,19 @@
             <Font name="Segoe UI Bold" size="50.0" />
          </font>
       </Label>
+      <MenuButton contentDisplay="TOP" layoutX="124.0" layoutY="317.0" mnemonicParsing="false" style="-fx-background-color: Green;" text="Change Pot">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Hello Kitty" />
+          <MenuItem mnemonicParsing="false" text="Mort" />
+            <MenuItem mnemonicParsing="false" text="Peter" />
+            <MenuItem mnemonicParsing="false" text="Roblox" />
+            <MenuItem mnemonicParsing="false" text="Smile" />
+            <MenuItem mnemonicParsing="false" text="Sponge" />
+        </items>
+         <font>
+            <Font name="Nirmala UI Bold" size="15.0" />
+         </font>
+      </MenuButton>
    </children>
    <effect>
       <DropShadow />
