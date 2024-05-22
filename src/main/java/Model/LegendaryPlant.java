@@ -3,25 +3,29 @@ package Model;
 import javafx.scene.image.Image;
 import java.io.Serializable;
 
-/**
- * This class is used to create a legendary plant object.
- * It contains the name, type and image of the legendary plant.
- * A Legendary plant is static, in the sense that it does not need maintenance.
- *
- * @author Yrja Mai Hoang
- */
 public class LegendaryPlant implements Serializable {
     private String name;
     private PlantTypes type;
-    private Image image;
+    private String imagePath; // Store the image path instead of the Image object
+    private transient Image image; // Transient to avoid serialization
     private PotType potType;
 
-    public LegendaryPlant() {
+    public LegendaryPlant() {}
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+        this.image = new Image(getClass().getResourceAsStream(imagePath));
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public Image getImage() {
+        if (image == null && imagePath != null) {
+            image = new Image(getClass().getResourceAsStream(imagePath));
+        }
+        return image;
     }
 
     public void setName(String name) {
@@ -34,10 +38,6 @@ public class LegendaryPlant implements Serializable {
 
     public void setPotType(PotType potType) {
         this.potType = potType;
-    }
-
-    public Image getImage() {
-        return image;
     }
 
     public String getName() {

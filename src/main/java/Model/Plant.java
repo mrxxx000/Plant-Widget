@@ -14,6 +14,8 @@ public class Plant implements Serializable {
     private int level;
     private double healthLevel; //Max 1.0
     private double waterLevel; //Max 1.0
+    private String imagePath; // Store image path
+
     private transient Image image; // transient just means it doesnt get serialized when saving to dat file
     private PlantTypes type;
     private int levelUpCountdown = 3; // once counter hits 0, plant levels up
@@ -155,6 +157,7 @@ public class Plant implements Serializable {
         return false;
     }
 
+
     /**
      * This method sets the image of the plant based on the plant type.
      * @param name The name of the plant
@@ -252,23 +255,24 @@ public class Plant implements Serializable {
     public PlantTypes getType() {
         return type;
     }
-
-    /**
-     * This method sets the image of the plant.
-     * @param image The image that should be set for the plant object
-     * @author Yrja Mai Hoang
-     */
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+        this.image = new Image(getClass().getResourceAsStream(imagePath));
     }
 
-    /**
-     * This method returns the image of the plant.
-     * @return The image of the plant object
-     * @author Yrja Mai Hoang
-     */
+    public String getImagePath() {
+        return imagePath;
+    }
+
     public Image getImage() {
+        if (image == null && imagePath != null) {
+            image = new Image(getClass().getResourceAsStream(imagePath));
+        }
         return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 
     /**

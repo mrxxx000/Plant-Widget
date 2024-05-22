@@ -533,54 +533,40 @@ public class PlantController implements Serializable {
     public void setPlantImage(Plant plant) {
         PlantTypes plantType = plant.getType();
         PotType potType = plant.getPotType();
-        int levelCategory = getLevelCategory(plant.getLevel());
+        int levelCategory = 4;
+        String imagePath = null;
         switch (plantType) {
-            case CACTUS -> {
-                plant.setImage(imageController.getCactusPotImage(potType, levelCategory));
-            }
-            case MONSTERA -> {
-                plant.setImage(imageController.getMonsteraPotImage(potType, levelCategory));
-            }
-            case PUMPKIN -> {
-                plant.setImage(imageController.getPumpkinPotImage(potType, levelCategory));
-            }
-            case SNAKEPLANT -> {
-                plant.setImage(imageController.getSnakePlantPotImage(potType, levelCategory));
-            }
-            case SUNFLOWER -> {
-                plant.setImage(imageController.getSunflowerPotImage(potType, levelCategory));
-            }
-            default -> {
-                System.out.println("Invalid plant type");
-            }
+            case CACTUS -> imagePath = imageController.getCactusPotImagePath(potType, levelCategory);
+            case MONSTERA -> imagePath = imageController.getMonsteraPotImagePath(potType, levelCategory);
+            case PUMPKIN -> imagePath = imageController.getPumpkinPotImagePath(potType, levelCategory);
+            case SNAKEPLANT -> imagePath = imageController.getSnakePlantPotImagePath(potType, levelCategory);
+            case SUNFLOWER -> imagePath = imageController.getSunflowerPotImagePath(potType, levelCategory);
+            default -> System.out.println("Invalid plant type");
         }
-    }
+        if (imagePath != null) {
+            plant.setImagePath(imagePath);
+        }
+        }
+
 
     public void setPlantImage(LegendaryPlant plant) {
         PlantTypes plantType = plant.getType();
         PotType potType = plant.getPotType();
         int levelCategory = 4;
+        String imagePath = null;
         switch (plantType) {
-            case CACTUS -> {
-                plant.setImage(imageController.getCactusPotImage(potType, levelCategory));
-            }
-            case MONSTERA -> {
-                plant.setImage(imageController.getMonsteraPotImage(potType, levelCategory));
-            }
-            case PUMPKIN -> {
-                plant.setImage(imageController.getPumpkinPotImage(potType, levelCategory));
-            }
-            case SNAKEPLANT -> {
-                plant.setImage(imageController.getSnakePlantPotImage(potType, levelCategory));
-            }
-            case SUNFLOWER -> {
-                plant.setImage(imageController.getSunflowerPotImage(potType, levelCategory));
-            }
-            default -> {
-                System.out.println("Invalid plant type");
-            }
+            case CACTUS -> imagePath = imageController.getCactusPotImagePath(potType, levelCategory);
+            case MONSTERA -> imagePath = imageController.getMonsteraPotImagePath(potType, levelCategory);
+            case PUMPKIN -> imagePath = imageController.getPumpkinPotImagePath(potType, levelCategory);
+            case SNAKEPLANT -> imagePath = imageController.getSnakePlantPotImagePath(potType, levelCategory);
+            case SUNFLOWER -> imagePath = imageController.getSunflowerPotImagePath(potType, levelCategory);
+            default -> System.out.println("Invalid plant type");
+        }
+        if (imagePath != null) {
+            plant.setImagePath(imagePath);
         }
     }
+
 
     /**
      * This method returns the level of a plant in relation to the images.

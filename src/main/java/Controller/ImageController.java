@@ -29,25 +29,25 @@ public class ImageController {
      * @return Image object of the cactus plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
      */
-    public Image getCactusPotImage(PotType potType, int level){
+    public String getCactusPotImagePath(PotType potType, int level){
         switch (potType) {
             case Mort -> {
-                return setCactusImageMort(level);
+                return getCactusImageMortPath(level);
             }
             case HelloKitty -> {
-                return setCactusImageHelloKitty(level);
+                return getCactusImageHelloKittyPath(level);
             }
             case Peter -> {
-                return setCactusImagePeter(level);
+                return getCactusImagePeterPath(level);
             }
             case Roblox -> {
-                return setCactusImageRoblox(level);
+                return getCactusImageRobloxPath(level);
             }
             case Smile -> {
-                return setCactusImageSmile(level);
+                return getCactusImageSmilePath(level);
             }
             case Sponge -> {
-                return setCactusImageSponge(level);
+                return getCactusImageSpongePath(level);
             }
             default -> {
                 System.out.println("Invalid pot type");
@@ -63,29 +63,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImageMort(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1mort.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2mort.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3mort.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4mort.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImageMortPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1mort.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2mort.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3mort.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4mort.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -95,29 +83,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImageHelloKitty(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4hellokitty.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImageHelloKittyPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1hellokitty.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2hellokitty.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3hellokitty.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4hellokitty.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -127,29 +103,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImagePeter(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1peter.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2peter.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3peter.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4peter.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImagePeterPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1peter.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2peter.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3peter.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4peter.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -159,29 +123,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImageRoblox(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1roblox.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2roblox.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3roblox.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4roblox.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImageRobloxPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1roblox.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2roblox.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3roblox.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4roblox.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -191,29 +143,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImageSmile(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1smile.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2smile.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3smile.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4smile.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImageSmilePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1smile.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2smile.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3smile.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4smile.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -223,29 +163,17 @@ public class ImageController {
      * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    public Image setCactusImageSponge(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1sponge.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2sponge.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3sponge.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4sponge.png");
-                return new Image(inputStream);
-            }
+    private String getCactusImageSpongePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/cactuslevel1/cactuslevel1sponge.png";
+            case 2 -> "/images/cactuslevel2/cactuslevel2sponge.png";
+            case 3 -> "/images/cactuslevel3/cactuslevel3sponge.png";
+            case 4 -> "/images/cactuslevel4/cactuslevel4sponge.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -256,25 +184,25 @@ public class ImageController {
      * @return Image object of the monstera plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
      */
-    public Image getMonsteraPotImage(PotType potType, int level){
+    public String getMonsteraPotImagePath(PotType potType, int level){
         switch (potType) {
             case Mort -> {
-                return setMonsteraImageMort(level);
+                return getMonsteraImageMortPath(level);
             }
             case HelloKitty -> {
-                return setMonsteraImageHelloKitty(level);
+                return getMonsteraImageHelloKittyPath(level);
             }
             case Peter -> {
-                return setMonsteraImagePeter(level);
+                return getMonsteraImagePeterPath(level);
             }
             case Roblox -> {
-                return setMonsteraImageRoblox(level);
+                return getMonsteraImageRobloxPath(level);
             }
             case Smile -> {
-                return setMonsteraImageSmile(level);
+                return getMonsteraImageSmilePath(level);
             }
             case Sponge -> {
-                return setMonsteraImageSponge(level);
+                return getMonsteraImageSpongePath(level);
             }
             default -> {
                 System.out.println("Invalid pot type");
@@ -290,29 +218,17 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImageSponge(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1sponge.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2sponge.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3sponge.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4sponge.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImageSpongePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1sponge.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2sponge.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3sponge.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4sponge.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -322,29 +238,17 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImageSmile(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1smile.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2smile.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3smile.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4smile.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImageSmilePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1smile.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2smile.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3smile.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4smile.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -354,29 +258,17 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImageRoblox(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1roblox.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2roblox.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3roblox.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4roblox.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImageRobloxPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1roblox.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2roblox.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3roblox.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4roblox.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -386,30 +278,19 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImagePeter(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1peter.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2peter.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3peter.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4peter.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImagePeterPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1peter.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2peter.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3peter.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4peter.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
+
 
     /**
      * This method is the final step in determining what image to display for the monstera plant.
@@ -418,31 +299,18 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImageHelloKitty(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4hellokitty.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImageHelloKittyPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1hellokitty.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2hellokitty.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3hellokitty.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4hellokitty.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
-
     /**
      * This method is the final step in determining what image to display for the monstera plant.
      * It returns the image of the monstera plant with Mort pot based on the level category.
@@ -450,29 +318,17 @@ public class ImageController {
      * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setMonsteraImageMort(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1mort.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2mort.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3mort.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4mort.png");
-                return new Image(inputStream);
-            }
+    private String getMonsteraImageMortPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/monsteralevel1/monsteralevel1mort.png";
+            case 2 -> "/images/monsteralevel2/monsteralevel2mort.png";
+            case 3 -> "/images/monsteralevel3/monsteralevel3mort.png";
+            case 4 -> "/images/monsteralevel4/monsteralevel4mort.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -483,25 +339,25 @@ public class ImageController {
      * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
      */
-    public Image getPumpkinPotImage(PotType potType, int level){
+    public String getPumpkinPotImagePath(PotType potType, int level){
         switch (potType) {
             case Mort -> {
-                return setPumpkinImageMort(level);
+                return getPumpkinImageMortPath(level);
             }
             case HelloKitty -> {
-                return setPumpkinImageHelloKitty(level);
+                return getPumpkinImageHelloKittyPath(level);
             }
             case Peter -> {
-                return setPumpkinImagePeter(level);
+                return getPumpkinImagePeterPath(level);
             }
             case Roblox -> {
-                return setPumpkinImageRoblox(level);
+                return getPumpkinImageRobloxPath(level);
             }
             case Smile -> {
-                return setPumpkinImageSmile(level);
+                return getPumpkinImageSmilePath(level);
             }
             case Sponge -> {
-                return setPumpkinImageSponge(level);
+                return getPumpkinImageSpongePath(level);
             }
             default -> {
                 System.out.println("Invalid pot type");
@@ -517,29 +373,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImageMort(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1mort.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2mort.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3mort.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4mort.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImageMortPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1mort.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2mort.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3mort.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4mort.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -549,29 +393,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImageHelloKitty(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4hellokitty.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImageHelloKittyPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1hellokitty.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2hellokitty.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3hellokitty.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4hellokitty.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -581,29 +413,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImagePeter(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1peter.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2peter.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3peter.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4peter.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImagePeterPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1peter.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2peter.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3peter.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4peter.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -613,29 +433,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImageRoblox(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1roblox.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2roblox.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3roblox.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4roblox.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImageRobloxPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1roblox.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2roblox.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3roblox.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4roblox.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -645,29 +453,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImageSmile(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1smile.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2smile.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3smile.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4smile.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImageSmilePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1smile.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2smile.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3smile.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4smile.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -677,29 +473,17 @@ public class ImageController {
      * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setPumpkinImageSponge(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1sponge.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2sponge.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3sponge.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4sponge.png");
-                return new Image(inputStream);
-            }
+    private String getPumpkinImageSpongePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/pumpkinlevel1/pumpkinlevel1sponge.png";
+            case 2 -> "/images/pumpkinlevel2/pumpkinlevel2sponge.png";
+            case 3 -> "/images/pumpkinlevel3/pumpkinlevel3sponge.png";
+            case 4 -> "/images/pumpkinlevel4/pumpkinlevel4sponge.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -710,25 +494,25 @@ public class ImageController {
      * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
      */
-    public Image getSnakePlantPotImage(PotType potType, int level){
+    public String getSnakePlantPotImagePath(PotType potType, int level){
         switch (potType) {
             case Mort -> {
-                return setSnakePlantImageMort(level);
+                return getSnakePlantImageMortPath(level);
             }
             case HelloKitty -> {
-                return setSnakePlantImageHelloKitty(level);
+                return getSnakePlantImageHelloKittyPath(level);
             }
             case Peter -> {
-                return setSnakePlantImagePeter(level);
+                return getSnakePlantImagePeterPath(level);
             }
             case Roblox -> {
-                return setSnakePlantImageRoblox(level);
+                return getSnakePlantImageRobloxPath(level);
             }
             case Smile -> {
-                return setSnakePlantImageSmile(level);
+                return getSnakePlantImageSmilePath(level);
             }
             case Sponge -> {
-                return setSnakePlantImageSponge(level);
+                return getSnakePlantImageSpongePath(level);
             }
             default -> {
                 System.out.println("Invalid pot type");
@@ -744,29 +528,17 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImageMort(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1mort.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2mort.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3mort.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4mort.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImageMortPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1mort.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2mort.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3mort.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4mort.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -776,29 +548,17 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImageHelloKitty(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4hellokitty.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImageHelloKittyPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1hellokitty.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2hellokitty.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3hellokitty.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4hellokitty.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -808,29 +568,17 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImagePeter(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1peter.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2peter.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3peter.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4peter.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImagePeterPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1peter.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2peter.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3peter.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4peter.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -840,29 +588,17 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImageRoblox(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1roblox.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2roblox.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3roblox.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4roblox.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImageRobloxPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1roblox.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2roblox.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3roblox.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4roblox.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -872,30 +608,19 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImageSmile(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1smile.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2smile.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3smile.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4smile.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImageSmilePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1smile.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2smile.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3smile.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4smile.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
+
 
     /**
      * This method is the final step in determining what image to display for the snake plant.
@@ -904,31 +629,18 @@ public class ImageController {
      * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSnakePlantImageSponge(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1sponge.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2sponge.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3sponge.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4sponge.png");
-                return new Image(inputStream);
-            }
+    private String getSnakePlantImageSpongePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/snakeplantlevel1/snakeplantlevel1sponge.png";
+            case 2 -> "/images/snakeplantlevel2/snakeplantlevel2sponge.png";
+            case 3 -> "/images/snakeplantlevel3/snakeplantlevel3sponge.png";
+            case 4 -> "/images/snakeplantlevel4/snakeplantlevel4sponge.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
-
     /**
      * Returns the image of the Sunflower based on the plant type, pot type, and level category.
      * It calls the appropriate method to figure out what image to return.
@@ -937,25 +649,25 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the pot type and level category. Returns null if invalid pot type.
      * @author Yrja Mai Hoang
      */
-    public Image getSunflowerPotImage(PotType potType, int level){
+    public String getSunflowerPotImagePath(PotType potType, int level){
         switch (potType) {
             case Mort -> {
-                return setSunflowerImageMort(level);
+                return getSunflowerImageMortPath(level);
             }
             case HelloKitty -> {
-                return setSunflowerImageHelloKitty(level);
+                return getSunflowerImageHelloKittyPath(level);
             }
             case Peter -> {
-                return setSunflowerImagePeter(level);
+                return getSunflowerImagePeterPath(level);
             }
             case Roblox -> {
-                return setSunflowerImageRoblox(level);
+                return getSunflowerImageRobloxPath(level);
             }
             case Smile -> {
-                return setSunflowerImageSmile(level);
+                return getSunflowerImageSmilePath(level);
             }
             case Sponge -> {
-                return setSunflowerImageSponge(level);
+                return getSunflowerImageSpongePath(level);
             }
             default -> {
                 System.out.println("Invalid pot type");
@@ -971,29 +683,17 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImageHelloKitty(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3hellokitty.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4hellokitty.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImageHelloKittyPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1hellokitty.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2hellokitty.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3hellokitty.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4hellokitty.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -1003,29 +703,17 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImagePeter(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1peter.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2peter.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3peter.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4peter.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImagePeterPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1peter.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2peter.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3peter.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4peter.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -1035,29 +723,17 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImageRoblox(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1roblox.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2roblox.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3roblox.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4roblox.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImageRobloxPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1roblox.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2roblox.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3roblox.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4roblox.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 
     /**
@@ -1067,31 +743,18 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImageSmile(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1smile.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2smile.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3smile.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4smile.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImageSmilePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1smile.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2smile.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3smile.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4smile.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
-
     /**
      * This method is the final step in determining what image to display for the sunflower plant.
      * It returns the image of the sunflower plant with Sponge pot based on the level category.
@@ -1099,31 +762,18 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImageSponge(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1sponge.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2sponge.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3sponge.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4sponge.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImageSpongePath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1sponge.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2sponge.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3sponge.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4sponge.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
-
     /**
      * This method is the final step in determining what image to display for the sunflower plant.
      * It returns the image of the sunflower plant with Mort pot based on the level category.
@@ -1131,28 +781,16 @@ public class ImageController {
      * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
      * @author Yrja Mai Hoang
      */
-    private Image setSunflowerImageMort(int level) {
-        switch (level) {
-            case 1 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1mort.png");
-                return new Image(inputStream);
-            }
-            case 2 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2mort.png");
-                return new Image(inputStream);
-            }
-            case 3 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3mort.png");
-                return new Image(inputStream);
-            }
-            case 4 -> {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4mort.png");
-                return new Image(inputStream);
-            }
+    private String getSunflowerImageMortPath(int level) {
+        return switch (level) {
+            case 1 -> "/images/sunflowerlevel1/sunflowerlevel1mort.png";
+            case 2 -> "/images/sunflowerlevel2/sunflowerlevel2mort.png";
+            case 3 -> "/images/sunflowerlevel3/sunflowerlevel3mort.png";
+            case 4 -> "/images/sunflowerlevel4/sunflowerlevel4mort.png";
             default -> {
                 System.out.println("Invalid level");
-                return null;
+                yield null;
             }
-        }
+        };
     }
 }
