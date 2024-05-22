@@ -654,6 +654,3 @@ public class PlantController implements Serializable {
         deleteGrowingPlant(2);
     }
 }
-
-
-
