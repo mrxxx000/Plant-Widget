@@ -280,7 +280,7 @@ public class Plant implements Serializable {
         this.level = level++;
         setHealthLevel(1.0);
         setWaterLevel(1.0);
-        //TODO instead of calling this, call the LevelUp method in PlantController
+        //Instead of calling this, call the LevelUp method in PlantController
     }
 
     /**
@@ -290,5 +290,14 @@ public class Plant implements Serializable {
      */
     public void setPotType(PotType potType) {
         this.potType = potType;
+    }
+
+    /**
+     * This method returns the pot type of the plant.
+     * @return The pot type of the plant object
+     * @author Yrja Mai Hoang
+     */
+    public PotType getPotType() {
+        return potType;
     }
 }

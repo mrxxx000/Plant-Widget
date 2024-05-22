@@ -11,8 +11,6 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.util.Duration;
-
-import javax.imageio.stream.ImageInputStream;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,13 +28,14 @@ public class PlantController implements Serializable {
     private LocalDate dateNow;
     private LocalDate lastDateSaved;
     private static PlantController instance = new PlantController();
+    private ImageController imageController;
 
 
     public PlantController() {
         growingPlants = new Plant[3]; // allows the user to have MAX 3 growing plants at a time
         legendaryPlants = new ArrayList<>();
         initializeWaterLevelProperty();
-
+        imageController = new ImageController(this);
         timeTrackReader();
 
         // This is just for testing purposes can remove later
@@ -120,7 +119,7 @@ public class PlantController implements Serializable {
     /**
      * This method start the timer for updating water levels.
      * Stops the timeline to pause the periodic updates of water levels for growing plants.
-     * @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void startTheTimer() {
         timeline.play();
@@ -128,7 +127,7 @@ public class PlantController implements Serializable {
     /**
      * This method stops the timer for updating water levels.
      * Stops the timeline to pause the periodic updates of water levels for growing plants.
-     * @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void stopTheTimer() {
         timeline.stop();
@@ -140,7 +139,7 @@ public class PlantController implements Serializable {
      * to update water level property for each plant
      * Checks if the element is not null
      * Decreasing water level for the plant
-     * @Author Akmal Safi
+     * @author Akmal Safi
      */
     public void startTimer() {
 
@@ -163,8 +162,8 @@ public class PlantController implements Serializable {
      * @author Yrja Mai Hoang
      */
     public boolean checkForSpace() {
-        for (int i = 0; i < growingPlants.length; i++) {
-            if (growingPlants[i] == null) {
+        for (Plant growingPlant : growingPlants) {
+            if (growingPlant == null) {
                 return true;
             }
         }
@@ -174,7 +173,7 @@ public class PlantController implements Serializable {
     /**
      * Method for returning the specific plant controller instance, part of the singleton pattern.
      * @return : This specific plant controller instance
-     * @author Emre Mengütay, does not say correct on Github.
+     * @author Emre Mengütay, does not say correct on GitHub.
      */
     public static PlantController getInstance(){
         return instance;
@@ -226,7 +225,7 @@ public class PlantController implements Serializable {
     /**
      * This method attempts to delete a plant from the growingPlants list.
      * @param plantIndex index to find the relevant plant
-     * @Author Emre Mengutay and Yrja Mai Hoang and Akmal Safi
+     * @author Emre Mengutay and Yrja Mai Hoang and Akmal Safi
      */
     public void deleteGrowingPlant(int plantIndex) {
         if (plantIndex >= 0 && plantIndex <= 3) {
@@ -521,104 +520,56 @@ public class PlantController implements Serializable {
         }
     }
 
-    //this is to set the images it's not the best but it was either this or saving the pixels of the picture. // gg (Emre Mengutay);
     /**
-     * @author Mojtaba and some parts by Emre
+     * This method sets the image of the plant based on the plant type, pot type, and level.
+     * It calls the appropriate method based on the plant type to get the image.
+     * @param plant The plant object to get the image for.
+     * @author Yrja Mai Hoang
      */
     public void setPlantImage(Plant plant){
-        if(plant.getLevel() < 25) {
-            if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel1/cactuslevel1mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel1/pumpkinlevel1mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel1/monsteralevel1mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel1/sunflowerlevel1mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel1/snakeplantlevel1mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
+        PlantTypes plantType = plant.getType();
+        PotType potType = plant.getPotType();
+        int levelCategory = getLevelCategory(plant.getLevel());
+        switch (plantType) {
+            case CACTUS -> {
+                plant.setImage(imageController.getCactusPotImage(potType, levelCategory));
+            }
+            case MONSTERA -> {
+                plant.setImage(imageController.getMonsteraPotImage(potType, levelCategory));
+            }
+            case PUMPKIN -> {
+                plant.setImage(imageController.getPumpkinPotImage(potType, levelCategory));
+            }
+            case SNAKEPLANT -> {
+                plant.setImage(imageController.getSnakePlantPotImage(potType, levelCategory));
+            }
+            case SUNFLOWER -> {
+                plant.setImage(imageController.getSunflowerPotImage(potType, levelCategory));
+            }
+            default -> {
+                System.out.println("Invalid plant type");
             }
         }
-        if(plant.getLevel() < 50 && plant.getLevel() >= 25){
-            if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel2/cactuslevel2mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel2/pumpkinlevel2mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel2/monsteralevel2mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel2/sunflowerlevel2mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel2/snakeplantlevel2mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            }
-        }
-        if(plant.getLevel() < 75 && plant.getLevel() >= 50){
-            if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel3/cactuslevel3mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel3/pumpkinlevel3mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel3/monsteralevel3mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel3/sunflowerlevel3mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel3/snakeplantlevel3mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            }
-        }
+    }
 
-        if(plant.getLevel() < 100 && plant.getLevel() >= 75){
-            if(plant.getType() == PlantTypes.CACTUS) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/cactuslevel4/cactuslevel4mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.PUMPKIN) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/pumpkinlevel4/pumpkinlevel4mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.MONSTERA) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/monsteralevel4/monsteralevel4mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SUNFLOWER) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/sunflowerlevel4/sunflowerlevel4mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            } else if (plant.getType() == PlantTypes.SNAKEPLANT) {
-                InputStream inputStream = getClass().getResourceAsStream("/images/snakeplantlevel4/snakeplantlevel4mort.png");
-                Image image = new Image(inputStream);
-                plant.setImage(image);
-            }
+    /**
+     * This method returns the level of a plant in relation to the images.
+     * Plant level is divided into 4 categories, each corresponding to a different image.
+     * @param level The level of the plant
+     * @return The level category of the plant, from 1 to 4, based on the plant's level
+     * @author Yrja Mai Hoang
+     */
+    public int getLevelCategory(int level){
+        if (level < 25){
+            return 1;
+        } else if (level < 50){
+            return 2;
+        } else if (level < 75){
+            return 3;
+        } else if (level < 100){
+            return 4;
         }
+        return 0;
     }
 
     public ArrayList<LegendaryPlant> getLegendaryPlants() {
@@ -631,7 +582,6 @@ public class PlantController implements Serializable {
      * @author Yrja Mai Hoang
      */
     public void discardPlant1 () {
-      //  growingPlants[0] = null;
         deleteGrowingPlant(0);
     }
 
@@ -641,7 +591,6 @@ public class PlantController implements Serializable {
      * @author Yrja Mai Hoang
      */
     public void discardPlant2 () {
-      //  growingPlants[1] = null;
         deleteGrowingPlant(1);
     }
 
@@ -651,10 +600,13 @@ public class PlantController implements Serializable {
      * @author Yrja Mai Hoang
      */
     public void discardPlant3 () {
-       // growingPlants[2] = null;
         deleteGrowingPlant(2);
     }
 
+    /**
+     * Sets the pot type of all growing plants to Hello Kitty
+     * @author Yrja Mai Hoang
+     */
     public void setPotHelloKitty() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
@@ -664,6 +616,10 @@ public class PlantController implements Serializable {
         System.out.println("Hello Kitty");
     }
 
+    /**
+     * Sets the pot type of all growing plants to Mort
+     * @author Yrja Mai Hoang
+     */
     public void setPotMort() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
@@ -673,6 +629,10 @@ public class PlantController implements Serializable {
         System.out.println("Mort");
     }
 
+    /**
+     * Sets the pot type of all growing plants to Peter
+     * @author Yrja Mai Hoang
+     */
     public void setPotPeter() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
@@ -682,6 +642,10 @@ public class PlantController implements Serializable {
         System.out.println("Peter");
     }
 
+    /**
+     * Sets the pot type of all growing plants Roblox
+     * @author Yrja Mai Hoang
+     */
     public void setPotRoblox() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
@@ -691,6 +655,10 @@ public class PlantController implements Serializable {
         System.out.println("Roblox");
     }
 
+    /**
+     * Sets the pot type of all growing plants to Smile
+     * @author Yrja Mai Hoang
+     */
     public void setPotSmile() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
@@ -700,6 +668,10 @@ public class PlantController implements Serializable {
         System.out.println("Smile");
     }
 
+    /**
+     * Sets the pot type of all growing plants to Sponge
+     * @author Yrja Mai Hoang
+     */
     public void setPotSponge() {
         for (Plant growingPlant : growingPlants) {
             if (growingPlant != null) {
