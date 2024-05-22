@@ -883,16 +883,12 @@ public class HelloController implements Initializable {
     }
 
     /**
-     * same with this metod
-     * @param e
-     * Akmal Safi
+     * This method is called when the user clicks on the first seed button
+     * What this method does is that it enables more buttons for the user to prompt him to plant the seed and-
+     * -show more information about the seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
      */
-    public void plantSeed(ActionEvent e){
-        System.out.println("planted seed");
-        PlantController.getInstance().plantSeed(selectedPlantType,"Name of the plant");
-        goBackToLibrary(e);
-    }
-
     public void showExtendedSeedMenu1(ActionEvent e){
         chooseSeedButtonExtended1.setVisible(true);
         seedSpecies1.setVisible(true);
@@ -902,6 +898,12 @@ public class HelloController implements Initializable {
         seedDifficultyBar1.setVisible(true);
         plantNewSeedButton1.setVisible(true);
     }
+
+    /**
+     * Same with this method but for the second seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void showExtendedSeedMenu2(ActionEvent e){
         chooseSeedButtonExtended2.setVisible(true);
         seedSpecies2.setVisible(true);
@@ -911,7 +913,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar2.setVisible(true);
         plantNewSeedButton2.setVisible(true);
     }
-
+    /**
+     * Same with this method but for the third seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void showExtendedSeedMenu3(ActionEvent e){
         chooseSeedButtonExtended3.setVisible(true);
         seedSpecies3.setVisible(true);
@@ -921,7 +927,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(true);
         plantNewSeedButton3.setVisible(true);
     }
-
+    /**
+     * Same with this method but for the forth seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void showExtendedSeedMenu4(ActionEvent e){
         chooseSeedButtonExtended4.setVisible(true);
         seedSpecies4.setVisible(true);
@@ -931,7 +941,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar4.setVisible(true);
         plantNewSeedButton4.setVisible(true);
     }
-
+    /**
+     * Same with this method but for the fifth seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void showExtendedSeedMenu5(ActionEvent e){
         chooseSeedButtonExtended5.setVisible(true);
         seedSpecies5.setVisible(true);
@@ -942,6 +956,12 @@ public class HelloController implements Initializable {
         plantNewSeedButton5.setVisible(true);
     }
 
+    /**
+     * this method is called when the user closes clicks on the prompt that was shown to close it down and hide it
+     *
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void hideExtendedSeedMenu1(ActionEvent e){
         chooseSeedButtonExtended1.setVisible(false);
         seedSpecies1.setVisible(false);
@@ -951,7 +971,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar1.setVisible(false);
         plantNewSeedButton1.setVisible(false);
     }
-
+    /**
+     * This method does the same thing but for the second seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void hideExtendedSeedMenu2(ActionEvent e){
         chooseSeedButtonExtended2.setVisible(false);
         seedSpecies2.setVisible(false);
@@ -961,7 +985,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar2.setVisible(false);
         plantNewSeedButton2.setVisible(false);
     }
-
+    /**
+     * This method does the same thing but for the third seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void hideExtendedSeedMenu3(ActionEvent e){
         chooseSeedButtonExtended3.setVisible(false);
         seedSpecies3.setVisible(false);
@@ -971,6 +999,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
     }
+    /**
+     * This method does the same thing but for the forth seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void hideExtendedSeedMenu4(ActionEvent e){
         chooseSeedButtonExtended4.setVisible(false);
         seedSpecies4.setVisible(false);
@@ -980,6 +1013,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar4.setVisible(false);
         plantNewSeedButton4.setVisible(false);
     }
+    /**
+     * This method does the same thing but for the fifth seed
+     * @param e the event that triggers the method
+     * @author Mojtaba H
+     */
     public void hideExtendedSeedMenu5(ActionEvent e){
         chooseSeedButtonExtended5.setVisible(false);
         seedSpecies5.setVisible(false);
@@ -990,10 +1028,14 @@ public class HelloController implements Initializable {
         plantNewSeedButton5.setVisible(false);
     }
 
-    public void updateLevelPlantOne(){
-        levelPlantOne.setText(String.valueOf(mainBoundary.getPlantController().getPlant(0).getLevel()));
-    }
 
+    /**
+     * this method is called when the user wants to plant a seed and has named it
+     * What this method does is that it checks which seed the user has chosen and then plants that seed
+     * aswell as playing a sound effect
+     * @param e the event that triggers the method
+     * @author Mojtaba H & Emre M & Akmal S
+     */
     public void plantSeedOne(ActionEvent e){
         buttonClickSound();
         if (namePlantField.getText().length() > 0) {
@@ -1028,6 +1070,12 @@ public class HelloController implements Initializable {
             }
     }
 
+    /**
+     * This method is called before the seed is planted and it prompts the user to name the plant.
+     * @param e the event that triggers the method
+     * @author Mojtaba H & Emre M
+     */
+
     public void namePlantPrompt(ActionEvent e){
         buttonClickSound();
         namePlantPrompt.setVisible(true);
@@ -1053,6 +1101,11 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * This method is called when the user enters a name or when he closes the name prompt.
+     * @param e the event that triggers the method
+     * @author Mojtaba H & Emre M
+     */
     public void hideNamePrompt(ActionEvent e){
         buttonClickSound();
         namePlantPrompt.setVisible(false);
@@ -1272,6 +1325,13 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * this method searches after the label on the active stage with the given id and returns it if it matches
+     * @param stage the current stage
+     * @param id the id of the label
+     * @return if the label is found it returns the label, otherwise it returns null
+     * @author Mojtaba H
+     */
     public Label getLabelFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1284,6 +1344,12 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method searches after an imageview on the active stage and returns the first one it finds
+     * @param stage current stage
+     * @return imageview if found, otherwise null
+     * @author Mojtaba H
+     */
     public ImageView getImageViewFromStage(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1296,6 +1362,13 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this one searches for an imageview on the stage but with a specific id
+     * @param stage the current stage
+     * @param id  the id of the imageview
+     * @return the imageview if found, otherwise null
+     * @author Mojtaba H
+     */
     public ImageView getImageViewFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1308,6 +1381,13 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method searches for a button on the active stage with a specific id
+     * @param stage the current stage
+     * @param id the id of the button
+     * @return the button if found, otherwise null
+     * @author Mojtaba H
+     */
     public Button getButtonsFromSelectPlantScene(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1339,6 +1419,12 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method searches for a progressbar with a hardcoded ID
+     * @param stage the current stage
+     * @return the progressbar if found, otherwise null
+     * @author Mojtaba H
+     */
     public ProgressBar getWaterBarInSelectPlantScene(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1355,6 +1441,7 @@ public class HelloController implements Initializable {
      * this method uses a timeline to update the picture of the plant in the select plant scene based on levels every two seconds
      * @param imageView the imageview that needs to be updated
      * @param index the index of the plant
+     * @author Mojtaba H
      */
     public void updatePictureInSelectPlantScene(ImageView imageView, int index){
         int level = mainBoundary.getPlantController().getPlant(index).getLevel();
@@ -1397,6 +1484,11 @@ public class HelloController implements Initializable {
         timeline.play();
     }
 
+    /**
+     * This method also searches for a progressbar with a hardcoded ID can be replaced with one that takes in an ID
+     * @param stage the current stage
+     * @return the progressbar if found, otherwise null
+     */
     public ProgressBar getHealthBarInSelectPlantScene(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1409,6 +1501,14 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method is called after the user selects a plant
+     * What this method does is that it sets up the select plant seed with the right buttons corresponding to the right plant object that was selected
+     *
+     * @param stage the current stage
+     * @param index the index of the plant that was selected
+     * @author Mojtaba H
+     */
     public void setUpSelectPlantScene(Stage stage,int index){
         speciesNameInSelectPlantScene = getLabelFromStage(stage, "speciesNameInSelectPlantScene");
         plantNameInSelectPlantScene = getLabelFromStage(stage, "plantNameInSelectPlantScene");
@@ -1450,6 +1550,13 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * This method is called when the user selects a plant to show as a widget
+     * This method and the one above does the same thing but for different stages
+     * This method sets up the widget scene with the right buttons and labels corresponding to the right plant object that was selected
+     * @param button the button that was clicked
+     * @param stage the current stage
+     */
     public void setupWidgetScene(Button button, Stage stage){
         if(button.getId().equals("placeOnDesk1")){
             ImageView imagePlantOne = getImageViewFromStage(stage);
@@ -1486,6 +1593,11 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * this method sets up the seed scene with the right images to match the information of the plants
+     * @param stage the current stage
+     * @author Mojtaba H & Emre M
+     */
     public void setUpSeedScene(Stage stage){
         InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl4.png");
         Image image = new Image(inputStream);
@@ -1501,6 +1613,13 @@ public class HelloController implements Initializable {
         imageView3.setImage(image3);
     }
 
+    /**
+     * This method is one that searches and returns a progress bar in the stage with a specific id
+     * @param stage the current stage
+     * @param id the id of the progress bar
+     * @return the progress bar if found, otherwise null
+     * @author Mojtaba H
+     */
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1513,6 +1632,12 @@ public class HelloController implements Initializable {
         return null;
     }
 
+    /**
+     * this method is called when the user clicks on the right button in the seed scene
+     * What this method does is that it changes the images of the seeds that are shown by-
+     * - disabling the current images and enabling the new ones
+     * @param e the action event that was triggered by the user
+     */
     public void switchSeedsToRight(ActionEvent e){
         buttonClickSound();
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
@@ -1556,6 +1681,12 @@ public class HelloController implements Initializable {
         difficultyBarFive.setVisible(true);
     }
 
+    /**
+     * this method is called when the user clicks on the left button in the seed scene
+     * What this method does is that it changes the images of the seeds that are shown by-
+     * - disabling the current images and enabling the new ones
+     * @param e the action event that was triggered by the user
+     */
     public void switchSeedsToLeft(ActionEvent e){
         buttonClickSound();
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
