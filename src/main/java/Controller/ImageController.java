@@ -4,13 +4,31 @@ import Model.PotType;
 import javafx.scene.image.Image;
 import java.io.InputStream;
 
+/**
+ * This class is responsible for the logic of what image to display based on plant type, pot type, and level.
+ * It is used by the PlantController class and returns the image to be displayed in the GUI for the plant.
+ * @author Yrja Mai Hoang
+ */
 public class ImageController {
     private PlantController plantController;
-    
+
+    /**
+     * Constructor for ImageController
+     * @param plantController PlantController object
+     * @author Yrja Mai Hoang
+     */
     public ImageController(PlantController plantController) {
         this.plantController = plantController;
     }
-    
+
+    /**
+     * Returns the image of the Cactus based on the plant type and level category.
+     * It calls the appropriate method to figure out what image to return.
+     * @param potType PotType enum
+     * @param level int
+     * @return Image object of the cactus plant based on the pot type and level category. Returns null if invalid pot type.
+     * @author Yrja Mai Hoang
+     */
     public Image getCactusPotImage(PotType potType, int level){
         switch (potType) {
             case Mort -> {
@@ -38,6 +56,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImageMort(int level) {
         switch (level) {
             case 1 -> {
@@ -63,6 +88,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Hello Kitty pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImageHelloKitty(int level) {
         switch (level) {
             case 1 -> {
@@ -88,6 +120,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Peter pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImagePeter(int level) {
         switch (level) {
             case 1 -> {
@@ -113,6 +152,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Roblox pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImageRoblox(int level) {
         switch (level) {
             case 1 -> {
@@ -138,6 +184,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Smile pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImageSmile(int level) {
         switch (level) {
             case 1 -> {
@@ -163,6 +216,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the cactus plant.
+     * It returns the image of the cactus plant with Sponge pot based on the level category.
+     * @param level int level category
+     * @return Image object of the cactus plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     public Image setCactusImageSponge(int level) {
         switch (level) {
             case 1 -> {
@@ -188,6 +248,14 @@ public class ImageController {
         }
     }
 
+    /**
+     * Returns the image of the Monstera based on the plant type, pot type, and level category.
+     * It calls the appropriate method to figure out what image to return.
+     * @param potType PotType enum
+     * @param level int level category
+     * @return Image object of the monstera plant based on the pot type and level category. Returns null if invalid pot type.
+     * @author Yrja Mai Hoang
+     */
     public Image getMonsteraPotImage(PotType potType, int level){
         switch (potType) {
             case Mort -> {
@@ -215,6 +283,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImageSponge(int level) {
         switch (level) {
             case 1 -> {
@@ -240,6 +315,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Smile pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImageSmile(int level) {
         switch (level) {
             case 1 -> {
@@ -265,6 +347,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Roblox pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImageRoblox(int level) {
         switch (level) {
             case 1 -> {
@@ -290,6 +379,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Peter pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImagePeter(int level) {
         switch (level) {
             case 1 -> {
@@ -315,6 +411,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Hello Kitty pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImageHelloKitty(int level) {
         switch (level) {
             case 1 -> {
@@ -340,6 +443,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the monstera plant.
+     * It returns the image of the monstera plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the monstera plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setMonsteraImageMort(int level) {
         switch (level) {
             case 1 -> {
@@ -365,6 +475,14 @@ public class ImageController {
         }
     }
 
+    /**
+     * Returns the image of the Pumpkin based on the plant type, pot type, and level category.
+     * It calls the appropriate method to figure out what image to return.
+     * @param potType PotType enum
+     * @param level int level category
+     * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
+     * @author Yrja Mai Hoang
+     */
     public Image getPumpkinPotImage(PotType potType, int level){
         switch (potType) {
             case Mort -> {
@@ -392,6 +510,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImageMort(int level) {
         switch (level) {
             case 1 -> {
@@ -417,6 +542,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Hello Kitty pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImageHelloKitty(int level) {
         switch (level) {
             case 1 -> {
@@ -442,6 +574,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Peter pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImagePeter(int level) {
         switch (level) {
             case 1 -> {
@@ -467,6 +606,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Roblox pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImageRoblox(int level) {
         switch (level) {
             case 1 -> {
@@ -492,6 +638,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Smile pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImageSmile(int level) {
         switch (level) {
             case 1 -> {
@@ -517,6 +670,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the pumpkin plant.
+     * It returns the image of the pumpkin plant with Sponge pot based on the level category.
+     * @param level int level category
+     * @return Image object of the pumpkin plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setPumpkinImageSponge(int level) {
         switch (level) {
             case 1 -> {
@@ -542,6 +702,14 @@ public class ImageController {
         }
     }
 
+    /**
+     * Returns the image of the Snake Plant based on the plant type, pot type, and level category.
+     * It calls the appropriate method to figure out what image to return.
+     * @param potType PotType enum
+     * @param level int level category
+     * @return Image object of the snake plant based on the pot type and level category. Returns null if invalid pot type.
+     * @author Yrja Mai Hoang
+     */
     public Image getSnakePlantPotImage(PotType potType, int level){
         switch (potType) {
             case Mort -> {
@@ -569,6 +737,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImageMort(int level) {
         switch (level) {
             case 1 -> {
@@ -594,6 +769,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Hello Kitty pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImageHelloKitty(int level) {
         switch (level) {
             case 1 -> {
@@ -619,6 +801,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Peter pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImagePeter(int level) {
         switch (level) {
             case 1 -> {
@@ -644,6 +833,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Roblox pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImageRoblox(int level) {
         switch (level) {
             case 1 -> {
@@ -669,6 +865,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Smile pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImageSmile(int level) {
         switch (level) {
             case 1 -> {
@@ -694,6 +897,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the snake plant.
+     * It returns the image of the snake plant with Sponge pot based on the level category.
+     * @param level int level category
+     * @return Image object of the snake plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSnakePlantImageSponge(int level) {
         switch (level) {
             case 1 -> {
@@ -719,6 +929,14 @@ public class ImageController {
         }
     }
 
+    /**
+     * Returns the image of the Sunflower based on the plant type, pot type, and level category.
+     * It calls the appropriate method to figure out what image to return.
+     * @param potType PotType enum
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the pot type and level category. Returns null if invalid pot type.
+     * @author Yrja Mai Hoang
+     */
     public Image getSunflowerPotImage(PotType potType, int level){
         switch (potType) {
             case Mort -> {
@@ -746,6 +964,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Hello Kitty pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImageHelloKitty(int level) {
         switch (level) {
             case 1 -> {
@@ -771,6 +996,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Peter pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImagePeter(int level) {
         switch (level) {
             case 1 -> {
@@ -796,6 +1028,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Roblox pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImageRoblox(int level) {
         switch (level) {
             case 1 -> {
@@ -821,6 +1060,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Smile pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImageSmile(int level) {
         switch (level) {
             case 1 -> {
@@ -846,6 +1092,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Sponge pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImageSponge(int level) {
         switch (level) {
             case 1 -> {
@@ -871,6 +1124,13 @@ public class ImageController {
         }
     }
 
+    /**
+     * This method is the final step in determining what image to display for the sunflower plant.
+     * It returns the image of the sunflower plant with Mort pot based on the level category.
+     * @param level int level category
+     * @return Image object of the sunflower plant based on the level category. Returns null if invalid level category.
+     * @author Yrja Mai Hoang
+     */
     private Image setSunflowerImageMort(int level) {
         switch (level) {
             case 1 -> {

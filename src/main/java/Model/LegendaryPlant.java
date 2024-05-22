@@ -14,6 +14,7 @@ public class LegendaryPlant implements Serializable {
     private String name;
     private PlantTypes type;
     private Image image;
+    private PotType potType;
 
     public LegendaryPlant() {
 
@@ -31,6 +32,10 @@ public class LegendaryPlant implements Serializable {
         this.type = type;
     }
 
+    public void setPotType(PotType potType) {
+        this.potType = potType;
+    }
+
     public Image getImage() {
         return image;
     }
@@ -41,5 +46,9 @@ public class LegendaryPlant implements Serializable {
 
     public PlantTypes getType() {
         return type;
+    }
+
+    public PotType getPotType() {
+        return potType;
     }
 }

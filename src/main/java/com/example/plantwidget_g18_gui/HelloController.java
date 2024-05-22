@@ -282,7 +282,7 @@ public class HelloController implements Initializable {
     private PlantController plantController;
 
     /**
-     * This method switches scene to PLant Info scene.
+     * This method switches scene to Plant Info scene.
      * @param event Button click.
      * @param index Index of the plant.
      */
@@ -301,7 +301,7 @@ public class HelloController implements Initializable {
             mouseMoveable(scene);
 
             ImageView plantImageForInfo = getImageViewFromStage(stage); // this gets the imageview from the stage so to set the image of the plant
-            plantImageForInfo.setImage(mainBoundary.getPlantController().getPlant(index).getImage());//sets the image but i dont know if this breaks MVC
+            plantImageForInfo.setImage(mainBoundary.getPlantController().getPlant(index).getImage());//sets the image but I don't know if this breaks MVC
             ProgressBar waterBarInSelectPlantScene = getWaterBarInSelectPlantScene(stage);
             ProgressBar healthBarInSelectPlantScene = getHealthBarInSelectPlantScene(stage);
             healthBarInSelectPlantScene.getStyleClass().add("progressBarHealth");
@@ -318,8 +318,8 @@ public class HelloController implements Initializable {
 
     /**
      * This method makes the plant in to widget scene.
-     * @Author Emre Mengütay
      * @param event Button click.
+     * @author Emre Mengütay
      */
     public void placeOnDesk1(ActionEvent event){
         mainBoundary.getPlantController().startTheTimer();
@@ -347,7 +347,7 @@ public class HelloController implements Initializable {
     /**
      * This method takes the user to the Setting scene.
      * @param event Button click.
-     *              @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void goToSettings(ActionEvent event){
         buttonClickSound();
@@ -398,7 +398,11 @@ public class HelloController implements Initializable {
         }
     }
 
-    //AKMAL SAfi
+    /**
+     *
+     * @return boolean
+     * @author Akmal Safi
+     */
     public boolean confirmDelete() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("⚠️ Hold on! ⚠️");
@@ -411,7 +415,6 @@ public class HelloController implements Initializable {
 
         alert.getButtonTypes().setAll(okButton, cancelButton);
 
-
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.setStyle("-fx-background-color: #C8E6C9;");
 
@@ -419,7 +422,11 @@ public class HelloController implements Initializable {
         return result.isPresent() && result.get() == okButton;
     }
 
-    //AKMAL SAFI
+    /**
+     *
+     * @return boolean
+     * @author Akmal Safi
+     */
     public boolean confirmExit() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Exit 🌿🌸");
@@ -437,8 +444,6 @@ public class HelloController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         return result.isPresent() && result.get() == exitButton;
     }
-
-
 
     /**
      * Method for delete plant button, deletes the plant and goes back to the library scene.
@@ -466,6 +471,7 @@ public class HelloController implements Initializable {
             System.out.println("Plant Deleted2");
         }
     }
+
     public void deletePlant3(ActionEvent event) {
         if (confirmDelete()) {
             playSadMusic();
@@ -480,7 +486,7 @@ public class HelloController implements Initializable {
     /**
      * This method takes the user back to the library scene.
      * @param event that triggers the method.
-     *              @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void goBackToLibrary(ActionEvent event){
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -509,9 +515,10 @@ public class HelloController implements Initializable {
         }
     }
 
-    /*
-            GOES TO THE PLANT NEW SEED SCENE, OR THE FIRST GUI WHEN OPENING PROGRAM FOR THE FIRST TIME
-        */
+    /**
+     * GOES TO THE PLANT NEW SEED SCENE, OR THE FIRST GUI WHEN OPENING PROGRAM FOR THE FIRST TIME
+     * @param event that triggers the method.
+     */
     public void goTochooseSeedScene(ActionEvent event){
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
@@ -600,7 +607,7 @@ public class HelloController implements Initializable {
 
     /**
      * This method updates the health bar of the first plant.
-     * @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void updatePlantHealthBarOne() {
         if(plantHealthBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
@@ -610,7 +617,7 @@ public class HelloController implements Initializable {
 
     /**
      * This method updates the water bar of the first plant.
-     * @Author Emre Mengütay
+     * @author Emre Mengütay
      */
     public void updatePlantWaterBarOne() {
         if(plantWaterBarOne != null && mainBoundary.getPlantController().getPlant(0) != null){
@@ -650,7 +657,8 @@ public class HelloController implements Initializable {
      * It also reads the time track from the file.
      * It also loads the plants from the file.
      * It also updates the current library.
-     * @Author Emre Mengütay & Akmal Safi & ---
+     * @author Emre Mengütay
+     * @author Akmal Safi & ---
      */
     public HelloController() {
         this.mainBoundary = MainBoundary.getInstance();
@@ -682,6 +690,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
             updateCurrentLibrary();
     }
+
     /**
      * This method creates a pop-up window that alerts the user that their plant has died. It also plays a sound effect.
      * After clicking the :(  button the user is taken back to the library scene.
@@ -741,16 +750,13 @@ public class HelloController implements Initializable {
 
         dialogPaneContent.getChildren().add(imageView);
 
-
         alert.getDialogPane().setContent(dialogPaneContent);
-
 
         ButtonType closeButton = new ButtonType("Close, I promise to water the next plant", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getDialogPane().getButtonTypes().add(closeButton);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg")));
-
 
         alert.showAndWait();
         stage.toFront();
@@ -761,6 +767,7 @@ public class HelloController implements Initializable {
 
         mainBoundary.getMusic().deathSoundGenerator();
     }
+
     /**
      * Method that takes the program back to the library scene. It needs to be run on Swing because of JavaFX requiring
      * an action event.
@@ -786,10 +793,12 @@ public class HelloController implements Initializable {
             }
         });
     }
+
     /**
      * This method waters the plant in the library. It also plays a watering sound effect.
      * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary..
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void waterPlantOne(ActionEvent event){
         mainBoundary.getPlantController().waterPlant(0);
@@ -801,11 +810,12 @@ public class HelloController implements Initializable {
         }
         //water plant in controller, that takes in the plant
     }
+
     /**
      * This method waters the plant in the library. It also plays a watering sound effect.
      * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary.
-     * @param event The event that triggers the watering of the plant.
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void waterPlantTwo(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(1);
@@ -818,11 +828,12 @@ public class HelloController implements Initializable {
             goBackToLibrary(event);
         }
     }
+
     /**
      * This method waters the third plant in the library. It also plays a watering sound effect.
      * @param event The event that triggers the watering of the plant and goes back to the library if the plant is legendary.
-     * @param event The event that triggers the watering of the plant.
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
@@ -835,9 +846,11 @@ public class HelloController implements Initializable {
             goBackToLibrary(event);
         }
     }
+
     /**
      * This method simulates skipping a day for the first plant.
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void skipDay1(ActionEvent event){
         buttonClickSound();
@@ -851,9 +864,11 @@ public class HelloController implements Initializable {
             System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
         }
     }
+
     /**
      * This method simulates skipping a day for the second plant.
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void skipDay2(ActionEvent event){
         buttonClickSound();
@@ -865,9 +880,11 @@ public class HelloController implements Initializable {
             System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
         }
     }
+
     /**
      * This method simulates skipping a day for the third plant.
-     * @author Emre Mengütay & Mojtaba
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
      */
     public void skipDay3(ActionEvent event){
         buttonClickSound();
@@ -887,7 +904,7 @@ public class HelloController implements Initializable {
      * What this method does is that it enables more buttons for the user to prompt him to plant the seed and-
      * -show more information about the seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void showExtendedSeedMenu1(ActionEvent e){
         chooseSeedButtonExtended1.setVisible(true);
@@ -902,7 +919,7 @@ public class HelloController implements Initializable {
     /**
      * Same with this method but for the second seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void showExtendedSeedMenu2(ActionEvent e){
         chooseSeedButtonExtended2.setVisible(true);
@@ -913,10 +930,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar2.setVisible(true);
         plantNewSeedButton2.setVisible(true);
     }
+
     /**
      * Same with this method but for the third seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void showExtendedSeedMenu3(ActionEvent e){
         chooseSeedButtonExtended3.setVisible(true);
@@ -927,10 +945,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(true);
         plantNewSeedButton3.setVisible(true);
     }
+
     /**
      * Same with this method but for the forth seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void showExtendedSeedMenu4(ActionEvent e){
         chooseSeedButtonExtended4.setVisible(true);
@@ -941,10 +960,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar4.setVisible(true);
         plantNewSeedButton4.setVisible(true);
     }
+
     /**
      * Same with this method but for the fifth seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void showExtendedSeedMenu5(ActionEvent e){
         chooseSeedButtonExtended5.setVisible(true);
@@ -960,7 +980,7 @@ public class HelloController implements Initializable {
      * this method is called when the user closes clicks on the prompt that was shown to close it down and hide it
      *
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void hideExtendedSeedMenu1(ActionEvent e){
         chooseSeedButtonExtended1.setVisible(false);
@@ -971,10 +991,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar1.setVisible(false);
         plantNewSeedButton1.setVisible(false);
     }
+
     /**
      * This method does the same thing but for the second seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void hideExtendedSeedMenu2(ActionEvent e){
         chooseSeedButtonExtended2.setVisible(false);
@@ -985,10 +1006,11 @@ public class HelloController implements Initializable {
         seedDifficultyBar2.setVisible(false);
         plantNewSeedButton2.setVisible(false);
     }
+
     /**
      * This method does the same thing but for the third seed
      * @param e the event that triggers the method
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public void hideExtendedSeedMenu3(ActionEvent e){
         chooseSeedButtonExtended3.setVisible(false);
@@ -999,6 +1021,7 @@ public class HelloController implements Initializable {
         seedDifficultyBar3.setVisible(false);
         plantNewSeedButton3.setVisible(false);
     }
+
     /**
      * This method does the same thing but for the forth seed
      * @param e the event that triggers the method
@@ -1013,6 +1036,7 @@ public class HelloController implements Initializable {
         seedDifficultyBar4.setVisible(false);
         plantNewSeedButton4.setVisible(false);
     }
+
     /**
      * This method does the same thing but for the fifth seed
      * @param e the event that triggers the method
@@ -1028,13 +1052,14 @@ public class HelloController implements Initializable {
         plantNewSeedButton5.setVisible(false);
     }
 
-
     /**
      * this method is called when the user wants to plant a seed and has named it
      * What this method does is that it checks which seed the user has chosen and then plants that seed
-     * aswell as playing a sound effect
+     * as well as playing a sound effect
      * @param e the event that triggers the method
-     * @author Mojtaba H & Emre M & Akmal S
+     * @author Mojtaba Hauari
+     * @author Emre Mengütay
+     * @author Akmal Safi
      */
     public void plantSeedOne(ActionEvent e){
         buttonClickSound();
@@ -1073,9 +1098,9 @@ public class HelloController implements Initializable {
     /**
      * This method is called before the seed is planted and it prompts the user to name the plant.
      * @param e the event that triggers the method
-     * @author Mojtaba H & Emre M
+     * @author Mojtaba Hauari
+     * @author Emre Mengütay
      */
-
     public void namePlantPrompt(ActionEvent e){
         buttonClickSound();
         namePlantPrompt.setVisible(true);
@@ -1104,7 +1129,8 @@ public class HelloController implements Initializable {
     /**
      * This method is called when the user enters a name or when he closes the name prompt.
      * @param e the event that triggers the method
-     * @author Mojtaba H & Emre M
+     * @author Mojtaba Hauari
+     * @author Emre Mengütay
      */
     public void hideNamePrompt(ActionEvent e){
         buttonClickSound();
@@ -1114,6 +1140,7 @@ public class HelloController implements Initializable {
         closeNamePlantButton.setVisible(false);
         enterNameButton.setVisible(false);
     }
+
     /**
      * This checks if the plant has reached legendary status and if so, it creates a legendary plant and deletes the
      * growing plant.
@@ -1145,7 +1172,9 @@ public class HelloController implements Initializable {
      * It also updates the level of the plants in the library.
      * It also updates the image of the plants in the library.
      * It also updates the visibility of the plants in the library.
-     * @Author Emre Mengütay & Mojtaba H & Akmal safi
+     * @author Emre Mengütay
+     * @author Mojtaba Hauari
+     * @author Akmal safi
      */
     public void updateCurrentLibrary(){
         Plant plant1 = mainBoundary.getPlantController().getPlant(0);
@@ -1286,10 +1315,12 @@ public class HelloController implements Initializable {
         healthLoss.setCycleCount(Animation.INDEFINITE);
         healthLoss.play();
     }
+
     /**
      * This method selects the plant and switches to the plant info scene, it also checks if the plant has
      * achieved legendary status and if so, it switches back to the library scene.
-     * @author Emre Mengütay & Mojtaba H
+     * @author Emre Mengütay
+     * @author Mojtaba H
      */
     public void selectPlantOne(ActionEvent e){
         buttonClickSound();
@@ -1298,10 +1329,12 @@ public class HelloController implements Initializable {
             goBackToLibrary(e);
         }
     }
+
     /**
      * This method selects the plant and switches to the plant info scene, it also checks if the plant has
      * achieved legendary status and if so, it switches back to the library scene.
-     * @author Emre Mengütay & Mojtaba H
+     * @author Emre Mengütay
+     * @author Mojtaba H
      */
     public void selectPlantTwo(ActionEvent e){
         buttonClickSound();
@@ -1315,7 +1348,8 @@ public class HelloController implements Initializable {
     /**
      * This method selects the plant and switches to the plant info scene, it also checks if the plant has
      * achieved legendary status and if so, it switches back to the library scene.
-     * @author Emre Mengütay & Mojtaba H
+     * @author Emre Mengütay
+     * @author Mojtaba H
      */
     public void selectPlantThree(ActionEvent e){
         buttonClickSound();
@@ -1399,6 +1433,7 @@ public class HelloController implements Initializable {
         }
         return null;
     }
+
     private GridPane getLegendaryGridPane(Stage stage){
         Node root = stage.getScene().getRoot();
         if(root instanceof Parent){
@@ -1468,7 +1503,8 @@ public class HelloController implements Initializable {
 
     /**
      * This method uses a timeline to update the water and health bar in the select plant scene every x seconds.
-     * @author Emre Mengütay & Mojtaba H
+     * @author Emre Mengütay
+     * @author Mojtaba H
      */
     public void updateWaterAndHealthBar(ProgressBar waterBar, ProgressBar healthBar, int index){
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.001),e ->{
@@ -1596,7 +1632,8 @@ public class HelloController implements Initializable {
     /**
      * this method sets up the seed scene with the right images to match the information of the plants
      * @param stage the current stage
-     * @author Mojtaba H & Emre M
+     * @author Mojtaba Hauari
+     * @author Emre Mengütay
      */
     public void setUpSeedScene(Stage stage){
         InputStream inputStream = getClass().getResourceAsStream("/images/plant1/cactusLvl4.png");
@@ -1618,7 +1655,7 @@ public class HelloController implements Initializable {
      * @param stage the current stage
      * @param id the id of the progress bar
      * @return the progress bar if found, otherwise null
-     * @author Mojtaba H
+     * @author Mojtaba Hauari
      */
     public ProgressBar getProgressBarFromStage(Stage stage, String id){
         Node root = stage.getScene().getRoot();
@@ -1728,18 +1765,23 @@ public class HelloController implements Initializable {
         hideExtendedSeedMenu5(e);
         hideExtendedSeedMenu4(e);
     }
+
     public void deletePlantHover(){
         imageX1.setImage(new Image(getClass().getResourceAsStream("/images/remove.png")));
     }
+
     public void buttonClickSound(){
         mainBoundary.getMusic().buttonClickSound();
     }
+
     public void closeProgramSound(){
         mainBoundary.getMusic().closeProgramSound();
     }
+
     public void stopMusic(){
         mainBoundary.getMusic().stopMusic();
     }
+
     public void turnOnMusic(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1747,6 +1789,7 @@ public class HelloController implements Initializable {
         }else {
             music.playMusic("musicc/mountainflowers.wav");}
     }
+
     public void turnOnMusic1(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1754,6 +1797,7 @@ public class HelloController implements Initializable {
         }else {
             music.playMusic("src/main/resources/sounds/euphoria.wav");}
     }
+
     public void turnOnMusic2(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1761,17 +1805,21 @@ public class HelloController implements Initializable {
         }else {
             music.playMusic("src/main/resources/sounds/Sweden.wav");}
     }
+
     public void playSadMusic(){
         mainBoundary.getMusic().playSadSound();
     }
+
     public void playHealthLossSound(){
         mainBoundary.getMusic().healthSound();
     }
+
     public void closePopUp(ActionEvent event){
         buttonClickSound();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
+
     public void openPopUp(ActionEvent ev){
         buttonClickSound();
         try {
@@ -1786,6 +1834,7 @@ public class HelloController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void openPopUpSeed(ActionEvent ev){
         buttonClickSound();
         try {
@@ -1801,26 +1850,56 @@ public class HelloController implements Initializable {
         }
     }
 
+    /**
+     * This method changes the pot image to HelloKitty
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotHelloKitty(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotHelloKitty();
     }
 
+    /**
+     * This method changes the pot image to Mort
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotMort(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotMort();
     }
 
+    /**
+     * This method changes the pot image to Peter
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotPeter(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotPeter();
     }
 
+    /**
+     * This method changes the pot image to Roblox
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotRoblox(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotRoblox();
     }
 
+    /**
+     * This method changes the pot image to Smile
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotSmile(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotSmile();
     }
 
+    /**
+     * This method changes the pot image to Sponge
+     * @param actionEvent the event that triggers the method
+     * @author Yrja Mai Hoang
+     */
     public void setPotSponge(ActionEvent actionEvent) {
         mainBoundary.getPlantController().setPotSponge();
     }

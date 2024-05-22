@@ -1,11 +1,6 @@
 package Model;
 
-/**
- * This class provides functionality to play audio file in a continuous loop.
- */
-
 import com.example.plantwidget_g18_gui.HelloController;
-
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -13,11 +8,15 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * This class provides functionality to play audio file in a continuous loop.
  * Plays the specified audio file in a continuous loop.
+ * @author Akmal Safi
  */
+
 public class Music {
     private Clip clipMusic;
     private Clip backgroundMusic;
+
     public  void playMusic(String path) {
         try {
             File file = new File(path);
@@ -30,6 +29,7 @@ public class Music {
             e.printStackTrace();
         }
     }
+
     public Clip getClipMusic() {
         return backgroundMusic;
     }
@@ -40,7 +40,6 @@ public class Music {
      * If the sound file is not found, it prints an error message.
      * @author: Akmal Safi
      */
-
     public void playSound(String soundFilePath) {
         try {
             InputStream inputStream = HelloController.class.getResourceAsStream(soundFilePath);
@@ -62,9 +61,11 @@ public class Music {
     public void deathSoundGenerator() {
         playSound("/sounds/oof_death.wav");
     }
+
     public void stopMusic(){
         backgroundMusic.stop();
     }
+
     public void startMusic(){
         clipMusic.start();
     }
@@ -72,18 +73,23 @@ public class Music {
     public void buttonClickSound() {
         playSound("/sounds/button_click.wav");
     }
+
     public void closeProgramSound() {
         playSound("/sounds/close.wav");
     }
+
     public void playSadSound() {
         playSound("/sounds/sad.wav");
     }
+
     public void wateringSound() {
         playSound("/sounds/roblox_drink.wav");
     }
+
     public void pumpkinSound() {
         playSound("/deathsound/Pumpkinsoundeffect.wav");
     }
+
     public void cactusSound() {
         playSound("/deathsound/cactussound.wav");
     }
@@ -95,9 +101,11 @@ public class Music {
     public void sunflowerSound() {
         playSound("/deathsound/sunflowersound.wav");
     }
+
     public void snakeplantSound() {
         playSound("/deathsound/snakeplantsound.wav");
     }
+
     public void healthSound() {
         playSound("/sounds/oof_MC.wav");
     }
