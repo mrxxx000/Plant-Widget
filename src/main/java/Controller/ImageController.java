@@ -71,6 +71,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2mort.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3mort.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4mort.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendarymort.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -92,6 +93,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2hellokitty.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3hellokitty.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4hellokitty.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendaryhellokitty.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -113,6 +115,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2peter.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3peter.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4peter.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendarypeter.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -134,6 +137,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2roblox.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3roblox.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4roblox.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendaryroblox.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -155,6 +159,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2smile.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3smile.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4smile.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendarysmile.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -176,6 +181,7 @@ public class ImageController {
             case 2 -> "/images/cactuslevel2/cactuslevel2sponge.png";
             case 3 -> "/images/cactuslevel3/cactuslevel3sponge.png";
             case 4 -> "/images/cactuslevel4/cactuslevel4sponge.png";
+            case 5 -> "/images/cactuslegendary/cactuslegendarysponge.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -233,6 +239,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2sponge.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3sponge.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4sponge.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendarysponge.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -254,6 +261,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2smile.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3smile.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4smile.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendarysmile.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -275,6 +283,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2roblox.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3roblox.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4roblox.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendaryroblox.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -296,6 +305,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2peter.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3peter.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4peter.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendarypeter.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -318,6 +328,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2hellokitty.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3hellokitty.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4hellokitty.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendaryhellokitty.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -338,6 +349,7 @@ public class ImageController {
             case 2 -> "/images/monsteralevel2/monsteralevel2mort.png";
             case 3 -> "/images/monsteralevel3/monsteralevel3mort.png";
             case 4 -> "/images/monsteralevel4/monsteralevel4mort.png";
+            case 5 -> "/images/monsteralegendary/monsteralegendarymort.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -395,6 +407,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2mort.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3mort.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4mort.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendarymort.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -416,6 +429,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2hellokitty.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3hellokitty.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4hellokitty.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendaryhellokitty.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -437,6 +451,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2peter.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3peter.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4peter.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendarypeter.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -458,6 +473,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2roblox.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3roblox.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4roblox.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendaryroblox.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -479,6 +495,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2smile.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3smile.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4smile.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendarysmile.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -500,6 +517,7 @@ public class ImageController {
             case 2 -> "/images/pumpkinlevel2/pumpkinlevel2sponge.png";
             case 3 -> "/images/pumpkinlevel3/pumpkinlevel3sponge.png";
             case 4 -> "/images/pumpkinlevel4/pumpkinlevel4sponge.png";
+            case 5 -> "/images/pumpkinlegendary/pumpkinlegendarysponge.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -557,6 +575,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2mort.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3mort.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4mort.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendarymort.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -578,6 +597,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2hellokitty.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3hellokitty.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4hellokitty.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendaryhellokitty.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -599,6 +619,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2peter.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3peter.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4peter.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendarypeter.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -620,6 +641,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2roblox.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3roblox.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4roblox.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendaryroblox.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -641,6 +663,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2smile.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3smile.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4smile.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendarysmile.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -663,6 +686,7 @@ public class ImageController {
             case 2 -> "/images/snakeplantlevel2/snakeplantlevel2sponge.png";
             case 3 -> "/images/snakeplantlevel3/snakeplantlevel3sponge.png";
             case 4 -> "/images/snakeplantlevel4/snakeplantlevel4sponge.png";
+            case 5 -> "/images/snakeplantlegendary/snakeplantlegendarysponge.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -719,6 +743,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2hellokitty.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3hellokitty.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4hellokitty.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendaryhellokitty.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -740,6 +765,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2peter.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3peter.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4peter.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendarypeter.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -761,6 +787,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2roblox.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3roblox.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4roblox.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendaryroblox.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -782,6 +809,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2smile.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3smile.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4smile.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendarysmile.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -802,6 +830,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2sponge.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3sponge.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4sponge.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendarysponge.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;
@@ -822,6 +851,7 @@ public class ImageController {
             case 2 -> "/images/sunflowerlevel2/sunflowerlevel2mort.png";
             case 3 -> "/images/sunflowerlevel3/sunflowerlevel3mort.png";
             case 4 -> "/images/sunflowerlevel4/sunflowerlevel4mort.png";
+            case 5 -> "/images/sunflowerlegendary/sunflowerlegendarymort.png";
             default -> {
                 System.out.println("Invalid level");
                 yield null;

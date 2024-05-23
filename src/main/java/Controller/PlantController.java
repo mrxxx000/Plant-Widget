@@ -206,7 +206,6 @@ public class PlantController implements Serializable {
      *
      * @param plant Plant object used to create a Legendary Plant
      * @author Yrja Mai Hoang
-     * TODO: Add correct image for each legendary plant type
      */
     public void createLegendary(Plant plant) {
         PlantTypes type = plant.getType();
@@ -559,7 +558,7 @@ public class PlantController implements Serializable {
     public void setPlantImage(LegendaryPlant plant) {
         PlantTypes plantType = plant.getType();
         PotType potType = plant.getPotType();
-        int levelCategory = 4;
+        int levelCategory = 5;
         String imagePath = null;
         switch (plantType) {
             case CACTUS -> imagePath = imageController.getCactusPotImagePath(potType, levelCategory);
