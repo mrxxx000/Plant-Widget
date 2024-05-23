@@ -533,7 +533,7 @@ public class PlantController implements Serializable {
     public void setPlantImage(Plant plant) {
         PlantTypes plantType = plant.getType();
         PotType potType = plant.getPotType();
-        int levelCategory = 4;
+        int levelCategory = getLevelCategory(plant.getLevel());
         String imagePath = null;
         switch (plantType) {
             case CACTUS -> imagePath = imageController.getCactusPotImagePath(potType, levelCategory);
@@ -546,14 +546,15 @@ public class PlantController implements Serializable {
         if (imagePath != null) {
             plant.setImagePath(imagePath);
         }
-        }
+    }
 
 
     /**
      * Sets the image path for the given legendary plant based on its type, pot type, and a predefined level category.
+     *
+     * @param plant The legendary plant for which the image path is to be set.
      * @author Akmal Safi
      * @author Yrja Mai Hoang
-     * @param plant The legendary plant for which the image path is to be set.
      */
     public void setPlantImage(LegendaryPlant plant) {
         PlantTypes plantType = plant.getType();
