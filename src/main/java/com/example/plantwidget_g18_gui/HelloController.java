@@ -278,6 +278,9 @@ public class HelloController implements Initializable {
     private ComboBox<PlantTypes>plantTypesComboBox;
     private PlantTypes selectedPlantType;
     private PlantController plantController;
+    private double prevHealthLevelPlant1 = -1;
+    private double prevHealthLevelPlant2 = -1;
+    private double prevHealthLevelPlant3 = -1;
 
     /**
      * This method switches scene to Plant Info scene.
@@ -809,7 +812,11 @@ public class HelloController implements Initializable {
      */
     public void waterPlantThree(ActionEvent event) {
         mainBoundary.getPlantController().waterPlant(2);
+
+
         mainBoundary.getMusic().wateringSound();
+
+
         if(plantWaterBarOne != null){
             plantWaterBarThree.setProgress(mainBoundary.getPlantController().updateWaterBarGUI(2));
             plantHealthBarThree.setProgress(mainBoundary.getPlantController().updateHealthBarGUI(2));
@@ -1163,6 +1170,30 @@ public class HelloController implements Initializable {
         }
         Timeline healthLoss = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
             if (mainBoundary.getPlantController().getPlant(0) != null) {
+                double currentHealthLevelPlant1 = mainBoundary.getPlantController().getPlant(0).getHealthLevel();
+                if(currentHealthLevelPlant1 < prevHealthLevelPlant1 && currentHealthLevelPlant1 < 1){
+                    playHealthLossSound();
+                }
+                prevHealthLevelPlant1 = currentHealthLevelPlant1;
+            }
+            if (mainBoundary.getPlantController().getPlant(1) != null) {
+                double currentHealthLevelPlant2 = mainBoundary.getPlantController().getPlant(1).getHealthLevel();
+                if(currentHealthLevelPlant2 < prevHealthLevelPlant2 && currentHealthLevelPlant2 < 1){
+                    playHealthLossSound();
+                }
+                prevHealthLevelPlant2 = currentHealthLevelPlant2;
+            }
+            if (mainBoundary.getPlantController().getPlant(2) != null) {
+                double currentHealthLevelPlant3 = mainBoundary.getPlantController().getPlant(2).getHealthLevel();
+                if(currentHealthLevelPlant3 < prevHealthLevelPlant3 && currentHealthLevelPlant3 < 1){
+                    playHealthLossSound();
+                }
+                prevHealthLevelPlant3 = currentHealthLevelPlant3;
+            }
+        }));
+
+        /*Timeline healthLoss = new Timeline(new KeyFrame(Duration.seconds(2), e -> {
+            if (mainBoundary.getPlantController().getPlant(0) != null) {
                 if(mainBoundary.getPlantController().getPlant(0).getHealthLevel()<1){
                     playHealthLossSound();
                 }
@@ -1178,6 +1209,8 @@ public class HelloController implements Initializable {
              }
             }
         }));
+
+         */
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), e -> {
             if (plantNewSeedButton != null) {

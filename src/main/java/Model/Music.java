@@ -16,6 +16,9 @@ import java.io.InputStream;
 public class Music {
     private Clip clipMusic;
     private Clip backgroundMusic;
+    private Clip clipWater;
+    private boolean isWateringSoundPlaying = false;
+
 
     public  void playMusic(String path) {
         try {
@@ -83,7 +86,30 @@ public class Music {
     }
 
     public void wateringSound() {
-        playSound("/sounds/roblox_drink.wav");
+        //checks if there is a watering sound playing already
+        if (isWateringSoundPlaying) {
+            return;
+        }
+        try{
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/resources/sounds/roblox_drink.wav"));
+            clipWater = AudioSystem.getClip();
+            clipWater.open(audioInputStream);
+            clipWater.start();
+            isWateringSoundPlaying = true;
+
+            //this just adds a listener to set the soundPlaying to false when done playing
+            clipWater.addLineListener(new LineListener() {
+                @Override
+                public void update(LineEvent event) {
+                    if (event.getType() == LineEvent.Type.STOP) {
+                        isWateringSoundPlaying = false;
+                    }
+                }
+            });
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     public void pumpkinSound() {
