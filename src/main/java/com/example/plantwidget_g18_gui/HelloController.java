@@ -410,11 +410,11 @@ public class HelloController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("⚠️ Hold on! ⚠️");
         alert.setHeaderText("Are you sure?");
-        alert.setContentText("Are you absolutely, positively, beyond any shadow of a doubt sure " +
+        alert.setContentText("Are you absolutely, positively, beyond any shadow of a doubt sure \n" +
                 "you want to send this plant to the great compost heap in the sky? 🌿💀");
 
         ButtonType okButton = new ButtonType("Yes, compost-bound! 🚮");
-        ButtonType cancelButton = new ButtonType("No way, I'm growing attached! 🌱");
+        ButtonType cancelButton = new ButtonType("No way, I'm growing attached! 🌱", ButtonBar.ButtonData.CANCEL_CLOSE);
 
         alert.getButtonTypes().setAll(okButton, cancelButton);
 
@@ -422,9 +422,11 @@ public class HelloController implements Initializable {
         dialogPane.setStyle("-fx-background-color: #C8E6C9;");
 
         Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.CANCEL) {
+            goBackToLibrarySwing();
+        }
         return result.isPresent() && result.get() == okButton;
     }
-
     /**
      * Displays a confirmation dialog prompting the user to confirm exiting the garden.
      *
@@ -439,7 +441,9 @@ public class HelloController implements Initializable {
         alert.setContentText("Leaving now may cause your plants to feel neglected! 🥀🍃");
 
         ButtonType exitButton = new ButtonType("Exit, my plants can wait! 🏡👋");
-        ButtonType cancelButton = new ButtonType("Cancel, I'll stay and tend to my garden! 🌱");
+        ButtonType cancelButton = new ButtonType("Cancel, I'll stay and tend to my garden! 🌱" ,ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(cancelButton, cancelButton);
 
         alert.getButtonTypes().setAll(exitButton, cancelButton);
 
