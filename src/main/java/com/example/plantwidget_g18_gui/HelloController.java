@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -305,6 +306,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTheTimer();
         timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
@@ -340,6 +342,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().startTheTimer();
         //timelineUpdateHealth.playFromStart();
         mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
@@ -369,6 +372,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
         mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
@@ -546,6 +550,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().stopTheTimer();
         timelineUpdateHealth.stop();
         mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
@@ -564,6 +569,8 @@ public class HelloController implements Initializable {
 
     public void goToLegendaryScene(ActionEvent event){
         buttonClickSound();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
             Scene scene = new Scene(root);
@@ -1050,6 +1057,7 @@ public class HelloController implements Initializable {
     }
 
     public void showMenu(ActionEvent e){
+        buttonClickSound();
         menuButton.setVisible(false);
         hideMenuButton.setVisible(true);
         menuBar.setArcHeight(35.0d);
@@ -1823,18 +1831,26 @@ public class HelloController implements Initializable {
         imageX1.setImage(new Image(getClass().getResourceAsStream("/images/remove.png")));
     }
 
+    /**
+     * This method is called when a button is clicked. It plays a click sound.
+     * @auhtor Emre Mengütay
+     */
     public void buttonClickSound(){
         mainBoundary.getMusic().buttonClickSound();
     }
 
+    /**
+     * This method plays a sound when program is closed.
+     * @auhtor Emre Mengütay
+     */
     public void closeProgramSound(){
         mainBoundary.getMusic().closeProgramSound();
     }
 
-    public void stopMusic(){
-        mainBoundary.getMusic().stopMusic();
-    }
-
+    /**
+     * This method turns on music when the user clicks on the music button in the Settings
+     * @author Emre Mengütay
+     */
     public void turnOnMusic(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1842,7 +1858,10 @@ public class HelloController implements Initializable {
         }else {
             music.playMusic("musicc/mountainflowers.wav");}
     }
-
+    /**
+     * This method turns on music when the user clicks on the music button in the Settings
+     * @author Emre Mengütay
+     */
     public void turnOnMusic1(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1851,6 +1870,10 @@ public class HelloController implements Initializable {
             music.playMusic("src/main/resources/sounds/euphoria.wav");}
     }
 
+    /**
+     * This method turns on music when the user clicks on the music button in the Settings
+     * @author Emre Mengütay
+     */
     public void turnOnMusic2(){
         Music music = mainBoundary.getMusic();
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
@@ -1859,22 +1882,42 @@ public class HelloController implements Initializable {
             music.playMusic("src/main/resources/sounds/Sweden.wav");}
     }
 
+    /**
+     * This method is called when a plant dies / is deleted, it plays the sad sound.
+     * @auhtor Emre Mengütay
+     */
     public void playSadMusic(){
         mainBoundary.getMusic().playSadSound();
     }
 
+    /**
+     * This method is called when a plant takes damage, it plays the health loss sound.
+     * @auhtor Emre Mengütay
+     */
     public void playHealthLossSound(){
         mainBoundary.getMusic().healthSound();
     }
 
+    /**
+     * This method is called when a pop up is closed, it plays the button click sound and closes the pop up.
+     * @author Emre Mengütay
+     * @param event the event that triggers the method
+     */
     public void closePopUp(ActionEvent event){
         buttonClickSound();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
-
+    /**
+     * This method is called when the user clicks on the question mark button located in legendary
+     * library, it opens the help pop-up.
+     * @author Emre Mengütay
+     * @param ev the event that triggers the method
+     */
     public void openPopUp(ActionEvent ev){
         buttonClickSound();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/plantwidget_g18_gui/legendary_pop-up.fxml"));
             Parent root = fxmlLoader.load();
@@ -1882,13 +1925,29 @@ public class HelloController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.initStyle(StageStyle.UNDECORATED);
+            stage.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+            stage.addEventHandler(MouseEvent.MOUSE_DRAGGED, event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    /**
+     * This method is called when the user clicks on the question mark button located in library, it
+     * opens the help pop-up.
+     * @author Emre Mengütay
+     * @param ev the event that triggers the method
+     */
     public void openPopUpLibrary(ActionEvent ev){
         buttonClickSound();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/plantwidget_g18_gui/library_pop-up.fxml"));
             Parent root = fxmlLoader.load();
@@ -1896,14 +1955,30 @@ public class HelloController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.initStyle(StageStyle.UNDECORATED);
+            stage.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+            stage.addEventHandler(MouseEvent.MOUSE_DRAGGED, event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * This method is called when the user clicks on the question mark button located in the choose
+     * seed menu, it opens the help pop-up.
+     * @author Emre Mengütay
+     * @param ev the event that triggers the method
+     */
     public void openPopUpSeed(ActionEvent ev){
         buttonClickSound();
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/plantwidget_g18_gui/seed_pop-up.fxml"));
             Parent root = fxmlLoader.load();
@@ -1911,6 +1986,14 @@ public class HelloController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.initStyle(StageStyle.UNDECORATED);
+            stage.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+            stage.addEventHandler(MouseEvent.MOUSE_DRAGGED, event -> {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            });
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
