@@ -41,7 +41,12 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
-
+    @FXML
+    private ImageView newSeedIcon;
+    @FXML
+    private ImageView legendaryIcon;
+    @FXML
+    private ImageView settingsIcon;
     @FXML
     private Button hideMenuButton;
     @FXML
@@ -1052,8 +1057,11 @@ public class HelloController implements Initializable {
 
         menuBar.setVisible(true);
         plantNewSeedButton.setVisible(true);
+        newSeedIcon.setVisible(true);
         settingsButton.setVisible(true);
+        settingsIcon.setVisible(true);
         goToLegendaryPlants.setVisible(true);
+        legendaryIcon.setVisible(true);
         exitButton.setVisible(true);
     }
 
@@ -1062,8 +1070,11 @@ public class HelloController implements Initializable {
         hideMenuButton.setVisible(false);
         menuBar.setVisible(false);
         plantNewSeedButton.setVisible(false);
+        newSeedIcon.setVisible(false);
         settingsButton.setVisible(false);
+        settingsIcon.setVisible(false);
         goToLegendaryPlants.setVisible(false);
+        legendaryIcon.setVisible(false);
         exitButton.setVisible(false);
     }
 

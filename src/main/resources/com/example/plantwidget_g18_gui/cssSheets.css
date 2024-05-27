@@ -1,19 +1,19 @@
 .buttonLegendary
 {
     -fx-background-color: linear-gradient(to right bottom, #eaed26, #949410);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 
 .buttonLegendary:hover
 {
 -fx-background-color: linear-gradient(to right bottom, #9a9a22, #949410);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 
 .buttonLegendary:pressed
 {
 -fx-background-color: linear-gradient(to right bottom, #eaed26, #949410);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 
 .button1
@@ -99,6 +99,24 @@
 -fx-background-color: linear-gradient(to right bottom, #87cfdd, #3c76d3);
     -fx-background-radius : 0 0 0 0;
 }
+.buttonExitMenu
+{
+    -fx-background-color: linear-gradient(to right bottom, #da2929, #611111);
+    -fx-background-radius : 0 30 30 0;
+}
+
+.buttonExitMenu:hover
+{
+    -fx-background-color: linear-gradient(to right bottom, #612424, #611111);
+    -fx-background-radius : 0 30 30 0;
+}
+
+.buttonExitMenu:pressed
+{
+    -fx-background-color: linear-gradient(to right bottom, #da2929, #611111);
+    -fx-background-radius : 0 30 30 0;
+}
+
 
 .buttonExit
 {
@@ -263,19 +281,19 @@
 .buttonSettings
 {
 -fx-background-color: linear-gradient(to right bottom, #8a8a8a, #4a4a4a);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 
 .buttonSettings:hover
 {
 -fx-background-color: linear-gradient(to right bottom, #4a4a4a, #4a4a4a);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 
 .buttonSettings:pressed
 {
 -fx-background-color: linear-gradient(to right bottom, #8a8a8a, #4a4a4a);
-    -fx-background-radius : 30 0 0 30;
+    -fx-background-radius : 0 0 0 0;
 }
 .textFieldGreen {
     -fx-background-color: #92eaa9;
