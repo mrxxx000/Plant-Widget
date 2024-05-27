@@ -206,16 +206,16 @@
       <JFXButton fx:id="waterPlantOne" buttonType="RAISED" layoutX="9.0" layoutY="286.0" onAction="#waterPlantOne" prefHeight="25.0" prefWidth="88.0" ripplerFill="#5d69c6" styleClass="buttonWater" text="Water Plant" visible="false" />
       <JFXButton fx:id="selectPlantOne" buttonType="RAISED" layoutX="102.0" layoutY="286.0" onAction="#selectPlantOne" prefHeight="25.0" prefWidth="88.0" styleClass="buttonSelect" text="Select Plant" visible="false" />
       <Rectangle fx:id="menuBar" arcHeight="5.0" arcWidth="5.0" fill="#614d2f" height="57.0" layoutX="103.0" layoutY="329.0" stroke="BLACK" strokeType="INSIDE" styleClass="menu-bar" visible="false" width="401.0" />
-      <JFXButton fx:id="plantNewSeedButton" buttonType="RAISED" layoutX="128.0" layoutY="339.0" onAction="#goTochooseSeedScene" prefHeight="37.0" prefWidth="88.0" ripplerFill="BLACK" styleClass="button1" text="    New Seed" visible="false" />
-      <JFXButton fx:id="goToLegendaryPlants" buttonType="RAISED" layoutX="216.0" layoutY="339.0" onAction="#goToLegendaryScene" prefHeight="37.0" prefWidth="88.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="    Legendary" visible="false" />
-      <JFXButton fx:id="settingsButton" buttonType="RAISED" layoutX="304.0" layoutY="339.0" onAction="#goToSettings" prefHeight="37.0" prefWidth="88.0" ripplerFill="BLACK" styleClass="buttonSettings" text="Settings" textFill="WHITE" visible="false" />
-      <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="393.0" layoutY="339.0" onAction="#closeProgram" prefHeight="37.0" prefWidth="88.0" ripplerFill="BLACK" styleClass="buttonExitMenu" text="Exit Program" textFill="WHITE" visible="false" />
-      <ImageView fx:id="legendaryIcon" disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="213.0" layoutY="343.0" pickOnBounds="true" visible="false">
+      <JFXButton fx:id="plantNewSeedButton" buttonType="RAISED" layoutX="109.0" layoutY="339.0" onAction="#goTochooseSeedScene" prefHeight="37.0" prefWidth="101.0" ripplerFill="BLACK" styleClass="button1" text="    New Seed" visible="false" />
+      <JFXButton fx:id="goToLegendaryPlants" buttonType="RAISED" layoutX="203.0" layoutY="339.0" onAction="#goToLegendaryScene" prefHeight="37.0" prefWidth="101.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="    Legendary" visible="false" />
+      <JFXButton fx:id="settingsButton" buttonType="RAISED" layoutX="304.0" layoutY="339.0" onAction="#goToSettings" prefHeight="37.0" prefWidth="101.0" ripplerFill="BLACK" styleClass="buttonSettings" text="Settings" textFill="WHITE" visible="false" />
+      <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="399.0" layoutY="339.0" onAction="#closeProgram" prefHeight="37.0" prefWidth="101.0" ripplerFill="BLACK" styleClass="buttonExitMenu" text="Exit Program" textFill="WHITE" visible="false" />
+      <ImageView fx:id="legendaryIcon" disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="203.0" layoutY="343.0" pickOnBounds="true" visible="false">
          <image>
             <Image url="@../../../images/legend2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="newSeedIcon" disable="true" fitHeight="25.0" fitWidth="23.0" layoutX="128.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="newSeedIcon" disable="true" fitHeight="25.0" fitWidth="23.0" layoutX="115.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../images/plus.png" />
          </image>
@@ -233,7 +233,7 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton fx:id="menuButton" buttonType="RAISED" layoutX="-5.0" layoutY="332.0" onAction="#showMenu" prefHeight="51.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text=".">
+      <JFXButton fx:id="menuButton" buttonType="RAISED" layoutX="-5.0" layoutY="332.0" onAction="#showMenu" prefHeight="51.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text="." textFill="TRANSPARENT">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -298,7 +298,7 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <JFXButton buttonType="RAISED" layoutX="537.0" layoutY="333.0" onAction="#openPopUpLibrary" prefHeight="51.0" prefWidth="48.0" styleClass="button1" stylesheets="@cssSheets.css" text=".">
+      <JFXButton buttonType="RAISED" layoutX="537.0" layoutY="333.0" onAction="#openPopUpLibrary" prefHeight="51.0" prefWidth="48.0" styleClass="button1" stylesheets="@cssSheets.css" text="." textFill="TRANSPARENT">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" styleClass="buttonExit">
                <image>
