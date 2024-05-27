@@ -19,7 +19,11 @@ public class Music {
     private Clip clipWater;
     private boolean isWateringSoundPlaying = false;
 
-
+    /**
+     * This method plays the background music in a continuous loop.
+     * @author Akmal Safi & Emre
+     * @param path The path of the audio file to be played.
+     */
     public  void playMusic(String path) {
         try {
             File file = new File(path);
@@ -33,6 +37,10 @@ public class Music {
         }
     }
 
+    /**
+     * This method returns the clip object of the background music.
+     * @return Clip object of the background music.
+     */
     public Clip getClipMusic() {
         return backgroundMusic;
     }
@@ -61,30 +69,43 @@ public class Music {
         }
     }
 
+    /**
+     * This method generates and plays the death sound effect.
+     */
     public void deathSoundGenerator() {
         playSound("/sounds/oof_death.wav");
     }
 
+    /**
+     * This method stops the background music.
+     */
     public void stopMusic(){
         backgroundMusic.stop();
-    }
-
-    public void startMusic(){
-        clipMusic.start();
     }
 
     public void buttonClickSound() {
         playSound("/sounds/button_click.wav");
     }
-
+    /**
+     * This method generates and plays the button sound effect.
+     * @author Emre Mengütay
+     */
     public void closeProgramSound() {
         playSound("/sounds/close.wav");
     }
 
+    /**
+     * This method generates and plays a sad violin sound effect..
+     * @author Emre Mengütay
+     */
     public void playSadSound() {
         playSound("/sounds/sad.wav");
     }
 
+    /**
+     * This method generates and plays the watering sound effect when the plant is watered.
+     * @author Emre  & Mojtaba
+     */
     public void wateringSound() {
         //checks if there is a watering sound playing already
         if (isWateringSoundPlaying) {
@@ -132,6 +153,10 @@ public class Music {
         playSound("/deathsound/snakeplantsound.wav");
     }
 
+    /**
+     * This method generates and plays the sound effect when the plant loses health.
+     * @author Emre Mengütay
+     */
     public void healthSound() {
         playSound("/sounds/oof_MC.wav");
     }
