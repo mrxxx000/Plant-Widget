@@ -1,36 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleNode?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="421.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Pane layoutX="7.0" layoutY="7.0" prefHeight="475.0" prefWidth="44.0" stylesheets="@cssSheets.css">
-         <styleClass>
-            <String fx:value="buttonWater" />
-            <String fx:value="backgroundColorSettings" />
-         </styleClass>
-         <effect>
-            <Glow />
-         </effect>
-      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="480.0" layoutX="7.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="407.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5081999897956848" green="0.7525466680526733" blue="0.7699999809265137" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4457358717918396" green="0.8684210777282715" blue="0.2010233849287033" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="83.0" layoutX="7.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="407.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4470588266849518" green="0.3960784375667572" blue="0.729411780834198" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3546946048736572" green="0.7236841917037964" blue="0.3283382058143616" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <ProgressBar fx:id="plantWaterBarOne" disable="true" layoutX="490.0" layoutY="222.0" prefHeight="23.0" prefWidth="175.0" progress="0.78" />
       <ProgressBar fx:id="plantHealthBarOne" disable="true" layoutX="489.0" layoutY="284.0" prefHeight="23.0" prefWidth="175.0" progress="0.53" />
-      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="152.0" layoutY="396.0" onAction="#goBackToLibrary" prefHeight="40.0" prefWidth="119.0" ripplerFill="#b9a07b" style="-fx-background-color: #61523a;" text="Back to Library" textFill="WHITE">
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="152.0" layoutY="396.0" onAction="#goBackToLibrary" prefHeight="40.0" prefWidth="119.0" ripplerFill="#59ff00" style="-fx-background-color: #7265ba;" text="Back to Library">
          <font>
-            <Font name="Segoe UI" size="29.0" />
+            <Font name="Forte" size="29.0" />
          </font>
       </JFXButton>
       <Pane layoutX="60.0" layoutY="61.0" prefHeight="261.0" prefWidth="332.0">
          <children>
-            <JFXToggleNode layoutX="32.0" layoutY="222.0" onAction="#turnOnMusic" prefHeight="25.0" prefWidth="34.0">
+            <JFXToggleNode layoutX="31.0" layoutY="149.0" onAction="#turnOnMusic" prefHeight="25.0" prefWidth="34.0">
                <selectedColor>
                   <Color red="0.046296294778585434" green="1.0" blue="0.22114197909832" />
                </selectedColor>
@@ -44,7 +81,7 @@
                   <BoxBlur />
                </effect>
             </JFXToggleNode>
-            <Label layoutX="73.0" layoutY="224.0" text="Play Calm Music ">
+            <Label layoutX="72.0" layoutY="151.0" text="Play Calm Music ">
                <font>
                   <Font name="Nirmala UI Bold" size="15.0" />
                </font>
@@ -52,36 +89,12 @@
                   <Cursor fx:constant="CROSSHAIR" />
                </cursor>
             </Label>
-            <JFXToggleNode layoutX="9.0" layoutY="48.0" prefHeight="47.0" prefWidth="44.0" styleClass="elementToggle" stylesheets="@cssSheets.css">
-               <selectedColor>
-                  <Color red="0.1500999927520752" green="0.16938500106334686" blue="0.1899999976158142" opacity="0.0" />
-               </selectedColor>
-               <unSelectedColor>
-                  <Color red="0.9800000190734863" green="0.9800000190734863" blue="0.30379998683929443" />
-               </unSelectedColor>
-               <cursor>
-                  <Cursor fx:constant="NONE" />
-               </cursor>
-               <effect>
-                  <BoxBlur />
-               </effect>
-            </JFXToggleNode>
-            <Label layoutX="73.0" layoutY="66.0" text="Turn On/Off lights">
-               <font>
-                  <Font name="Nirmala UI Bold" size="15.0" />
-               </font>
-            </Label>
-            <ImageView disable="true" fitHeight="80.0" fitWidth="52.0" layoutX="8.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/settingsBulb.png" />
-               </image>
-            </ImageView>
-            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="36.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/sound-waves.png" />
                </image>
             </ImageView>
-            <JFXToggleNode layoutX="31.0" layoutY="185.0" onAction="#turnOnMusic2" prefHeight="25.0" prefWidth="34.0">
+            <JFXToggleNode layoutX="30.0" layoutY="112.0" onAction="#turnOnMusic2" prefHeight="25.0" prefWidth="34.0">
                <selectedColor>
                   <Color red="0.046296294778585434" green="1.0" blue="0.22114197909832" />
                </selectedColor>
@@ -95,17 +108,17 @@
                   <BoxBlur />
                </effect>
             </JFXToggleNode>
-            <Label layoutX="72.0" layoutY="187.0" text="Play Minecraft Music">
+            <Label layoutX="71.0" layoutY="114.0" text="Play Minecraft Music">
                <font>
                   <Font name="Nirmala UI Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="34.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/sound-waves.png" />
                </image>
             </ImageView>
-            <JFXToggleNode layoutX="31.0" layoutY="148.0" onAction="#turnOnMusic1" prefHeight="25.0" prefWidth="34.0">
+            <JFXToggleNode layoutX="30.0" layoutY="75.0" onAction="#turnOnMusic1" prefHeight="25.0" prefWidth="34.0">
                <selectedColor>
                   <Color red="0.046296294778585434" green="1.0" blue="0.22114197909832" />
                </selectedColor>
@@ -119,12 +132,12 @@
                   <BoxBlur />
                </effect>
             </JFXToggleNode>
-            <Label layoutX="72.0" layoutY="150.0" text="Play euphoria ">
+            <Label layoutX="71.0" layoutY="77.0" text="Play euphoria ">
                <font>
                   <Font name="Nirmala UI Bold" size="15.0" />
                </font>
             </Label>
-            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="34.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/sound-waves.png" />
                </image>
@@ -132,26 +145,39 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
+            <Line endX="100.0" layoutX="131.0" layoutY="68.0" startX="-100.0" />
+            <Label layoutX="31.0" layoutY="47.0" text="Sound settings">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="131.0" layoutY="218.0" startX="-100.0" />
+            <Label layoutX="31.0" layoutY="197.0" text="Pot settings">
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <MenuButton contentDisplay="TOP" layoutX="30.0" layoutY="232.0" mnemonicParsing="false" style="-fx-background-color: #7265ba;" text="Change Pot">
+              <items>
+                <MenuItem fx:id="setPotHelloKitty" mnemonicParsing="false" onAction="#setPotHelloKitty" text="Hello Kitty" />
+                <MenuItem fx:id="setPotMort" mnemonicParsing="false" onAction="#setPotMort" text="Mort" />
+                  <MenuItem fx:id="setPotPeter" mnemonicParsing="false" onAction="#setPotPeter" text="Peter" />
+                  <MenuItem fx:id="setPotRoblox" mnemonicParsing="false" onAction="#setPotRoblox" text="Roblox" />
+                  <MenuItem fx:id="setPotSmile" mnemonicParsing="false" onAction="#setPotSmile" text="Smile" />
+                  <MenuItem fx:id="setPotSponge" mnemonicParsing="false" onAction="#setPotSponge" text="Sponge" />
+              </items>
+               <font>
+                  <Font name="Nirmala UI Bold" size="15.0" />
+               </font>
+            </MenuButton>
          </children>
       </Pane>
-      <Label layoutX="115.0" layoutY="14.0" text="Settings" textFill="#61523a">
+      <Label layoutX="115.0" layoutY="14.0" text="Settings" textFill="WHITE">
          <font>
-            <Font name="Segoe UI Bold" size="50.0" />
+            <Font name="Forte" size="50.0" />
          </font>
       </Label>
-      <MenuButton contentDisplay="TOP" layoutX="124.0" layoutY="317.0" mnemonicParsing="false" style="-fx-background-color: Green;" text="Change Pot">
-        <items>
-          <MenuItem fx:id="setPotHelloKitty" mnemonicParsing="false" onAction="#setPotHelloKitty" text="Hello Kitty" />
-          <MenuItem fx:id="setPotMort" mnemonicParsing="false" onAction="#setPotMort" text="Mort" />
-            <MenuItem fx:id="setPotPeter" mnemonicParsing="false" onAction="#setPotPeter" text="Peter" />
-            <MenuItem fx:id="setPotRoblox" mnemonicParsing="false" onAction="#setPotRoblox" text="Roblox" />
-            <MenuItem fx:id="setPotSmile" mnemonicParsing="false" onAction="#setPotSmile" text="Smile" />
-            <MenuItem fx:id="setPotSponge" mnemonicParsing="false" onAction="#setPotSponge" text="Sponge" />
-        </items>
-         <font>
-            <Font name="Nirmala UI Bold" size="15.0" />
-         </font>
-      </MenuButton>
+      <Line endX="263.0" layoutX="-9.0" layoutY="284.0" rotate="90.0" startX="-100.0" />
    </children>
    <effect>
       <DropShadow />
