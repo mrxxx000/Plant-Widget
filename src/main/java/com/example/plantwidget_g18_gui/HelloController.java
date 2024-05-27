@@ -42,6 +42,8 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     @FXML
+    private Button menuButton;
+    @FXML
     private ImageView leftArrow;
     @FXML
     private ImageView rightArrow;
