@@ -19,8 +19,58 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e835b;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <CubicCurve controlX1="-222.0" controlX2="-56.0" controlY1="-22.3740234375" controlY2="690.0" endX="590.7599487304688" endY="-22.3740234375" fill="#796a4b" layoutX="20.0" layoutY="20.0" startX="590.0000610351562" startY="390.0" stroke="BLACK" />
-      <CubicCurve controlX1="-18.0" controlX2="197.8313446044922" controlY1="46.0" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" layoutX="10.0" layoutY="10.0" startX="-111.0" startY="-3.0" stroke="BLACK" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="415.0" layoutX="-9.0" layoutY="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="613.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.30588236451148987" green="0.5137255191802979" blue="0.35686275362968445" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4470588266849518" green="0.7372549176216125" blue="0.29019609093666077" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <CubicCurve controlX1="-222.0" controlX2="-56.0" controlY1="-22.3740234375" controlY2="690.0" endX="590.7599487304688" endY="-22.3740234375" layoutX="20.0" layoutY="20.0" startX="590.0000610351562" startY="390.0" stroke="BLACK">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.2854532301425934" green="0.43421053886413574" blue="0.3201632499694824" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4745098054409027" green="0.4156862795352936" blue="0.29411765933036804" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></CubicCurve>
+      <CubicCurve controlX1="-18.0" controlX2="197.8313446044922" controlY1="46.0" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" layoutX="10.0" layoutY="10.0" startX="-113.0" startY="-15.0" stroke="BLACK">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.47058823704719543" green="0.4117647111415863" blue="0.29019609093666077" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.3815789520740509" green="0.33859243988990784" blue="0.2526193857192993" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></CubicCurve>
       <Pane disable="true" layoutX="482.0" layoutY="261.0" prefHeight="385.0" prefWidth="360.0" style="-fx-background-color: #61523a; -fx-background-radius: 23;" visible="false" />
       <Button fx:id="exitButton1" layoutX="570.0" layoutY="2.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="15.0" prefWidth="33.0" styleClass="buttonExit" stylesheets="@cssSheets.css" text="X" textFill="WHITE" textOverrun="CLIP">
          <effect>
@@ -58,8 +108,40 @@
             </LinearGradient>
          </ripplerFill>
       </JFXButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="226.0" layoutX="8.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="226.0" layoutX="209.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="226.0" layoutX="8.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="226.0" layoutX="209.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="226.0" layoutX="410.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Label fx:id="plantLeveltwo" layoutX="280.0" layoutY="91.0" />
       <Label fx:id="plantLevelThree" layoutX="490.0" layoutY="96.0" />
@@ -151,7 +233,7 @@
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <JFXButton fx:id="menuButton" layoutX="-5.0" layoutY="332.0" onAction="#showMenu" prefHeight="51.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text=".">
+      <JFXButton fx:id="menuButton" buttonType="RAISED" layoutX="-5.0" layoutY="332.0" onAction="#showMenu" prefHeight="51.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text=".">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -159,13 +241,88 @@
                </image>
             </ImageView>
          </graphic>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9736841917037964" blue="0.9736841917037964" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.29385966062545776" green="0.31578946113586426" blue="0.3125" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
       </JFXButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#514432" height="11.0" layoutX="173.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="11.0" layoutX="173.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="252.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.43297696113586426" green="0.5921052694320679" blue="0.3700657784938812" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4560000002384186" green="0.7599999904632568" blue="0.4965333342552185" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
       <ImageView fitHeight="70.0" fitWidth="220.0" layoutX="194.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/pictureFonts/libraryFontOil.png" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="226.0" layoutX="410.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <JFXButton buttonType="RAISED" layoutX="537.0" layoutY="333.0" onAction="#openPopUpLibrary" prefHeight="51.0" prefWidth="48.0" styleClass="button1" stylesheets="@cssSheets.css" text=".">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" styleClass="buttonExit">
+               <image>
+                  <Image url="@../../../images/quest1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <ripplerFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6047999858856201" green="0.9599999785423279" blue="0.9566171169281006" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.07547514885663986" green="0.7763158082962036" blue="0.16892056167125702" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </ripplerFill>
+      </JFXButton>
 
    </children>
    <effect>
