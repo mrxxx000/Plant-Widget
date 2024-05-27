@@ -142,7 +142,23 @@
       <JFXButton fx:id="goToLegendaryPlants" buttonType="RAISED" layoutX="489.0" layoutY="293.0" onAction="#goToLegendaryScene" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonLegendary" text="Legendary" textFill="WHITE" />
       <JFXButton fx:id="settingsButton" buttonType="RAISED" layoutX="489.0" layoutY="325.0" onAction="#goToSettings" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonSettings" text="Settings" textFill="WHITE" />
       <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="488.0" layoutY="357.0" onAction="#closeProgram" prefHeight="25.0" prefWidth="111.0" ripplerFill="BLACK" styleClass="buttonExit" text="Exit Application" textFill="WHITE" />
-      <JFXButton fx:id="menuButton" layoutX="8.0" layoutY="345.0" />
+      <JFXButton fx:id="hideMenuButton" layoutX="-5.0" layoutY="332.0" onAction="#hideMenu" prefHeight="40.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text="." visible="false">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons/MenuIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="menuButton" layoutX="-5.0" layoutY="332.0" onAction="#showMenu" prefHeight="51.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text=".">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons/MenuIcon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
 
    </children>
    <effect>

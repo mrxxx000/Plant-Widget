@@ -41,6 +41,13 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
+
+    @FXML
+    private Button hideMenuButton;
+    @FXML
+    private Button goToLegendaryPlants;
+    @FXML
+    private Rectangle menuBar;
     @FXML
     private Button menuButton;
     @FXML
@@ -1036,6 +1043,30 @@ public class HelloController implements Initializable {
         seedDifficultyBar5.setVisible(false);
         plantNewSeedButton5.setVisible(false);
     }
+
+    public void showMenu(ActionEvent e){
+        menuButton.setVisible(false);
+        hideMenuButton.setVisible(true);
+        menuBar.setArcHeight(35.0d);
+        menuBar.setArcWidth(35.0d);
+
+        menuBar.setVisible(true);
+        plantNewSeedButton.setVisible(true);
+        settingsButton.setVisible(true);
+        goToLegendaryPlants.setVisible(true);
+        exitButton.setVisible(true);
+    }
+
+    public void hideMenu(ActionEvent e){
+        menuButton.setVisible(true);
+        hideMenuButton.setVisible(false);
+        menuBar.setVisible(false);
+        plantNewSeedButton.setVisible(false);
+        settingsButton.setVisible(false);
+        goToLegendaryPlants.setVisible(false);
+        exitButton.setVisible(false);
+    }
+
 
     /**
      * this method is called when the user wants to plant a seed and has named it

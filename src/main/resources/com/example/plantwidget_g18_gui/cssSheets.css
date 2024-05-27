@@ -44,6 +44,21 @@
 -fx-background-color: linear-gradient(to right bottom, #cdaac6, #edb0e1);
     -fx-background-radius : 30 0 0 30;
 }
+.buttonMenu
+{
+    -fx-background-color: linear-gradient(to right bottom, #5e4533, #5e4533);
+    -fx-background-radius : 0 30 30 0;
+}
+.buttonMenu:hover
+{
+    -fx-background-color: linear-gradient(to right bottom, #522f1a, #573c23);
+    -fx-background-radius : 0 30 30 0;
+}
+.buttonMenu:pressed
+{
+    -fx-background-color: linear-gradient(to right bottom, #573c23, #522f1a);
+    -fx-background-radius : 0 30 30 0;
+}
 
 .buttonSelect:pressed
 {
