@@ -12,6 +12,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.CubicCurve?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
@@ -20,18 +22,78 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="489.0" prefWidth="721.0" style="-fx-background-color: #4e835b;" stylesheets="@cssSheets.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <CubicCurve controlX1="-123.4435043334961" controlX2="46.556495666503906" controlY1="83.6259765625" controlY2="747.6259765625" endX="701.0000610351562" endY="-18.0" fill="#796a4b" layoutX="20.0" layoutY="20.0" startX="701.0000610351562" startY="469.0" stroke="BLACK" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="489.0" layoutX="1.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="721.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.30588236451148987" green="0.5137255191802979" blue="0.35686275362968445" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4470588266849518" green="0.7372549176216125" blue="0.29019609093666077" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <CubicCurve controlX1="-123.4435043334961" controlX2="46.556495666503906" controlY1="83.6259765625" controlY2="747.6259765625" endX="701.0000610351562" endY="-18.0" layoutX="20.0" layoutY="20.0" startX="701.0000610351562" startY="469.0" stroke="BLACK">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" proportional="false">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="1.0" blue="0.9490196108818054" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.4745098054409027" green="0.4156862795352936" blue="0.29411765933036804" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></CubicCurve>
       <CubicCurve controlX1="-8.20709228515625" controlX2="197.8313446044922" controlY1="69.20578002929688" controlY2="365.6242980957031" endX="547.8313598632812" endY="-37.16864776611328" fill="#796a4b" layoutX="10.0" layoutY="10.0" startX="-102.24007415771484" startY="-7.3740234375" stroke="BLACK" />
-      <Pane layoutX="435.0" layoutY="110.0" prefHeight="239.0" prefWidth="232.0" style="-fx-background-color: #92eaa9;" styleClass="anchor-paneBorder" stylesheets="@cssSheets.css">
+      <Pane layoutX="435.0" layoutY="120.0" prefHeight="229.0" prefWidth="232.0" style="-fx-background-color: #92eaa9;" stylesheets="@cssSheets.css">
          <children>
-            <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="163.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/health-care.png" />
-               </image>
-            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="235.0" stroke="#00fff2" strokeType="INSIDE" width="232.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
          </children></Pane>
-      <Label fx:id="speciesNameInSelectPlantScene" layoutX="483.0" layoutY="190.0" prefHeight="17.0" prefWidth="104.0" text="asd" />
-      <Label fx:id="plantNameInSelectPlantScene" layoutX="484.0" layoutY="145.0" prefHeight="17.0" prefWidth="149.0" text="asd" textAlignment="CENTER" />
+      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="602.0" layoutY="280.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/health-care.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="speciesNameInSelectPlantScene" alignment="CENTER" layoutX="499.0" layoutY="192.0" prefHeight="17.0" prefWidth="104.0" text="asd" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="plantNameInSelectPlantScene" alignment="CENTER" layoutX="477.0" layoutY="145.0" prefHeight="17.0" prefWidth="149.0" text="asd" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
       <Button fx:id="backButton" layoutX="87.0" layoutY="406.0" mnemonicParsing="false" onAction="#goBackToLibrary" prefHeight="38.0" prefWidth="137.0" styleClass="button1" stylesheets="@cssSheets.css" text="Back to library" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -48,7 +110,23 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="239.0" layoutX="56.0" layoutY="115.0" stroke="BLACK" strokeType="INSIDE" width="266.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="239.0" layoutX="56.0" layoutY="115.0" stroke="#00fff2" strokeType="INSIDE" width="266.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
       <ImageView fitHeight="235.0" fitWidth="266.0" layoutX="56.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" />
       <AmbientLight layoutX="383.0" layoutY="234.0" lightOn="true">
          <color>
@@ -106,11 +184,11 @@
             <Image url="@../../../images/drops.png" />
          </image>
       </ImageView>
-      <Line endX="110.163330078125" fill="#61523a" layoutX="550.0" layoutY="169.0" startX="-108.0" stroke="#393021" strokeType="OUTSIDE" />
-      <Line endX="109.0" layoutX="551.0" layoutY="215.0" startX="-109.0" stroke="#393021" strokeType="OUTSIDE" />
+      <Line endX="110.163330078125" fill="#61523a" layoutX="550.0" layoutY="169.0" startX="-108.0" stroke="#00fff2" strokeType="OUTSIDE" />
+      <Line endX="109.0" layoutX="551.0" layoutY="215.0" startX="-109.0" stroke="#00fff2" strokeType="OUTSIDE" />
       <Label layoutX="528.0" layoutY="117.0" text="NAME:">
          <font>
-            <Font size="15.0" />
+            <Font name="Forte" size="15.0" />
          </font>
       </Label>
       <Label layoutX="522.0" layoutY="169.0" prefHeight="21.0" prefWidth="61.0" text="SPECIES:">
