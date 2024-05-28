@@ -784,7 +784,7 @@ public class HelloController implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
                 scene = new Scene(fxmlLoader.load());
-                stage.setTitle("Plant Widget Library!");
+                if(this.stage!= null){stage.setTitle("Plant Widget Library!");}
                 stage.setScene(scene);
                 stage.setResizable(false);
                 stage.centerOnScreen();
