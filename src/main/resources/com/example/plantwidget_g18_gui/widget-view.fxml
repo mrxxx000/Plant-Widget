@@ -5,12 +5,31 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="181.0" prefWidth="152.0" style="-fx-background-color: #92eaa9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.plantwidget_g18_gui.HelloController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#92eaa9" height="181.0" stroke="#92eaa9" strokeType="INSIDE" width="152.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="181.0" stroke="#00fff2" strokeType="INSIDE" width="152.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7372549176216125" green="0.929411768913269" blue="0.6705882549285889" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.45490196347236633" green="0.7686274647712708" blue="0.7215686440467834" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill></Rectangle>
       <ImageView fx:id="imagePlantOne" fitHeight="88.0" fitWidth="128.0" layoutX="29.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
       <ProgressBar fx:id="waterBarInWidgetScene" layoutX="5.0" layoutY="111.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" />
       <ProgressBar fx:id="healthBarInWidgetScene" layoutX="5.0" layoutY="125.0" prefHeight="14.0" prefWidth="143.0" progress="0.53" styleClass="progressBarHealth" stylesheets="@cssSheets.css" />
@@ -34,6 +53,9 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <Label fx:id="levelPlantOne" layoutX="61.0" layoutY="12.0" text="Label" />
+      <Label fx:id="levelInWidgetScene" layoutX="71.0" layoutY="2.0" prefHeight="17.0" prefWidth="12.0" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>

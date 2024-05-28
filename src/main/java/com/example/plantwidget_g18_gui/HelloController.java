@@ -43,6 +43,8 @@ import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
     @FXML
+    private Label levelInWidgetScene;
+    @FXML
     private ImageView newSeedIcon;
     @FXML
     private ImageView legendaryIcon;
@@ -1352,7 +1354,7 @@ public class HelloController implements Initializable {
                 double plantWaterLevel3 = mainBoundary.getPlantController().getPlant(2).getWaterLevel();
                 double plantHealthLevel3 = mainBoundary.getPlantController().getPlant(2).getHealthLevel();
 
-                if (plantLevelThree != null) {
+                if (plantLevelThree != null && plantWaterBarThree != null) {
                     plantLevelThree.setText(plantLevel3);
                     imagePlantThree.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
                     plantWaterBarThree.setProgress(plantWaterLevel3);
@@ -1669,8 +1671,10 @@ public class HelloController implements Initializable {
             imagePlantOne.setImage(mainBoundary.getPlantController().getPlant(0).getImage());
             ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
             ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            Label levelInWidgetScene = getLabelFromStage(stage,"levelInWidgetScene");
             waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(0).getWaterLevel());
             healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(0).getHealthLevel());
+            levelInWidgetScene.setText(Integer.toString(mainBoundary.getPlantController().getPlant(0).getLevel()));
             updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 0);
             Button waterButton1 = getButtonsFromSelectPlantScene(stage, "waterThePlantOne");
             waterButton1.setVisible(true);
@@ -1680,8 +1684,11 @@ public class HelloController implements Initializable {
             imagePlantTwo.setImage(mainBoundary.getPlantController().getPlant(1).getImage());
             ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
             ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            Label levelInWidgetScene = getLabelFromStage(stage,"levelInWidgetScene");
             waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(1).getWaterLevel());
             healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(1).getHealthLevel());
+            levelInWidgetScene.setText(Integer.toString(mainBoundary.getPlantController().getPlant(1).getLevel()));
+
             updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 1);
             Button waterButton2 = getButtonsFromSelectPlantScene(stage, "waterThePlantTwo");
             waterButton2.setVisible(true);
@@ -1691,8 +1698,10 @@ public class HelloController implements Initializable {
             imagePlantThree.setImage(mainBoundary.getPlantController().getPlant(2).getImage());
             ProgressBar waterBarInWidgetScene = getProgressBarFromStage(stage,"waterBarInWidgetScene");
             ProgressBar healthBarInWidgetScene = getProgressBarFromStage(stage,"healthBarInWidgetScene");
+            Label levelInWidgetScene = getLabelFromStage(stage,"levelInWidgetScene");
             waterBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(2).getWaterLevel());
             healthBarInWidgetScene.setProgress(mainBoundary.getPlantController().getPlant(2).getHealthLevel());
+            levelInWidgetScene.setText(Integer.toString(mainBoundary.getPlantController().getPlant(2).getLevel()));
             updateWaterAndHealthBar(waterBarInWidgetScene, healthBarInWidgetScene, 2);
             Button waterButton3 = getButtonsFromSelectPlantScene(stage, "waterThePlantThree");
             waterButton3.setVisible(true);
