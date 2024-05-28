@@ -664,7 +664,6 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { // this is like the constructor for the gui
         mainBoundary.getPlantController().startTheTimer();
-        mainBoundary.getPlantController().timeTrackReader();
         startTimeline();
         updatePlantWaterBarOne(); // updates the waterbar to correct value every 5 seconds
         updatePlantHealthBarOne();

@@ -401,7 +401,7 @@ public class PlantController implements Serializable {
 
                 try {
                     for (int i = 0; i < growingPlants.length; i++) {
-                        if (i == 0 && growingPlants[i] != null) {
+                        if (growingPlants[i] != null && growingPlants[i].getName().equals(plantName)) {
                             int daysAlive = Integer.parseInt(daysAliveStr);
                             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM-yy");
                             LocalDate lastSavedDate = LocalDate.parse(lastSavedDateStr, formatter);
@@ -415,7 +415,6 @@ public class PlantController implements Serializable {
                             double newWaterLevel = growingPlants[i].getWaterLevel() - waterLoss;
                             growingPlants[i].setWaterLevel(newWaterLevel);
                         }
-
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid number format in line: " + line);
@@ -430,7 +429,6 @@ public class PlantController implements Serializable {
             throw new RuntimeException(e);
         }
     }
-
     /**
      * Saves the list of growing plants and legendary plants to a file.
      * The file is created if it does not exist.
