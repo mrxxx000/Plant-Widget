@@ -764,7 +764,7 @@ public class HelloController implements Initializable {
         if (alert.getResult() == ButtonType.CLOSE) {
             goBackToLibrarySwing();
         }
-
+        goBackToLibrarySwing();
         mainBoundary.getMusic().deathSoundGenerator();
     }
 
@@ -862,11 +862,14 @@ public class HelloController implements Initializable {
         if(checkLegendary(0)) {
             goBackToLibrary(event);
         }
+
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         if(mainBoundary.getPlantController().getPlant(0) != null) {
             System.out.println(mainBoundary.getPlantController().getPlant(0).getLevel());
         }
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
     }
 
     /**
@@ -883,6 +886,8 @@ public class HelloController implements Initializable {
         if(mainBoundary.getPlantController().getPlant(1) != null) {
             System.out.println(mainBoundary.getPlantController().getPlant(1).getLevel());
         }
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
     }
 
     /**
@@ -896,11 +901,14 @@ public class HelloController implements Initializable {
         if(checkLegendary(2)){
             goBackToLibrary(event);
         }
+
         updatePlantWaterBarOne();
         updatePlantHealthBarOne();// implement skipping 1 day, this is plant spot specific.
         if(mainBoundary.getPlantController().getPlant(2) != null) {
             System.out.println(plant1.getLevel());
         }
+        mainBoundary.getPlantController().SavePlantToFile();
+        mainBoundary.getPlantController().LoadPlantsFromFile();
     }
 
     /**
@@ -1187,7 +1195,7 @@ public class HelloController implements Initializable {
         if(mainBoundary.getPlantController().getPlant(index) != null) {
 
             int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
-            if (level1 >= 10) {
+            if (level1 >= 100) {
                 mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
                 mainBoundary.getPlantController().deleteGrowingPlant(index);
                 ActionEvent event = new ActionEvent();
@@ -1246,6 +1254,7 @@ public class HelloController implements Initializable {
                 }
                 prevHealthLevelPlant3 = currentHealthLevelPlant3;
             }
+
         }));
 
         /*Timeline healthLoss = new Timeline(new KeyFrame(Duration.seconds(2), e -> {

@@ -35,10 +35,10 @@ public class PlantController implements Serializable {
         timeTrackReader();
 
         // This is just for testing purposes can remove later
-        Plant catPlant = new Plant(PlantTypes.PUMPKIN);
+        /*Plant catPlant = new Plant(PlantTypes.PUMPKIN);
         InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
         Image image = new Image(inputStream);
-        catPlant.setImage(image);
+        catPlant.setImage(image);*/
     }
 
     /**
@@ -495,7 +495,11 @@ public class PlantController implements Serializable {
                 Object obj;
                 try {
                     while (true) {
-                        obj = ois.readObject();
+                        try {
+                            obj = ois.readObject();
+                        } catch (EOFException e) {
+                            break;
+                        }
                         if (obj instanceof Plant) {
                             Plant plant = (Plant) obj;
                             double waterLevel = ois.readDouble();
@@ -512,12 +516,11 @@ public class PlantController implements Serializable {
                         }
                     }
                 } catch (IOException | ClassNotFoundException e) {
-                    System.out.println("Failed to load plants " + e.getMessage());
+                    System.out.println("Failed to load plants error : 1 " + e.getMessage());
+                    e.printStackTrace();
                 }
-            } catch (EOFException e) {
-                // End of file reached
             } catch (IOException e) {
-                System.out.println("Failed to load plants " + e.getMessage());
+                System.out.println("Failed to load plants error : 2" + e.getMessage());
             }
         }
     }

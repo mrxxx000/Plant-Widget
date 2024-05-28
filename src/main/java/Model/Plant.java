@@ -73,19 +73,19 @@ public class Plant implements Serializable {
             // calculation: 3,6 = 0.001 so if you want 30sec the calculation will be
             // 30/3,6 which is 8,33 and then 8,33* 0,001 = 0,0083
             case CACTUS:
-                return 0.0190; // Cactus water level will reach water level 0 in 20sec
+                return 0.0590; // Cactus water level will reach water level 0 in 20sec
             // in the future it will be 5 days according to req
             case PUMPKIN: // Pumpkin water level will reach water level 0 in 30sec
                 // in the future it will be 3 days according to req
-                return 0.0195;
+                return 0.0595;
             case SNAKEPLANT: // SnakePlant water level will reach water level 0 in 30sec
                 // in the future it will be 4 days according to req
-                return 0.0197;
+                return 0.0597;
             case MONSTERA: // Monstera water level will reach water level 0 in 60sec
                 // in the future it will be 1 day according to req
-                return 0.00198;
+                return 0.00598;
             case SUNFLOWER:
-                return 0.0220; // Sunflower water level will reach water level 0 in 60sec
+                return 0.0620; // Sunflower water level will reach water level 0 in 60sec
             // in the future it will be 2 days according to req
             default:
                 return 1;
