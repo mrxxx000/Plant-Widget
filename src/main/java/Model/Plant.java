@@ -83,7 +83,7 @@ public class Plant implements Serializable {
                 return 0.0597;
             case MONSTERA: // Monstera water level will reach water level 0 in 60sec
                 // in the future it will be 1 day according to req
-                return 0.00598;
+                return 0.0600;
             case SUNFLOWER:
                 return 0.0620; // Sunflower water level will reach water level 0 in 60sec
             // in the future it will be 2 days according to req

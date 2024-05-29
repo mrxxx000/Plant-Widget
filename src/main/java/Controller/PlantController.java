@@ -585,13 +585,13 @@ public class PlantController implements Serializable {
      * @author Yrja Mai Hoang
      */
     public int getLevelCategory(int level) {
-        if (level < 25) {
+        if (level < 5) {
             return 1;
-        } else if (level < 50) {
+        } else if (level < 10) {
             return 2;
-        } else if (level < 75) {
+        } else if (level < 15) {
             return 3;
-        } else if (level < 100) {
+        } else if (level < 20) {
             return 4;
         }
         return 0;

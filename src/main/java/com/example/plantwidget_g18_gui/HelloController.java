@@ -743,13 +743,15 @@ public class HelloController implements Initializable {
         labelPane.setCenter(messageLabel);
         dialogPaneContent.getChildren().add(labelPane);
 
-        Image image = new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg"));
+        Image image = new Image(getClass().getResourceAsStream("/images/deademoji.png"));
         ImageView imageView = new ImageView(image);
 
         imageView.setFitWidth(250);
         imageView.setFitHeight(200);
 
-        dialogPaneContent.getChildren().add(imageView);
+        BorderPane imagePane = new BorderPane();
+        imagePane.setCenter(imageView);
+        dialogPaneContent.getChildren().add(imagePane);
 
         alert.getDialogPane().setContent(dialogPaneContent);
 
@@ -758,6 +760,9 @@ public class HelloController implements Initializable {
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg")));
+
+        // Make the alert borderless
+        stage.initStyle(StageStyle.UNDECORATED);
 
         alert.showAndWait();
         stage.toFront();
@@ -768,6 +773,7 @@ public class HelloController implements Initializable {
         goBackToLibrarySwing();
         mainBoundary.getMusic().deathSoundGenerator();
     }
+
 
     /**
      * Method that takes the program back to the library scene. It needs to be run on Swing because of JavaFX requiring
@@ -1196,7 +1202,7 @@ public class HelloController implements Initializable {
         if(mainBoundary.getPlantController().getPlant(index) != null) {
 
             int level1 = mainBoundary.getPlantController().getPlant(index).getLevel();
-            if (level1 >= 100) {
+            if (level1 >= 25) {
                 mainBoundary.getPlantController().createLegendary(mainBoundary.getPlantController().getPlant(index));
                 mainBoundary.getPlantController().deleteGrowingPlant(index);
                 ActionEvent event = new ActionEvent();
