@@ -46,7 +46,7 @@ public class Music {
     }
 
     /**
-     * This method generates and plays sounds effect.
+     * This method generates and plays Sounds effect.
      * If the sound file is found, it plays the sound in a continuous loop.
      * If the sound file is not found, it prints an error message.
      * @author: Akmal Safi
@@ -73,7 +73,7 @@ public class Music {
      * This method generates and plays the death sound effect.
      */
     public void deathSoundGenerator() {
-        playSound("/sounds/oof_death.wav");
+        playSound("/Sounds/oof_death.wav");
     }
 
     /**
@@ -84,14 +84,14 @@ public class Music {
     }
 
     public void buttonClickSound() {
-        playSound("/sounds/button_click.wav");
+        playSound("/Sounds/button_click.wav");
     }
     /**
      * This method generates and plays the button sound effect.
      * @author Emre Mengütay
      */
     public void closeProgramSound() {
-        playSound("/sounds/close.wav");
+        playSound("/Sounds/close.wav");
     }
 
     /**
@@ -99,7 +99,7 @@ public class Music {
      * @author Emre Mengütay
      */
     public void playSadSound() {
-        playSound("/sounds/sad.wav");
+        playSound("/Sounds/sad.wav");
     }
 
     /**
@@ -112,7 +112,7 @@ public class Music {
             return;
         }
         try{
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/resources/sounds/roblox_drink.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/main/resources/Sounds/roblox_drink.wav"));
             clipWater = AudioSystem.getClip();
             clipWater.open(audioInputStream);
             clipWater.start();
@@ -134,23 +134,23 @@ public class Music {
     }
 
     public void pumpkinSound() {
-        playSound("/deathsound/Pumpkinsoundeffect.wav");
+        playSound("/Sounds/PlantSounds/Pumpkinsoundeffect.wav");
     }
 
     public void cactusSound() {
-        playSound("/deathsound/cactussound.wav");
+        playSound("/Sounds/PlantSounds/cactussound.wav");
     }
 
     public void monsteraSound() {
-        playSound("/deathsound/Monsterasound.wav");
+        playSound("/Sounds/PlantSounds/Monsterasound.wav");
     }
 
     public void sunflowerSound() {
-        playSound("/deathsound/sunflowersound.wav");
+        playSound("/Sounds/PlantSounds/sunflowersound.wav");
     }
 
     public void snakeplantSound() {
-        playSound("/deathsound/snakeplantsound.wav");
+        playSound("/Sounds/PlantSounds/snakeplantsound.wav");
     }
 
     /**
@@ -158,6 +158,6 @@ public class Music {
      * @author Emre Mengütay
      */
     public void healthSound() {
-        playSound("/sounds/oof_MC.wav");
+        playSound("/Sounds/oof_MC.wav");
     }
 }

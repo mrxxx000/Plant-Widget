@@ -187,24 +187,24 @@
       <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="399.0" layoutY="339.0" onAction="#closeProgram" prefHeight="37.0" prefWidth="101.0" ripplerFill="BLACK" styleClass="buttonExitMenu" text="Exit Program" textFill="WHITE" visible="false" />
       <ImageView fx:id="legendaryIcon" disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="203.0" layoutY="343.0" pickOnBounds="true" visible="false">
          <image>
-            <Image url="@../../../images/legend2.png" />
+            <Image url="@../../../Images/legend2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="newSeedIcon" disable="true" fitHeight="25.0" fitWidth="23.0" layoutX="115.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/plus.png" />
+            <Image url="@../../../Images/plus.png" />
          </image>
       </ImageView>
       <ImageView fx:id="settingsIcon" disable="true" fitHeight="17.0" fitWidth="22.0" layoutX="307.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/gear.png" />
+            <Image url="@../../../Images/gear.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="hideMenuButton" layoutX="-5.0" layoutY="332.0" onAction="#hideMenu" prefHeight="40.0" prefWidth="48.0" styleClass="buttonMenu" stylesheets="@cssSheets.css" text="." visible="false">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/icons/MenuIcon.png" />
+                  <Image url="@../../../Images/icons/MenuIcon.png" />
                </image>
             </ImageView>
          </graphic></JFXButton>
@@ -212,7 +212,7 @@
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/icons/MenuIcon.png" />
+                  <Image url="@../../../Images/icons/MenuIcon.png" />
                </image>
             </ImageView>
          </graphic>
@@ -252,7 +252,7 @@
          </fill></Rectangle>
       <ImageView fitHeight="70.0" fitWidth="220.0" layoutX="194.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pictureFonts/libraryFontOil.png" />
+            <Image url="@../../../Images/pictureFonts/libraryFontOil.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="226.0" layoutX="410.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="183.0">
@@ -277,7 +277,7 @@
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" styleClass="buttonExit">
                <image>
-                  <Image url="@../../../images/quest1.png" />
+                  <Image url="@../../../Images/quest1.png" />
                </image>
             </ImageView>
          </graphic>

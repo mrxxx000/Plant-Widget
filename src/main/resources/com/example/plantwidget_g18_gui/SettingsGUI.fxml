@@ -91,7 +91,7 @@
             </Label>
             <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="35.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/sound-waves.png" />
+                  <Image url="@../../../Images/sound-waves.png" />
                </image>
             </ImageView>
             <JFXToggleNode layoutX="30.0" layoutY="112.0" onAction="#turnOnMusic2" prefHeight="25.0" prefWidth="34.0">
@@ -115,7 +115,7 @@
             </Label>
             <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="34.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/sound-waves.png" />
+                  <Image url="@../../../Images/sound-waves.png" />
                </image>
             </ImageView>
             <JFXToggleNode layoutX="30.0" layoutY="75.0" onAction="#turnOnMusic1" prefHeight="25.0" prefWidth="34.0">
@@ -139,7 +139,7 @@
             </Label>
             <ImageView disable="true" fitHeight="25.0" fitWidth="44.0" layoutX="34.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/sound-waves.png" />
+                  <Image url="@../../../Images/sound-waves.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />

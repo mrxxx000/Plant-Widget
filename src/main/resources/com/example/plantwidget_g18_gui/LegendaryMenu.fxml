@@ -111,7 +111,7 @@
       </JFXButton>
       <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="540.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/quest1.png" />
+            <Image url="@../../../Images/quest1.png" />
          </image>
       </ImageView>
       <JFXButton buttonType="RAISED" layoutX="540.0" layoutY="338.0" onAction="#openPopUp" prefHeight="60.0" prefWidth="60.0" ripplerFill="#3f9a3b" text="." textFill="#2ec9a0" />

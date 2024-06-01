@@ -36,7 +36,7 @@ public class PlantController implements Serializable {
 
         // This is just for testing purposes can remove later
         /*Plant catPlant = new Plant(PlantTypes.PUMPKIN);
-        InputStream inputStream = getClass().getResourceAsStream("/images/testCat.jpg");
+        InputStream inputStream = getClass().getResourceAsStream("/Images/testCat.jpg");
         Image image = new Image(inputStream);
         catPlant.setImage(image);*/
     }
@@ -577,7 +577,7 @@ public class PlantController implements Serializable {
 
 
     /**
-     * This method returns the level of a plant in relation to the images.
+     * This method returns the level of a plant in relation to the Images.
      * Plant level is divided into 4 categories, each corresponding to a different image.
      *
      * @param level The level of the plant

@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.PlantController;
 import Model.LegendaryPlant;
 import Model.Music;
 import Model.Plant;
@@ -760,7 +759,7 @@ public class GUIController implements Initializable {
         alert.getDialogPane().getButtonTypes().add(closeButton);
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/sadplantimage/sadplant.jpg")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/sadplantimage/sadplant.jpg")));
 
         // Make the alert borderless
         stage.initStyle(StageStyle.UNDECORATED);
@@ -1715,7 +1714,7 @@ public class GUIController implements Initializable {
     }
 
     /**
-     * this method sets up the seed scene with the right images to match the information of the plants
+     * this method sets up the seed scene with the right Images to match the information of the plants
      * @param stage the current stage
      * @author Mojtaba Hauari
      * @author Emre Mengütay
@@ -1756,8 +1755,8 @@ public class GUIController implements Initializable {
 
     /**
      * this method is called when the user clicks on the right button in the seed scene
-     * What this method does is that it changes the images of the seeds that are shown by-
-     * - disabling the current images and enabling the new ones
+     * What this method does is that it changes the Images of the seeds that are shown by-
+     * - disabling the current Images and enabling the new ones
      * @param e the action event that was triggered by the user
      */
     public void switchSeedsToRight(ActionEvent e){
@@ -1805,8 +1804,8 @@ public class GUIController implements Initializable {
 
     /**
      * this method is called when the user clicks on the left button in the seed scene
-     * What this method does is that it changes the images of the seeds that are shown by-
-     * - disabling the current images and enabling the new ones
+     * What this method does is that it changes the Images of the seeds that are shown by-
+     * - disabling the current Images and enabling the new ones
      * @param e the action event that was triggered by the user
      */
     public void switchSeedsToLeft(ActionEvent e){
@@ -1891,7 +1890,7 @@ public class GUIController implements Initializable {
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
             music.stopMusic();
         }else {
-            music.playMusic("src/main/resources/sounds/euphoria.wav");}
+            music.playMusic("src/main/resources/Sounds/euphoria.wav");}
     }
 
     /**
@@ -1903,7 +1902,7 @@ public class GUIController implements Initializable {
         if (music.getClipMusic() != null && music.getClipMusic().isRunning()) {
             music.stopMusic();
         }else {
-            music.playMusic("src/main/resources/sounds/Sweden.wav");}
+            music.playMusic("src/main/resources/Sounds/Sweden.wav");}
     }
 
     /**

@@ -24,7 +24,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="181.0" layoutX="176.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="152.0" />
             <ImageView fx:id="imagePlantOne2" disable="true" fitHeight="88.0" fitWidth="128.0" layoutX="205.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pngtree-cactus-pixel-art-png-image_6581983.png" />
+                  <Image url="@../../../Images/pngtree-cactus-pixel-art-png-image_6581983.png" />
                </image>
             </ImageView>
             <ProgressBar fx:id="plantWaterBarOne" disable="true" layoutX="181.0" layoutY="127.0" prefHeight="14.0" prefWidth="143.0" progress="0.78" />
@@ -70,7 +70,7 @@
       <Button fx:id="chooseSeedButtonExtended2" layoutX="224.0" layoutY="111.0" mnemonicParsing="false" onAction="#hideExtendedSeedMenu2" prefHeight="246.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
       <ImageView fx:id="seedImage2" disable="true" fitHeight="141.0" fitWidth="163.0" layoutX="224.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/plant2/pumpkinLvl4.png" />
+            <Image url="@../../../Images/plant2/pumpkinLvl4.png" />
          </image>
       </ImageView>
       <Rectangle fx:id="seedSpecies2" arcHeight="5.0" arcWidth="5.0" disable="true" fill="#92eaa9" height="26.0" layoutX="235.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="131.0" />
@@ -78,7 +78,7 @@
          <graphic>
             <ImageView fitHeight="41.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/pumpkinOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/pumpkinOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -88,7 +88,7 @@
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/difficultyOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/difficultyOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -98,7 +98,7 @@
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/monsteraOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/monsteraOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -108,7 +108,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/difficultyOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/difficultyOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -118,7 +118,7 @@
          <graphic>
             <ImageView fitHeight="23.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/cactusOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/cactusOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -128,25 +128,25 @@
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/difficultyOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/difficultyOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
       <ImageView fx:id="seedImage3" disable="true" fitHeight="113.0" fitWidth="152.0" layoutX="407.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/plant3/monsteraLvl4.png" />
+            <Image url="@../../../Images/plant3/monsteraLvl4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="seedImage1" disable="true" fitHeight="133.0" fitWidth="102.0" layoutX="68.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/plant1/cactusLvl4.png" />
+            <Image url="@../../../Images/plant1/cactusLvl4.png" />
          </image>
       </ImageView>
       <Button fx:id="plantNewSeedButton1" layoutX="87.0" layoutY="318.0" mnemonicParsing="false" onAction="#namePlantPrompt" prefHeight="25.0" prefWidth="54.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false">
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/plantOilFont2.png" />
+                  <Image url="@../../../Images/pictureFonts/plantOilFont2.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -154,7 +154,7 @@
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/plantOilFont2.png" />
+                  <Image url="@../../../Images/pictureFonts/plantOilFont2.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -162,7 +162,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/plantOilFont2.png" />
+                  <Image url="@../../../Images/pictureFonts/plantOilFont2.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -180,24 +180,24 @@
       </Button>
       <ImageView fitHeight="28.0" fitWidth="283.0" layoutX="195.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pictureFonts/CHooseSeedOil.png" />
+            <Image url="@../../../Images/pictureFonts/CHooseSeedOil.png" />
          </image>
       </ImageView>
       <ImageView disable="true" fitHeight="18.0" fitWidth="73.0" layoutX="511.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/pictureFonts/backOilFont.png" />
+            <Image url="@../../../Images/pictureFonts/backOilFont.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="switchSeedButtonLeft" layoutX="-12.0" layoutY="156.0" onAction="#switchSeedsToLeft" prefHeight="88.0" prefWidth="52.0" styleClass="buttonNextPageSeedMenuLeft" stylesheets="@cssSheets.css" text="." visible="false" />
       <JFXButton fx:id="switchSeedButtonRight" layoutX="560.0" layoutY="158.0" onAction="#switchSeedsToRight" prefHeight="88.0" prefWidth="52.0" styleClass="buttonNextPageSeedMenuRight" stylesheets="@cssSheets.css" text="." />
       <ImageView fx:id="leftArrow" disable="true" fitHeight="65.0" fitWidth="52.0" layoutX="2.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/left.png" />
+            <Image url="@../../../Images/left.png" />
          </image>
       </ImageView>
       <ImageView fx:id="rightArrow" disable="true" fitHeight="101.0" fitWidth="33.0" layoutX="567.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/right.png" />
+            <Image url="@../../../Images/right.png" />
          </image>
       </ImageView>
       <Button fx:id="chooseSeedButton4" layoutX="43.0" layoutY="111.0" mnemonicParsing="false" onAction="#showExtendedSeedMenu4" prefHeight="181.0" prefWidth="152.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false" />
@@ -210,7 +210,7 @@
          <graphic>
             <ImageView fitHeight="14.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/sunflowerOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/sunflowerOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -220,20 +220,20 @@
          <graphic>
             <ImageView fitHeight="21.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/difficultyOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/difficultyOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
       <ImageView fx:id="seedImage4" disable="true" fitHeight="134.0" fitWidth="84.0" layoutX="78.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/plant4/sunflowerLvl4.png" />
+            <Image url="@../../../Images/plant4/sunflowerLvl4.png" />
          </image>
       </ImageView>
       <Button fx:id="plantNewSeedButton4" layoutX="92.0" layoutY="320.0" mnemonicParsing="false" onAction="#namePlantPrompt" prefHeight="14.0" prefWidth="56.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false">
          <graphic>
             <ImageView disable="true" fitHeight="22.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/plantOilFont2.png" />
+                  <Image url="@../../../Images/pictureFonts/plantOilFont2.png" />
                </image>
             </ImageView>
          </graphic>
@@ -244,7 +244,7 @@
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="1348.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/snakeplantOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/snakeplantOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
@@ -254,20 +254,20 @@
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/difficultyOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/difficultyOilFont.png" />
                </image>
             </ImageView>
          </graphic></Label>
       <ImageView fx:id="seedImage5" disable="true" fitHeight="141.0" fitWidth="163.0" layoutX="234.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../images/plant5/snakeplantLvl4.png" />
+            <Image url="@../../../Images/plant5/snakeplantLvl4.png" />
          </image>
       </ImageView>
       <Button fx:id="plantNewSeedButton5" layoutX="270.0" layoutY="320.0" mnemonicParsing="false" onAction="#namePlantPrompt" prefHeight="25.0" prefWidth="56.0" styleClass="backgroundColor" stylesheets="@cssSheets.css" visible="false">
          <graphic>
             <ImageView fitHeight="23.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/plantOilFont2.png" />
+                  <Image url="@../../../Images/pictureFonts/plantOilFont2.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -280,7 +280,7 @@
          <graphic>
             <ImageView fitHeight="42.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pictureFonts/nameYourPlantOilFont.png" />
+                  <Image url="@../../../Images/pictureFonts/nameYourPlantOilFont.png" />
                </image>
             </ImageView>
          </graphic>
@@ -300,7 +300,7 @@
       <Button fx:id="enterNameButton" layoutX="365.0" layoutY="183.0" mnemonicParsing="false" onAction="#plantSeedOne" text="enter" visible="false" />
       <ImageView fitHeight="60.0" fitWidth="68.0" layoutX="8.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/quest1.png" />
+            <Image url="@../../../Images/quest1.png" />
          </image>
       </ImageView>
       <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="334.0" onAction="#openPopUpSeed" prefHeight="60.0" prefWidth="60.0" ripplerFill="#3f9a3b" text="." textFill="#2ec9a0" />
