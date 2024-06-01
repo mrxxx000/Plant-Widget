@@ -15,4 +15,6 @@ module com.example.plantwidget_g18_gui {
 
     opens com.example.plantwidget_g18_gui to javafx.fxml;
     exports com.example.plantwidget_g18_gui;
+    exports Controller;
+    opens Controller to javafx.fxml;
 }

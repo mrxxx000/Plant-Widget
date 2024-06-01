@@ -1,7 +1,6 @@
 package com.example.plantwidget_g18_gui;
 
 
-import Model.Music;
 import javafx.application.Application;
 
 import javafx.fxml.FXMLLoader;
@@ -13,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-public class HelloApplication extends Application {
+public class PlantWidgetApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -32,7 +31,7 @@ public class HelloApplication extends Application {
         }
 
         if (fileExists) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
             System.out.println(System.getProperty("javafx.runtime.version"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Plant Widget Library!");
@@ -44,7 +43,7 @@ public class HelloApplication extends Application {
             stage.getIcons().add(image);
             stage.show();
         } else if (fileExists == false) {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SeedMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("SeedMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("Plant Seed!");
             stage.setScene(scene);

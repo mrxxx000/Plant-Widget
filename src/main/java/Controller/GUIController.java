@@ -1,4 +1,4 @@
-package com.example.plantwidget_g18_gui;
+package Controller;
 
 import Controller.PlantController;
 import Model.LegendaryPlant;
@@ -6,6 +6,7 @@ import Model.Music;
 import Model.Plant;
 import Model.PlantTypes;
 import View.MainBoundary;
+import com.example.plantwidget_g18_gui.PlantWidgetApplication;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -41,7 +42,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class GUIController implements Initializable {
     @FXML
     private Label levelInWidgetScene;
     @FXML
@@ -311,7 +312,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("PlantInfoGUI.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("PlantInfoGUI.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -347,7 +348,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("widget-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -377,7 +378,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
-            //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("SettingsGUI.fxml"));
+            //FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("SettingsGUI.fxml"));
             scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -518,7 +519,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      */
     public void goBackToLibrary(ActionEvent event){
-        /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        /*FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
         System.out.println(System.getProperty("javafx.runtime.version"));
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Plant Widget Library!");
@@ -530,7 +531,7 @@ public class HelloController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -683,7 +684,7 @@ public class HelloController implements Initializable {
     }
 
     /**
-     * Constructs a new HelloController object. It initializes the mainBoundary, plant1, plant2, plant3, and-
+     * Constructs a new GUIController object. It initializes the mainBoundary, plant1, plant2, plant3, and-
      * timelineUpdateHealth.
      * It also reads the time track from the file.
      * It also loads the plants from the file.
@@ -691,7 +692,7 @@ public class HelloController implements Initializable {
      * @author Emre Mengütay
      * @author Akmal Safi & ---
      */
-    public HelloController() {
+    public GUIController() {
         this.mainBoundary = MainBoundary.getInstance();
         this.plant1 = mainBoundary.getPlantController().getPlant(0);
         this.plant2 =  mainBoundary.getPlantController().getPlant(1);
@@ -788,7 +789,7 @@ public class HelloController implements Initializable {
             mainBoundary.getPlantController().SavePlantToFile();
             mainBoundary.getPlantController().LoadPlantsFromFile();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
                 scene = new Scene(fxmlLoader.load());
                 if(this.stage!= null){stage.setTitle("Plant Widget Library!");}
                 stage.setScene(scene);

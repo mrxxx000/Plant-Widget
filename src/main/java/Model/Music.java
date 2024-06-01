@@ -1,6 +1,6 @@
 package Model;
 
-import com.example.plantwidget_g18_gui.HelloController;
+import Controller.GUIController;
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -53,7 +53,7 @@ public class Music {
      */
     public void playSound(String soundFilePath) {
         try {
-            InputStream inputStream = HelloController.class.getResourceAsStream(soundFilePath);
+            InputStream inputStream = GUIController.class.getResourceAsStream(soundFilePath);
             if (inputStream != null) {
                 InputStream bufferedIn = new BufferedInputStream(inputStream);
                 AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
@@ -62,7 +62,7 @@ public class Music {
                 this.clipMusic.start();
             } else {
                 System.out.println("InputStream is null");
-                System.out.println("Resource Path: " + HelloController.class.getResource(soundFilePath));
+                System.out.println("Resource Path: " + GUIController.class.getResource(soundFilePath));
             }
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
