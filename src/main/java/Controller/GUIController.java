@@ -311,7 +311,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("PlantInfoGUI.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("/com/example/plantwidget_g18_gui/PlantInfoGUI.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -347,7 +347,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("widget-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("/com/example/plantwidget_g18_gui/widget-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -376,7 +376,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsGUI.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/plantwidget_g18_gui/SettingsGUI.fxml")));
             //FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("SettingsGUI.fxml"));
             scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -530,7 +530,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("/com/example/plantwidget_g18_gui/hello-view.fxml"));
             scene = new Scene(fxmlLoader.load());
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Plant Widget Library!");
@@ -555,7 +555,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().LoadPlantsFromFile();
         buttonClickSound();
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SeedMenu.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/plantwidget_g18_gui/SeedMenu.fxml")));
             Scene scene = new Scene(root);
             stage=(Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Choose Seed");
@@ -574,7 +574,7 @@ public class GUIController implements Initializable {
         mainBoundary.getPlantController().SavePlantToFile();
         mainBoundary.getPlantController().LoadPlantsFromFile();
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LegendaryMenu.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/plantwidget_g18_gui/LegendaryMenu.fxml")));
             Scene scene = new Scene(root);
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -788,7 +788,7 @@ public class GUIController implements Initializable {
             mainBoundary.getPlantController().SavePlantToFile();
             mainBoundary.getPlantController().LoadPlantsFromFile();
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("hello-view.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(PlantWidgetApplication.class.getResource("/com/example/plantwidget_g18_gui/hello-view.fxml"));
                 scene = new Scene(fxmlLoader.load());
                 if(this.stage!= null){stage.setTitle("Plant Widget Library!");}
                 stage.setScene(scene);
