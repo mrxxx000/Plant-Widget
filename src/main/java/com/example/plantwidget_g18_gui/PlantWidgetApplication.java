@@ -38,7 +38,7 @@ public class PlantWidgetApplication extends Application {
             stage.setScene(scene);
             stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
-            Image image = new Image(getClass().getResource("/images/34a878b5ee65d73.png").toString());
+            Image image = new Image(getClass().getResource("/images/draft2.png").toString());
             //Image icon = new Image("src/main/resources/Images/pngtree-cactus-pixel-art-png-image_6581983.png");
             stage.getIcons().add(image);
             stage.show();
@@ -49,7 +49,7 @@ public class PlantWidgetApplication extends Application {
             stage.setScene(scene);
             stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
             stage.setResizable(false);
-            Image image = new Image(getClass().getResource("/images/34a878b5ee65d73.png").toString());
+            Image image = new Image(getClass().getResource("/images/draft2.png").toString());
             stage.getIcons().add(image);
             stage.show();
         }
